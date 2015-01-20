@@ -1,0 +1,55 @@
+    <div class="row row-xs-height">
+        <div class="col-xs-12">
+            <button class="btn btn-primary btn-sm" {{action "importFromFacebook" }} {{bind-attr disabled=disabledImportFacebook}}>
+                Import my profile from facebook
+            </button>
+        </div>
+    </div>
+    <div class="row row-xs-height">
+        <div class="col-xs-2">
+            <label>
+                User Id:
+            </label>
+        </div>
+        <div class="col-xs-10">
+            {{input class="edit_box" size="50" value=id}}
+        </div>
+    </div>
+    <div class="row row-xs-height">
+        <div class="col-xs-2">
+            <label>
+                Facebook Id:
+            </label>
+        </div>
+        <div class="col-xs-10">
+            {{input class="edit_box" value=facebookId}}
+        </div>
+    </div>
+    <div class="row row-xs-height">
+        <div class="col-xs-12">
+            <label>
+                Email:
+                {{input class="edit_box" value=email}}
+            </label>
+        </div>
+    </div>
+    <div class="row row-xs-height">
+        <div class="col-xs-12">
+            <label>
+                Password:
+                {{input class="edit_box" value=password}}
+            </label>
+        </div>
+    </div>
+    <div class="row row-xs-height">
+        <div class="col-md-12">
+            <button class="btn btn-primary btn-sm" {{action "save" }}>
+                Save
+            </button>
+            <button class="btn btn-primary btn-sm" {{action "closeModal" }}>
+                Cancel
+            </button>
+        </div>
+    </div>
+
+

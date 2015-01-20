@@ -1,0 +1,21 @@
+<h2>Welcome to Parents Social Network</h2>
+<div>
+    {{#if session.isAuthenticated}}
+    {{#if session.facebookId }}
+    You logged in using facebook.  Your facebook id is {{ session.facebookId }}.  Your are {{ session.user.displayName }}
+    {{else}}
+    You logged in using custom account.  Your id is {{ session.id }}.  Your email is {{ session.email }}
+    {{/if}}
+    {{else}}
+    Currently you are not logged in.
+    {{/if}}
+</div>
+<div style="height:100px">
+
+</div>
+<div>
+    Items activities
+</div>
+<div>
+    Upcoming events<br />
+</div>
