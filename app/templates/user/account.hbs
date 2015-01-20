@@ -1,5 +1,5 @@
     <div class="row row-xs-height">
-        <div class="col-xs-12">
+        <div class="col-xs-10 col-xs-offset-2">
             <button class="btn btn-primary btn-sm" {{action "importFromFacebook" }} {{bind-attr disabled=disabledImportFacebook}}>
                 Import my profile from facebook
             </button>
@@ -22,31 +22,35 @@
             </label>
         </div>
         <div class="col-xs-10">
-            {{input class="edit_box" value=facebookId}}
+            {{input class="edit_box" value=model.facebookId}}
         </div>
     </div>
     <div class="row row-xs-height">
-        <div class="col-xs-12">
+        <div class="col-xs-2">
             <label>
                 Email:
-                {{input class="edit_box" value=email}}
             </label>
+        </div>
+        <div class="col-xs-10">
+            {{input class="edit_box" value=email}}
         </div>
     </div>
     <div class="row row-xs-height">
-        <div class="col-xs-12">
+        <div class="col-xs-2">
             <label>
                 Password:
-                {{input class="edit_box" value=password}}
             </label>
+        </div>
+        <div class="col-xs-10">
+            {{input class="edit_box" value=password}}
         </div>
     </div>
     <div class="row row-xs-height">
-        <div class="col-md-12">
+        <div class="col-xs-10 col-xs-offset-2">
             <button class="btn btn-primary btn-sm" {{action "save" }}>
                 Save
             </button>
-            <button class="btn btn-primary btn-sm" {{action "closeModal" }}>
+            <button class="btn btn-link btn-sm" {{action "closeModal" }}>
                 Cancel
             </button>
         </div>
