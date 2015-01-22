@@ -13,62 +13,95 @@
 <div class="row row-xs-height">
     <div class="col-xs-2">
         <label>
-            User Id:
+            First Name:
         </label>
     </div>
     <div class="col-xs-10">
-        {{input class="edit_box" size="40" value=id}}
+        {{input class="edit_box" size="40" value=firstName}}
     </div>
 </div>
 <div class="row row-xs-height">
     <div class="col-xs-2">
         <label>
-            Facebook Id:
+            Last Name:
         </label>
     </div>
     <div class="col-xs-10">
-        {{input class="edit_box" size="40" value=model.facebookId}}
+        {{input class="edit_box" size="40" value=lastName}}
     </div>
 </div>
 <div class="row row-xs-height">
     <div class="col-xs-2">
         <label>
-            Email:
+            Nickname:
         </label>
     </div>
     <div class="col-xs-10">
-        {{input class="edit_box" size="40" value=email}}
-    </div>
-</div>
-<div {{bind-attr class=":row :row-xs-height hasOldPassword::collapse" }}>
-    <div class="col-xs-2">
-        <label>
-            Old Password:
-        </label>
-    </div>
-    <div class="col-xs-10">
-        {{input class="edit_box" type="password" size="40" value=oldPassword}}
+        {{input class="edit_box" size="40" value=nickName}}
     </div>
 </div>
 <div class="row row-xs-height">
     <div class="col-xs-2">
         <label>
-            New Password:
+            Birthday:
         </label>
     </div>
     <div class="col-xs-10">
-        {{input class="edit_box" type="password" size="40" value=newPassword}}
+        {{bootstrap-datepicker value=birthday}}
     </div>
 </div>
 <div class="row row-xs-height">
     <div class="col-xs-2">
         <label>
-            Confirm New Password:
+            Gender:
         </label>
     </div>
     <div class="col-xs-10">
-        {{input class="edit_box" type="password" size="40" value=newPassword2}}
+        {{input class="edit_box" size="40" value=gender}}
     </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2">
+        <label>
+            Hometown:
+        </label>
+    </div>
+    <div class="col-xs-10">
+        {{input class="edit_box" size="40" value=fhometown}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2">
+        <label>
+            Current Location:
+        </label>
+    </div>
+    <div class="col-xs-10">
+        {{input class="edit_box" size="40" value=flocation}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-12">
+        <label>
+            Education
+        </label>
+    </div>
+    <div class="col-xs-2">
+        <label>
+            High School:
+        </label>
+    </div>
+    <div class="col-xs-10">
+        {{input class="edit_box" size="40" value=highSchool}}
+    </div>     
+    <div class="col-xs-2">
+        <label>
+            College:
+        </label>
+    </div>
+    <div class="col-xs-10">
+        {{input class="edit_box" size="40" value=college}}
+    </div>                
 </div>
 <div class="row row-xs-height">
     <div class="col-xs-10 col-xs-offset-2">
@@ -80,5 +113,3 @@
         </button>
     </div>
 </div>
-
-

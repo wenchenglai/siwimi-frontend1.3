@@ -1,0 +1,25 @@
+<img src="assets/images/inbox.png" />
+<h1>Inbox</h1>
+
+<div class="row row-xs-height">
+    <div class="col-xs-12">
+        <table class="table">
+            <thead>
+            <th>From</th>
+            <th>Title</th>
+            <th>Body</th>
+            <th>Date</th>
+            </thead>
+            <tbody>
+                {{#each msg in model}}
+                <tr>
+                    <td>{{msg.from}}</td>
+                    <td>{{msg.subjectReduced}}</td>
+                    <td>{{msg.bodyReduced}}</td>
+                    <td>{{msg.createdDateShortDateString}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

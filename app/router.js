@@ -55,7 +55,6 @@ Router.map(function() {
       this.route('add');
       this.route('detail', { path: '/detail/:id' });
   });
-
 });
 
 export default Router;

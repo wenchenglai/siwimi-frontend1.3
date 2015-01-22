@@ -76,14 +76,21 @@ export default Base.extend({
             if (!Ember.isEmpty(data.accessToken)) {
                 // this will be called when user has logged in and cookie is still valid
                 // somehow simple-auth would turn the user model object into a regular Javasript object.  So I need to get the user object from store again
-                self.get('container').lookup('store:main').find('member', data.id).then(function (member) {
-                    data.user = member;
+                // 2014-01-20 There is no store injected in the container in authenticator, I have dificulty inject it properly by using the initializer.
+                // Therefore, I'll use regular javascript object for the user in a session
+                if (data.id) {
                     resolve(data);
-                }, function(error) {
+                } else {
                     reject();
-                    this.controllerFor('error').set('error', error);
-                    this.transitionTo('error');
-                });
+                }
+                //self.get('container').lookup('store:main').find('member', data.id).then(function (member) {
+                //    data.user = member;
+                //    resolve(data);
+                //}, function(error) {
+                //    reject();
+                //    this.controllerFor('error').set('error', error);
+                //    this.transitionTo('error');
+                //});
                 
             } else {
                 reject();
@@ -102,8 +109,12 @@ export default Base.extend({
                         var store = self.get('container').lookup('store:main');
 
                         store.find('member', fbResponse.authResponse.userID).then(function (member) {
+                            var adapter = store.adapterFor('application'),
+                                userObj = adapter.serialize(member);
+
                             resolve({
                                 user: member,
+                                currentUser: userObj,
                                 id: member.id,
                                 accessToken: fbResponse.authResponse.accessToken,
                                 facebookId: fbResponse.authResponse.userID

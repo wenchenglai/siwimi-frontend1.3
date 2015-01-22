@@ -46,15 +46,6 @@ export default Ember.Route.extend({
             var self = this,
                 session = self.get('session');
 
-            FB.init({
-                appId: '343069969185068',
-                //appId: '290368724455193', 
-                cookie: true,  // enable cookies to allow the server to access 
-                // the session
-                xfbml: true,  // parse social plugins on this page
-                version: 'v2.2' // use version 2.2
-            });
-
             session.authenticate('authenticator:facebook', {}).then(function () {              
                 self._setLongitudeAndLatitude(session, session.get('user'));
                 self._setProfilePicture(session, session.get('user'));

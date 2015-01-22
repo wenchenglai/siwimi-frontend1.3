@@ -10,17 +10,6 @@ export default Ember.ObjectController.extend({
         return Ember.isEmpty(this.get('facebookId'));
     }.property('facebookId'),
 
-    hasOldPassword: function() {
-        var pass = this.get('password'),
-            ret = false;
-        if (pass) {
-            if (pass !== '') {
-                ret = true;
-            }
-        }
-        return ret;
-    }.property('password'),
-
     _toggleAlert: function(flag, title, message, type) {
         var self = this;
         self.set('showAlert', flag);
@@ -37,10 +26,10 @@ export default Ember.ObjectController.extend({
     actions: {
         save: function () {
             var self = this,
-                fromModel = this.get('model'),
-                hasError = false;
+                fromModel = this.get('model');
 
             self._toggleAlert(false);
+
             var onSuccess = function () {
                 self._toggleAlert(true, 'Success', 'Your account info has been saved.', 'alert-success');
             };
@@ -49,28 +38,7 @@ export default Ember.ObjectController.extend({
                 self._toggleAlert(true, 'Error', 'while saving data.', 'alert-danger');
             };
 
-            if (self.get('newPassword')) {
-                if (self.get('newPassword') !== self.get('newPassword2') ) {
-                    self._toggleAlert(true, 'Error', 'New passwords must match.', 'alert-danger');
-                    hasError = true;
-                } else {
-                    if (self.get('password')) {
-                        if (self.get('password') === self.get('oldPassword')) {
-                            fromModel.set('password', self.get('newPassword'));
-                        } else {
-                            self._toggleAlert(true, 'Error', 'Old password is wrong.', 'alert-danger');
-                            hasError = true;
-                        }
-                    } else {
-                        // user has no password yet, so as long as the new passwords match, we save it
-                        fromModel.set('password', self.get('newPassword'));
-                    }
-                }
-            }
-
-            if (!hasError) {
-                fromModel.save().then(onSuccess, onFail);
-            }
+            fromModel.save().then(onSuccess, onFail);
         },
 
         cancel: function() {
@@ -88,13 +56,41 @@ export default Ember.ObjectController.extend({
             var self = this,
                 fromModel = self.get('model');
 
-            FB.api('/me?fields=id,name,address,email,birthday', function (fbUser) {
-                if (!fromModel.get('email')) {
-                    fromModel.set('email', fbUser.email);
+            FB.api('/me?fields=id,name,location,education,hometown,birthday,first_name,last_name,gender', function (fbUser) {
+                fromModel.set('facebookId', fbUser.id);
+
+                if (!fromModel.get('firstName')) {
+                    fromModel.set('firstName', fbUser.first_name);
                 }
 
-                if (!fromModel.get('facebookId')) {
-                    fromModel.set('facebookId', fbUser.id);
+                if (!fromModel.get('lastName')) {
+                    fromModel.set('lastName', fbUser.last_name);
+                }
+
+                if (!fromModel.get('gender')) {
+                    fromModel.set('gender', fbUser.gender);
+                }
+
+                if (!fromModel.get('birthday')) {
+                    if (fbUser.birthday) {
+                        fromModel.set('birthday', new Date(self._getISODateString(fbUser.birthday)));
+                    }
+                }
+
+                if (!fromModel.get('fhometown')) {
+                    fromModel.set('fhometown', fbUser.hometown.name);
+                }
+
+                if (!fromModel.get('flocation')) {
+                    fromModel.set('flocation', fbUser.location.name);
+                }
+
+                if (!fromModel.get('highSchool')) {
+                    fromModel.set('highSchool', fbUser.education[0].school.name);
+                }
+
+                if (!fromModel.get('college')) {
+                    fromModel.set('college', fbUser.education[1].school.name);
                 }
             });
         },
