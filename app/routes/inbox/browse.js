@@ -13,8 +13,6 @@ export default Ember.Route.extend({
         delete: function (id) {
             this.store.find('tip', id).then(function (record) {
                 record.destroyRecord();
-                //record.deleteRecord();
-                //record.save();
             });
         }
     }

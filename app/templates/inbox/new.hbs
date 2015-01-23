@@ -1,0 +1,44 @@
+<div {{bind-attr class=":row :row-xs-height showAlert::collapse" }}>
+    <div class="col-xs-12">
+        {{alert-bar title=alertTitle message=alertMessage type=alertType closeAlert="closeAlert" }}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2">
+        <label>
+            To:
+        </label>
+    </div>
+    <div class="col-xs-10">
+        {{input class="edit_box" value=to placeholder="To"}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2">
+        <label>
+            Subject:
+        </label>
+    </div>
+    <div class="col-xs-10">
+        {{input class="edit_box" value=subject placeholder="Enter a subject"}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2">
+        <label>
+            Body:
+        </label>
+    </div>
+    <div class="col-xs-10">
+        {{textarea class="edit_box" rows="5" cols="60" value=body placeholder="Type your message"}}
+    </div>
+</div>
+
+<div class="row row-xs-height">
+    <div class="col-xs-10 col-xs-offset-2">
+        <button class="btn btn-primary btn-sm" {{action "sendMessage" }} {{bind-attr disabled=disabled}}>
+            Send Message
+        </button>
+        {{#link-to 'inbox.browse' class="btn btn-link navbar-btn"}}Cancel{{/link-to}}
+    </div>
+</div>
