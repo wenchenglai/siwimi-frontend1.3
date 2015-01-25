@@ -1,9 +1,9 @@
 <div class="row row-xs-height">
     <div class="col-xs-12">
-        <img src="assets/images/inbox.png" />
-        <h1>Inbox</h1>
+        <h1>Sent</h1>
     </div>
 </div>
+
 <div class="row row-xs-height">
     <div class="col-xs-12">
         <table class="table">
@@ -14,9 +14,9 @@
             <th>Date</th>
             </thead>
             <tbody>
-                {{#each msg in model.messages}}
+                {{#each msg in model}}
                 <tr>
-                    <td>{{msg.from}}</td>
+                    <td>{{msg.from.displayName}}</td>
                     <td>{{msg.subjectReduced}}</td>
                     <td>{{msg.bodyReduced}}</td>
                     <td>{{msg.createdDateShortDateString}}</td>

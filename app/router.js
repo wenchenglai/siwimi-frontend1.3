@@ -56,6 +56,7 @@ Router.map(function() {
       this.route('detail', { path: '/detail/:id' });
   });
   this.route('inbox/new');
+  this.route('inbox/sent');
 });
 
 export default Router;

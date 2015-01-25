@@ -2,3 +2,37 @@
 	margin-bottom: 15px;
 	/*display: table-row;*/
 }
+
+ic-autocomplete { width: 200px; }
+ic-autocomplete-list {
+  max-height: 200px;
+}
+.image-block {
+  overflow: hidden;
+}
+.image-block-image {
+  float: left;
+  margin-right: 6px;
+}
+.image-block-content {
+  display: table-cell;
+  vertical-align: top;
+  width: 10000px;
+}
+#movies {
+  width: 300px;
+}
+#movies ic-autocomplete-option {
+  font-size: 14px;
+}
+#movies ic-autocomplete-list {
+  max-height: 500px;
+}
+#movies ic-autocomplete-toggle {
+  display: none;
+}
+#movies img {
+  display: inline-block;
+  padding-right: 10px;
+  vertical-align: middle;
+}

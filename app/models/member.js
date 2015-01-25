@@ -54,5 +54,9 @@ export default DS.Model.extend({
         } else {
             return '';
         }
-    }.property('firstName', 'lastName', 'nickName')  
+    }.property('firstName', 'lastName', 'nickName'),
+
+    fullName: function() {
+        return this.get('firstName') + ' ' + this.get('lastName');
+    }.property('firstName', 'lastName')
 });

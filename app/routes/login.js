@@ -46,7 +46,7 @@ export default Ember.Route.extend({
             var self = this,
                 session = self.get('session');
 
-            session.authenticate('authenticator:facebook', {}).then(function () {              
+            session.authenticate('authenticator:facebook', {}).then(function () {
                 self._setLongitudeAndLatitude(session, session.get('user'));
                 self._setProfilePicture(session, session.get('user'));
             }, function (error) {

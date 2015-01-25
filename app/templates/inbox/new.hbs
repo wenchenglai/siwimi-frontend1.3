@@ -10,7 +10,21 @@
         </label>
     </div>
     <div class="col-xs-10">
-        {{input class="edit_box" value=to placeholder="To"}}
+        {{#ic-autocomplete id="movies" value=toId on-input="setMemberSearch" placeholder="Type a name"}}
+            {{#if isLoading}}
+                <div style="padding: 2px 16px;">Searching members...</div>
+            {{else}}
+                {{#each members}}
+                    {{#ic-autocomplete-option label=fullName value=id class="image-block"}}
+                        <div class="image-block-content">
+                            {{fullName}}
+                        </div>
+                    {{/ic-autocomplete-option}}
+                {{else}}
+                    <div style="padding: 2px 16px;">No results found</div>
+                {{/each}}
+            {{/if}}
+        {{/ic-autocomplete}}
     </div>
 </div>
 <div class="row row-xs-height">
