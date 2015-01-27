@@ -13,13 +13,15 @@ export default Ember.ArrayController.extend({
     }.observes('isAllChecked'),
 
     actions: {
-        checkAll: function() {
+        deleteEmail: function() {
             var self = this,
-                model = self.get('model');
+            model = self.get('model');
 
-            for (var i = 0; i < model.length; i++) {
-                model.set('isChecked', true);
-            }
+	        for (var i = 0; i < model.get('length'); i++) {
+	        	if (model.content[i].get('isChecked')) {
+	        		model.content[i].set('toStatus', 'trash');
+	        	}
+	        }
         }
     },
 });
