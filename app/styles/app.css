@@ -3,6 +3,11 @@
 	/*display: table-row;*/
 }
 
+.bold {
+    font-weight: bold;
+}
+
+/* 2015-01-25 AutoComplete addon */
 ic-autocomplete { width: 200px; }
 ic-autocomplete-list {
   max-height: 200px;

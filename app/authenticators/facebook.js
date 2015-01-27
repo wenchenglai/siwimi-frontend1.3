@@ -184,5 +184,11 @@ export default Base.extend({
                 }
             });
         });      
+    },
+
+    sessionDataUpdated: function() {
+        var a = 3;
+        var b = 4;
+        a = a + b;
     }
 });

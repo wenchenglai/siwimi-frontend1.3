@@ -11,6 +11,8 @@ export default DS.Model.extend({
     toStatus: DS.attr('string'), // unread, read, both, trash
     isDestroyed: DS.attr('boolean'),
 
+    isChecked: DS.attr('boolean'),
+
     createdDateShortDateString: function () {
         return moment(this.get('createdDate')).format('MMM d, YYYY');
     }.property('createdDate'),
@@ -23,11 +25,20 @@ export default DS.Model.extend({
         return this._getSubString(this.get('body'), 25);
     }.property('body'),
 
+    isRead: function() {
+        var toStatus = this.get('toStatus');
+        return toStatus === "read" ? true : false; 
+    }.property('toStatus'),
+
     _getSubString: function (str, size) {
-        if (str.length > size) {
-            return str.substring(0, size) + "...";
+        if (str) {
+            if (str.length > size) {
+                return str.substring(0, size) + "...";
+            } else {
+                return str;
+            }
         } else {
-            return str;
+            return "";
         }
     }  
 });

@@ -7,13 +7,5 @@ export default Ember.Route.extend({
             user = session.get('user');
 
         return self.store.find('message', { to: user.id, toStatus: 'both' });
-    },
-
-    actions: {
-        delete: function (id) {
-            this.store.find('tip', id).then(function (record) {
-                record.destroyRecord();
-            });
-        }
     }
 });

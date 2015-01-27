@@ -6,17 +6,28 @@
 </div>
 <div class="row row-xs-height">
     <div class="col-xs-12">
+        <div class="btn-group" role="group" aria-label="...">
+            <button type="button" class="btn btn-default">Delete</button>
+            <button type="button" class="btn btn-default">Middle</button>
+            <button type="button" class="btn btn-default">Right</button>
+        </div>
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-12">
         <table class="table">
             <thead>
-            <th>From</th>
-            <th>Title</th>
-            <th>Body</th>
-            <th>Date</th>
+                <th>{{input type="checkbox" action="checkAll" checked=isAllChecked }}</th>
+                <th>From</th>
+                <th>Title</th>
+                <th>Body</th>
+                <th>Date</th>
             </thead>
             <tbody>
-                {{#each msg in model.messages}}
-                <tr>
-                    <td>{{msg.from}}</td>
+                {{#each msg in model}}
+                <tr {{bind-attr class="isRead::bold" }}>
+                    <td>{{input type="checkbox" checked=msg.isChecked }}</td>
+                    <td>{{msg.from.fullName}}</td>
                     <td>{{msg.subjectReduced}}</td>
                     <td>{{msg.bodyReduced}}</td>
                     <td>{{msg.createdDateShortDateString}}</td>
