@@ -1,0 +1,91 @@
+<div class="row row-xs-height">
+    <div class="col-xs-2">
+        <label>Title:</label>
+    </div>
+    <div class="col-xs-10">
+        {{input class="form-control" width="80" placeholder="10 words or less" value=title size="80"}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2">
+        <label>
+            Description:
+        </label>
+    </div>
+    <div class="col-xs-10">
+        {{textarea class="form-control" placeholder="Description" rows="5" cols="60" value=description}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2">
+        <label>
+            Url:
+        </label>
+    </div>
+    <div class="col-xs-10">
+        {{input class="form-control" placeholder="web url if there is any" value=url size="60"}}
+        <button class="btn btn-primary btn-sm" type="button" {{action "preview" }}>
+            Preview
+        </button>
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2">
+        <label>Type</label>
+    </div>
+    <div class="col-xs-10">
+        <div class="control-group">
+            <div id="gendertype" class="btn-group" data-toggle="buttons-radio">
+
+                {{#view "radio-button-view" name="toy" selectionBinding="type" }}Deal{{/view}}
+
+                {{#view "radio-button-view" name="cloth" selectionBinding="type" }}Education{{/view}}
+
+                {{#view "radio-button-view" name="book" selectionBinding="type" }}Health{{/view}}
+
+                {{#view "radio-button-view" name="furniture" selectionBinding="type" }}Entertainment{{/view}}
+
+                {{#view "radio-button-view" name="other" selectionBinding="type" }}Misc{{/view}}
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2">
+        <label>
+            Expiration Date:
+        </label>
+    </div>
+    <div class="col-xs-2">
+        {{bs-datetimepicker date=expiredDate format='YYYY-MM-DD'}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-xs-offset-2">
+        <div style="width:30px; height:20px">
+            <iframe id="frame" {{bind-attr src=url}}></iframe>
+        </div>
+    </div>
+    <div class="col-xs-4">
+        {{textarea class="form-control" readonly="true" rows="4" cols="60" value=previewText}}
+    </div>
+</div>
+<div class="clearfix visible-xs-block"></div>
+<div class="row row-xs-height">
+    <div class="col-xs-12">
+    </div>
+</div>
+<div class="clearfix visible-xs-block"></div>
+<div class="row row-xs-height">
+    <div class="col-xs-10 col-xs-offset-2">
+        <button type="button" class="btn btn-primary btn-sm" {{action "add" }} {{bind-attr disabled=disabled}}>
+            {{#if id}}
+            Edit
+            {{else}}
+            Add
+            {{/if}}
+        </button>
+        <button class="btn btn-link btn-sm" {{action "close" }}>Cancel</button>
+    </div>
+</div>

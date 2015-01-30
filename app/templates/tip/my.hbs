@@ -1,0 +1,49 @@
+<h2>My Tips</h2>
+
+<div class="row row-xs-height">
+    <div class="col-lg-12">
+        {{#link-to 'tip.add'}}Add New Tip{{/link-to}}
+    </div>
+</div>
+
+<div class="row row-xs-height">
+    <div class="col-lg-12">
+        <div class="btn-group">
+            <button type="button" class="btn btn-info" {{action 'loadData' 'all' }}>All</button>
+            <button type="button" class="btn btn-info" {{action 'loadData' 'active' }}>Active</button>
+            <button type="button" class="btn btn-info" {{action 'loadData' 'expired' }}>Expired</button>
+        </div>
+    </div>
+</div>
+
+<div class="row row-xs-height">
+    <div class="col-lg-12">
+        <table class="table">
+            <thead>
+            <th>#</th>
+            <th>title</th>
+            <th>Description</th>
+            <th>Expired Date</th>
+            <th>Action</th>
+            </thead>
+            <tbody>
+                {{#each tip in model}}
+                <tr>
+                    <td>{{tip.id}}</td>
+                    <td>{{tip.titleReduced}}</td>
+                    <td>{{tip.descriptionReduced}}</td>
+                    <td>{{tip.expiredDateShortDateString}}</td>
+                    <td>
+                        <a href="#" {{action "openEditModal" "tip.add" tip.id }}>Edit</a>&nbsp;|&nbsp;
+                        <a href="#" {{action "openDeleteDialog" tip.id target="view" bubbles=false }}>Delete</a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div id="dialog-confirm-delete" title="Delete a tip?">
+    <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>This tip will be deleted. Are you sure?</p>
+</div>

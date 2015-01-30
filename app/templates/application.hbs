@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">Xiwami Parents</a>
+            <a class="navbar-brand" href="#">Siwami Parents</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse in" aria-expanded="true">
             <ul class="nav navbar-nav">
@@ -9,7 +9,7 @@
                     <a href="cover.html">Cover Page</a>
                 </li>
                 <li>
-                    {{#link-to 'tip'}}Tips{{/link-to}}
+                    {{#link-to 'tip.browse'}}Tips{{/link-to}}
                 </li>
                 <li>
                     {{#link-to 'activity'}}Activities{{/link-to}}
@@ -52,28 +52,7 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-            <ul class="nav nav-sidebar">
-                {{#each menuitem in content}}
-                <li>
-                    {{#link-to menuitem.linkName class="btn btn-default navbar-btn"}}{{menuitem.displayName}}{{/link-to}}
-                    {{#if menuitem.subMenuItems}}
-                    <ul>
-                        {{#each sub in menuitem.subMenuitems}}
-                        <li>{{#link-to sub.linkName activeClass="selected"}}{{sub.displayName}}{{/link-to}}</li>
-                        {{/each}}
-                    </ul>
-                    {{/if}}
-                </li>
-                {{/each}}
-            </ul>
-
-        </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <br /><br />
-            {{outlet}}
-            {{outlet "modal"}}
-        </div>
+        {{outlet}}
     </div>
 </div>
 

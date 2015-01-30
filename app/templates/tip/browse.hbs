@@ -1,0 +1,49 @@
+<h1>Share you tips and find tips from other parents!</h1>
+<div class="row row-xs-height">
+    <div class="col-lg-12">
+        <div class="btn-toolbar" role="toolbar" aria-label="tiptoolbar">
+            <div class="btn-group" role="group">
+                {{ radio-button name="statusType" value="popular" groupValue=statusType selectedAction='loadData' }} Popular
+                {{ radio-button name="statusType" value="all" groupValue=statusType selectedAction='loadData' }} All
+                {{ radio-button name="statusType" value="expired" groupValue=statusType selectedAction='loadData' }} Expired
+            </div>
+            <div class="btn-group" role="group">
+                {{ radio-button name="tipType" value="all" groupValue=tipType selectedAction='loadData' }} All
+                {{ radio-button name="tipType" value="deal" groupValue=tipType selectedAction='loadData' }} Deal
+                {{ radio-button name="tipType" value="education" groupValue=tipType selectedAction='loadData' }} Education
+                {{ radio-button name="tipType" value="health" groupValue=tipType selectedAction='loadData' }} Health
+                {{ radio-button name="tipType" value="entertainment" groupValue=tipType selectedAction='loadData' }} Entertainment
+                {{ radio-button name="tipType" value="misc" groupValue=tipType selectedAction='loadData' }} Misc
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row row-xs-height">
+    <div class="col-xs-12">
+        <table class="table">
+            <thead>
+            <th>#</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Link</th>
+            <th>Expired Date</th>
+            <th>Action</th>
+            </thead>
+            <tbody>
+                {{#each tip in model}}
+                <tr>
+                    <td>{{tip.id}}</td>
+                    <td>{{tip.titleReduced}}</td>
+                    <td>{{tip.descriptionReduced}}</td>
+                    <td><a {{bind-attr href=tip.url }} target="_blank">{{tip.urlReduced}}</a></td>
+                    <td>{{tip.expiredDateShortDateString}}</td>
+                    <td>
+                        {{#link-to 'tip.detail' tip}}Detail{{/link-to}}
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

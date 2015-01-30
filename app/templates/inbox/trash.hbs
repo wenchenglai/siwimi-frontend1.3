@@ -7,9 +7,8 @@
 <div class="row row-xs-height">
     <div class="col-xs-12">
         <div class="btn-group" role="group" aria-label="...">
-            <button type="button" class="btn btn-default" {{action 'refresh' }}>Refresh</button>
             <button type="button" class="btn btn-default" {{action 'markRead' }}>Mark all as read</button>
-            <button type="button" {{bind-attr class=":btn :btn-default hasSelection::collapse" }} {{action 'deleteEmail' }}>Delete</button>
+            <button type="button" {{bind-attr class=":btn :btn-default hasSelection::collapse" }} {{action 'purgeEmail' }}>Purge</button>
             <button type="button" {{bind-attr class=":btn :btn-default hasSelection::collapse" }} {{action 'markReadSelected' }}>Mark selected as read</button>
         </div>
     </div>
@@ -18,11 +17,11 @@
     <div class="col-xs-12">
         <table class="table">
             <thead>
-                <th>{{input type="checkbox" action="checkAll" checked=isAllChecked }}</th>
-                <th>From</th>
-                <th>Title</th>
-                <th>Body</th>
-                <th>Date</th>
+            <th>{{input type="checkbox" action="checkAll" checked=isAllChecked }}</th>
+            <th>From</th>
+            <th>Title</th>
+            <th>Body</th>
+            <th>Date</th>
             </thead>
             <tbody>
                 {{#each msg in model}}
@@ -38,3 +37,4 @@
         </table>
     </div>
 </div>
+

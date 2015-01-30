@@ -14,6 +14,7 @@ Router.map(function() {
       this.route('profile');
       this.route('rewards');
       this.resource('inbox', function () {
+          this.route('detail', { path: '/detail/:id' });
           this.route('browse');
           this.route('new');
           this.route('sent');
@@ -55,8 +56,8 @@ Router.map(function() {
       this.route('add');
       this.route('detail', { path: '/detail/:id' });
   });
-  this.route('inbox/new');
-  this.route('inbox/sent');
+  this.route('tip/my');
+  this.route('tip/add');
 });
 
 export default Router;

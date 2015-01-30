@@ -1,45 +1,17 @@
 import Ember from 'ember';
 
-export default Ember.ArrayController.extend({
-    isAllChecked: false,
-
-    watchAllChecked: function(){
+export default Ember.Route.extend({
+    model: function () {
         var self = this,
-            model = self.get('model');
+            session = self.get('session'),
+            user = session.get('user');
 
-        for (var i = 0; i < model.get('length'); i++) {
-            model.content[i].set('isChecked', self.get('isAllChecked'));
-        }
-    }.observes('isAllChecked'),
-
-    hasSelection: function() {
-        var model = this.get('model');
-        return model.filterBy('isChecked', true).get('length');
-    }.property('model.@each.isChecked'),
+        return self.store.find('message', { to: user.id, isDestroyed: true });
+    },
 
     actions: {
-        viewDetail: function() {
-            
-        },
+        purgeEmail: function() {
 
-        deleteEmail: function() {
-            var self = this,
-                model = self.get('model'),
-                length = model.get('length'),
-                entity;
-
-            for (var i = 0; i < length; i++) {
-                entity = model.content[i];
-	        	if (entity.get('isChecked')) {
-		            entity.destroyRecord();
-		        }
-	        }
-	        self.send('refresh');
-        },
-
-        refresh: function() {
-            var self = this;
-            self.send('refresh');
         },
 
         markRead: function() {

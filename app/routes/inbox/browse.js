@@ -7,5 +7,11 @@ export default Ember.Route.extend({
             user = session.get('user');
 
         return self.store.find('message', { to: user.id, toStatus: 'both' });
+    },
+
+    actions: {
+        refresh: function () {
+            this.refresh();
+        }
     }
 });
