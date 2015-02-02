@@ -11,6 +11,7 @@ export default DS.Model.extend({
     createdDate: DS.attr('date'),
     expiredDate: DS.attr('date'),
     like: DS.attr('number'),
+    dislike: DS.attr('number'),
     type: DS.attr('string'),
     viewCount: DS.attr('number'),
     isDestroyed: DS.attr('boolean'),
@@ -32,10 +33,15 @@ export default DS.Model.extend({
     }.property('url'),
 
     _getSubString: function(str, size) {
-        if (str.length > size) {
-            return str.substring(0, size) + "...";
+        if (str) {
+            if (str.length > size) {
+                return str.substring(0, size) + "...";
+            } else {
+                return str;
+            }
         } else {
-            return str;
+            return '';
         }
+
     }  
 });

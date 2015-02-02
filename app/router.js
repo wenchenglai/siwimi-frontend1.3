@@ -53,11 +53,11 @@ Router.map(function() {
   this.resource('tip', function () {
       this.route('browse');
       this.route('my');
-      this.route('add');
+      this.route('new');
       this.route('detail', { path: '/detail/:id' });
+      this.route('show', { path: ':tip_id' });
+      this.route('edit', { path: ':tip_id/edit' });
   });
-  this.route('tip/my');
-  this.route('tip/add');
 });
 
 export default Router;

@@ -37,15 +37,15 @@
         <div class="control-group">
             <div id="gendertype" class="btn-group" data-toggle="buttons-radio">
 
-                {{#view "radio-button-view" name="toy" selectionBinding="type" }}Deal{{/view}}
+                {{#view "radio-button-view" name="deal" selectionBinding="type" value="deal" }}Deal{{/view}}
 
-                {{#view "radio-button-view" name="cloth" selectionBinding="type" }}Education{{/view}}
+                {{#view "radio-button-view" name="education" selectionBinding="type" value="education" }}Education{{/view}}
 
-                {{#view "radio-button-view" name="book" selectionBinding="type" }}Health{{/view}}
+                {{#view "radio-button-view" name="health" selectionBinding="type" value="health"}}Health{{/view}}
 
-                {{#view "radio-button-view" name="furniture" selectionBinding="type" }}Entertainment{{/view}}
+                {{#view "radio-button-view" name="entertainment" selectionBinding="type" value="entertainment" }}Entertainment{{/view}}
 
-                {{#view "radio-button-view" name="other" selectionBinding="type" }}Misc{{/view}}
+                {{#view "radio-button-view" name="misc" selectionBinding="type" value="misc" }}Misc{{/view}}
 
             </div>
         </div>
@@ -79,13 +79,7 @@
 <div class="clearfix visible-xs-block"></div>
 <div class="row row-xs-height">
     <div class="col-xs-10 col-xs-offset-2">
-        <button type="button" class="btn btn-primary btn-sm" {{action "add" }} {{bind-attr disabled=disabled}}>
-            {{#if id}}
-            Edit
-            {{else}}
-            Add
-            {{/if}}
-        </button>
-        <button class="btn btn-link btn-sm" {{action "close" }}>Cancel</button>
+        <button type="button" class="btn btn-primary btn-sm" {{action "save" }} {{bind-attr disabled=disabled}}>Save</button>
+        <button type="button" class="btn btn-link btn-sm" {{action "cancel" }}>Cancel</button>
     </div>
 </div>

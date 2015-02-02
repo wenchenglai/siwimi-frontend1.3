@@ -39,7 +39,7 @@
                     <td><a {{bind-attr href=tip.url }} target="_blank">{{tip.urlReduced}}</a></td>
                     <td>{{tip.expiredDateShortDateString}}</td>
                     <td>
-                        {{#link-to 'tip.detail' tip}}Detail{{/link-to}}
+                        {{#link-to 'tip.show' tip}}Detail{{/link-to}}
                     </td>
                 </tr>
                 {{/each}}

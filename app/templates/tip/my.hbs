@@ -2,7 +2,7 @@
 
 <div class="row row-xs-height">
     <div class="col-lg-12">
-        {{#link-to 'tip.add'}}Add New Tip{{/link-to}}
+        {{#link-to 'tip.new'}}Add New Tip{{/link-to}}
     </div>
 </div>
 
@@ -34,7 +34,8 @@
                     <td>{{tip.descriptionReduced}}</td>
                     <td>{{tip.expiredDateShortDateString}}</td>
                     <td>
-                        <a href="#" {{action "openEditModal" "tip.add" tip.id }}>Edit</a>&nbsp;|&nbsp;
+                        {{#link-to 'tip.show' tip}}Edit{{/link-to}}
+                        &nbsp;|&nbsp;
                         <a href="#" {{action "openDeleteDialog" tip.id target="view" bubbles=false }}>Delete</a>
                     </td>
                 </tr>

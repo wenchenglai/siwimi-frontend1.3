@@ -1,0 +1,68 @@
+<div class="row row-xs-height">
+    <div class="col-xs-12">
+        {{#link-to 'tip.edit' id}}Edit{{/link-to}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-12">
+        <a class="vote-up" {{action "like" }} title="it's userful and clear'">test</a>&nbsp;&nbsp;
+        So far there are {{like}} people like this tip.
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-12">
+        <label>
+            Title:
+            {{title}}
+        </label>
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-12 col-md-4">
+        <label>
+            Url:
+            <a {{bind-attr src=url}} alt="original link"></a>
+        </label>
+    </div>
+    <div class="col-xs-12 col-md-4">
+        <label class="control-label">
+            Type: {{type}}
+        </label>
+    </div>
+    <div class="col-xs-12 col-md-4">
+        <label>
+            Expiration Date:
+            {{expiredDate}}
+        </label>
+    </div>
+</div>
+{{#if previewText}}
+<div class="row row-xs-height">
+    <div class="col-xs-12">
+        <label>
+            {{view "previewImage" width="200" readonly="true" height="200" srcBinding="previewImage"}}
+        </label>
+        <label>
+            Preview Text:
+            {{previewText}}
+        </label>
+    </div>
+</div>
+{{/if}}
+<div class="row row-xs-height">
+    <div class="col-xs-12">
+        <label>
+            Description:
+            {{description}}
+        </label>
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-12">
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-12">
+        <button class="btn btn-primary btn-sm" {{action "back" }}>Back to list</button>
+    </div>
+</div>
