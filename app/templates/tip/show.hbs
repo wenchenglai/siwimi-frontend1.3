@@ -1,12 +1,18 @@
 <div class="row row-xs-height">
-    <div class="col-xs-12">
+    <div class="col-xs-1">
         {{#link-to 'tip.edit' id}}Edit{{/link-to}}
+
+    </div>
+    <div class="col-xs-10">
+        <div class="fb-share-button" {{bind-attr data-href="tipUrl"}} data-layout="button_count"></div>
     </div>
 </div>
 <div class="row row-xs-height">
     <div class="col-xs-12">
-        <a class="vote-up" {{action "like" }} title="it's userful and clear'">test</a>&nbsp;&nbsp;
-        So far there are {{like}} people like this tip.
+        <a class="vote-up" {{action "voteUp" }} title="it's userful and clear'">test</a>
+        <span class="vote-count-post">{{voteUp}}</span> 
+        <a class="vote-down" {{action "voteDown" }} title="it's userful and clear'">test</a>
+        <a class="star-off star-on" href="#" {{action "setFavorite" }} title="This is a favorite question (click again to undo)">favorite</a>
     </div>
 </div>
 <div class="row row-xs-height">
@@ -14,6 +20,14 @@
         <label>
             Title:
             {{title}}
+        </label>
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-12">
+        <label>
+            Description:
+            {{description}}
         </label>
     </div>
 </div>
@@ -32,7 +46,7 @@
     <div class="col-xs-12 col-md-4">
         <label>
             Expiration Date:
-            {{expiredDate}}
+            {{formatted-date expiredDate 'LL'}}
         </label>
     </div>
 </div>
@@ -49,14 +63,6 @@
     </div>
 </div>
 {{/if}}
-<div class="row row-xs-height">
-    <div class="col-xs-12">
-        <label>
-            Description:
-            {{description}}
-        </label>
-    </div>
-</div>
 <div class="row row-xs-height">
     <div class="col-xs-12">
     </div>
