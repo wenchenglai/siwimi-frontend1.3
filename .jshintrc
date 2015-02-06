@@ -2,11 +2,7 @@
   "predef": [
     "document",
     "window",
-    "-Promise",
-    "moment",
-    "FB",
-    "geoplugin_longitude",
-    "geoplugin_latitude"
+    "-Promise"
   ],
   "browser": true,
   "boss": true,
