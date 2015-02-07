@@ -7,15 +7,16 @@ export default Base.extend({
     _getEducation: function (key, education) {
         var ret = "",
             i = 0;
-
-        for (i = 0; i < education.length; i++) {
-            if (education[i].type === key) {
-                ret = education[i].school.name;
-                break;
-            } else if (education[i].type === key) {
-                ret = education[i].school.name;
-                break;
-            }
+        if (education) {
+	        for (i = 0; i < education.length; i++) {
+	            if (education[i].type === key) {
+	                ret = education[i].school.name;
+	                break;
+	            } else if (education[i].type === key) {
+	                ret = education[i].school.name;
+	                break;
+	            }
+	        }
         }
         return ret;
     },
@@ -49,10 +50,10 @@ export default Base.extend({
                         largePicture: fbImageUrl,
                         highSchool: self._getEducation('High School', fbUser.education),
                         college: self._getEducation('College', fbUser.education),
-                        fhometown: fbUser.hometown.name,
+                        fhometown: fbUser.hometown ? fbUser.hometown.name : '',
                         flink: fbUser.link,
                         flocale: fbUser.locale,
-                        flocation: fbUser.location.name,
+                        flocation: fbUser.location ? fbUser.location.name: '',
                         ftimezone: fbUser.timezone,
                         isUser: true,
                         isDestroyed: false

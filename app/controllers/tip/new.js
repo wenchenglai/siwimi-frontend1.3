@@ -31,11 +31,21 @@ export default Ember.ObjectController.extend({
 
     actions: {
         save: function() {
-            var self = this;
-            if (self.get('isValid')) {
-                self.get('model').save().then(function(tip) {
-                    self.transitionToRoute('tip.show', tip);
-                });
+            var self = this,
+            	model = self.get('model'),
+            	userId = self.get('session.id');
+            
+            if (self.get('isValid')) {            	
+            	self.store.find('member', userId).then(function (member) {
+                	model.set('createdDate', new Date());            		
+            		model.set('creator', member);
+            		
+                    model.save().then(function(tip) {
+                        self.transitionToRoute('tip.show', tip);
+                    });            		
+            	})
+            	
+
             } else {
                 self.set('showAlert', true);
                 self.set('alertTitle', 'Error');
