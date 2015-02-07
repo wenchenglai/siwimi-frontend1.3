@@ -1,9 +1,11 @@
 <div class="row row-xs-height">
-    <div class="col-xs-1">
-        {{#link-to 'tip.edit' id}}Edit{{/link-to}}
-
+    <div class="col-xs-2">
+        {{#link-to 'tip.my'}}<< back to list{{/link-to}}
     </div>
-    <div class="col-xs-10">
+    <div class="col-xs-2">
+        {{#link-to 'tip.edit' id}}Edit{{/link-to}}
+    </div>
+    <div class="col-xs-4">
         <div class="fb-share-button" {{bind-attr data-href="tipUrl"}} data-layout="button_count"></div>
     </div>
 </div>
@@ -65,10 +67,5 @@
 {{/if}}
 <div class="row row-xs-height">
     <div class="col-xs-12">
-    </div>
-</div>
-<div class="row row-xs-height">
-    <div class="col-xs-12">
-        <button class="btn btn-primary btn-sm" {{action "back" }}>Back to list</button>
     </div>
 </div>

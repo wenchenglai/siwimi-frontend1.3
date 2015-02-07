@@ -1,6 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+    afterModel: function(a, b) {
+        var c = 4;
+    },
     _addVote: function(voteType) {
         var self = this,
             userId = self.get('session.id'),

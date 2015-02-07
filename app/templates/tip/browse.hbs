@@ -2,20 +2,34 @@
 <div class="row row-xs-height">
     <div class="col-lg-12">
         <div class="btn-toolbar" role="toolbar" aria-label="tiptoolbar">
-            <div class="btn-group" role="group">
-                {{ radio-button name="statusType" value="popular" groupValue=statusType selectedAction='loadData' }} Popular
-                {{ radio-button name="statusType" value="all" groupValue=statusType selectedAction='loadData' }} All
-                {{ radio-button name="statusType" value="expired" groupValue=statusType selectedAction='loadData' }} Expired
+            <div class="btn-group" data-toggle="buttons">
+                <a href="#prices" class="btn btn-info active" data-toggle="tab" {{ action 'setStatusFilter' 'popular' }}>
+                    <input type="radio">Popular
+                </a>
+                <a href="#features" class="btn btn-info" data-toggle="tab" {{ action 'setStatusFilter' 'all' }}>
+                    <input type="radio">All
+                </a>
+                <a href="#requests" class="btn btn-info" data-toggle="tab" {{ action 'setStatusFilter' 'expired' }}>
+                    <input type="radio">Expired
+                </a>
             </div>
-            <div class="btn-group" role="group">
-                {{ radio-button name="tipType" value="all" groupValue=tipType selectedAction='loadData' }} All
-                {{ radio-button name="tipType" value="deal" groupValue=tipType selectedAction='loadData' }} Deal
-                {{ radio-button name="tipType" value="education" groupValue=tipType selectedAction='loadData' }} Education
-                {{ radio-button name="tipType" value="health" groupValue=tipType selectedAction='loadData' }} Health
-                {{ radio-button name="tipType" value="entertainment" groupValue=tipType selectedAction='loadData' }} Entertainment
-                {{ radio-button name="tipType" value="misc" groupValue=tipType selectedAction='loadData' }} Misc
+            <div class="btn-group" data-toggle="buttons">
+                <a href="#prices" class="btn btn-info active" data-toggle="tab" {{ action 'setTypeFilter' 'deal' }}>
+                    <input type="radio">Deal
+                </a>
+                <a href="#features" class="btn btn-info" data-toggle="tab" {{ action 'setTypeFilter' 'education' }}>
+                    <input type="radio">Education
+                </a>
+                <a href="#requests" class="btn btn-info" data-toggle="tab" {{ action 'setTypeFilter' 'health' }}>
+                    <input type="radio">Health
+                </a>
+                <a href="#contact" class="btn btn-info" data-toggle="tab" {{ action 'setTypeFilter' 'entertainment' }}>
+                    <input type="radio">Entertainment
+                </a>
+                <a href="#contact" class="btn btn-info" data-toggle="tab" {{ action 'setTypeFilter' 'misc' }}>
+                    <input type="radio">Misc
+                </a>
             </div>
-        </div>
     </div>
 </div>
 
@@ -23,7 +37,6 @@
     <div class="col-xs-12">
         <table class="table">
             <thead>
-            <th>#</th>
             <th>Title</th>
             <th>Description</th>
             <th>Link</th>
@@ -33,7 +46,6 @@
             <tbody>
                 {{#each tip in model}}
                 <tr>
-                    <td>{{tip.id}}</td>
                     <td>{{tip.titleReduced}}</td>
                     <td>{{tip.descriptionReduced}}</td>
                     <td><a {{bind-attr href=tip.url }} target="_blank">{{tip.urlReduced}}</a></td>

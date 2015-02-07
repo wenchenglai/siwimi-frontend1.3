@@ -6,9 +6,6 @@
         <div id="navbar" class="navbar-collapse collapse in" aria-expanded="true">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="cover.html">Cover Page</a>
-                </li>
-                <li>
                     {{#link-to 'tip.browse'}}Tips{{/link-to}}
                 </li>
                 <li>
@@ -49,11 +46,14 @@
         </div>
     </div>
 </nav>
-
 <div class="container-fluid">
-    <div class="row">
-        {{outlet}}
-    </div>
+    <br /><br />
+    {{outlet}}
 </div>
 
-<h2>Footer</h2>
+<footer class="blog-footer">
+    <p>Siwami Parents Network by <a href="http://www.adarp.com" target="_blank">Siwami</a> LLC</p>
+    <p>
+        <a href="#">Back to top</a>
+    </p>
+</footer>

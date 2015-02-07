@@ -4,13 +4,13 @@ export default Ember.Route.extend({
     model: function (status) {
         var self = this,
             session = self.get('session'),
-            user = session.get('user');
+            userId = self.get('session.id');
 
         if (typeof(status) !== "string") {
             status = 'all';
         }
 
-        return self.store.find('tip', { status: status, creator: user.id, longitude: session.get('longitude'), latitude: session.get('latitude') });
+        return self.store.find('tip', { status: status, creator: userId, requester: userId, longitude: session.get('longitude'), latitude: session.get('latitude') });
     },
 
     actions: {

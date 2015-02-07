@@ -54,7 +54,6 @@ Router.map(function() {
       this.route('browse');
       this.route('my');
       this.route('new');
-      this.route('detail', { path: '/detail/:id' });
       this.route('show', { path: ':tip_id' });
       this.route('edit', { path: ':tip_id/edit' });
   });

@@ -2,7 +2,9 @@ import Ember from 'ember';
 
 export default Ember.View.extend({
     didInsertElement: function () {
-        var self = this;
+        var self = this,
+            controller = self.get('controller');
+
         self.$("#dialog-confirm-delete").dialog({
             autoOpen: false,
             resizable: false,
@@ -12,7 +14,7 @@ export default Ember.View.extend({
                 "Delete": function () {
                     var id = $(this).data('id');
                     $(this).dialog("close");
-                    self.get('controller').send('delete', id);
+                    controller.send('delete', id);
                 },
                 Cancel: function () {
                     $(this).dialog("close");
@@ -23,6 +25,6 @@ export default Ember.View.extend({
     actions: {
         openDeleteDialog: function (id) {
             $("#dialog-confirm-delete").data('id', id).dialog("open");
-        }
+        }      
     }
 });

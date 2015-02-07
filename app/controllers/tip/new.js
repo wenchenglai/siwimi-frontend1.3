@@ -13,6 +13,22 @@ export default Ember.ObjectController.extend({
         }
     ),
 
+    _getPreviewFromServer: function (url, options) {
+        return new Ember.RSVP.Promise(function (resolve, reject) {
+            options = options || {};
+
+            options.success = function (data) {
+                Ember.run(null, resolve, data);
+            };
+
+            options.error = function (jqxhr, status, something) {
+                Ember.run(null, reject, arguments);
+            };
+
+            Ember.$.ajax(url, options);
+        });
+    },
+
     actions: {
         save: function() {
             var self = this;
@@ -31,6 +47,21 @@ export default Ember.ObjectController.extend({
 
         cancel: function() {
             this.transitionToRoute('tip.my');
+        },
+
+        preview: function () {
+            var self = this,
+                host = self.store.adapterFor('application').get('host'),
+                url = self.get('url');
+
+            self._getPreviewFromServer(host + '/tips/findURL?url=' + url, {
+                type: "GET",
+                contentType: "application/json"
+            }).then(function (data) {
+                if (data) {
+                    self.set('previewText', data.text);
+                }
+            });
         }
     }
 });

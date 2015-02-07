@@ -8,10 +8,16 @@
 
 <div class="row row-xs-height">
     <div class="col-lg-12">
-        <div class="btn-group">
-            <button type="button" class="btn btn-info" {{action 'loadData' 'all' }}>All</button>
-            <button type="button" class="btn btn-info" {{action 'loadData' 'active' }}>Active</button>
-            <button type="button" class="btn btn-info" {{action 'loadData' 'expired' }}>Expired</button>
+        <div class="btn-group" data-toggle="buttons">
+            <a class="btn btn-info active" data-toggle="tab" {{ action 'loadData' 'all' }}>
+                <input type="radio">All
+            </a>
+            <a class="btn btn-info" data-toggle="tab" {{ action 'loadData' 'active' }}>
+                <input type="radio">Active
+            </a>
+            <a class="btn btn-info" data-toggle="tab" {{ action 'loadData' 'expired' }}>
+                <input type="radio">Expired
+            </a>
         </div>
     </div>
 </div>
@@ -20,7 +26,6 @@
     <div class="col-lg-12">
         <table class="table">
             <thead>
-            <th>#</th>
             <th>title</th>
             <th>Description</th>
             <th>Expired Date</th>
@@ -29,7 +34,6 @@
             <tbody>
                 {{#each tip in model}}
                 <tr>
-                    <td>{{tip.id}}</td>
                     <td>{{tip.titleReduced}}</td>
                     <td>{{tip.descriptionReduced}}</td>
                     <td>{{tip.expiredDateShortDateString}}</td>
