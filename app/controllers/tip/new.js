@@ -35,17 +35,16 @@ export default Ember.ObjectController.extend({
             	model = self.get('model'),
             	userId = self.get('session.id');
             
-            if (self.get('isValid')) {            	
-            	self.store.find('member', userId).then(function (member) {
-                	model.set('createdDate', new Date());            		
-            		model.set('creator', member);
-            		
+            if (self.get('isValid')) {
+                self.store.find('member', userId).then(function(member) {
+                    model.set('createdDate', new Date());
+                    model.set('creator', member);
+                    var tempDate = model.get('expiredDate').toDate();
+                    model.set('expiredDate', tempDate);
                     model.save().then(function(tip) {
                         self.transitionToRoute('tip.show', tip);
-                    });            		
-            	})
-            	
-
+                    });
+                });
             } else {
                 self.set('showAlert', true);
                 self.set('alertTitle', 'Error');
