@@ -10,62 +10,116 @@
     </div>
 </div>
 <div class="row row-xs-height">
-    <div class="col-xs-12">
+    <div class="col-xs-2">
+        <img width="45" height="45" {{bind-attr src=session.profilePicture}}>
         <a class="vote-up" {{action "voteUp" }} title="it's userful and clear'">test</a>
-        <span class="vote-count-post">{{voteUp}}</span> 
+        <span class="vote-count-post">{{voteUp}}</span>
         <a class="vote-down" {{action "voteDown" }} title="it's userful and clear'">test</a>
-        <a class="star-off star-on" href="#" {{action "setFavorite" }} title="This is a favorite question (click again to undo)">favorite</a>
+        <a {{bind-attr class=isFavorite:star-on:star-off }} href="#" {{action "setFavorite" }} title="This is a favorite question (click again to undo)">favorite</a>
+    </div>
+
+    <div class="col-xs-10">
+        <div class="row row-xs-height">
+            <div class="col-xs-12">
+                <label>
+                    Title:
+                    {{title}}
+                </label>
+            </div>
+        </div>
+        <div class="row row-xs-height">
+            <div class="col-xs-12">
+                <label>
+                    Description:
+                    {{description}}
+                </label>
+            </div>
+        </div>
+        <div class="row row-xs-height">
+            <div class="col-xs-12 col-xs-2">
+                <label>
+                    Url:
+                    <a {{bind-attr src=url}} alt="original link"></a>
+                </label>
+            </div>
+            <div class="col-xs-12 col-xs-2">
+                <label class="control-label">
+                    Type: {{type}}
+                </label>
+            </div>
+            <div class="col-xs-12 col-xs-2">
+                <label>
+                    Expiration Date:
+                    {{formatted-date expiredDate 'LL'}}
+                </label>
+            </div>
+        </div>
+        {{#if previewText}}
+        <div class="row row-xs-height">
+            <div class="col-xs-12">
+                <label>
+                    {{view "previewImage" width="200" readonly="true" height="200" srcBinding="previewImage"}}
+                </label>
+                <label>
+                    Preview Text:
+                    {{previewText}}
+                </label>
+            </div>
+        </div>
+        {{/if}}   
+    </div>
+</div>
+
+<div class="row row-xs-height">
+    <div class="col-xs-12">
+        <br /><br /><br /><br />
     </div>
 </div>
 <div class="row row-xs-height">
     <div class="col-xs-12">
         <label>
-            Title:
-            {{title}}
+            Post your comments: <div class="dialog-mini"><span style="text-align: center; width:45px;">{{controller.feedbacks.length}}</span></div>
+
         </label>
+        {{textarea class="form-control" placeholder="review" rows="5" cols="60" value=feedbackText}}
+    </div>
+    <div class="col-xs-12 col-xs-offset-4">
+        <button class="btn btn-primary btn-sm" {{action "addNewFeedback" tip.id }}>Add Feedback</button>
     </div>
 </div>
-<div class="row row-xs-height">
-    <div class="col-xs-12">
-        <label>
-            Description:
-            {{description}}
-        </label>
+
+{{#each fb in feedbacks}}
+    <div class="row row-xs-height">
+        <div class="col-xs-1">
+            Likes: {{fb.likeCount}}
+        </div>
+        <div class="col-xs-11">
+            {{fb.description}}
+        </div>
     </div>
-</div>
-<div class="row row-xs-height">
-    <div class="col-xs-12 col-md-4">
-        <label>
-            Url:
-            <a {{bind-attr src=url}} alt="original link"></a>
-        </label>
+    <div class="row row-xs-height">
+        <div class="col-xs-3 col-xs-offset-9">
+            By: {{fb.creator.displayName}} On {{fb.createdDateShortDateString}}.
+        </div>
     </div>
-    <div class="col-xs-12 col-md-4">
-        <label class="control-label">
-            Type: {{type}}
-        </label>
+    <div class="row row-xs-height">
+        <div class="col-xs-11 col-xs-offset-1">
+            {{#each comment in fb.comments}}
+            <div class="row row-xs-height">
+                <div class="col-xs-12">
+                    {{comment.description}} - {{comment.creator.displayName}} {{comment.createdDateShortDateString}}
+                </div>
+            </div>
+            {{/each}}
+        </div>
     </div>
-    <div class="col-xs-12 col-md-4">
-        <label>
-            Expiration Date:
-            {{formatted-date expiredDate 'LL'}}
-        </label>
+    <div class="row row-xs-height">
+        <div class="col-xs-12">
+            <div {{bind-attr data-id="fb.id" }} class="collapse">
+                {{feedback-comment model=fb addNewComment="addNewComment" closeNewComment="closeNewComment"}}
+            </div>
+
+            <a href="#" {{ action 'openNewCommentUI' fb.id }}>add a comment</a>
+        </div>
     </div>
-</div>
-{{#if previewText}}
-<div class="row row-xs-height">
-    <div class="col-xs-12">
-        <label>
-            {{view "previewImage" width="200" readonly="true" height="200" srcBinding="previewImage"}}
-        </label>
-        <label>
-            Preview Text:
-            {{previewText}}
-        </label>
-    </div>
-</div>
-{{/if}}
-<div class="row row-xs-height">
-    <div class="col-xs-12">
-    </div>
-</div>
+{{/each}}

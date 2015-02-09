@@ -6,7 +6,7 @@
         <div id="navbar" class="navbar-collapse collapse in" aria-expanded="true">
             <ul class="nav navbar-nav">
                 <li>
-                    {{#link-to 'tip.browse'}}Tips{{/link-to}}
+                    {{#link-to 'tip.browse' (query-params status="popular" type="deal")}}Tips{{/link-to}}
                 </li>
                 <li>
                     {{#link-to 'activity'}}Activities{{/link-to}}

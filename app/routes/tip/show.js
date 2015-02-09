@@ -1,9 +1,18 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-    afterModel: function(a, b) {
-        var c = 4;
+    setupController: function(controller, model) {
+        controller.set('content', model);
+
+        var query = {
+            parent: model.get('id'),
+            parentType: 'tip'
+        };
+        this.store.find('feedback', query).then(function(feedbacks) {
+            controller.set('feedbacks', feedbacks);
+        });
     },
+
     _addVote: function(voteType) {
         var self = this,
             userId = self.get('session.id'),
@@ -54,6 +63,63 @@ export default Ember.Route.extend({
                     });
                 });
             }
-        }
+        },
+
+        addNewFeedback: function () {
+            var self = this,
+                userId = self.get('session.id'),
+                model = self.currentModel,
+                newObj;
+
+            self.store.find('member', userId).then(function(member) {
+                newObj = self.store.createRecord('feedback', {
+                    creator: member,
+                    parent: model.get('id'),
+                    parentType: 'tip',
+                    createdDate: new Date(),
+                    description: self.get('feedbackText'),
+                    viewCount: 0,
+                    likeCount: 0,
+                    isDestroyed: false
+                });
+
+                newObj.save().then(function (feedback) {
+                    var feedbacks = self.get('feedbacks');
+                    feedbacks.addRecord(feedback);
+                    self.set('feedbacks', feedbacks);
+
+                }, function (error) {
+                    // deal with the failure here
+                    debugger;
+                });
+            });
+        },
+
+        addNewComment: function (fbId, commentText) {
+
+            var self = this,
+                user = self.get('session.user');
+
+            self.store.find('feedback', fbId).then(function(feedback) {
+                var newObj = self.store.createRecord('feedback', {
+                    creator: user,
+                    parent: fbId,
+                    createdDate: new Date(),
+                    description: commentText,
+                    viewCount: 0,
+                    likeCount: 0,
+                    isDestroyed: false
+                });
+
+                newObj.save().then(function (data) {
+                    var comments = feedback.get('comments');
+                    comments.addObject(data);
+                    self.send('refresh');
+                }, function (error) {
+                    // deal with the failure here
+                    debugger;
+                });
+            });
+        },
     }
 });

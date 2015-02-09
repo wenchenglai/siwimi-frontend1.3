@@ -28,6 +28,7 @@
             <thead>
             <th>title</th>
             <th>Description</th>
+            <th>Type</th>
             <th>Expired Date</th>
             <th>Action</th>
             </thead>
@@ -36,6 +37,7 @@
                 <tr>
                     <td>{{tip.titleReduced}}</td>
                     <td>{{tip.descriptionReduced}}</td>
+                    <td>{{tip.type}}</td>
                     <td>{{tip.expiredDateShortDateString}}</td>
                     <td>
                         {{#link-to 'tip.show' tip}}Detail{{/link-to}}

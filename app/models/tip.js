@@ -16,6 +16,12 @@ export default DS.Model.extend({
     viewCount: DS.attr('number'),
     isDestroyed: DS.attr('boolean'),
 
+    // parameters set by backend ONLY
+    cityState: DS.attr('string'),
+    zipCode: DS.attr('string'),
+    location: DS.attr('array'),
+    isFavorite: DS.attr('boolean'),
+
     expiredDateShortDateString: function () {
         return moment(this.get('expiredDate')).format('MMM d, YYYY');
     }.property('expiredDate'),
