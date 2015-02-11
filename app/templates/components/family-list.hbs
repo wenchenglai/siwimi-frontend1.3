@@ -1,0 +1,59 @@
+{{#with model as family}}
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">{{family.familyName}} | {{family.cityState}} | {{family.zipcode}}</div>
+    <div class="panel-body">
+        <div class="btn-group" role="group" aria-label="...">
+            <button type="button" class="btn btn-default" {{action 'addMember' family.id }}>Add New Member</button>
+            <button type="button" class="btn btn-default" {{action 'editFamily' family.id }}>Edit Family</button>
+            <button type="button" class="btn btn-default" {{action 'deleteFamily' family.id }}>Delete Family</button>
+        </div>
+    </div>
+
+    <!-- Table -->
+    <table class="table">
+        <thead>
+        <th></th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Birthday</th>
+        <th>Language</th>
+        <th>Relationship</th>
+        <th>Action</th>
+        </thead>
+        <tbody>
+            {{#each member in family.members }}
+            <tr>
+                <td>
+                    {{#if member.avatarUrl }}
+                    <img {{bind-attr src=member.avatarUrl}} alt="avatar" />
+                    {{else}}
+                    {{view "previewImage" width="200" height="200" srcBinding=member.imageData}}
+                    {{/if}}
+                </td>
+                <td>{{member.firstName}}</td>
+                <td>{{member.lastName}}</td>
+                <td>{{formatted-date member.birthday 'LL'}}</td>
+                <td>{{member.languages}}</td>
+                <td>{{member.type}}</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="...">
+                        <button type="button" class="btn btn-default" {{action 'editMember' member.id }}>Edit</button>
+                        <button type="button" class="btn btn-default" {{action 'deleteMember' member.id }}>Delete</button>
+                    </div>
+                </td>
+            </tr>
+            {{/each}}
+
+        </tbody>
+    </table>
+</div>
+{{/with}}
+<div id="dialog-confirm-delete-member" title="Delete a family member?">
+    <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>This member will be deleted. Are you sure?</p>
+</div>
+
+<div id="dialog-confirm-delete-family" title="Delete a family?">
+    <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>This family will be deleted. Are you sure?</p>
+</div>
+

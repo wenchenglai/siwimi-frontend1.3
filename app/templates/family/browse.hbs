@@ -1,0 +1,60 @@
+<h1>Connect with other parents!</h1>
+
+<div class="row row-xs-height">
+    <div class="col-xs-12">
+        <p class="lead">
+            I am looking for families which have children:
+        </p>
+    </div>
+</div>
+
+<div class="row row-xs-height">
+    <div class="col-xs-12 col-md-4">
+        Age from
+        {{view "select" class="btn btn-default dropdown-toggle" valueBinding="fromAge" selectionBinding="fromAge" content=ages placeholder="Age"}} to
+        {{view "select" class="btn btn-default dropdown-toggle" valueBinding="toAge" selectionBinding="toAge" content=ages}} years old.
+    </div>
+    <div class="col-xs-12 col-md-4">
+        Within the distance of {{view "select" class="btn btn-default dropdown-toggle" valueBinding="distance" content=distances placeholder="Distance"}}
+    </div>
+</div>
+
+<div class="row row-xs-height">
+    <div class="col-xs-12 col-md-4">
+        The children likes to play
+        {{view "select" class="btn btn-default dropdown-toggle" valueBinding="toys" content=allToys placeholder="toy" multiple=true}}
+    </div>
+    <div class="col-xs-12 col-md-4">
+        The children can speak
+        {{view "select" class="btn btn-default dropdown-toggle" valueBinding="languages" content=allLanguages placeholder="Language" multiple=true}}
+    </div>
+    <div class="col-xs-12 col-md-4">
+        Special need
+        {{view "select" class="btn btn-default dropdown-toggle" valueBinding="needs" content=allNeeds placeholder="need" multiple=true}}
+    </div>
+</div>
+
+<div class="row row-xs-height">
+    <div class="col-xs-12">
+        <div class="input-group">
+            <button type="button" class="btn btn-primary btn-sm" {{action "searchfamilies" }}>Search</button>
+        </div>
+    </div>
+</div>
+
+<div class="row row-xs-height">
+    <div class="col-xs-12">
+        You are searching families which have children from age {{toAge}} to {{fromAge}} in your neighborhood.
+    </div>
+</div>
+
+{{#each family in families}}
+<div class="row row-xs-height">
+    <div class="col-xs-12">
+        {{family-list model=family editfamily="openEditFamilyModal" deletefamily="deleteFamily" addmember="openAddMemberModal" editmember="openEditMemberModal" deletemember="deleteMember" cancel="cancelUserCreation"}}
+    </div>
+</div>
+{{/each}}
+
+
+

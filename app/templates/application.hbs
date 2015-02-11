@@ -14,8 +14,15 @@
                 <li>
                     {{#link-to 'question'}}Q & A{{/link-to}}
                 </li>
-                <li>
-                    {{#link-to 'connect'}}Connect{{/link-to}}
+                <li class="dropdown">
+                    
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Connect<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>{{#link-to 'family.browse'}}Browse{{/link-to}}</li>
+                        <li>{{#link-to 'family.my'}}My Family{{/link-to}}</li>
+                    </ul>
                 </li>
                 <li>
                     {{#link-to 'items'}}Items{{/link-to}}
@@ -47,7 +54,7 @@
     </div>
 </nav>
 <div class="container-fluid">
-    <br /><br />
+    <br /><br /><br /><br />
     {{outlet}}
 </div>
 

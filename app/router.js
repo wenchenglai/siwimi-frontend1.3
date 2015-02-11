@@ -22,14 +22,6 @@ Router.map(function() {
       });
   });
 
-  this.resource('connect', function () {
-      this.route('search');
-      this.route('myfamily');
-      this.route('addmember');
-      this.route('editmember');
-      this.route('editperson', { path: '/editperson/:id' });
-  });
-
   this.resource('items', function () {
       this.route('search');
       this.route('myitems');
@@ -56,6 +48,20 @@ Router.map(function() {
       this.route('new');
       this.route('show', { path: ':tip_id' });
       this.route('edit', { path: ':tip_id/edit' });
+  });
+
+  this.route("family", function() {
+      this.route("browse");    
+      this.route("my");
+      this.route("new");
+      this.route("show", { path: ':family_id' });
+      this.route("edit", { path: ':family_id/edit' });
+  });
+
+  this.route("member", function() {
+      this.route("new");
+      this.route("show", { path: ':member_id' });
+      this.route("edit", { path: ':member_id/edit' });
   });
 });
 

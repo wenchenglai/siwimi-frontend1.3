@@ -1,0 +1,63 @@
+<div class="row row-xs-height">
+    <div class="col-sm-8">
+        <div>
+            <label>
+                First Name:
+                {{input class="edit_box" value=firstName}}
+            </label>
+        </div>
+        <div>
+            <label>
+                Last Name:
+                {{input class="edit_box" value=lastName}}
+            </label>
+        </div>
+        <div>
+            <label>
+                Nickname:
+                {{input class="edit_box" value=nickName}}
+            </label>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <p>
+                    <div id="gendertype" name="gender" class="btn-group rdgender" data-toggle="buttons-radio">
+
+                        {{#view "radioButton" name="selectionMale" selectionBinding="gender" value="male"}}Male{{/view}}
+
+                        {{#view "radioButton" name="selectionFemale" selectionBinding="gender" value="female"}}Female{{/view}}
+
+                    </div>
+                </p>
+            </div>
+        </div>
+        <div>
+            Birthday:
+            {{view "select" class="btn btn-default dropdown-toggle" content=months prompt="Month" valueBinding="birthMonth"}} /
+            {{view "select" class="btn btn-default dropdown-toggle" content=days prompt="Day" valueBinding="birthDayNumber"}} /
+            {{view "select" class="btn btn-default dropdown-toggle" content=years prompt="Year" valueBinding="birthYear"}}
+        </div>
+    </div>
+    <div class="col-sm-offset-8">
+        {{view "fileField"}}
+        {{#if largePicture}}
+        {{view "previewImage" width="200" height="200" srcBinding="largePicture"}}
+        {{else}}
+        {{view "previewImage" width="200" height="200" srcBinding="avatarUrl"}}
+        {{/if}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-12 col-md-6">
+        {{pronoun}} can speak: {{view "select" class="btn btn-default dropdown-toggle" selectionBinding="languages" content=allLanguages multiple=true}}
+    </div>
+    <div class="col-xs-12 col-md-6">
+        Family Role: {{view "select" class="btn btn-default dropdown-toggle" content=allRelationships prompt="Relationship" value=type}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-12">
+        <button class="btn btn-primary btn-sm" {{action "save" }}>Save</button>
+        <button class="btn btn-primary btn-sm" {{action "close" }}>Cancel</button>
+    </div>
+</div>

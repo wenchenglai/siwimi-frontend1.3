@@ -1,0 +1,40 @@
+<div class="row row-xs-height">
+    <div class="col-xs-2">
+        Family Name:
+    </div>
+    <div class="col-xs-10">
+        {{input class="edit_box" value=familyName placeholder="e.g. Smith's famly"}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2">
+        Zip Code:
+    </div>
+    <div class="col-xs-10">
+        {{input class="edit_box" size="5" maxlength="5" value=zipCode}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2">
+        Description:
+    </div>
+    <div class="col-xs-10">
+        {{textarea class="edit_box" rows="5" cols="60" value=description placeholder="Briefly describe your family so others can know more about your family"}}
+    </div>
+</div>
+
+<div class="row row-xs-height">
+    <div class="col-xs-12">
+        <button class="btn btn-primary btn-sm" type="button" class="btn btn-default btn-lg" {{action "save" }} {{bind-attr disabled=disabled}}>Save</button>
+        <button type="button" class="btn btn-link btn-sm" {{action "cancel" }}>Cancel</button>
+    </div>
+    <div class="col-xs-12">
+        {{#if showError }}
+        <div class="alert alert-danger" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only">Error:</span>
+            {{ errorMessage }}
+        </div>
+        {{/if}}
+    </div>
+</div>

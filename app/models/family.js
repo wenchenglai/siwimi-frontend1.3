@@ -5,7 +5,7 @@ export default DS.Model.extend({
     cityState: DS.attr('string'),
     familyName: DS.attr('string'),
     description: DS.attr('string'),
-    location: DS.attr('raw'),
+    location: DS.attr('array'),
     members: DS.hasMany('member', { embedded: 'always' }),
     isDestroyed: DS.attr('boolean'),
 
