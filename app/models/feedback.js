@@ -1,5 +1,5 @@
 import DS from 'ember-data';
-import { formatDate } from '../utils/date-helpers';
+import dateHelpers from '../utils/date-helpers';
 
 export default DS.Model.extend({
     creator: DS.belongsTo('member'),
@@ -13,6 +13,6 @@ export default DS.Model.extend({
     isDestroyed: DS.attr('boolean'),
 
     createdDateShortDateString: function () {
-        return formatDate(this.get('createdDate'), 'MMM d, YYYY');
+        return dateHelpers.formatDate(this.get('createdDate'), 'MMM d, YYYY');
     }.property('createdDate') 
 });

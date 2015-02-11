@@ -77,14 +77,14 @@ export default Ember.Route.extend({
                     parent: model.get('id'),
                     parentType: 'tip',
                     createdDate: new Date(),
-                    description: self.get('feedbackText'),
+                    description: self.controller.get('feedbackText'),
                     viewCount: 0,
                     likeCount: 0,
                     isDestroyed: false
                 });
 
                 newObj.save().then(function (feedback) {
-                    var feedbacks = self.get('feedbacks');
+                    var feedbacks = self.controller.get('feedbacks');
                     feedbacks.addRecord(feedback);
                     self.set('feedbacks', feedbacks);
 

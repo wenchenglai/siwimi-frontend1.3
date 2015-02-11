@@ -7,6 +7,33 @@
     font-weight: bold;
 }
 
+.topic-map {
+    background-color: #e9e9e9
+}
+
+.topic-map h4 {
+    margin: 1px 0 2px 0;
+    color: #919191;
+    font-weight: normal;
+    font-size: 0.857em;
+    line-height: 15px;
+}
+
+.topic-map ul {
+    margin: 0;
+    list-style: none;
+}
+
+.topic-map ul li {
+    display: inline-block;
+}
+
+.avatar {
+    width: 42px;
+    height: 42px;
+    margin-bottom: 15px;
+}
+
 .blog-footer {
     padding: 20px 0;
     color: #999;
@@ -17,7 +44,7 @@
 
 .vote-up {
     background-image: url('/assets/images/sprites.svg');
-    background-position: 0 -170px;
+    background-position: 0 -175px;
     background-repeat: no-repeat;
     cursor: pointer;
     display: block;
@@ -29,21 +56,21 @@
 
 .vote-down {
     background-image: url('/assets/images/sprites.svg');
-    background-position: 0 -220px;
+    background-position: 0 -225px;
     background-repeat: no-repeat;
     cursor: pointer;
     display: block;
     text-indent: -9999em;
     width: 40px;
-    margin-bottom: 2px;
+    margin-bottom: 12px;
     background-size: initial;
 }
 
 .vote-count-post {
-  
-    /*display: block;
+    display: block;
     font-size: 20px;
-    text-align: center;*/
+    width: 40px;
+    text-align: center;
 }
 
 .star-on {

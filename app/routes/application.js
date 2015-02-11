@@ -13,19 +13,6 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
     actions: {
         willTransition: function (transition) {
             this._saveTransition(transition);            
-        },
-
-        sessionAuthenticationSucceeded: function() {
-            var a = 3;
-            var b = 5;
-            a = a + b;
-            //var previousTransition = this.controllerFor('login').get('previousTransition');
-            //if (previousTransition) {
-            //    previousTransition.retry();
-            //    return;
-            //}
-
-            //this.transitionTo("error");
         }
     }
 });
