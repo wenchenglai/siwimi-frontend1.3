@@ -1,9 +1,7 @@
-<h1>My Family</h1>
-
 {{#if model}}
 <div class="row row-xs-height">
     <div class="col-xs-12">
-        {{family-list model=model editfamily="openEditFamilyModal" deletefamily="deleteFamily" addmember="openAddMemberModal" editmember="openEditMemberModal" deletemember="deleteMember" cancel="cancelUserCreation"}}
+        {{family-list model=model editFamily="goToEditFamily" deleteFamily="deleteFamily" addMember="goToAddMember" editMember="goToEditMember" deleteMember="deleteMember" cancel="cancelUserCreation"}}
     </div>
 </div>
 {{else}}

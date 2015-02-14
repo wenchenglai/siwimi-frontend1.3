@@ -11,8 +11,28 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
     },
 
     actions: {
+        error: function(error, transition) {
+            var self = this,
+                title = error.name,
+                message = error.message;
+
+            if (error) {
+                Em.run(function(){
+                    self.controller._toggleAlert(true, title, message, 'alert-danger');
+                });
+                return false;
+            }
+            return true;
+        },
+
         willTransition: function (transition) {
-            this._saveTransition(transition);            
+            var self = this;
+
+            Em.run(function(){
+                self.controller._toggleAlert(false);
+            });
+
+            self._saveTransition(transition);
         }
     }
 });

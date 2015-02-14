@@ -13,7 +13,7 @@ export default DS.Model.extend({
     avatarUrl: DS.attr('string'),
     largePicture: DS.attr('string'),
     smallPicture: DS.attr('string'),
-    family: DS.belongsTo('family'),
+    family: DS.belongsTo('family', { async: true}),
     isUser: DS.attr('boolean'),
     facebookId: DS.attr('string'),
     highSchool: DS.attr('string'),

@@ -13,7 +13,7 @@ export default Ember.Component.extend({
                 "Delete": function () {
                     var id = $(this).data('id');
                     $(this).dialog("close");
-                    controller.sendAction('deletemember', id);
+                    controller.sendAction('deleteMember', id);
                 },
                 Cancel: function () {
                     $(this).dialog("close");
@@ -30,7 +30,7 @@ export default Ember.Component.extend({
                 "Delete": function () {
                     var id = $(this).data('id');
                     $(this).dialog("close");
-                    controller.sendAction('deletefamily', id);
+                    controller.sendAction('deleteFamily', id);
                 },
                 Cancel: function () {
                     $(this).dialog("close");
@@ -39,19 +39,19 @@ export default Ember.Component.extend({
         });
     },
     actions: {
-        editfamily: function (modalName, id) {
-            this.sendAction('editfamily', modalName, id);
+        editFamily: function (id) {
+            this.sendAction('editFamily', id);
         },
-        deletefamily: function (id) {
+        deleteFamily: function (id) {
             $("#dialog-confirm-delete-family").data('id', id).dialog("open");
         },
-        addmember: function (modalName, id) {
-            this.sendAction('addmember', modalName, id);
+        addMember: function (id) {
+            this.sendAction('addMember', id);
         },
-        editmember: function (modalName, model) {
-            this.sendAction('editmember', modalName, model);
+        editMember: function (model) {
+            this.sendAction('editMember', model);
         },
-        deletemember: function (id) {
+        deleteMember: function (id) {
             $("#dialog-confirm-delete-member").data('id', id).dialog("open");
         }
     }

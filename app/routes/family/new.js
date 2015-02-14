@@ -1,6 +1,7 @@
 import Ember from 'ember';
+import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin';
 
-export default Ember.Route.extend({
+export default Ember.Route.extend(AuthenticatedRouteMixin, {
     model: function() {
         var self = this;
         return self.store.createRecord('family');
@@ -50,6 +51,10 @@ export default Ember.Route.extend({
 
             // we need to get the cityState info based on the provided zip code using Google API
             Em.$.getJSON('http://maps.googleapis.com/maps/api/geocode/json?address=' + zipCode + '&sensor=true').then(onSuccess, onGoogleApiFail);
+        },
+
+        cancel: function() {
+            this.transitionTo('family.my');
         }
     }
 });

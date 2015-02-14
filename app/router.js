@@ -50,7 +50,7 @@ Router.map(function() {
       this.route('edit', { path: ':tip_id/edit' });
   });
 
-  this.route("family", function() {
+  this.resource("family", function() {
       this.route("browse");    
       this.route("my");
       this.route("new");
@@ -58,10 +58,14 @@ Router.map(function() {
       this.route("edit", { path: ':family_id/edit' });
   });
 
-  this.route("member", function() {
+  this.resource("member", function() {
       this.route("new");
       this.route("show", { path: ':member_id' });
       this.route("edit", { path: ':member_id/edit' });
+  });
+
+  this.resource("feedback", function() {
+    this.route("new");
   });
 });
 

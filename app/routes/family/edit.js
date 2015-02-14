@@ -1,15 +1,14 @@
 import Ember from 'ember';
+import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin';
 
-export default Ember.Route.extend({
+export default Ember.Route.extend(AuthenticatedRouteMixin, {
     actions: {
         save: function() {
             var self = this;
 
-            self.get('model').save().then(function(family) {
+            self.currentModel.save().then(function(family) {
                 self.transitionTo('family.show', family);
             });
-
-            return false;
         },
 
         cancel: function() {
