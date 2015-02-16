@@ -1,7 +1,7 @@
 {{#if model}}
 <div class="row row-xs-height">
     <div class="col-xs-12">
-        {{family-list model=model editFamily="goToEditFamily" deleteFamily="deleteFamily" addMember="goToAddMember" editMember="goToEditMember" deleteMember="deleteMember" cancel="cancelUserCreation"}}
+        {{family-list model=model apiEditFamily="goToEditFamily" apiDeleteFamily="deleteFamily" apiAddMember="goToAddMember" apiEditMember="goToEditMember" apiDeleteMember="deleteMember" apiCancel="cancelUserCreation"}}
     </div>
 </div>
 {{else}}

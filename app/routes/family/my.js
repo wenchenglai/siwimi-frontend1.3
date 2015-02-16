@@ -24,7 +24,13 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
             var self = this;
             self.store.find('family', id).then(function (record) {
                 record.destroyRecord().then(function() {
-                    
+                    self.store.find('member', self.get('session.id')).then(function(user) {
+                        user.set('family', null);
+                        user.save().then(function() {
+                            self.get('session').set('user', user);
+                            self.refresh();
+                        });
+                    });
                 });
             });
         },
@@ -39,7 +45,13 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
         deleteMember: function(id) {
             this.store.find('member', id).then(function (record) {
-                record.destroyRecord();
+                if (!record.get('isUser')) {
+                    record.destroyRecord();
+                } else {
+                    // this member is a user, so we cannot delete this member.  But we have to de-associate this member from this family
+                    record.set('family', null);
+                    record.save();
+                }
             });
         }
     }

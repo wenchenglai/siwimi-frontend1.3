@@ -31,7 +31,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
                         member.set('family', newlySavedfamily);
                         member.save().then(function(user) {
                             session.set("user", user);
-                            self.transitionTo('family.show', newlySavedfamily);
+                            self.transitionTo('family.my');
                         }, onFail);
                     }, onFail);
                 }, onFail);

@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.ObjectController.extend({
+    previousTransition: null,
+    previousURL: null,
     showAlert: false,
     alertTitle: "",
     alertMessage: "",

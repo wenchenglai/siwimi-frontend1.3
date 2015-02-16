@@ -3,10 +3,10 @@ import ApplicationRouteMixin from 'simple-auth/mixins/application-route-mixin';
 
 export default Ember.Route.extend(ApplicationRouteMixin, {
     _saveTransition: function (transition) {
+        var self = this;
         if (transition.targetName !== 'login') {
-            if (this.controllerFor('login')) {
-                this.controllerFor('login').set('previousTransition', transition);   
-            }
+            self.controller.set('previousTransition', transition);
+            self.controller.set('previousURL', self.get('router.url'));
         }
     },
 
@@ -18,7 +18,11 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
 
             if (error) {
                 Em.run(function(){
-                    self.controller._toggleAlert(true, title, message, 'alert-danger');
+                    if (title) {
+                        self.controller._toggleAlert(true, title, message, 'alert-danger');
+                    } else {
+                        self.controller._toggleAlert(true, 'Error', 'ERR_CONNECTION_REFUSED', 'alert-danger');
+                    }
                 });
                 return false;
             }

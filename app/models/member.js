@@ -26,9 +26,15 @@ export default DS.Model.extend({
     zipCode: DS.attr('string'),
     isDestroyed: DS.attr('boolean'),
 
-    //male: function () {
-    //    return this.get('gender') == 'Male';
-    //}.property('gender'),
+    // we use bs-datetimepicker addon which takes moment.js date type, so we must do some conversion when binding
+    birthdayMoment: function(key, value, previousValue) {
+        // setter
+        if (arguments.length > 1) {
+            this.set('birthday', value.toDate());
+        }
+        // getter
+        return this.get('birthday');
+    }.property('birthday'),
 
     avartarHostUrl: function () {
         return this.store.adapterFor('application').get('host') + '/assets/img/' + this.get('avatarUrl');

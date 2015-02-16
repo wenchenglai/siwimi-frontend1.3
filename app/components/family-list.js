@@ -13,7 +13,7 @@ export default Ember.Component.extend({
                 "Delete": function () {
                     var id = $(this).data('id');
                     $(this).dialog("close");
-                    controller.sendAction('deleteMember', id);
+                    controller.sendAction('apiDeleteMember', id);
                 },
                 Cancel: function () {
                     $(this).dialog("close");
@@ -30,7 +30,10 @@ export default Ember.Component.extend({
                 "Delete": function () {
                     var id = $(this).data('id');
                     $(this).dialog("close");
-                    controller.sendAction('deleteFamily', id);
+                    Em.run(function(){
+                        controller.sendAction('apiDeleteFamily', id);
+                    });
+                    
                 },
                 Cancel: function () {
                     $(this).dialog("close");
@@ -40,16 +43,16 @@ export default Ember.Component.extend({
     },
     actions: {
         editFamily: function (id) {
-            this.sendAction('editFamily', id);
+            this.sendAction('apiEditFamily', id);
         },
         deleteFamily: function (id) {
             $("#dialog-confirm-delete-family").data('id', id).dialog("open");
         },
         addMember: function (id) {
-            this.sendAction('addMember', id);
+            this.sendAction('apiAddMember', id);
         },
         editMember: function (model) {
-            this.sendAction('editMember', model);
+            this.sendAction('apiEditMember', model);
         },
         deleteMember: function (id) {
             $("#dialog-confirm-delete-member").data('id', id).dialog("open");
