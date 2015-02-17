@@ -47,7 +47,6 @@ export default Base.extend({
                         gender: fbUser.gender,
                         facebookId: fbUser.id,
                         avatarUrl: fbImageUrl,
-                        largePicture: fbImageUrl,
                         highSchool: self._getEducation('High School', fbUser.education),
                         college: self._getEducation('College', fbUser.education),
                         fhometown: fbUser.hometown ? fbUser.hometown.name : '',
@@ -74,16 +73,14 @@ export default Base.extend({
         var self = this;
 
         return new Ember.RSVP.Promise(function (resolve, reject) {
-            if (!Ember.isEmpty(data.accessToken)) {
-                // this will be called when user has logged in and cookie is still valid
+            // this will be called when user has logged in and cookie is still valid
+            if (!Ember.isEmpty(data.accessToken) && !Ember.isEmpty(data.id)) {
+
                 // somehow simple-auth would turn the user model object into a regular Javasript object.  So I need to get the user object from store again
-                // 2014-01-20 There is no store injected in the container in authenticator, I have dificulty inject it properly by using the initializer.
+                // 2014-01-20 There is no store injected in the container in this authenticator, I have dificulty inject it properly by using the initializer.
                 // Therefore, I'll use regular javascript object for the user in a session
-                if (data.id) {
-                    resolve(data);
-                } else {
-                    reject();
-                }
+                resolve(data);
+
                 //self.get('container').lookup('store:main').find('member', data.id).then(function (member) {
                 //    data.user = member;
                 //    resolve(data);

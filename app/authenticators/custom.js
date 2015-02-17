@@ -6,7 +6,7 @@ import Base from 'simple-auth/authenticators/base';
 export default Base.extend({
     restore: function(data) {
         return new Ember.RSVP.Promise(function (resolve, reject) {
-            if (!Ember.isEmpty(data.accessToken)) {
+            if (!Ember.isEmpty(data.id)) {
                 resolve(data);
             } else {
                 reject();
@@ -26,11 +26,13 @@ export default Base.extend({
                 })
             }
             ).then(function (data) {
-                if (data.auth === 'success') {
+                if (data.auth === 'success' && data.member.id) {
                     Ember.run(function () {
-                        var user = self.get('container').lookup('store:main').createRecord('Member', data.member);
-                        resolve({
-                            user: user
+                        self.get('container').lookup('store:main').find('member', data.member.id).then(function(user) {
+                            resolve({
+                                id: user.id,
+                                user: user
+                            });
                         });
                     });
                 } else {

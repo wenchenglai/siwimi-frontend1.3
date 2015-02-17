@@ -63,21 +63,7 @@
         </label>
     </div>
     <div class="col-xs-10">
-        {{#view "file-field"}}{{/view}}
-    </div>
-</div>
-<div class="row row-xs-height">
-    <div class="col-xs-2">
-        <label>
-
-        </label>
-    </div>
-    <div class="col-xs-10">
-        {{#if largePicture}}
-            {{#view "preview-image" width="200" height="200" srcBinding="largePicture"}}{{/view}}
-        {{else}}
-            {{#view "previewImage" width="200" height="200" srcBinding="avatarUrl"}}{{/view}}
-        {{/if}}
+        {{view 'file-upload-view' contentBinding="imageData"}}
     </div>
 </div>
 <div class="row row-xs-height">

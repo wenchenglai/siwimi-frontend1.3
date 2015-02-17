@@ -1,28 +1,9 @@
 import Ember from 'ember';
+import SessionSetupMixin from '../mixins/session-setup';
 
-export default Ember.Route.extend({
+export default Ember.Route.extend(SessionSetupMixin, {
     showError: false,
     errorMessage: '',
-
-    _createSessionUser: function (session, member) {
-        var data = {
-            id: member.get('id'),
-            facebookId: member.get('facebookId'),
-            firstName: member.get('firstName')
-        },
-        family = member.get('family');
-
-        if (family) {
-            data.familyId = family.id;
-            data.longitude = family.get('location')[0];
-            data.latitude = family.get('location')[1];
-        } else {
-            data.latitude = geoplugin_latitude();
-            data.longitude = geoplugin_longitude();
-        }
-
-        session.get('store').persist(data);
-    },
 
     actions: {
         signup: function () {
@@ -35,7 +16,9 @@ export default Ember.Route.extend({
             if (password === password2 && password != null) {
                 var newMember = self.store.createRecord('member', {
                     email: email,
-                    password: password
+                    password: password,
+                    isUser: true,
+                    avatarUrl: '/assets/images/avatar.jpg'
                 });
 
                 newMember.save().then(function(member) {
@@ -49,8 +32,8 @@ export default Ember.Route.extend({
                         // right now, I have no better solution but to login again, recommmended by a stackoverflow post
                         // http://stackoverflow.com/questions/22774111/login-after-successful-signup-ember-simple-auth
                         // login successfully
-                        self._createSessionUser(session, member);
-                        self.transitionTo("index");
+                        self._setLongitudeAndLatitudeInSession(session, session.get('user'));
+                        self._setProfilePictureInSession(session, session.get('user'));
 
                     }, function (error) {
                         self.get('controller').set('errorMessage', 'Login Failed. Error Message: ' + error.toString());
