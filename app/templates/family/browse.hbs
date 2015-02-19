@@ -50,14 +50,14 @@
 
 <div class="row row-xs-height">
     <div class="col-xs-12">
-        You are searching families which have children from age {{toAge}} to {{fromAge}} in your neighborhood.
+        You are searching families which have children from age {{fromAge}} to {{toAge}} in your neighborhood.
     </div>
 </div>
 
 {{#each family in families}}
 <div class="row row-xs-height">
     <div class="col-xs-12">
-        {{family-list model=family editfamily="openEditFamilyModal" deletefamily="deleteFamily" addmember="openAddMemberModal" editmember="openEditMemberModal" deletemember="deleteMember" cancel="cancelUserCreation"}}
+        {{family-list model=family apiEditFamily="goToEditFamily" apiDeleteFamily="deleteFamily" apiAddMember="goToAddMember" apiEditMember="goToEditMember" apiDeleteMember="deleteMember" apiCancel="cancelUserCreation"}}
     </div>
 </div>
 {{/each}}

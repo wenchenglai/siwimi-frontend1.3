@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
             <a class="navbar-brand" href="#">Siwami Parents</a>
@@ -21,7 +21,6 @@
                     {{#link-to 'question'}}Q & A{{/link-to}}
                 </li>
                 <li class="dropdown">
-                    
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         Connect<span class="caret"></span>
                     </a>
@@ -31,7 +30,13 @@
                     </ul>
                 </li>
                 <li>
-                    {{#link-to 'items'}}Items{{/link-to}}
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Listing<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>{{#link-to 'item.browse'}}Browse{{/link-to}}</li>
+                        <li>{{#link-to 'item.my'}}My Listings{{/link-to}}</li>
+                    </ul>
                 </li>
                 <li>
                     {{#link-to 'feedback.new'}}Feedback{{/link-to}}
@@ -63,7 +68,6 @@
     </div>
 </nav>
 <div class="container-fluid">
-    <br /><br /><br /><br />
     <div {{bind-attr class=":row :row-xs-height showAlert::collapse" }}>
         <div class="col-xs-12">
             {{alert-bar title=alertTitle message=alertMessage type=alertType closeAlert="closeAlert" }}

@@ -1,0 +1,141 @@
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>Title:</label>
+    </div>
+    <div class="col-xs-10 col-md-6">
+        {{input class="form-control" placeholder="Item Name" value=title}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>Description:</label>
+    </div>
+    <div class="col-xs-10 col-md-6">
+        {{textarea class="form-control" placeholder="Description" rows="5" cols="60" value=description}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>
+            Upload Image:
+        </label>
+    </div>
+    <div class="col-xs-10 col-md-6">
+        {{view 'file-upload-view' contentBinding="imageData"}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>Price:</label>
+    </div>
+    <div class="col-xs-10 col-md-6">
+        {{input class="form-control" placeholder="Price in" value=price}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>Status:</label>
+    </div>
+    <div class="col-xs-10 col-md-6">
+        <div class="control-group">
+            <div class="btn-group" data-toggle="buttons-radio">
+
+                {{#view "radio-button-view" name="active" selectionBinding="status" value="active"}}Active{{/view}}
+
+                {{#view "radio-button-view" name="sold" selectionBinding="status" value="sold"}}Sold{{/view}}
+
+                {{#view "radio-button-view" name="swapped" selectionBinding="status" value="swapped"}}Swapped{{/view}}
+
+                {{#view "radio-button-view" name="gaveaway" selectionBinding="status" value="gaveaway"}}Gave Away{{/view}}
+
+                {{#view "radio-button-view" name="inactive" selectionBinding="status" value="inactive"}}Inactive{{/view}}
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>Type:</label>
+    </div>
+    <div class="col-xs-10 col-md-6">
+        <div class="control-group">
+            <div class="btn-group" data-toggle="buttons-radio">
+
+                {{#view "radio-button-view" name="toy" selectionBinding="type" value="toy" }}Toy{{/view}}
+
+                {{#view "radio-button-view" name="cloth" selectionBinding="type" value="cloth" }}Cloth{{/view}}
+
+                {{#view "radio-button-view" name="book" selectionBinding="type" value="book"}}Book{{/view}}
+
+                {{#view "radio-button-view" name="furniture" selectionBinding="type" value="furniture" }}Furniture{{/view}}
+
+                {{#view "radio-button-view" name="other" selectionBinding="type" value="other" }}Other{{/view}}
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>Condition:</label>
+    </div>
+    <div class="col-xs-10 col-md-6">
+        <div class="control-group">
+            <div class="btn-group" data-toggle="buttons-radio">
+
+                {{#view "radio-button-view" name="new" selectionBinding="condition" value="new"}}New{{/view}}
+
+                {{#view "radio-button-view" name="used" selectionBinding="condition" value="used"}}Used{{/view}}
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>Size:</label>
+    </div>
+    <div class="col-xs-10 col-md-6">
+        {{input class="form-control" placeholder="Size" value=size}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>Age:</label>
+    </div>
+    <div class="col-xs-10 col-md-6">
+        From {{view "select" class="btn btn-default dropdown-toggle" valueBinding="fromAge" content=allAges placeholder="Age"}}
+        To {{view "select" class="btn btn-default dropdown-toggle" valueBinding="toAge" content=allAges}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>Width:</label>
+    </div>
+    <div class="col-xs-10 col-md-6">
+        {{input class="form-control" placeholder="Width" value=width}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>Length:</label>
+    </div>
+    <div class="col-xs-10 col-md-6">
+        {{input class="form-control" placeholder="Length" value=length}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>Height:</label>
+    </div>
+    <div class="col-xs-10 col-md-6">
+        {{input class="form-control" placeholder="Height" value=height}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-10 col-xs-offset-2 col-md-6 col-md-offset-1">
+        <button type="button" class="btn btn-primary btn-sm" {{action "save" }} {{bind-attr disabled=disabled}}>Save</button>
+        <button type="button" class="btn btn-link btn-sm" {{action "cancel" }}>Cancel</button>
+    </div>
+</div>

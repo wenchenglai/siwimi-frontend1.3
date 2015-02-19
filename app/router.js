@@ -22,12 +22,6 @@ Router.map(function() {
       });
   });
 
-  this.resource('items', function () {
-      this.route('search');
-      this.route('myitems');
-      this.route('additem');
-  });
-
   this.resource('activity', function () {
       this.route('search');
       this.route('calendar');
@@ -66,6 +60,14 @@ Router.map(function() {
 
   this.resource("feedback", function() {
     this.route("new");
+  });
+
+  this.resource("item", function() {
+    this.route("browse");
+    this.route("my");
+    this.route("new");
+    this.route("show", { path: ':item_id' });
+    this.route("edit", { path: ':item_id/edit' });
   });
 });
 

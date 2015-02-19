@@ -47,7 +47,25 @@
         </label>
     </div>
     <div class="col-xs-10">
-        {{input class="edit_box" size="40" value=gender}}
+        <div class="control-group">
+            <div class="btn-group" data-toggle="buttons-radio">
+
+                {{#view "radio-button-view" name="male" selectionBinding="gender" value="male" }}Male{{/view}}
+
+                {{#view "radio-button-view" name="female" selectionBinding="gender" value="female" }}Female{{/view}}
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2">
+        <label>
+            Birthday:
+        </label>
+    </div>
+    <div class="col-xs-10 col-md-2">
+        {{bs-datetimepicker date=birthdayMoment format='YYYY-MM-DD' width="200"}}
     </div>
 </div>
 <div class="row row-xs-height">

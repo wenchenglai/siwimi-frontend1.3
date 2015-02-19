@@ -1,0 +1,52 @@
+<h2>Search for items that you are looking fors</h2>
+
+<div class="row row-xs-height">
+    <div class="col-lg-4">
+        <label>
+            Search for:
+            {{input class="form-control" placeholder="e.g Toys" value=queryText}}
+        </label>
+    </div>
+    <div class="col-lg-4">
+        Within the distance of {{view "select" class="btn btn-default dropdown-toggle" valueBinding="distance" content=distances placeholder="Distance"}}
+    </div>
+</div>
+
+<div class="row row-xs-height">
+    <div class="col-lg-12">
+        <div class="input-group">
+            <button type="button" class="btn btn-primary btn-sm" {{action "search" }}>Search</button>
+        </div>
+    </div>
+</div>
+
+<div class="row row-xs-height">
+    <div class="col-lg-12">
+        <table class="table">
+            <thead>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Posted Date</th>
+            <th>Age Range</th>
+            </thead>
+            <tbody>
+                {{#each}}
+                <tr>
+                    <td><img {{bind-attr src=avatarUrl}} alt="Avatar"></td>
+                    <td>{{name}}</td>
+                    <td>{{description}}</td>
+                    <td>{{price}}</td>
+                    <td>{{createdDate}}</td>
+                    <td>{{ageRange}}</td>
+                    <td>
+                        <a href="#" {{action "openEditItemModal" "items.additem" id }}>Edit</a>&nbsp;|&nbsp;
+                        <a href="#" {{action "openDeleteDialog" id target="view" bubbles=false }}>Delete</a>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

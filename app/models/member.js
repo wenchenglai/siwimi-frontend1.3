@@ -63,5 +63,13 @@ export default DS.Model.extend({
 
     fullName: function() {
         return this.get('firstName') + ' ' + this.get('lastName');
-    }.property('firstName', 'lastName')
+    }.property('firstName', 'lastName'),
+
+    availableImage: function() {
+        if (!Em.isEmpty(this.get('imageData'))) {
+            return this.get('imageData');
+        } else {
+            return this.get('avatarUrl');
+        }
+    }.property('avatarUrl', 'imageData')
 });

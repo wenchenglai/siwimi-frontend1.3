@@ -1,0 +1,68 @@
+<h2>My Items</h2>
+
+<div class="row row-xs-height">
+    <div class="col-xs-12">
+        {{#link-to 'item.new' class="btn btn-primary"}}Add New Item{{/link-to}}
+    </div>
+</div>
+
+<div class="row row-xs-height">
+    <div class="col-xs-12">
+        <div class="btn-group" data-toggle="buttons">
+            <a class="btn btn-info active" data-toggle="tab" {{ action 'loadData' 'active' }}>
+                <input type="radio">Active
+            </a>
+            <a class="btn btn-info" data-toggle="tab" {{ action 'loadData' 'sold' }}>
+                <input type="radio">Sold
+            </a>
+            <a class="btn btn-info" data-toggle="tab" {{ action 'loadData' 'swapped' }}>
+                <input type="radio">Swapped
+            </a>
+            <a class="btn btn-info" data-toggle="tab" {{ action 'loadData' 'gaveaway' }}>
+                <input type="radio">Gave Away
+            </a>
+            <a class="btn btn-info" data-toggle="tab" {{ action 'loadData' 'inactive' }}>
+                <input type="radio">Inactive
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="row row-xs-height">
+    <div class="col-xs-12">
+        <!-- Table -->
+        <table class="table">
+            <thead>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Posted Date</th>
+            <th>Age Range</th>
+            </thead>
+            <tbody>
+                {{#each item in model}}
+                <tr>
+                    <td>{{view "previewImage" width="60" height="60" srcBinding="item.availableImage"}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.price}}</td>
+                    <td>{{item.createdDate}}</td>
+                    <td>{{item.ageRange}}</td>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="...">
+                            {{#link-to 'item.show' item class="btn btn-default"}}Detail{{/link-to}}
+                            <button type="button" class="btn btn-default" {{action 'openDeleteDialog' item.id target="view" bubbles="false" }}>Delete</button>
+                        </div>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+
+        Total Price: {{totalPrice}}
+    </div>
+</div>
+<div id="dialog-confirm-delete" title="Delete a family member?">
+    <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>This item will be deleted. Are you sure?</p>
+</div>
+
+

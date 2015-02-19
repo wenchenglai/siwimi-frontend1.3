@@ -1,7 +1,7 @@
 {{#with model as family}}
 <div class="panel panel-default">
     <!-- Default panel contents -->
-    <div class="panel-heading">{{family.familyName}} | {{family.cityState}} | {{family.zipcode}}</div>
+    <div class="panel-heading">{{family.familyName}} | {{family.cityState}} | {{family.zipCode}}</div>
     <div class="panel-body">
         <div class="btn-group" role="group" aria-label="...">
             <button type="button" class="btn btn-default" {{action 'addMember' family.id }}>Add New Member</button>

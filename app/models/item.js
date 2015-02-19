@@ -1,7 +1,7 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-    name: DS.attr('string'),
+    title: DS.attr('string'),
     description: DS.attr('string'),
     price: DS.attr('number'),
     size: DS.attr('string'),
@@ -10,12 +10,12 @@ export default DS.Model.extend({
     height: DS.attr('number'),
     fromAge: DS.attr('number'),
     toAge: DS.attr('number'),
-    condition: DS.attr('string'),
-    type: DS.attr('string'),
-    status: DS.attr('string'),
+    condition: DS.attr('string'), // new, used
+    type: DS.attr('string'), // toy, cloth, book, furniture, other
+    status: DS.attr('string'), // active, inactive, sold, swapped, gave away
     imageUrl: DS.attr('string'),
     imageData: DS.attr('string'),
-    seller: DS.belongsTo('member'),
+    creator: DS.belongsTo('member'),
     buyer: DS.belongsTo('member'),
     createdDate: DS.attr('date'),
     viewCount: DS.attr('number'),
@@ -23,5 +23,15 @@ export default DS.Model.extend({
 
     ageRange: function () {
         return this.get('fromAge') + ' to ' + this.get('toAge');
-    }.property('fromAge', 'toAge')  
+    }.property('fromAge', 'toAge'),
+
+    availableImage: function() {
+        if (!Em.isEmpty(this.get('imageData'))) {
+            return this.get('imageData');
+        } else if (!Em.isEmpty(this.get('imageUrl'))) {
+            return this.get('imageUrl');
+        } else {
+            return '/assets/images/emptyproduct.png';
+        }
+    }.property('imageUrl', 'imageData')
 });
