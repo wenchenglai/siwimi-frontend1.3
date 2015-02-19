@@ -9,3 +9,103 @@
         <div class="fb-share-button" {{bind-attr data-href="tipUrl" }} data-layout="button_count"></div>
     </div>
 </div>
+<div class="row row-xs-height">
+    <div class="col-xs-12 col-md-4">
+		<img {{bind-attr src=availableImage}} height="200" width="200" style="margin-bottom:-15px; margin-top:-15px" alt="item" />
+    </div>
+    <div class="col-xs-12 col-md-8">
+		<div class="row row-xs-height">
+		    <div class="col-xs-2 col-md-1">
+		        <label>Title:</label>
+		    </div>
+		    <div class="col-xs-10 col-md-6">
+		        <h1>{{title}}</h1>
+		    </div>
+		</div>
+		<div class="row row-xs-height">
+		    <div class="col-xs-12">
+		        <hr>
+		    </div>
+		</div>
+		<div class="row row-xs-height">
+		    <div class="col-xs-2 col-md-1">
+		        <label>Price:</label>
+		    </div>
+		    <div class="col-xs-10 col-md-6">
+		        {{price}}
+		    </div>
+		</div>		
+		<div class="row row-xs-height">
+		    <div class="col-xs-2 col-md-1">
+		        <label>Description:</label>
+		    </div>
+		    <div class="col-xs-10 col-md-6">
+		        {{description}}
+		    </div>
+		</div>
+		<div class="row row-xs-height">
+		    <div class="col-xs-2 col-md-1">
+		        <label>Status:</label>
+		    </div>
+		    <div class="col-xs-10 col-md-6">
+		        {{status}}
+		    </div>
+		</div>
+		<div class="row row-xs-height">
+		    <div class="col-xs-2 col-md-1">
+		        <label>Type:</label>
+		    </div>
+		    <div class="col-xs-10 col-md-6">
+		 		{{type}}
+		    </div>
+		</div>
+		<div class="row row-xs-height">
+		    <div class="col-xs-2 col-md-1">
+		        <label>Condition:</label>
+		    </div>
+		    <div class="col-xs-10 col-md-6">
+				{{condition}}
+		    </div>
+		</div>
+		<div class="row row-xs-height">
+		    <div class="col-xs-2 col-md-1">
+		        <label>Size:</label>
+		    </div>
+		    <div class="col-xs-10 col-md-6">
+		        {{size}}
+		    </div>
+		</div>
+		<div class="row row-xs-height">
+		    <div class="col-xs-2 col-md-1">
+		        <label>Age:</label>
+		    </div>
+		    <div class="col-xs-10 col-md-6">
+		        From {{fromAge}} to {{toAge}}
+		    </div>
+		</div>
+		<div class="row row-xs-height">
+		    <div class="col-xs-2 col-md-1">
+		        <label>Width:</label>
+		    </div>
+		    <div class="col-xs-10 col-md-6">
+		        {{width}}
+		    </div>
+		</div>
+		<div class="row row-xs-height">
+		    <div class="col-xs-2 col-md-1">
+		        <label>Length:</label>
+		    </div>
+		    <div class="col-xs-10 col-md-6">
+		        {{length}}
+		    </div>
+		</div>
+		<div class="row row-xs-height">
+		    <div class="col-xs-2 col-md-1">
+		        <label>Height:</label>
+		    </div>
+		    <div class="col-xs-10 col-md-6">
+		        {{height}}
+		    </div>
+		</div>    	
+    </div>
+</div>

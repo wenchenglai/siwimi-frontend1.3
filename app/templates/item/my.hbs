@@ -33,8 +33,9 @@
         <!-- Table -->
         <table class="table">
             <thead>
-            <th>Image</th>
-            <th>Name</th>
+            <th></th>
+            <th>Title</th>
+            <th>Type</th>
             <th>Price</th>
             <th>Posted Date</th>
             <th>Age Range</th>
@@ -43,9 +44,10 @@
                 {{#each item in model}}
                 <tr>
                     <td>{{view "previewImage" width="60" height="60" srcBinding="item.availableImage"}}</td>
-                    <td>{{item.name}}</td>
+                    <td>{{item.title}}</td>
+                    <td>{{item.type}}</td>
                     <td>{{item.price}}</td>
-                    <td>{{item.createdDate}}</td>
+                    <td>{{formatted-date item.createdDate 'LL'}}</td>
                     <td>{{item.ageRange}}</td>
                     <td>
                         <div class="btn-group" role="group" aria-label="...">
