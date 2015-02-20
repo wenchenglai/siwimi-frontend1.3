@@ -17,5 +17,25 @@ export default DS.Model.extend({
     like: DS.attr('number'),
     viewCount: DS.attr('number'),
     location: DS.attr('array'),
-    isDestroyed: DS.attr('boolean')  
+    isDestroyed: DS.attr('boolean'),
+
+    // we use bs-datetimepicker addon which takes moment.js date type, so we must do some conversion when binding
+    fromTimeMoment: function(key, value, previousValue) {
+        // setter
+        if (arguments.length > 1) {
+            this.set('fromTime', value.toDate());
+        }
+        // getter
+        return this.get('fromTime');
+    }.property('fromTime'),
+
+    // we use bs-datetimepicker addon which takes moment.js date type, so we must do some conversion when binding
+    toTimeMoment: function(key, value, previousValue) {
+        // setter
+        if (arguments.length > 1) {
+            this.set('toTime', value.toDate());
+        }
+        // getter
+        return this.get('toTime');
+    }.property('toTime'),
 });

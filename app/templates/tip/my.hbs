@@ -38,7 +38,7 @@
                     <td>{{tip.titleReduced}}</td>
                     <td>{{tip.descriptionReduced}}</td>
                     <td>{{tip.type}}</td>
-                    <td>{{tip.expiredDateShortDateString}}</td>
+                    <td>{{formatted-date tip.expiredDate 'LL'}}</td>
                     <td>
                         {{#link-to 'tip.show' tip}}Detail{{/link-to}}
                         &nbsp;|&nbsp;

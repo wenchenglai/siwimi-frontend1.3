@@ -1,41 +1,44 @@
-<h2>My Listings</h2>
+<h2>Search for events that you are looking for</h2>
 
 <div class="row row-xs-height">
-    <div class="col-xs-12">
-        {{#link-to 'item.new' class="btn btn-primary"}}Add New Item{{/link-to}}
+    <div class="col-xs-12 col-md-4">
+        <label>
+            Search for:
+            {{input class="form-control" placeholder="e.g Dancing Babies" value=queryText}}
+        </label>
+    </div>
+    <div class="col-xs-12 col-md-4">
+        <label>
+            Time:
+            {{view "select" class="btn btn-default dropdown-toggle" valueBinding=period content=periods placeholder="Time"}}
+        </label>
+        From
+    </div>
+    <div class="col-xs-12 col-md-4">
+        <label>
+            Within the distance of
+            {{view "select" class="btn btn-default dropdown-toggle" valueBinding=distance content=distances placeholder="Distance"}}
+        </label>
     </div>
 </div>
 
 <div class="row row-xs-height">
-    <div class="col-xs-12">
-        <div class="btn-group" data-toggle="buttons">
-            <a class="btn btn-info active" data-toggle="tab" {{ action 'loadData' 'active' }}>
-                <input type="radio">Active
-            </a>
-            <a class="btn btn-info" data-toggle="tab" {{ action 'loadData' 'sold' }}>
-                <input type="radio">Sold
-            </a>
-            <a class="btn btn-info" data-toggle="tab" {{ action 'loadData' 'swapped' }}>
-                <input type="radio">Swapped
-            </a>
-            <a class="btn btn-info" data-toggle="tab" {{ action 'loadData' 'gaveaway' }}>
-                <input type="radio">Gave Away
-            </a>
-            <a class="btn btn-info" data-toggle="tab" {{ action 'loadData' 'inactive' }}>
-                <input type="radio">Inactive
-            </a>
+    <div class="col-xs-12 col-md-4">
+        <div class="input-group">
+            <button type="button" class="btn btn-primary" {{action "search" }}>Search</button>
         </div>
     </div>
 </div>
 
+{{#if showResult }}
 <div class="row row-xs-height">
     <div class="col-xs-12">
-        <!-- Table -->
+        {{#if model.length}}
         <table class="table">
             <thead>
             <th></th>
-            <th>Title</th>
-            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
             <th>Price</th>
             <th>Posted Date</th>
             <th>Age Range</th>
@@ -59,12 +62,9 @@
                 {{/each}}
             </tbody>
         </table>
-
-        Total Price: {{totalPrice}}
+        {{else}}
+        There is no data
+        {{/if}}
     </div>
 </div>
-<div id="dialog-confirm-delete" title="Delete a family member?">
-    <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>This item will be deleted. Are you sure?</p>
-</div>
-
-
+{{/if}}

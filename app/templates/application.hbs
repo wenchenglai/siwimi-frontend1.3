@@ -15,7 +15,13 @@
                     </ul>
                 </li>
                 <li>
-                    {{#link-to 'activity'}}Activities{{/link-to}}
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Activity<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>{{#link-to 'activity.browse'}}Browse{{/link-to}}</li>
+                        <li>{{#link-to 'activity.my'}}My Activities{{/link-to}}</li>
+                    </ul>
                 </li>
                 <li>
                     {{#link-to 'question'}}Q & A{{/link-to}}

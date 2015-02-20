@@ -1,7 +1,6 @@
 import Ember from 'ember';
-import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin';
 
-export default Ember.Route.extend(AuthenticatedRouteMixin, {
+export default Ember.Route.extend({
     afterModel: function(model, transition) {
         if (model.get('isDirty')) {
             model.rollback();
@@ -13,14 +12,14 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
             var self = this,
                 model = self.currentModel;
 
-            model.save().then(function(item) {
-                self.transitionTo('item.show', item);
+            model.save().then(function(obj) {
+                self.transitionTo('activity.show', obj);
             });
 
         },
 
         cancel: function() {
-            this.transitionTo('item.show', this.currentModel);
+            this.transitionTo('activity.show', this.currentModel);
         }
     }
 });

@@ -22,8 +22,14 @@ export default DS.Model.extend({
     location: DS.attr('array'),
     isFavorite: DS.attr('boolean'),
 
-    expiredDateShortDateString: function () {
-        return moment(this.get('expiredDate')).format('MMM d, YYYY');
+    // we use bs-datetimepicker addon which takes moment.js date type, so we must do some conversion when binding
+    expiredDateMoment: function(key, value, previousValue) {
+        // setter
+        if (arguments.length > 1) {
+            this.set('expiredDate', value.toDate());
+        }
+        // getter
+        return this.get('expiredDate');
     }.property('expiredDate'),
 
     titleReduced: function () {

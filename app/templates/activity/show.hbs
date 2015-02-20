@@ -1,0 +1,86 @@
+<div class="row row-xs-height">
+    <div class="col-xs-2">
+        {{#link-to 'activity.my'}}<< back to list{{/link-to}}
+    </div>
+    <div class="col-xs-2">
+        {{#link-to 'activity.edit' id}}Edit{{/link-to}}
+    </div>
+    <div class="col-xs-4">
+        <div class="fb-share-button" {{bind-attr data-href="tipUrl" }} data-layout="button_count"></div>
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>Title:</label>
+    </div>
+    <div class="col-xs-10 col-md-6">
+        {{title}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>Web URL:</label>
+    </div>
+    <div class="col-xs-10 col-md-6">
+        {{url}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>Description:</label>
+    </div>
+    <div class="col-xs-10 col-md-6">
+        {{description}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>Date:</label>
+    </div>
+    <div class="col-xs-10 col-md-6">
+        From:
+        {{fromTime}}
+        To:
+        {{toTime}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>Address:</label>
+    </div>
+    <div class="col-xs-10 col-md-6">
+        {{address}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>City:</label>
+    </div>
+    <div class="col-xs-10 col-md-6">
+        {{city}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>State:</label>
+    </div>
+    <div class="col-xs-10 col-md-6">
+        {{state}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>Zip Code:</label>
+    </div>
+    <div class="col-xs-10 col-md-6">
+        {{zipCode}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>Type:</label>
+    </div>
+    <div class="col-xs-10 col-md-6">
+        {{type}}
+    </div>
+</div>

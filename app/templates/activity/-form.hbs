@@ -1,0 +1,89 @@
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label></label>
+    </div>
+    <div class="col-xs-10 col-md-6">
+        
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>Title:</label>
+    </div>
+    <div class="col-xs-10 col-md-6">
+        {{input class="edit_box" value=title}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>Web URL:</label>
+    </div>
+    <div class="col-xs-10 col-md-6">
+        {{input class="edit_box" value=url}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>Description:</label>
+    </div>
+    <div class="col-xs-10 col-md-6">
+        {{textarea class="edit_box" rows="5" cols="60" value=description}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>Date:</label>
+    </div>
+    <div class="col-xs-10 col-md-6">
+        From:
+        {{bs-datetimepicker date=fromTimeMoment format='YYYY-MM-DD'}}
+        To:
+        {{bs-datetimepicker date=toTimeMoment format='YYYY-MM-DD'}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>Address:</label>
+    </div>
+    <div class="col-xs-10 col-md-6">
+        {{input class="edit_box" value=address}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>City:</label>
+    </div>
+    <div class="col-xs-10 col-md-6">
+        {{input class="edit_box" value=city}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>State:</label>
+    </div>
+    <div class="col-xs-10 col-md-6">
+        {{input class="edit_box" value=state}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>Zip Code:</label>
+    </div>
+    <div class="col-xs-10 col-md-6">
+        {{input class="edit_box" value=zipCode}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>Type:</label>
+    </div>
+    <div class="col-xs-10 col-md-6">
+        {{view "select" class="btn btn-default dropdown-toggle" prompt="Select Type" content=types value=type}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-10 col-xs-offset-2 col-md-6 col-md-offset-1">
+        <button type="button" class="btn btn-primary btn-sm" {{action "save" }} {{bind-attr disabled=disabled}}>Save</button>
+        <button type="button" class="btn btn-link btn-sm" {{action "cancel" }}>Cancel</button>
+    </div>
+</div>

@@ -21,7 +21,7 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
                     if (title) {
                         self.controller._toggleAlert(true, title, message, 'alert-danger');
                     } else {
-                        self.controller._toggleAlert(true, 'Error', 'ERR_CONNECTION_REFUSED', 'alert-danger');
+                        self.controller._toggleAlert(true, 'Error', 'ERR_CONNECTION_REFUSED - The backend server is not set up properly', 'alert-danger');
                     }
                 });
                 return false;
