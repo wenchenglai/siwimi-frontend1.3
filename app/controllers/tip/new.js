@@ -13,6 +13,10 @@ export default Ember.ObjectController.extend({
         }
     ),
 
+    disabled: function () {
+        return Ember.isEmpty(this.get('title')) || Ember.isEmpty(this.get('description')) || Ember.isEmpty(this.get('type'));
+    }.property('title', 'description', 'type'),
+
     _getPreviewFromServer: function (url, options) {
         return new Ember.RSVP.Promise(function (resolve, reject) {
             options = options || {};
@@ -32,18 +36,13 @@ export default Ember.ObjectController.extend({
     actions: {
         save: function() {
             var self = this,
-            	model = self.get('model'),
-            	userId = self.get('session.id'),
-                expiredDate = model.get('expiredDate');
+                model = self.get('model'),
+                userId = self.get('session.id');
             
             if (self.get('isValid')) {
                 self.store.find('member', userId).then(function(member) {
                     model.set('createdDate', new Date());
                     model.set('creator', member);
-
-                    if (expiredDate) {
-                        model.set('expiredDate', expiredDate.toDate());
-                    }
 
                     model.save().then(function(tip) {
                         self.transitionToRoute('tip.show', tip);

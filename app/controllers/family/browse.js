@@ -24,6 +24,8 @@ export default Ember.Controller.extend(CommonDataMixin, {
 
             self.store.find('family', query).then(function(families) {
                 self.set('model', families.content);
+            }, function(error) {
+                self.send('error', error);
             });
         }
     }

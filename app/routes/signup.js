@@ -2,9 +2,6 @@ import Ember from 'ember';
 import SessionSetupMixin from '../mixins/session-setup';
 
 export default Ember.Route.extend(SessionSetupMixin, {
-    showError: false,
-    errorMessage: '',
-
     actions: {
         signup: function () {
             var self = this,
@@ -36,17 +33,14 @@ export default Ember.Route.extend(SessionSetupMixin, {
                         self._setProfilePictureInSession(session, session.get('user'));
 
                     }, function (error) {
-                        self.get('controller').set('errorMessage', 'Login Failed. Error Message: ' + error.toString());
-                        self.get('controller').set('showError', true);
+                        self.send('error', { name: 'Login Error', message: "Failed to login" });
                     });
 
                 }, function(error) {
-                    self.get('controller').set('errorMessage', "Duplicated email.  Error Message: " + error.toString());
-                    self.get('controller').set('showError', true);
+                    self.send('error', error);
                 });
             } else {
-                self.get('controller').set('errorMessage', "Passwords don't match.");
-                self.get('controller').set('showError', true);
+                self.send('error', { name: 'Data Error', message: "Passwords don't match." });
             }
         },
     }

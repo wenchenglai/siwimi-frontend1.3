@@ -24,7 +24,7 @@ module.exports = function(environment) {
         'style-src': "'self' 'unsafe-inline' use.typekit.net",
         'img-src': "'self' data: fbcdn-profile-a.akamaihd.net",
         'frame-src': "accounts.google.com static.ak.facebook.com s-static.ak.facebook.com www.facebook.com",
-        'connect-src': "localhost:8088 maps.googleapis.com"
+        'connect-src': "199.223.236.115:8088 localhost:8088 maps.googleapis.com"
     }
   };
 

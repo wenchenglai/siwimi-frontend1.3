@@ -36,8 +36,11 @@ export default Base.extend({
                         });
                     });
                 } else {
-                    reject(data.auth);
-                }
+                    reject({
+                        name: 'Login failed',
+                        message: "email or password don't match"
+                    });
+                };
             });
         });
     },
