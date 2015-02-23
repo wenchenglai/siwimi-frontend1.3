@@ -1,0 +1,53 @@
+<h2>My Questions</h2>
+
+<div class="row row-xs-height">
+    <div class="col-xs-12">
+        <div class="btn-group" data-toggle="buttons">
+            <a class="btn btn-info active" data-toggle="tab" {{ action 'loadData' 'open' }}>
+                <input type="radio">Open
+            </a>
+            <a class="btn btn-info" data-toggle="tab" {{ action 'loadData' 'closed' }}>
+                <input type="radio">Closed
+            </a>
+        </div>
+        <div class="btn-group" data-toggle="buttons">
+            <a class="" data-toggle="tab" {{ action 'loadIsAnswered' 'answered' }}>
+                <input type="radio">Answered
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="row row-xs-height">
+    <div class="col-xs-12">
+        <table class="table">
+            <thead>
+            <th>Question</th>
+            <th>Asked Date</th>
+            <th>Answers</th>
+            <th>Status</th>
+            </thead>
+            <tbody>
+                {{#each question in model}}
+                <tr>
+                    <td>{{question.title}}</td>
+                    <td>{{formatted-date question.createdDate 'LL'}}</td>
+                    <td>{{question.answers.length}}</td>
+                    <td>{{question.status}}</td>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="...">
+                            {{#link-to 'questions.show' question class="btn btn-default"}}Detail{{/link-to}}
+                            <button type="button" class="btn btn-default" {{action 'openDeleteDialog' question.id target="view" bubbles="false" }}>Delete</button>
+                        </div>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div id="dialog-confirm-delete" title="Delete an activity?">
+    <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>This question will be deleted. Are you sure?</p>
+</div>
+

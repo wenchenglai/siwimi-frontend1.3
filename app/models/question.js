@@ -7,8 +7,16 @@ export default DS.Model.extend({
     createdDate: DS.attr('date'),
     isSolved: DS.attr('boolean'),
     status: DS.attr('string'),
-    like: DS.attr('number'),
+    answers: DS.hasMany('feedback', { embedded: 'always' }),
     viewCount: DS.attr('number'),
     isDestroyed: DS.attr('boolean'),
-    answers: DS.hasMany('answer', { embedded: 'always' })  
+
+    // parameters set by backend ONLY
+    voteUp: DS.attr('number'),
+    voteDown: DS.attr('number'),
+    isFavorite: DS.attr('boolean'),
+
+    cityState: DS.attr('string'),
+    zipCode: DS.attr('string'),
+    location: DS.attr('array')
 });

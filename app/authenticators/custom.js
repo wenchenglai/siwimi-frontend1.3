@@ -26,7 +26,7 @@ export default Base.extend({
                 })
             }
             ).then(function (data) {
-                if (data.auth === 'success' && data.member.id) {
+                if (data[0].auth === 'success' && data.member.id) {
                     Ember.run(function () {
                         self.get('container').lookup('store:main').find('member', data.member.id).then(function(user) {
                             resolve({
@@ -36,11 +36,30 @@ export default Base.extend({
                         });
                     });
                 } else {
+                    var name = "Unknown error",
+                        message = "Unknown error",
+                        returnData = data[0],
+                        jqXHR = data[2];
+
+                    if (Ember.isEmpty(returnData)) {
+                        if (jqXHR.promise) {
+                            if (jqXHR.statusText === "OK") {
+                                name = "Server Error";
+                                message = "Back end server couldn't return right data, possibly database is not running?";
+                            }
+                        }
+                    } else if (returnData.auth === "fail") {
+                        name = 'Login failed';
+                        message = "email or password don't match";
+                    }
+
                     reject({
-                        name: 'Login failed',
-                        message: "email or password don't match"
+                        name: name,
+                        message: message
                     });
                 };
+            }, function(error) {
+                reject(error[0]);
             });
         });
     },
@@ -61,10 +80,14 @@ export default Base.extend({
             options = options || {};
 
             options.success = function (data) {
-                Ember.run(null, resolve, data);
+                Ember.run(null, resolve, arguments);
             };
 
             options.error = function () {
+                Ember.run(null, reject, arguments);
+            };
+
+            options.fail = function () {
                 Ember.run(null, reject, arguments);
             };
 

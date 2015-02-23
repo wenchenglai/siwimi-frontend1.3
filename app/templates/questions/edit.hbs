@@ -1,0 +1,30 @@
+<div class="row row-xs-height">
+    <div class="col-xs-12">
+        <label>
+            Question:
+            {{input class="edit_box" value=title}}
+        </label>
+    </div>
+    <div class="col-xs-12">
+        <label for="lblQDescription">
+            Description
+        </label>
+        {{textarea id="lblQDescription" cols="60" rows="5"  class="form-control" value=description}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-12">
+        <label>
+            Post Date: {{createdDate}}
+        </label>
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-10 col-xs-offset-2 col-md-6 col-md-offset-1">
+        <button type="button" class="btn btn-primary btn-sm" {{action "save" }} {{bind-attr disabled=disabled}}>Save</button>
+        <button type="button" class="btn btn-link btn-sm" {{action "cancel" }}>Cancel</button>
+    </div>
+</div>
+
+
+

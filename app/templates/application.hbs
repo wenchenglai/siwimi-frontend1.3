@@ -24,7 +24,14 @@
                     </ul>
                 </li>
                 <li>
-                    {{#link-to 'question'}}Q & A{{/link-to}}
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Q & A<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>{{#link-to 'questions.new'}}Ask{{/link-to}}</li>
+                        <li>{{#link-to 'questions.browse'}}Browse{{/link-to}}</li>
+                        <li>{{#link-to 'questions.my'}}My Questions{{/link-to}}</li>
+                    </ul>
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">

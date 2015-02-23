@@ -10,13 +10,13 @@ export default DS.Model.extend({
     url: DS.attr('string'),
     createdDate: DS.attr('date'),
     expiredDate: DS.attr('date'),
-    voteUp: DS.attr('number'),
-    voteDown: DS.attr('number'),
     type: DS.attr('string'),
     viewCount: DS.attr('number'),
     isDestroyed: DS.attr('boolean'),
 
     // parameters set by backend ONLY
+    voteUp: DS.attr('number'),
+    voteDown: DS.attr('number'),
     cityState: DS.attr('string'),
     zipCode: DS.attr('string'),
     location: DS.attr('array'),

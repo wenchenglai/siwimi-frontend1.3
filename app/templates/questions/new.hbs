@@ -1,0 +1,67 @@
+<div class="row row-xs-height">
+    <div class="col-lg-6">
+        <p>
+            <h2>You can ask specific questions such as:</h2>
+            <br />
+            Which child care center has the best facility in town?
+            <br />
+            Who has used baby tub?
+            <br />
+            I plan to buy a local museum membership, is it worth it?
+            <br />
+            Any recommendation on local pediatricians?
+        </p>
+        <p>
+            We will try to find parents who live in your neighborhood to help you.  Some questions are best answered with local parents.
+            The fact is not every question gets answered, and it's even harder to get great answeres.  We have the following tips that you can follow:
+        </p>
+        <p>
+            <ul>
+                <li>Be on topic</li>
+                <li>Be specific</li>
+                <li>Help others first - if you help others a lot, the karmaic consequnce is your questions will be displayed at more prominent location by our software</li>
+            </ul>
+        </p>
+    </div>
+</div>
+
+<div class="row row-xs-height">
+    <div class="col-xs-12">
+        <label for="lblQ">
+            Type your question here:
+        </label>
+        {{input id="lblQ" class="form-control" value=title}}
+    </div>
+    <div class="col-xs-12">
+        <label for="lblQDescription">
+            If you want, you can give more detail description of your question
+        </label>
+        {{textarea id="lblQDescription" cols="60" rows="5"  class="form-control" value=description}}
+    </div>
+</div>
+
+
+<div class="row row-xs-height">
+    <div class="col-lg-12">
+        <button class="btn btn-primary btn-sm" type="button" class="btn btn-default btn-lg" {{action "save" }} {{bind-attr disabled=disabled}}>Ask My Neighbor</button>
+    </div>
+</div>
+
+<div class="row row-xs-height">
+    <div class="col-lg-12">
+        {{#if asked}}
+        <p>
+            You asked: {{title}}
+        </p>
+        <p>
+            We've sent out your questions to parents who live in your neighborhood.  They will contact you via emails shortly.
+        </p>
+        <p>
+            We'll also search the answers for you by finding the best information from the Internet.  Our search engine and knowledgebase is currently under construction.
+        </p>
+        <p>
+            Meanwhile, you can browse other questions or help out other parents {{#link-to 'questions.browse'}}here{{/link-to}}
+        </p>
+        {{/if}}
+    </div>
+</div>
