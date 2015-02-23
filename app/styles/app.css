@@ -1,5 +1,7 @@
 body {
-    padding-top: 50px;
+    padding-top: 50px; /* needed so content wont overlap with bootstrap's fixed nav bar */
+  
+    margin-bottom: 60px; /* Margin bottom by footer height */
 }
 
 .row-xs-height {
@@ -36,6 +38,17 @@ body {
     width: 42px;
     height: 42px;
     margin-bottom: 15px;
+}
+
+/* Bootstrap Theme example sticky footer*/
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+    text-align: center;
+  background-color: #f5f5f5;
 }
 
 .blog-footer {

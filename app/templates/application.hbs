@@ -1,9 +1,15 @@
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container-fluid">
+    <div class="container">
         <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
             <a class="navbar-brand" href="#">Siwami Parents</a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse in" aria-expanded="true">
+        <div id="navbar" class="navbar-collapse collapse" aria-expanded="true">
             <ul class="nav navbar-nav">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -14,7 +20,7 @@
                         <li>{{#link-to 'tip.my'}}My Tips{{/link-to}}</li>
                     </ul>
                 </li>
-                <li>
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         Activity<span class="caret"></span>
                     </a>
@@ -23,7 +29,7 @@
                         <li>{{#link-to 'activity.my'}}My Activities{{/link-to}}</li>
                     </ul>
                 </li>
-                <li>
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         Q & A<span class="caret"></span>
                     </a>
@@ -42,7 +48,7 @@
                         <li>{{#link-to 'family.my'}}My Family{{/link-to}}</li>
                     </ul>
                 </li>
-                <li>
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         Listing<span class="caret"></span>
                     </a>
@@ -80,7 +86,7 @@
         </div>
     </div>
 </nav>
-<div class="container-fluid">
+<div class="container">
     <div {{bind-attr class=":row :row-xs-height showAlert::collapse" }}>
         <div class="col-xs-12">
             {{alert-bar title=alertTitle message=alertMessage type=alertType closeAlert="closeAlert" }}
@@ -88,10 +94,11 @@
     </div>
     {{outlet}}
 </div>
-
-<footer class="blog-footer">
-    <p>Siwami Parents Network by <a href="http://www.adarp.com" target="_blank">Siwami</a> LLC</p>
-    <p>
-        <a href="#">Back to top</a>
-    </p>
+<footer class="footer">
+    <div class="container">
+        <p>Siwami Parents Network by <a href="http://www.adarp.com" target="_blank">Siwami</a> LLC</p>
+        <p>
+            <a href="#">Back to top</a>
+        </p>
+    </div>
 </footer>
