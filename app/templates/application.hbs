@@ -18,6 +18,7 @@
                     <ul class="dropdown-menu">
                         <li>{{#link-to 'tip.browse' (query-params status="popular" type="deal")}}Browse{{/link-to}}</li>
                         <li>{{#link-to 'tip.my'}}My Tips{{/link-to}}</li>
+                        <li>{{#link-to 'tip.preference'}}My Preference{{/link-to}}</li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -27,6 +28,7 @@
                     <ul class="dropdown-menu">
                         <li>{{#link-to 'activity.browse'}}Browse{{/link-to}}</li>
                         <li>{{#link-to 'activity.my'}}My Activities{{/link-to}}</li>
+                        <li>{{#link-to 'activity.preference'}}My Preference{{/link-to}}</li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -37,6 +39,7 @@
                         <li>{{#link-to 'questions.new'}}Ask{{/link-to}}</li>
                         <li>{{#link-to 'questions.browse'}}Browse{{/link-to}}</li>
                         <li>{{#link-to 'questions.my'}}My Questions{{/link-to}}</li>
+                        <li>{{#link-to 'questions.preference'}}My Preference{{/link-to}}</li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -46,6 +49,7 @@
                     <ul class="dropdown-menu">
                         <li>{{#link-to 'family.browse'}}Browse{{/link-to}}</li>
                         <li>{{#link-to 'family.my'}}My Family{{/link-to}}</li>
+                        <li>{{#link-to 'family.preference'}}My Preference{{/link-to}}</li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -55,6 +59,7 @@
                     <ul class="dropdown-menu">
                         <li>{{#link-to 'item.browse'}}Browse{{/link-to}}</li>
                         <li>{{#link-to 'item.my'}}My Listings{{/link-to}}</li>
+                        <li>{{#link-to 'item.preference'}}My Preference{{/link-to}}</li>
                     </ul>
                 </li>
                 <li>
@@ -98,7 +103,7 @@
     <div class="container">
         <p>Siwami Parents Network by <a href="http://www.adarp.com" target="_blank">Siwami</a> LLC</p>
         <p>
-            <a href="#">Back to top</a>
+            {{#link-to 'index'}}Back to top{{/link-to}}
         </p>
     </div>
 </footer>

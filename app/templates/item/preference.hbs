@@ -1,0 +1,77 @@
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+
+    </div>
+    <div class="col-xs-10 col-md-11">
+        <h1>Listing Preferences</h1>
+        <h2>We'll periodically send you emails that match the preferences below</h2>
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>Types</label>
+    </div>
+    <div class="col-xs-10 col-md-11">
+        <div class="control-group">
+            <div class="btn-group" data-toggle="buttons-radio">
+
+                {{input type="checkbox" checked=prefTipTypeDeal}}Toy
+
+                {{input type="checkbox" checked=prefTipTypeEducation}}Cloth
+
+                {{input type="checkbox" checked=prefTipTypeHealth}}Book
+
+                {{input type="checkbox" checked=prefTipTypeEntertainment}}Furniture
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>Condition</label>
+    </div>
+    <div class="col-xs-10 col-md-11">
+        <div class="control-group">
+            <div class="btn-group" data-toggle="buttons-radio">
+
+                {{input type="checkbox" checked=prefTipTypeDeal}}New
+
+                {{input type="checkbox" checked=prefTipTypeEducation}}Used
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>Cost</label>
+    </div>
+    <div class="col-xs-10 col-md-11">
+        <div class="control-group">
+            <div class="btn-group" data-toggle="buttons-radio">
+
+                {{input type="checkbox" checked=prefTipTypeDeal}}Free
+
+                {{input type="checkbox" checked=prefTipTypeEducation}}Load
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>Keywords</label>
+    </div>
+    <div class="col-xs-10 col-md-11">
+        Please enter keywords for the items you are looking for
+        {{input value=prefTipKeyWords}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-10 col-xs-offset-2 col-md-11 col-md-offset-1">
+        <button type="button" class="btn btn-primary btn-sm" {{action "save" }} {{bind-attr disabled=disabled}}>Save</button>
+        <button type="button" class="btn btn-link btn-sm" {{action "cancel" }}>Cancel</button>
+    </div>
+</div>
+

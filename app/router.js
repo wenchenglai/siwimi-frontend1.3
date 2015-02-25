@@ -23,19 +23,21 @@ Router.map(function() {
   });
 
   this.resource('tip', function () {
-      this.route('browse');
-      this.route('my');
-      this.route('new');
-      this.route('show', { path: ':tip_id' });
-      this.route('edit', { path: ':tip_id/edit' });
+    this.route('browse');
+    this.route('my');
+    this.route('new');
+    this.route('show', { path: ':tip_id' });
+    this.route('edit', { path: ':tip_id/edit' });
+    this.route("preference");
   });
 
   this.resource("family", function() {
-      this.route("browse");    
-      this.route("my");
-      this.route("new");
-      this.route("show", { path: ':family_id' });
-      this.route("edit", { path: ':family_id/edit' });
+    this.route("browse");
+    this.route("my");
+    this.route("new");
+    this.route("show", { path: ':family_id' });
+    this.route("edit", { path: ':family_id/edit' });
+    this.route("preference");
   });
 
   this.resource("member", function() {
@@ -49,22 +51,24 @@ Router.map(function() {
   });
 
   this.resource("item", function() {
-      this.route("browse");
-      this.route("my");
-      this.route("new");
-      this.route("show", { path: ':item_id' });
-      this.route("edit", { path: ':item_id/edit' });
+    this.route("browse");
+    this.route("my");
+    this.route("new");
+    this.route("show", { path: ':item_id' });
+    this.route("edit", { path: ':item_id/edit' });
+    this.route("preference");
   });
 
   this.resource('activity', function () {
-      this.route("browse");
-      this.route('my');
-      this.route("new");
-      this.route("show", { path: ':activity_id' });
-      this.route('edit', { path: ':activity_id/edit' });
-      this.route('search');
-      this.route('calendar');
-      this.route('map');
+    this.route("browse");
+    this.route('my');
+    this.route("new");
+    this.route("show", { path: ':activity_id' });
+    this.route('edit', { path: ':activity_id/edit' });
+    this.route('search');
+    this.route('calendar');
+    this.route('map');
+    this.route("preference");
   });
 
   this.route("questions", function() {
@@ -73,6 +77,7 @@ Router.map(function() {
     this.route("new");
     this.route("show", { path: ':question_id' });
     this.route("edit", { path: ':question_id/edit' });
+    this.route("preference");
   });
 });
 

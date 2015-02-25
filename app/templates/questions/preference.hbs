@@ -1,0 +1,34 @@
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+
+    </div>
+    <div class="col-xs-10 col-md-11">
+        <h1>Question Preferences</h1>
+        <h2>We'll periodically send you emails that match the preferences below</h2>
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>Sources</label>
+    </div>
+    <div class="col-xs-10 col-md-11">
+        {{input type="checkbox" checked=prefQuestionReceiveQuestion}}
+        I am interested in receiving questioing emails from other parents who have questions
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>Keywords</label>
+    </div>
+    <div class="col-xs-10 col-md-11">
+        Type any topic keywords that you are interested, we'll send you periodic emails so you can see questions and answers related to those keywords
+        {{input value=prefQuestionKeyWords}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-10 col-xs-offset-2 col-md-11 col-md-offset-1">
+        <button type="button" class="btn btn-primary btn-sm" {{action "save" }} {{bind-attr disabled=disabled}}>Save</button>
+        <button type="button" class="btn btn-link btn-sm" {{action "cancel" }}>Cancel</button>
+    </div>
+</div>
+
