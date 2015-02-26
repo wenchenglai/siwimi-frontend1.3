@@ -26,9 +26,9 @@ export default Base.extend({
                 })
             }
             ).then(function (data) {
-                if (data[0].auth === 'success' && data.member.id) {
+                if (data[0].auth === 'success' && data[0].member.id) {
                     Ember.run(function () {
-                        self.get('container').lookup('store:main').find('member', data.member.id).then(function(user) {
+                        self.get('container').lookup('store:main').find('member', data[0].member.id).then(function(user) {
                             resolve({
                                 id: user.id,
                                 user: user
