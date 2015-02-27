@@ -1,14 +1,14 @@
 <div class="row row-xs-height">
     <div class="col-xs-2 col-md-1">
-        <label>Title:</label>
+        <label><span class="required">*</span>Title:</label>
     </div>
     <div class="col-xs-10 col-md-6">
-        {{input class="form-control" placeholder="Item Name" value=title}}
+        {{input class="form-control" placeholder="10 words or less" value=title}}
     </div>
 </div>
 <div class="row row-xs-height">
     <div class="col-xs-2 col-md-1">
-        <label>Description:</label>
+        <label><span class="required">*</span>Description:</label>
     </div>
     <div class="col-xs-10 col-md-6">
         {{textarea class="form-control" placeholder="Description" rows="5" cols="60" value=description}}
@@ -29,7 +29,11 @@
         <label>Price:</label>
     </div>
     <div class="col-xs-10 col-md-6">
-        {{input class="form-control" placeholder="Price in" value=price}}
+        <div class="input-group">
+            <div class="input-group-addon">$</div>
+            {{input class="form-control" placeholder="Price in US dollar" value=price size="40"}}
+            <div class="input-group-addon">.00</div>
+        </div>
     </div>
 </div>
 <div class="row row-xs-height">

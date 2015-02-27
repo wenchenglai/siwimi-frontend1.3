@@ -13,6 +13,16 @@
             <ul class="nav navbar-nav">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Connect<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>{{#link-to 'family.browse'}}Browse{{/link-to}}</li>
+                        <li>{{#link-to 'family.my'}}My Family{{/link-to}}</li>
+                        <li>{{#link-to 'family.preference'}}My Preference{{/link-to}}</li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         Tips<span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
@@ -33,6 +43,16 @@
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        Listing<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>{{#link-to 'item.browse'}}Browse{{/link-to}}</li>
+                        <li>{{#link-to 'item.my'}}My Listings{{/link-to}}</li>
+                        <li>{{#link-to 'item.preference'}}My Preference{{/link-to}}</li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         Q & A<span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
@@ -40,26 +60,6 @@
                         <li>{{#link-to 'questions.browse'}}Browse{{/link-to}}</li>
                         <li>{{#link-to 'questions.my'}}My Questions{{/link-to}}</li>
                         <li>{{#link-to 'questions.preference'}}My Preference{{/link-to}}</li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        Connect<span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li>{{#link-to 'family.browse'}}Browse{{/link-to}}</li>
-                        <li>{{#link-to 'family.my'}}My Family{{/link-to}}</li>
-                        <li>{{#link-to 'family.preference'}}My Preference{{/link-to}}</li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        Listing<span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li>{{#link-to 'item.browse'}}Browse{{/link-to}}</li>
-                        <li>{{#link-to 'item.my'}}My Listings{{/link-to}}</li>
-                        <li>{{#link-to 'item.preference'}}My Preference{{/link-to}}</li>
                     </ul>
                 </li>
                 <li>
@@ -70,7 +70,7 @@
                 {{#if session.isAuthenticated}}
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        My Account&nbsp;&nbsp;
+                        {{session.id}}&nbsp;&nbsp;
                         <img {{bind-attr src=session.profilePicture}} height="32" width="32" style="margin-bottom:-15px; margin-top:-15px" alt="avatar" /><span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu">
@@ -99,7 +99,7 @@
     </div>
     {{outlet}}
 </div>
-<footer class="footer">
+<footer class="blog-footer">
     <div class="container">
         <p>Siwami Parents Network by <a href="http://www.adarp.com" target="_blank">Siwami</a> LLC</p>
         <p>

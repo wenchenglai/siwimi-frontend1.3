@@ -1,32 +1,31 @@
 <h2>Search for events that you are looking for</h2>
-
 <div class="row row-xs-height">
-    <div class="col-xs-12 col-md-4">
-        <label>
-            Search for:
-            {{input class="form-control" placeholder="e.g Dancing Babies" value=queryText}}
-        </label>
+    <div class="col-xs-2 col-md-1">
+        <label>Search</label>
     </div>
-    <div class="col-xs-12 col-md-4">
-        <label>
-            Time:
-            {{view "select" class="btn btn-default dropdown-toggle" valueBinding=period content=periods placeholder="Time"}}
-        </label>
-        From
-    </div>
-    <div class="col-xs-12 col-md-4">
-        <label>
-            Within the distance of
-            {{view "select" class="btn btn-default dropdown-toggle" valueBinding=distance content=distances placeholder="Distance"}}
-        </label>
+    <div class="col-xs-10 col-md-6">
+        {{input class="form-control" placeholder="e.g Dancing Babies, Cherry Picking" value=queryText}}
     </div>
 </div>
-
 <div class="row row-xs-height">
-    <div class="col-xs-12 col-md-4">
-        <div class="input-group">
-            <button type="button" class="btn btn-primary" {{action "search" }}>Search</button>
-        </div>
+    <div class="col-xs-2 col-md-1">
+        <label>Within</label>
+    </div>
+    <div class="col-xs-10 col-md-6">
+        {{view "select" class="btn btn-default dropdown-toggle" valueBinding=distance content=distances placeholder="Distance"}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>Time</label>
+    </div>
+    <div class="col-xs-10 col-md-6">
+        {{view "select" class="btn btn-default dropdown-toggle" valueBinding=period content=periods placeholder="Time"}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-10 col-xs-offset-2 col-md-6 col-md-offset-1">
+        <button type="button" class="btn btn-primary btn-sm" {{action "search" }} {{bind-attr disabled=disabled}}>Search</button>
     </div>
 </div>
 

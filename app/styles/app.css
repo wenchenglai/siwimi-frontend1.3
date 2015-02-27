@@ -9,6 +9,10 @@ body {
 	/*display: table-row;*/
 }
 
+.required {
+    color: red;   
+}
+
 .bold {
     font-weight: bold;
 }

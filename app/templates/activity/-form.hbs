@@ -8,10 +8,18 @@
 </div>
 <div class="row row-xs-height">
     <div class="col-xs-2 col-md-1">
-        <label>Title:</label>
+        <label><span class="required">*</span>Title:</label>
     </div>
     <div class="col-xs-10 col-md-6">
-        {{input class="edit_box" value=title}}
+        {{input class="edit_box" placeholder="10 words or less" value=title}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label><span class="required">*</span>Description:</label>
+    </div>
+    <div class="col-xs-10 col-md-6">
+        {{textarea class="edit_box" rows="5" cols="60" value=description}}
     </div>
 </div>
 <div class="row row-xs-height">
@@ -20,14 +28,6 @@
     </div>
     <div class="col-xs-10 col-md-6">
         {{input class="edit_box" value=url}}
-    </div>
-</div>
-<div class="row row-xs-height">
-    <div class="col-xs-2 col-md-1">
-        <label>Description:</label>
-    </div>
-    <div class="col-xs-10 col-md-6">
-        {{textarea class="edit_box" rows="5" cols="60" value=description}}
     </div>
 </div>
 <div class="row row-xs-height">

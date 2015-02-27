@@ -14,8 +14,8 @@ export default Ember.ObjectController.extend({
     ),
 
     disabled: function () {
-        return Ember.isEmpty(this.get('title')) || Ember.isEmpty(this.get('description')) || Ember.isEmpty(this.get('type'));
-    }.property('title', 'description', 'type'),
+        return Ember.isEmpty(this.get('title')) || Ember.isEmpty(this.get('description'));
+    }.property('title', 'description'),
 
     _getPreviewFromServer: function (url, options) {
         return new Ember.RSVP.Promise(function (resolve, reject) {
