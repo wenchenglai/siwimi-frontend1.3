@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
     didInsertElement: function () {
-        var controller = this;
+        var self = this;
 
         this.$("#dialog-confirm-delete-member").dialog({
             autoOpen: false,
@@ -13,7 +13,7 @@ export default Ember.Component.extend({
                 "Delete": function () {
                     var id = $(this).data('id');
                     $(this).dialog("close");
-                    controller.sendAction('apiDeleteMember', id);
+                    self.sendAction('apiDeleteMember', id);
                 },
                 Cancel: function () {
                     $(this).dialog("close");
@@ -31,9 +31,8 @@ export default Ember.Component.extend({
                     var id = $(this).data('id');
                     $(this).dialog("close");
                     Em.run(function(){
-                        controller.sendAction('apiDeleteFamily', id);
+                        self.sendAction('apiDeleteFamily', id);
                     });
-                    
                 },
                 Cancel: function () {
                     $(this).dialog("close");
