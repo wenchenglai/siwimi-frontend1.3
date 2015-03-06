@@ -52,9 +52,10 @@ export default DS.Model.extend({
     }.property('birthday'),
 
     displayName: function() {
-        if (this.get('nickName')) {
+    	return "test";
+        if (!Ember.isEmpty(this.get('nickName'))) {
             return this.get('nickName');
-        } else if (this.get('firstName')) {
+        } else if (!Ember.isEmpty(this.get('firstName'))) {
             return this.get('firstName');
         } else {
             return '';

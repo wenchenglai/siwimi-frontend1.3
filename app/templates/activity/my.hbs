@@ -1,8 +1,15 @@
-<h2>My Activities</h2>
+
 
 <div class="row row-xs-height">
     <div class="col-xs-12">
-        {{#link-to 'activity.new' class="btn btn-primary"}}Add New Activity{{/link-to}}
+        
+    </div>
+</div>
+
+<div class="row row-xs-height">
+    <div class="col-xs-12">
+    	<h2>My Activities {{#link-to 'activity.new' class="btn btn-primary"}}Add New Activity{{/link-to}} </h2>
+    	
     </div>
 </div>
 
@@ -16,41 +23,45 @@
                 <input type="radio">Past
             </a>
         </div>
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-12">
         <div class="btn-group" data-toggle="buttons">
-            <a class="btn btn-info active" data-toggle="tab" {{ action 'loadData' 'all' }}>
+            <a class="btn btn-info active" data-toggle="tab" {{ action 'loadDataByType' 'all' }}>
                 <input type="radio">All
             </a>
-            <a class="btn btn-info active" data-toggle="tab" {{ action 'loadData' 'birthday' }}>
+            <a class="btn btn-info" data-toggle="tab" {{ action 'loadDataByType' 'birthday' }}>
                 <input type="radio">Birthdays
             </a>
-            <a class="btn btn-info" data-toggle="tab" {{ action 'loadData' 'concert' }}>
+            <a class="btn btn-info" data-toggle="tab" {{ action 'loadDataByType' 'concert' }}>
                 <input type="radio">Concerts
             </a>
-            <a class="btn btn-info" data-toggle="tab" {{ action 'loadData' 'farm' }}>
+            <a class="btn btn-info" data-toggle="tab" {{ action 'loadDataByType' 'farm' }}>
                 <input type="radio">Farm Activities
             </a>
-            <a class="btn btn-info" data-toggle="tab" {{ action 'loadData' 'book' }}>
+            <a class="btn btn-info" data-toggle="tab" {{ action 'loadDataByType' 'book' }}>
                 <input type="radio">Library and Book Reading
             </a>
-            <a class="btn btn-info" data-toggle="tab" {{ action 'loadData' 'misc' }}>
+            <a class="btn btn-info" data-toggle="tab" {{ action 'loadDataByType' 'misc' }}>
                 <input type="radio">Misc
             </a>
-            <a class="btn btn-info" data-toggle="tab" {{ action 'loadData' 'movie' }}>
+            <a class="btn btn-info" data-toggle="tab" {{ action 'loadDataByType' 'movie' }}>
                 <input type="radio">Movies
             </a>
-            <a class="btn btn-info" data-toggle="tab" {{ action 'loadData' 'museum' }}>
+            <a class="btn btn-info" data-toggle="tab" {{ action 'loadDataByType' 'museum' }}>
                 <input type="radio">Museums
             </a>
-            <a class="btn btn-info" data-toggle="tab" {{ action 'loadData' 'playdate' }}>
+            <a class="btn btn-info" data-toggle="tab" {{ action 'loadDataByType' 'playdate' }}>
                 <input type="radio">Play Dates
             </a>
-            <a class="btn btn-info" data-toggle="tab" {{ action 'loadData' 'festival' }}>
+            <a class="btn btn-info" data-toggle="tab" {{ action 'loadDataByType' 'festival' }}>
                 <input type="radio">Festival
             </a>
-            <a class="btn btn-info" data-toggle="tab" {{ action 'loadData' 'show' }}>
+            <a class="btn btn-info" data-toggle="tab" {{ action 'loadDataByType' 'show' }}>
                 <input type="radio">Shows
             </a>
-            <a class="btn btn-info" data-toggle="tab" {{ action 'loadData' 'sport' }}>
+            <a class="btn btn-info" data-toggle="tab" {{ action 'loadDataByType' 'sport' }}>
                 <input type="radio">Sports
             </a>
         </div>
