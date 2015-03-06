@@ -11,7 +11,7 @@
         <label><span class="required">*</span>Title:</label>
     </div>
     <div class="col-xs-10 col-md-6">
-        {{input class="edit_box" placeholder="10 words or less" value=title}}
+        {{input class="edit_box" placeholder="10 words or less" value=title size="60"}}
     </div>
 </div>
 <div class="row row-xs-height">
@@ -19,7 +19,7 @@
         <label><span class="required">*</span>Description:</label>
     </div>
     <div class="col-xs-10 col-md-6">
-        {{textarea class="edit_box" rows="5" cols="60" value=description}}
+        {{textarea class="edit_box" rows="5" cols="61" value=description}}
     </div>
 </div>
 <div class="row row-xs-height">
@@ -27,14 +27,14 @@
         <label>Web URL:</label>
     </div>
     <div class="col-xs-10 col-md-6">
-        {{input class="edit_box" value=url}}
+        {{input class="edit_box" value=url size="60"}}
     </div>
 </div>
 <div class="row row-xs-height">
     <div class="col-xs-2 col-md-1">
         <label>Date:</label>
     </div>
-    <div class="col-xs-10 col-md-6">
+    <div class="col-xs-10 col-md-2">
         From:
         {{bs-datetimepicker date=fromTimeMoment format='YYYY-MM-DD'}}
         To:
@@ -46,7 +46,7 @@
         <label>Address:</label>
     </div>
     <div class="col-xs-10 col-md-6">
-        {{input class="edit_box" value=address}}
+        {{input class="edit_box" value=address size="40"}}
     </div>
 </div>
 <div class="row row-xs-height">
@@ -62,7 +62,7 @@
         <label>State:</label>
     </div>
     <div class="col-xs-10 col-md-6">
-        {{input class="edit_box" value=state}}
+        {{view "select" class="btn btn-default dropdown-toggle" prompt="Select State" content=allStates value=state}}
     </div>
 </div>
 <div class="row row-xs-height">
@@ -78,7 +78,7 @@
         <label>Type:</label>
     </div>
     <div class="col-xs-10 col-md-6">
-        {{view "select" class="btn btn-default dropdown-toggle" prompt="Select Type" content=types value=type}}
+        {{view "select" class="btn btn-default dropdown-toggle" prompt="Select Type" content=allTypes value=type}}
     </div>
 </div>
 <div class="row row-xs-height">
