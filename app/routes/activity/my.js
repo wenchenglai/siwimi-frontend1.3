@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-	currentStatus: "upcoming",
+	currentStatus: "all",
 	currentType: "all",
 	
     model: function (status, type) {
@@ -10,7 +10,7 @@ export default Ember.Route.extend({
             userId = self.get('session.id');
 
         if (typeof(status) !== "string") {
-            status = 'upcoming';
+            status = 'all';
         }
         
         if (typeof(type) !== "string") {
@@ -21,7 +21,7 @@ export default Ember.Route.extend({
     },
 
     actions: {
-        loadData: function (status) {
+        loadByStatus: function (status) {
             var self = this;
             
             self.set('currentStatus', status)
@@ -30,7 +30,7 @@ export default Ember.Route.extend({
             });
         },
         
-        loadDataByType: function (type) {
+        loadByType: function (type) {
             var self = this;
 
             self.set('currentType', type)

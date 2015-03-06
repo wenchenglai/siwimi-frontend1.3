@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-    model: function(params) {
+    model: function() {
         var self = this;
         return self.store.createRecord('member');
     }, 

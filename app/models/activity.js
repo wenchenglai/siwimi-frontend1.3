@@ -1,7 +1,7 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-    creator: DS.belongsTo('member'),
+    creator: DS.belongsTo('member', { aysnc: true}),
     title: DS.attr('string'),
     description: DS.attr('string'),
     fromTime: DS.attr('date'),
@@ -38,4 +38,12 @@ export default DS.Model.extend({
         // getter
         return this.get('toTime');
     }.property('toTime'),
+
+    availableImage: function() {
+        if (!Em.isEmpty(this.get('imageData'))) {
+            return this.get('imageData');
+        } else {
+            return this.get('imageUrl');
+        }
+    }.property('imageUrl', 'imageData')
 });

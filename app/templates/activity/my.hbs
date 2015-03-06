@@ -16,10 +16,13 @@
 <div class="row row-xs-height">
     <div class="col-xs-12">
         <div class="btn-group" data-toggle="buttons">
-            <a class="btn btn-info active" data-toggle="tab" {{ action 'loadData' 'upcoming' }}>
+            <a class="btn btn-info active" data-toggle="tab" {{ action 'loadByStatus' 'all' }}>
+                <input type="radio">All
+            </a>
+            <a class="btn btn-info" data-toggle="tab" {{ action 'loadByStatus' 'upcoming' }}>
                 <input type="radio">Upcoming
             </a>
-            <a class="btn btn-info" data-toggle="tab" {{ action 'loadData' 'past' }}>
+            <a class="btn btn-info" data-toggle="tab" {{ action 'loadByStatus' 'past' }}>
                 <input type="radio">Past
             </a>
         </div>
@@ -28,40 +31,40 @@
 <div class="row row-xs-height">
     <div class="col-xs-12">
         <div class="btn-group" data-toggle="buttons">
-            <a class="btn btn-info active" data-toggle="tab" {{ action 'loadDataByType' 'all' }}>
+            <a class="btn btn-info active" data-toggle="tab" {{ action 'loadByType' 'all' }}>
                 <input type="radio">All
             </a>
-            <a class="btn btn-info" data-toggle="tab" {{ action 'loadDataByType' 'birthday' }}>
+            <a class="btn btn-info" data-toggle="tab" {{ action 'loadByType' 'birthday' }}>
                 <input type="radio">Birthdays
             </a>
-            <a class="btn btn-info" data-toggle="tab" {{ action 'loadDataByType' 'concert' }}>
+            <a class="btn btn-info" data-toggle="tab" {{ action 'loadByType' 'concert' }}>
                 <input type="radio">Concerts
             </a>
-            <a class="btn btn-info" data-toggle="tab" {{ action 'loadDataByType' 'farm' }}>
+            <a class="btn btn-info" data-toggle="tab" {{ action 'loadByType' 'farm' }}>
                 <input type="radio">Farm Activities
             </a>
-            <a class="btn btn-info" data-toggle="tab" {{ action 'loadDataByType' 'book' }}>
-                <input type="radio">Library and Book Reading
+            <a class="btn btn-info" data-toggle="tab" {{ action 'loadByType' 'book' }}>
+                <input type="radio">Library/Book Reading
             </a>
-            <a class="btn btn-info" data-toggle="tab" {{ action 'loadDataByType' 'misc' }}>
+            <a class="btn btn-info" data-toggle="tab" {{ action 'loadByType' 'misc' }}>
                 <input type="radio">Misc
             </a>
-            <a class="btn btn-info" data-toggle="tab" {{ action 'loadDataByType' 'movie' }}>
+            <a class="btn btn-info" data-toggle="tab" {{ action 'loadByType' 'movie' }}>
                 <input type="radio">Movies
             </a>
-            <a class="btn btn-info" data-toggle="tab" {{ action 'loadDataByType' 'museum' }}>
+            <a class="btn btn-info" data-toggle="tab" {{ action 'loadByType' 'museum' }}>
                 <input type="radio">Museums
             </a>
-            <a class="btn btn-info" data-toggle="tab" {{ action 'loadDataByType' 'playdate' }}>
+            <a class="btn btn-info" data-toggle="tab" {{ action 'loadByType' 'playdate' }}>
                 <input type="radio">Play Dates
             </a>
-            <a class="btn btn-info" data-toggle="tab" {{ action 'loadDataByType' 'festival' }}>
+            <a class="btn btn-info" data-toggle="tab" {{ action 'loadByType' 'festival' }}>
                 <input type="radio">Festival
             </a>
-            <a class="btn btn-info" data-toggle="tab" {{ action 'loadDataByType' 'show' }}>
+            <a class="btn btn-info" data-toggle="tab" {{ action 'loadByType' 'show' }}>
                 <input type="radio">Shows
             </a>
-            <a class="btn btn-info" data-toggle="tab" {{ action 'loadDataByType' 'sport' }}>
+            <a class="btn btn-info" data-toggle="tab" {{ action 'loadByType' 'sport' }}>
                 <input type="radio">Sports
             </a>
         </div>
@@ -73,7 +76,6 @@
         <table class="table">
             <thead>
             <th>Title</th>
-            <th>Description</th>
             <th>Type</th>
             <th>From</th>
             <th>To</th>
@@ -83,7 +85,6 @@
                 {{#each activity in model}}
                 <tr>
                     <td>{{activity.title}}</td>
-                    <td>{{activity.description}}</td>
                     <td>{{activity.type}}</td>
                     <td>{{formatted-date activity.fromTime 'LL'}}</td>
                     <td>{{formatted-date activity.toTime 'LL'}}</td>

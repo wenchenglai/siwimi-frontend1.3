@@ -10,12 +10,18 @@ export default Ember.Route.extend({
     actions: {
         save: function() {
             var self = this,
-                model = self.currentModel;
+                model = self.currentModel,
+                userId = self.get('session.id');
 
-            model.save().then(function(obj) {
-                self.transitionTo('activity.show', obj);
+            self.store.find('member', userId).then(function(user) {
+                if (Ember.isEmpty(model.get('creator'))) {
+                    model.set('creator', user);
+                }
+                
+                model.save().then(function(obj) {
+                    self.transitionTo('activity.show', obj);
+                });
             });
-
         },
 
         cancel: function() {

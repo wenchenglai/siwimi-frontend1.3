@@ -11,6 +11,18 @@
 </div>
 <div class="row row-xs-height">
     <div class="col-xs-2 col-md-1">
+        <label></label>
+    </div>
+    <div class="col-xs-10 col-md-6">
+        {{#if imageUrl }}
+        <img {{bind-attr src=imageUrl}} alt="image" />
+        {{else}}
+        {{view "previewImage" width="200" height="200" srcBinding=imageData}}
+        {{/if}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
         <label>Title:</label>
     </div>
     <div class="col-xs-10 col-md-6">
