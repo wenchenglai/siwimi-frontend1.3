@@ -26,6 +26,9 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
                         } else if (error.status === 200 && error.statusText === "OK") {
                             name = "Server Error: ";
                             message = "Server didn't return right data - is database running?";
+                        } else {
+                            name = "Server Error: ";
+                            message = "HTTP status " + error.status + " " + error.statusText + " " + error.responseText;
                         }
                     }
                 } else {
