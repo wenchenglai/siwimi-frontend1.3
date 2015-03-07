@@ -13,6 +13,7 @@
             <ul class="nav navbar-nav">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    	<span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
                         Connect<span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
@@ -23,6 +24,7 @@
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    	<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
                         Tips<span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
@@ -33,6 +35,7 @@
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    	<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
                         Activity<span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
@@ -43,6 +46,7 @@
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    	<span class="glyphicon glyphicon-tag" aria-hidden="true"></span>
                         Listing<span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
@@ -53,6 +57,7 @@
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    	<span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
                         Q & A<span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
@@ -63,23 +68,51 @@
                     </ul>
                 </li>
                 <li>
-                    {{#link-to 'feedback.new'}}Feedback{{/link-to}}
+                    {{#link-to 'feedback.new'}}
+                    	<span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+                    	Feedback
+                    {{/link-to}}
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 {{#if session.isAuthenticated}}
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    	
                         {{session.user.firstName}}&nbsp;&nbsp;
-                        <img {{bind-attr src=session.profilePicture}} height="32" width="32" style="margin-bottom:-15px; margin-top:-15px" alt="avatar" /><span class="caret"></span>
+                        <img {{bind-attr src=session.profilePicture}} height="32" width="32" style="margin-bottom:-15px; margin-top:-15px" alt="avatar" />
+                        <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu">
-                        <li>{{#link-to 'user.account'}}Account{{/link-to}}</li>
-                        <li>{{#link-to 'user.profile'}}Profile{{/link-to}}</li>
-                        <li>{{#link-to 'inbox.browse'}}Inbox{{/link-to}}</li>
-                        <li><a href="#" {{ action 'openUserModal' 'user.rewards' }}>Rewards</a></li>
+                        <li>
+                        	{{#link-to 'user.account'}}
+                        		<span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+                        		Account
+                        	{{/link-to}}</li>
+                        <li>
+                        	{{#link-to 'user.profile'}}
+                        		<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                        		Profile
+                        	{{/link-to}}
+                        </li>
+                        <li>	
+                        	{{#link-to 'inbox.browse'}}
+                        		<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                        		Inbox
+                        	{{/link-to}}</li>
+                        <li>
+                        	<a href="#" {{ action 'openUserModal' 'user.rewards' }}>
+                        		<span class="glyphicon glyphicon-gift" aria-hidden="true"></span>
+                        		Rewards
+                        	</a>
+                        </li>
                         <li class="divider"></li>
-                        <li><a style="cursor:pointer" {{ action 'invalidateSession' }}>Logout</a></li>
+                        <li>
+                        	<a style="cursor:pointer" {{ action 'invalidateSession' }}>
+                        		<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+                        		Logout
+                        	</a>
+                        </li>
                     </ul>
                 </li>
                 {{else}}
