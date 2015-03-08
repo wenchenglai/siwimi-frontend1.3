@@ -74,7 +74,7 @@ export default Base.extend({
 
 		return new Ember.RSVP.Promise(function (resolve, reject) {
 			// this will be called when user has logged in and cookie is still valid
-			if (!Ember.isEmpty(data.accessToken) && !Ember.isEmpty(data.id)) {
+			if (!Ember.isEmpty(FB.getUserID()) && !Ember.isEmpty(data.accessToken) && !Ember.isEmpty(data.id)) {
 
 				// somehow simple-auth would turn the user model object into a regular Javasript object.  So I need to get the user object from store again
 				// 2014-01-20 There is no store injected in the container in this authenticator, I have dificulty inject it properly by using the initializer.
@@ -169,7 +169,7 @@ export default Base.extend({
 						}
 					}, {scope: 'public_profile,email'});
 				}
-			});
+			},true);
 		});      
 	},
 	invalidate: function() {
@@ -181,6 +181,7 @@ export default Base.extend({
 					Ember.run(reject);
 				}
 			});
+			//Ember.run(resolve);
 		});      
 	},
 

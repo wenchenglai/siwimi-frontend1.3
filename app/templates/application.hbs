@@ -58,7 +58,7 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     	<span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
-                        Q & A<span class="caret"></span>
+                        Ask<span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
                         <li>{{#link-to 'questions.new'}}Ask{{/link-to}}</li>
@@ -67,14 +67,19 @@
                         <li>{{#link-to 'questions.preference'}}My Preference{{/link-to}}</li>
                     </ul>
                 </li>
+                {{#if session.isAuthenticated}}
                 <li>
                     {{#link-to 'feedback.new'}}
                     	<span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
                     	Feedback
                     {{/link-to}}
                 </li>
+                {{/if}}
             </ul>
             <ul class="nav navbar-nav navbar-right">
+            	<li>
+            		{{baseLocation}}
+            	</li>
                 {{#if session.isAuthenticated}}
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -117,7 +122,10 @@
                 </li>
                 {{else}}
                 <li>
-                    {{#link-to 'login'}}Login{{/link-to}}
+                    {{#link-to 'login'}}
+                    	<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+                    	Login
+                    {{/link-to}}
                 </li>
                 {{/if}}
             </ul>
