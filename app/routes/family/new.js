@@ -1,7 +1,8 @@
 import Ember from 'ember';
 import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin';
+import StatesDataMixin from '../../mixins/states-data';
 
-export default Ember.Route.extend(AuthenticatedRouteMixin, {
+export default Ember.Route.extend(AuthenticatedRouteMixin, StatesDataMixin, {
     model: function() {
         var self = this;
         return self.store.createRecord('family');
@@ -21,7 +22,10 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
             var onSuccess = function (json) {
                 var cityState = json.results[0].formatted_address;
 
-                model.set('cityState', cityState);
+                var arr = cityState.split(",");
+
+                model.set('city', arr[0].trim());
+                model.set('state', self.get('statesHash')[arr[1].trim().substr(0, 2)]);
 
                 model.save().then(function (newlySavedfamily) {
                     var userId = self.get('session.id');
@@ -29,6 +33,12 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
                     // after we create a new family, we should add current user as a member of the family
                     self.store.find('member', userId).then(function(member) {
                         member.set('family', newlySavedfamily);
+                        member.set('city', newlySavedfamily.get('city'));
+                        member.set('state', newlySavedfamily.get('state'));
+
+                        self.controllerFor('application').set('baseCity', newlySavedfamily.get('city'));
+                        self.controllerFor('application').set('baseState', newlySavedfamily.get('state'));
+
                         member.save().then(function(user) {
                             session.set("user", user);
                             self.transitionTo('family.my');
@@ -38,15 +48,11 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
             };
 
             var onFail = function (error) {
-                // deal with the failure here
-                self.set('showError', true);
-                self.set('errorMessage', "Error in Connect.AddFamily Controller: " + error.message);
+                self.send('error', error);
             };
 
             var onGoogleApiFail = function (error) {
-                // deal with the failure here
-                self.set('showError', true);
-                self.set('errorMessage', error.statusText + ": " + error.responseText);
+                self.send('error', error);
             };
 
             // we need to get the cityState info based on the provided zip code using Google API

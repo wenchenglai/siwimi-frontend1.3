@@ -2,8 +2,10 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
     model: function() {
-        var self = this;
-        return self.store.createRecord('item');
+        var self = this,
+            session = self.get('session');
+
+        return self.store.createRecord('item', { city: session.get('baseCity'), state: session.get('baseState')});
     }, 
 
     actions: {

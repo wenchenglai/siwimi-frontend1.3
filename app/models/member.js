@@ -25,6 +25,10 @@ export default DS.Model.extend({
     zipCode: DS.attr('string'),
     isDestroyed: DS.attr('boolean'),
 
+    // localization fields
+    city: DS.attr('string'),
+    state: DS.attr('string'),    
+
     // we use bs-datetimepicker addon which takes moment.js date type, so we must do some conversion when binding
     birthdayMoment: function(key, value, previousValue) {
         // setter

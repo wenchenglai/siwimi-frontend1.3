@@ -2,6 +2,10 @@ import Ember from 'ember';
 import ApplicationRouteMixin from 'simple-auth/mixins/application-route-mixin';
 
 export default Ember.Route.extend(ApplicationRouteMixin, {
+    willTransition: function() {
+        debugger;
+    },
+
     _saveTransition: function (transition) {
         var self = this;
         if (transition.targetName !== 'login') {

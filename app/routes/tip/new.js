@@ -3,8 +3,9 @@ import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixi
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
     model: function() {
-        var self = this;
-        return self.store.createRecord('tip');
+        var self = this,
+            session = self.get('session');
+        return self.store.createRecord('tip', { city: session.get('baseCity'), state: session.get('baseState')});
     }
     //actions: {
     //    add: function () {

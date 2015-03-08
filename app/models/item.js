@@ -21,6 +21,10 @@ export default DS.Model.extend({
     viewCount: DS.attr('number'),
     isDestroyed: DS.attr('boolean'),
 
+    // localization fields
+    city: DS.attr('string'),
+    state: DS.attr('string'),    
+
     ageRange: function () {
         return this.get('fromAge') + ' to ' + this.get('toAge');
     }.property('fromAge', 'toAge'),

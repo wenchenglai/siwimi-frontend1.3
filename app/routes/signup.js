@@ -8,14 +8,17 @@ export default Ember.Route.extend(SessionSetupMixin, {
                 controller = self.get('controller'),
                 email = controller.get('email'),
                 password = controller.get('password'),
-                password2 = controller.get('password2');
+                password2 = controller.get('password2'),
+                appController = self.get('container').lookup('controller:application');;
 
             if (password === password2 && password != null) {
                 var newMember = self.store.createRecord('member', {
                     email: email,
                     password: password,
                     isUser: true,
-                    avatarUrl: '/assets/images/avatar.jpg'
+                    avatarUrl: '/assets/images/avatar.jpg',
+                    city: appController.get('baseCity'),
+                    state: appController.get('baseState')
                 });
 
                 newMember.save().then(function(member) {

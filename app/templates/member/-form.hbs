@@ -1,35 +1,35 @@
 <div class="row row-xs-height">
-    <div class="col-xs-2">
+    <div class="col-xs-2 col-md-1">
         <label>
             First Name:
         </label>
     </div>
-    <div class="col-xs-10">
+    <div class="col-xs-10 col-md-6">
         {{input class="edit_box" value=firstName}}
     </div>
 </div>
 <div class="row row-xs-height">
-    <div class="col-xs-2">
+    <div class="col-xs-2 col-md-1">
         <label>
             Last Name:
         </label>
     </div>
-    <div class="col-xs-10">
+    <div class="col-xs-10 col-md-6">
         {{input class="edit_box" value=lastName}}
     </div>
 </div>
 <div class="row row-xs-height">
-    <div class="col-xs-2">
+    <div class="col-xs-2 col-md-1">
         <label>
             Nickname:
         </label>
     </div>
-    <div class="col-xs-10">
+    <div class="col-xs-10 col-md-6">
         {{input class="edit_box" value=nickName}}
     </div>
 </div>
 <div class="row row-xs-height">
-    <div class="col-xs-2">
+    <div class="col-xs-2 col-md-1">
         <label>
 
         </label>
@@ -47,7 +47,7 @@
     </div>
 </div>
 <div class="row row-xs-height">
-    <div class="col-xs-2">
+    <div class="col-xs-2 col-md-1">
         <label>
             Birthday:
         </label>
@@ -57,7 +57,7 @@
     </div>
 </div>
 <div class="row row-xs-height">
-    <div class="col-xs-2">
+    <div class="col-xs-2 col-md-1">
         <label>
             Upload Image:
         </label>
@@ -67,7 +67,7 @@
     </div>
 </div>
 <div class="row row-xs-height">
-    <div class="col-xs-2">
+    <div class="col-xs-2 col-md-1">
         <label>
             Family Role:
         </label>
@@ -77,13 +77,29 @@
     </div>
 </div>
 <div class="row row-xs-height">
-    <div class="col-xs-2">
+    <div class="col-xs-2 col-md-1">
         <label>
 
         </label>
     </div>
-    <div class="col-xs-10">
+    <div class="col-xs-10 col-md-6">
         {{pronoun}} can speak: {{view "select" class="btn btn-default dropdown-toggle" selectionBinding="languages" content=allLanguages multiple=true}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>City:</label>
+    </div>
+    <div class="col-xs-10 col-md-6">
+        {{input class="edit_box" value=city}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>State:</label>
+    </div>
+    <div class="col-xs-10 col-md-6">
+        {{view "select" class="btn btn-default dropdown-toggle" prompt="Select State" content=allStates value=state}}
     </div>
 </div>
 <div class="row row-xs-height">

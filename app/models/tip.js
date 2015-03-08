@@ -17,7 +17,10 @@ export default DS.Model.extend({
     // parameters set by backend ONLY
     voteUp: DS.attr('number'),
     voteDown: DS.attr('number'),
-    cityState: DS.attr('string'),
+
+    // localization fields
+    city: DS.attr('string'),
+    state: DS.attr('string'),    
     zipCode: DS.attr('string'),
     location: DS.attr('array'),
     isFavorite: DS.attr('boolean'),

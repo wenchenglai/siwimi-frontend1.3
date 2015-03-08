@@ -1,6 +1,7 @@
 import Ember from 'ember';
+import StatesDataMixin from '../../mixins/states-data';
 
-export default Ember.ObjectController.extend({
+export default Ember.ObjectController.extend(StatesDataMixin, {
     showAlert: false,
     alertTitle: "",
     alertMessage: "",

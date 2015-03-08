@@ -1,6 +1,7 @@
 import Ember from 'ember';
+import StatesDataMixin from '../mixins/states-data';
 
-export default Ember.ObjectController.extend({
+export default Ember.ObjectController.extend(StatesDataMixin, {
     previousTransition: null,
     previousURL: null,
     showAlert: false,
@@ -18,25 +19,28 @@ export default Ember.ObjectController.extend({
     	}
     }.property('baseCity', 'baseState'),
     
+    // this function will be called every time app is loaded
+    // we need to preapre for at least 4 variables in session variable.
+    // An anoymous user will have at least 4 variables
     setBase: function() {
-    	debugger;
     	var self = this,
-    		userId = self.get('session.id');
+    		session = self.get('session');
     	
-//    	if (userId) {
-//    		self.set('baseCity', geoplugin_city(););
-//    		self.set('baseState', geoplugin_region(););   		
-//    	} else {
-//    		self.set('baseCity', '');
-//    		self.set('baseState', '');
-//    	}
+    	if (session.isAuthenticated) {
+    	    self.set('baseCity', session.get('baseCity'));
+    	    self.set('baseState', session.get('baseState'));   		
+    	} else {
+    	    self.set('baseCity', geoplugin_city());
+    	    self.set('baseState', this.get('statesHash')[geoplugin_region()]);
+
+    	    session.set('longitude', geoplugin_longitude());
+    	    session.set('latitude', geoplugin_latitude());
+    	    session.set('baseCity', self.get('baseCity'));
+    	    session.set('baseState', self.get('baseState'));
+    	}
     	
     }.on('init'),
     
-    willTransition: function() {
-    	debugger;
-    },
-
     _toggleAlert: function(flag, title, message, type) {
         var self = this;
         self.set('showAlert', flag);

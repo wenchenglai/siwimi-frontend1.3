@@ -39,9 +39,10 @@ export default Base.extend({
 				var fbImageUrl = '';
 
 				self._getFacebookProfilePicture('large').then(function (largeProfilePicture) {
-					fbImageUrl = largeProfilePicture.data.url;
+				    fbImageUrl = largeProfilePicture.data.url;
+				    var appController = self.get('container').lookup('controller:application');
 
-					var newMember = store.createRecord('member', {
+				    var newMember = store.createRecord('member', {
 						firstName: fbUser.first_name,
 						lastName: fbUser.last_name,
 						gender: fbUser.gender,
@@ -55,6 +56,8 @@ export default Base.extend({
 						flocation: fbUser.location ? fbUser.location.name: '',
 						ftimezone: fbUser.timezone,
 						isUser: true,
+						city: appController.get('baseCity'),
+                        state: appController.get('baseState'),
 						isDestroyed: false
 					});
 
