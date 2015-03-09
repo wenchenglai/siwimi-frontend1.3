@@ -3,30 +3,33 @@
     <div class="col-lg-12">
         <div class="btn-toolbar" role="toolbar" aria-label="tiptoolbar">
             <div class="btn-group" data-toggle="buttons">
-                <a href="#prices" class="btn btn-info active" data-toggle="tab" {{ action 'setStatusFilter' 'popular' }}>
+	            <a class="btn btn-info active" data-toggle="tab" {{ action 'loadByStatus' 'all' }}>
+	                <input type="radio">All
+	            </a>            
+                <a href="#prices" class="btn btn-info" data-toggle="tab" {{ action 'setStatusFilter' 'popular' }}>
                     <input type="radio">Popular
-                </a>
-                <a href="#features" class="btn btn-info" data-toggle="tab" {{ action 'setStatusFilter' 'all' }}>
-                    <input type="radio">All
                 </a>
                 <a href="#requests" class="btn btn-info" data-toggle="tab" {{ action 'setStatusFilter' 'expired' }}>
                     <input type="radio">Expired
                 </a>
             </div>
             <div class="btn-group" data-toggle="buttons">
-                <a href="#prices" class="btn btn-info active" data-toggle="tab" {{ action 'setTypeFilter' 'deal' }}>
+	            <a class="btn btn-info active" data-toggle="tab" {{ action 'loadByStatus' 'all' }}>
+	                <input type="radio">All
+	            </a>              
+                <a class="btn btn-info" data-toggle="tab" {{ action 'setTypeFilter' 'deal' }}>
                     <input type="radio">Deal
                 </a>
-                <a href="#features" class="btn btn-info" data-toggle="tab" {{ action 'setTypeFilter' 'education' }}>
+                <a class="btn btn-info" data-toggle="tab" {{ action 'setTypeFilter' 'education' }}>
                     <input type="radio">Education
                 </a>
-                <a href="#requests" class="btn btn-info" data-toggle="tab" {{ action 'setTypeFilter' 'health' }}>
+                <a class="btn btn-info" data-toggle="tab" {{ action 'setTypeFilter' 'health' }}>
                     <input type="radio">Health
                 </a>
-                <a href="#contact" class="btn btn-info" data-toggle="tab" {{ action 'setTypeFilter' 'entertainment' }}>
+                <a class="btn btn-info" data-toggle="tab" {{ action 'setTypeFilter' 'entertainment' }}>
                     <input type="radio">Entertainment
                 </a>
-                <a href="#contact" class="btn btn-info" data-toggle="tab" {{ action 'setTypeFilter' 'misc' }}>
+                <a class="btn btn-info" data-toggle="tab" {{ action 'setTypeFilter' 'misc' }}>
                     <input type="radio">Misc
                 </a>
             </div>
