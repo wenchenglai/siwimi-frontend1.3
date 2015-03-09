@@ -88,7 +88,7 @@
             <tbody>
                 {{#each activity in model}}
                 <tr>
-                    <th>{{view "previewImage" width="40" height="40" srcBinding=activity.imageData}}</th>
+                    <th>{{view "previewImage" width="40" height="40" srcBinding=activity.availableImage}}</th>
                     <td>{{activity.title}}</td>
                     <td>{{activity.type}}</td>
                     <td>{{formatted-date activity.fromTime 'LL'}}</td>

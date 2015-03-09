@@ -42,8 +42,10 @@ export default DS.Model.extend({
     availableImage: function() {
         if (!Em.isEmpty(this.get('imageData'))) {
             return this.get('imageData');
-        } else {
+        } else if (!Em.isEmpty(this.get('imageUrl'))) {
             return this.get('imageUrl');
+        } else {
+            return '/assets/images/empty_event.jpg';
         }
     }.property('imageUrl', 'imageData')
 });
