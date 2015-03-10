@@ -43,18 +43,17 @@
             <th>Age Range</th>
             </thead>
             <tbody>
-                {{#each item in model}}
+                {{#each event in model}}
                 <tr>
-                    <td>{{view "previewImage" width="60" height="60" srcBinding="item.availableImage"}}</td>
-                    <td>{{item.title}}</td>
-                    <td>{{item.type}}</td>
-                    <td>{{item.price}}</td>
-                    <td>{{formatted-date item.createdDate 'LL'}}</td>
-                    <td>{{item.ageRange}}</td>
+                    <td>{{view "previewImage" width="60" height="60" srcBinding="event.availableImage"}}</td>
+                    <td>{{event.title}}</td>
+                    <td>{{event.type}}</td>
+                    <td>{{event.trueCost}}</td>
+                    <td>{{formatted-date event.createdDate 'LL'}}</td>
+                    <td>{{event.ageRange}}</td>
                     <td>
                         <div class="btn-group" role="group" aria-label="...">
-                            {{#link-to 'item.show' item class="btn btn-default"}}Detail{{/link-to}}
-                            <button type="button" class="btn btn-default" {{action 'openDeleteDialog' item.id target="view" bubbles="false" }}>Delete</button>
+                            {{#link-to 'event.show' event class="btn btn-default"}}Detail{{/link-to}}
                         </div>
                     </td>
                 </tr>

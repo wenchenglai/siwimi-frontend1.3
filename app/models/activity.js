@@ -55,5 +55,33 @@ export default DS.Model.extend({
 
     cityState: function() {
         return this.get('city') + ', ' + this.get('state');
-    }.property('city', 'state')
+    }.property('city', 'state'),
+
+    trueCost: function() {
+        var result = "Free";
+
+        if (this.get('price')) {
+            if (this.get('price') > 0) {
+                result = this.get('price');   
+            }
+        }
+
+        return result;
+    }.property('price'),
+
+    ageRange: function() {
+        if (this.get('fromAge') && this.get('toAge')) {
+            return "%@ - %@".fmt(this.get('fromAge'), this.get('toAge'));
+
+        } else if (this.get('fromAge') && !this.get('toAge')) {
+            return "%@ or above".fmt(this.get('fromAge'));
+
+        } else if (this.get('fromAge') && !this.get('toAge')) {
+            return "%@ or under".fmt(this.get('toAge'));
+
+        } else {
+            return "";
+        }
+
+    }.property('fromAge', 'toAge')
 });
