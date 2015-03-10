@@ -53,6 +53,35 @@
 </div>
 <div class="row row-xs-height">
     <div class="col-xs-2 col-md-1">
+        <label>Type:</label>
+    </div>
+    <div class="col-xs-10 col-md-6">
+        {{view "select" class="btn btn-default dropdown-toggle" prompt="Select Type" content=allTypes value=type}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>Age:</label>
+    </div>
+    <div class="col-xs-10 col-md-6">
+        From {{view "select" class="btn btn-default dropdown-toggle" valueBinding="fromAge" content=allAgesOld }}
+        To {{view "select" class="btn btn-default dropdown-toggle" valueBinding="toAge" content=allAgesOld}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>Price:</label>
+    </div>
+    <div class="col-xs-4 col-md-3">
+        <div class="input-group">
+            <div class="input-group-addon">$</div>
+            {{input class="form-control" placeholder="Price in US dollar" value=price size="40"}}
+            <div class="input-group-addon">.00</div>
+        </div>
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
         <label>Address:</label>
     </div>
     <div class="col-xs-10 col-md-6">
@@ -81,14 +110,6 @@
     </div>
     <div class="col-xs-10 col-md-6">
         {{input class="edit_box" value=zipCode}}
-    </div>
-</div>
-<div class="row row-xs-height">
-    <div class="col-xs-2 col-md-1">
-        <label>Type:</label>
-    </div>
-    <div class="col-xs-10 col-md-6">
-        {{view "select" class="btn btn-default dropdown-toggle" prompt="Select Type" content=allTypes value=type}}
     </div>
 </div>
 <div class="row row-xs-height">

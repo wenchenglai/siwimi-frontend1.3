@@ -16,7 +16,11 @@ export default DS.Model.extend({
     type: DS.attr('string'),
     like: DS.attr('number'),
     viewCount: DS.attr('number'),
+    fromAge: DS.attr('number'),
+    toAge: DS.attr('number'),
+    price: DS.attr('number'),
     location: DS.attr('array'),
+    createdDate: DS.attr('date'),
     isDestroyed: DS.attr('boolean'),
 
     // we use bs-datetimepicker addon which takes moment.js date type, so we must do some conversion when binding
