@@ -35,6 +35,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, StatesDataMixin, {
                         member.set('family', newlySavedfamily);
                         member.set('city', newlySavedfamily.get('city'));
                         member.set('state', newlySavedfamily.get('state'));
+                        session.set('baseCity', newlySavedfamily.get('city'));
+                        session.set('baseState', newlySavedfamily.get('state'));
 
                         self.controllerFor('application').set('baseCity', newlySavedfamily.get('city'));
                         self.controllerFor('application').set('baseState', newlySavedfamily.get('state'));

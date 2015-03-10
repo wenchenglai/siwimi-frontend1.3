@@ -10,9 +10,5 @@ export default DS.Model.extend({
     description: DS.attr('string'),
     likeCount: DS.attr('number'),
     viewCount: DS.attr('number'),
-    isDestroyed: DS.attr('boolean'),
-
-    createdDateShortDateString: function () {
-        return dateHelpers.formatDate(this.get('createdDate'), 'MMM d, YYYY');
-    }.property('createdDate') 
+    isDestroyed: DS.attr('boolean')
 });

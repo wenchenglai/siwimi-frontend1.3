@@ -13,10 +13,6 @@ export default DS.Model.extend({
 
     isChecked: DS.attr('boolean'),
 
-    createdDateShortDateString: function () {
-        return moment(this.get('createdDate')).format('MMM d, YYYY');
-    }.property('createdDate'),
-
     subjectReduced: function () {
         return this._getSubString(this.get('subject'), 25);
     }.property('subject'),

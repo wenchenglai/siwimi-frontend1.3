@@ -47,5 +47,9 @@ export default DS.Model.extend({
         } else {
             return '/assets/images/empty_event.jpg';
         }
-    }.property('imageUrl', 'imageData')
+    }.property('imageUrl', 'imageData'),
+
+    cityState: function() {
+        return this.get('city') + ', ' + this.get('state');
+    }.property('city', 'state')
 });

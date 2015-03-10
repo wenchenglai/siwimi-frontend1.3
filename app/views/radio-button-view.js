@@ -1,19 +1,14 @@
 import Ember from 'ember';
 
 export default Ember.View.extend({
-    classNameBindings: [':btn', ':btn-info', 'active'],
+    classNameBindings: [':btn', ':btn-info', ':radioButtonGroup'],
 
     attributeBindings: ['name'],
 
     click: function () {
         this.set("selection", this.get('value'));
 
-        // a hack here, due to the fact that bootstrap javascrit will add "active" class automatically when click
-        if (this.get('value') == 'male') {
-            Em.$('div[name=female]').removeClass('active');
-        } else {
-            Em.$('div[name=male]').removeClass('active');
-        }
+        Em.$('div.radioButtonGroup').removeClass('active');
     },
 
     active: function () {

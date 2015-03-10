@@ -3,20 +3,20 @@
     <div class="col-lg-12">
         <div class="btn-toolbar" role="toolbar" aria-label="tiptoolbar">
             <div class="btn-group" data-toggle="buttons">
-	            <a class="btn btn-info active" data-toggle="tab" {{ action 'loadByStatus' 'all' }}>
-	                <input type="radio">All
-	            </a>            
-                <a href="#prices" class="btn btn-info" data-toggle="tab" {{ action 'setStatusFilter' 'popular' }}>
-                    <input type="radio">Popular
+                <a class="btn btn-info active" data-toggle="tab" {{ action 'setStatusFilter' 'all' }}>
+                    <input type="radio">All
+                </a>            
+                <a class="btn btn-info" data-toggle="tab" {{ action 'setStatusFilter' 'active' }}>
+                    <input type="radio">Active
                 </a>
-                <a href="#requests" class="btn btn-info" data-toggle="tab" {{ action 'setStatusFilter' 'expired' }}>
+                <a class="btn btn-info" data-toggle="tab" {{ action 'setStatusFilter' 'expired' }}>
                     <input type="radio">Expired
                 </a>
             </div>
             <div class="btn-group" data-toggle="buttons">
-	            <a class="btn btn-info active" data-toggle="tab" {{ action 'loadByStatus' 'all' }}>
-	                <input type="radio">All
-	            </a>              
+                <a class="btn btn-info active" data-toggle="tab" {{ action 'setTypeFilter' 'all' }}>
+                    <input type="radio">All
+                </a>              
                 <a class="btn btn-info" data-toggle="tab" {{ action 'setTypeFilter' 'deal' }}>
                     <input type="radio">Deal
                 </a>
@@ -52,7 +52,7 @@
                     <td>{{tip.titleReduced}}</td>
                     <td>{{tip.descriptionReduced}}</td>
                     <td><a {{bind-attr href=tip.url }} target="_blank">{{tip.urlReduced}}</a></td>
-                    <td>{{tip.expiredDateShortDateString}}</td>
+                    <td>{{formatted-date tip.expiredDate 'LL'}}</td>
                     <td>
                         {{#link-to 'tip.show' tip}}Detail{{/link-to}}
                     </td>
