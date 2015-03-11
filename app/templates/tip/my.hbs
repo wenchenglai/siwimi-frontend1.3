@@ -26,18 +26,20 @@
     <div class="col-xs-12">
         <table class="table">
             <thead>
-            <th>title</th>
-            <th>Description</th>
-            <th>Type</th>
-            <th>Expired Date</th>
-            <th>Action</th>
+                <th></th>
+                <th>title</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Expired Date</th>
+                <th>Action</th>
             </thead>
             <tbody>
                 {{#each tip in model}}
                 <tr>
+                    <th>{{view "previewImage" width="40" height="40" srcBinding=tip.availableImage}}</th>
                     <td>{{tip.titleReduced}}</td>
                     <td>{{tip.descriptionReduced}}</td>
-                    <td>{{tip.type}}</td>
+                    <td>{{display-text tip.type allTypesHash}}</td>
                     <td>{{formatted-date tip.expiredDate 'LL'}}</td>
                     <td>
                         {{#link-to 'tip.show' tip}}Detail{{/link-to}}

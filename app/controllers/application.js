@@ -31,7 +31,7 @@ export default Ember.ObjectController.extend(StatesDataMixin, {
     	    self.set('baseState', session.get('baseState'));   		
     	} else {
     	    self.set('baseCity', geoplugin_city());
-    	    self.set('baseState', this.get('statesHash')[geoplugin_region()]);
+    	    self.set('baseState', geoplugin_region());
 
     	    session.set('longitude', geoplugin_longitude());
     	    session.set('latitude', geoplugin_latitude());

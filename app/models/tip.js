@@ -13,6 +13,8 @@ export default DS.Model.extend({
     type: DS.attr('string'),
     viewCount: DS.attr('number'),
     isDestroyed: DS.attr('boolean'),
+    imageData: DS.attr('string'),
+    imageUrl: DS.attr('string'),
 
     // parameters set by backend ONLY
     voteUp: DS.attr('number'),
@@ -58,5 +60,15 @@ export default DS.Model.extend({
             return '';
         }
 
-    }  
+    },
+
+    availableImage: function() {
+        if (!Em.isEmpty(this.get('imageData'))) {
+            return this.get('imageData');
+        } else if (!Em.isEmpty(this.get('imageUrl'))) {
+            return this.get('imageUrl');
+        } else {
+            return '/assets/images/tip.png';
+        }
+    }.property('imageUrl', 'imageData'),
 });

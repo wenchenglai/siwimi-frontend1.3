@@ -78,7 +78,9 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
             	<li>
-            		{{baseLocation}}
+                    <label>
+                        {{input class="form-control" value=baseLocation size="15"}}
+                    </label>
             	</li>
                 {{#if session.isAuthenticated}}
                 <li class="dropdown">

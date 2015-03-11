@@ -25,7 +25,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, StatesDataMixin, {
                 var arr = cityState.split(",");
 
                 model.set('city', arr[0].trim());
-                model.set('state', self.get('statesHash')[arr[1].trim().substr(0, 2)]);
+                model.set('state', arr[1].trim().substr(0, 2));
 
                 model.save().then(function (newlySavedfamily) {
                     var userId = self.get('session.id');
