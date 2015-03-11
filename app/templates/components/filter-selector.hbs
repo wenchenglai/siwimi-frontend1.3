@@ -1,0 +1,10 @@
+<div class="btn-group" data-toggle="buttons">
+    <a class="btn btn-info active" data-toggle="tab" {{ action 'filterSelected' 'all' }}>
+        <input type="radio">All
+    </a>
+    {{#each filter in model}}
+    <a class="btn btn-info" data-toggle="tab" {{ action 'filterSelected' filter.value }}>
+        <input type="radio">{{filter.text}}
+    </a>
+    {{/each}}
+</div>

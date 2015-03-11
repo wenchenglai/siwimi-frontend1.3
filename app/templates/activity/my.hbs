@@ -15,62 +15,12 @@
 
 <div class="row row-xs-height">
     <div class="col-xs-12">
-        <div class="btn-group" data-toggle="buttons">
-            <a class="btn btn-info active" data-toggle="tab" {{ action 'loadByStatus' 'all' }}>
-                <input type="radio">All
-            </a>
-            <a class="btn btn-info" data-toggle="tab" {{ action 'loadByStatus' 'current' }}>
-                <input type="radio">Current
-            </a>
-            <a class="btn btn-info" data-toggle="tab" {{ action 'loadByStatus' 'upcoming' }}>
-                <input type="radio">Upcoming
-            </a>
-            <a class="btn btn-info" data-toggle="tab" {{ action 'loadByStatus' 'past' }}>
-                <input type="radio">Past
-            </a>
-        </div>
+        {{filter-selector model=allStatus apiFilterSelected="loadByStatus"}}
     </div>
 </div>
 <div class="row row-xs-height">
     <div class="col-xs-12">
-        <div class="btn-group" data-toggle="buttons">
-            <a class="btn btn-info active" data-toggle="tab" {{ action 'loadByType' 'all' }}>
-                <input type="radio">All
-            </a>
-            <a class="btn btn-info" data-toggle="tab" {{ action 'loadByType' 'birthday' }}>
-                <input type="radio">Birthdays
-            </a>
-            <a class="btn btn-info" data-toggle="tab" {{ action 'loadByType' 'concert' }}>
-                <input type="radio">Concerts
-            </a>
-            <a class="btn btn-info" data-toggle="tab" {{ action 'loadByType' 'farm' }}>
-                <input type="radio">Farm Activities
-            </a>
-            <a class="btn btn-info" data-toggle="tab" {{ action 'loadByType' 'book' }}>
-                <input type="radio">Library/Book Reading
-            </a>
-            <a class="btn btn-info" data-toggle="tab" {{ action 'loadByType' 'misc' }}>
-                <input type="radio">Misc
-            </a>
-            <a class="btn btn-info" data-toggle="tab" {{ action 'loadByType' 'movie' }}>
-                <input type="radio">Movies
-            </a>
-            <a class="btn btn-info" data-toggle="tab" {{ action 'loadByType' 'museum' }}>
-                <input type="radio">Museums
-            </a>
-            <a class="btn btn-info" data-toggle="tab" {{ action 'loadByType' 'playdate' }}>
-                <input type="radio">Play Dates
-            </a>
-            <a class="btn btn-info" data-toggle="tab" {{ action 'loadByType' 'festival' }}>
-                <input type="radio">Festival
-            </a>
-            <a class="btn btn-info" data-toggle="tab" {{ action 'loadByType' 'show' }}>
-                <input type="radio">Shows
-            </a>
-            <a class="btn btn-info" data-toggle="tab" {{ action 'loadByType' 'sport' }}>
-                <input type="radio">Sports
-            </a>
-        </div>
+        {{filter-selector model=allTypes apiFilterSelected="loadByType"}}
     </div>
 </div>
 
@@ -90,7 +40,7 @@
                 <tr>
                     <th>{{view "previewImage" width="40" height="40" srcBinding=activity.availableImage}}</th>
                     <td>{{activity.title}}</td>
-                    <td>{{activity.type}}</td>
+                    <td>{{display-text activity.type allTypesHash}}</td>
                     <td>{{formatted-date activity.fromTime 'LL'}}</td>
                     <td>{{formatted-date activity.toTime 'LL'}}</td>
                     <td>{{activity.cityState}}</td>

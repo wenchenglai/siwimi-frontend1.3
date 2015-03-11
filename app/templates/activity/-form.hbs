@@ -56,7 +56,7 @@
         <label>Type:</label>
     </div>
     <div class="col-xs-10 col-md-6">
-        {{view "select" class="btn btn-default dropdown-toggle" prompt="Select Type" content=allTypes value=type}}
+        {{view "select" class="btn btn-default dropdown-toggle" prompt="Select Type" content=allTypes optionValuePath="content.value" optionLabelPath="content.text" value=type}}
     </div>
 </div>
 <div class="row row-xs-height">
