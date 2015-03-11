@@ -1,8 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-    statusFilter: 'popular',
-    typeFilter: 'deal',
+    statusFilter: 'all',
+    typeFilter: 'all',
     
     model: function () {
         var self = this,

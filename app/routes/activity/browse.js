@@ -11,6 +11,8 @@ export default Ember.Route.extend({
                     queryText: self.controller.get('queryText'),
                     distance: self.controller.get('distance'),
                     period: self.controller.get('period'),
+                    fromTime: self.controller.get('fromTime').toDate(),
+                    toTime: self.controller.get('toTime').toDate(),
                     longitude: session.get('longitude'),
                     latitude: session.get('latitude')
                 };

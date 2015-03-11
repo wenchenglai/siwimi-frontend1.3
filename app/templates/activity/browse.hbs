@@ -21,7 +21,14 @@
         <label>Time</label>
     </div>
     <div class="col-xs-10 col-md-6">
-        {{view "select" class="btn btn-default dropdown-toggle" valueBinding=period content=allPeriods placeholder="Time"}}
+        {{view "select" class="btn btn-default dropdown-toggle" valueBinding=period content=allPeriods optionValuePath="content.value" optionLabelPath="content.text" action=periodChange}}
+        {{#if showFromToControls}}
+            <br />
+            From:
+            {{bs-datetimepicker date=fromTime format='YYYY-MM-DD'}}
+            To:
+            {{bs-datetimepicker date=toTime format='YYYY-MM-DD'}}
+        {{/if}}
     </div>
 </div>
 <div class="row row-xs-height">
@@ -54,7 +61,7 @@
                     <td>{{event.ageRange}}</td>
                     <td>
                         <div class="btn-group" role="group" aria-label="...">
-                            {{#link-to 'event.show' event class="btn btn-default"}}Detail{{/link-to}}
+                            {{#link-to 'activity.show' event class="btn btn-default"}}Detail{{/link-to}}
                         </div>
                     </td>
                 </tr>
