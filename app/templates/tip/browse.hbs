@@ -5,7 +5,7 @@
             <div class="btn-group" data-toggle="buttons">
                 <a class="btn btn-info active" data-toggle="tab" {{ action 'setStatusFilter' 'all' }}>
                     <input type="radio">All
-                </a>            
+                </a>
                 <a class="btn btn-info" data-toggle="tab" {{ action 'setStatusFilter' 'active' }}>
                     <input type="radio">Active
                 </a>
@@ -13,26 +13,14 @@
                     <input type="radio">Expired
                 </a>
             </div>
-            <div class="btn-group" data-toggle="buttons">
-                <a class="btn btn-info active" data-toggle="tab" {{ action 'setTypeFilter' 'all' }}>
-                    <input type="radio">All
-                </a>              
-                <a class="btn btn-info" data-toggle="tab" {{ action 'setTypeFilter' 'deal' }}>
-                    <input type="radio">Deal
-                </a>
-                <a class="btn btn-info" data-toggle="tab" {{ action 'setTypeFilter' 'education' }}>
-                    <input type="radio">Education
-                </a>
-                <a class="btn btn-info" data-toggle="tab" {{ action 'setTypeFilter' 'health' }}>
-                    <input type="radio">Health
-                </a>
-                <a class="btn btn-info" data-toggle="tab" {{ action 'setTypeFilter' 'entertainment' }}>
-                    <input type="radio">Entertainment
-                </a>
-                <a class="btn btn-info" data-toggle="tab" {{ action 'setTypeFilter' 'misc' }}>
-                    <input type="radio">Misc
-                </a>
-            </div>
+            
+        </div>
+        
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-12">
+        {{filter-selector model=allTypes apiFilterSelected="loadByType"}}
     </div>
 </div>
 

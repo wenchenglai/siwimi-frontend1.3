@@ -4,12 +4,6 @@ export default Ember.Route.extend({
     statusFilter: 'popular',
     typeFilter: 'deal',
     
-    //queryParams: {
-    //    status: {
-    //        refreshModel: true
-    //    }
-    //},
-
     model: function () {
         var self = this,
             session = self.get('session'),
@@ -37,7 +31,7 @@ export default Ember.Route.extend({
             });
         },
 
-        setTypeFilter: function(type) {
+        loadByType: function(type) {
             var self = this;
 
             self.set('typeFilter', type);

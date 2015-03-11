@@ -2,17 +2,16 @@ import Ember from 'ember';
 
 export default Ember.Mixin.create({
     allTypes: [
-        { text: "Birthdays", value: "birthday" },
-        { text: "Concerts", value: "concert" },
-        { text: "Farm Activity", value: "farm" }, 
-        { text: "Library & Book Reading", value: "book" }, 
-        { text: "Misc", value: "misc" }, 
-        { text: "Movies", value: "movie" }, 
-        { text: "Museums", value: "museum" }, 
-        { text: "Play Dates", value: "playdate" }, 
-        { text: "Festival", value: "festival" }, 
-        { text: "Shows", value: "show" }, 
-        { text: "Sports", value: "sport" }
+        { value: "birthday", text: "Birthdays"},
+        { value: "concert", text: "Concerts" },
+        { value: "farm", text: "Farm Activity" }, 
+        { value: "book", text: "Library & Book Reading" }, 
+        { value: "movie", text: "Movies" }, 
+        { value: "museum", text: "Museums" }, 
+        { value: "playdate", text: "Play Dates" }, 
+        { value: "festival", text: "Festival" }, 
+        { value: "show", text: "Shows" }, 
+        { value: "sport", text: "Sports"}
     ],
 
     allTypesHash: {
