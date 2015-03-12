@@ -86,6 +86,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
                     description: self.controller.get('feedbackText'),
                     viewCount: 0,
                     likeCount: 0,
+                    city: member.get('city'),
+                    state: member.get('state'),
                     isDestroyed: false
                 });
 
@@ -95,8 +97,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
                     self.set('feedbacks', feedbacks);
 
                 }, function (error) {
-                    // deal with the failure here
-                    debugger;
+                    self.send('error', error);
                 });
             });
         },
@@ -122,8 +123,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
                     comments.addObject(data);
                     self.send('refresh');
                 }, function (error) {
-                    // deal with the failure here
-                    debugger;
+                    self.send('error', error);
                 });
             });
         },

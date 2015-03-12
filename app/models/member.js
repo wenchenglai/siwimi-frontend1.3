@@ -56,7 +56,6 @@ export default DS.Model.extend({
     }.property('birthday'),
 
     displayName: function() {
-    	return "test";
         if (!Ember.isEmpty(this.get('nickName'))) {
             return this.get('nickName');
         } else if (!Ember.isEmpty(this.get('firstName'))) {

@@ -10,5 +10,7 @@ export default DS.Model.extend({
     description: DS.attr('string'),
     likeCount: DS.attr('number'),
     viewCount: DS.attr('number'),
+    city: DS.attr('string'),
+    state: DS.attr('string'),  
     isDestroyed: DS.attr('boolean')
 });

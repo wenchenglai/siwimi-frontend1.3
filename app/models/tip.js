@@ -27,6 +27,16 @@ export default DS.Model.extend({
     location: DS.attr('array'),
     isFavorite: DS.attr('boolean'),
 
+    //setupVoteCounts: function() {
+    //    if (!this.get('voteUpCount')) {
+    //        this.set('voteUpCount', 0);
+    //    }
+
+    //    if (!this.get('voteDownCount')) {
+    //        this.set('voteDownCount', 0);
+    //    }
+    //}.on('init'),
+
     // we use bs-datetimepicker addon which takes moment.js date type, so we must do some conversion when binding
     expiredDateMoment: function(key, value, previousValue) {
         // setter
@@ -65,6 +75,10 @@ export default DS.Model.extend({
         }
 
     },
+
+    cityState: function() {
+        return this.get('city') + ', ' + this.get('state');
+    }.property('city', 'state'),
 
     availableImage: function() {
         if (!Em.isEmpty(this.get('imageData'))) {
