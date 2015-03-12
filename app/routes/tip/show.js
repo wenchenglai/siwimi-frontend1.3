@@ -30,7 +30,12 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
             });
 
             voteModel.save().then(function() {
-                model.set('voteUp', model.get('voteUp') + 1);
+                var voteTypeName = "voteUpCount";
+
+                if (voteType === "down") {
+                    voteTypeName = "voteDownCount";
+                }
+                model.set(voteTypeName, model.get(voteTypeName) + 1);
             });
         });        
     },

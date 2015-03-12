@@ -17,8 +17,8 @@ export default DS.Model.extend({
     imageUrl: DS.attr('string'),
 
     // parameters set by backend ONLY
-    voteUp: DS.attr('number'),
-    voteDown: DS.attr('number'),
+    voteUpCount: DS.attr('number'),
+    voteDownCount: DS.attr('number'),
 
     // localization fields
     city: DS.attr('string'),
@@ -36,6 +36,10 @@ export default DS.Model.extend({
         // getter
         return this.get('expiredDate');
     }.property('expiredDate'),
+
+    voteCount: function () {
+        return this.get('voteUpCount') - this.get('voteDownCount');
+    }.property('voteUpCount', 'voteDownCount'),
 
     titleReduced: function () {
         return this._getSubString(this.get('title'), 50);

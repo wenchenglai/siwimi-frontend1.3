@@ -19,6 +19,10 @@ export default DS.Model.extend({
     buyer: DS.belongsTo('member'),
     createdDate: DS.attr('date'),
     viewCount: DS.attr('number'),
+    isForSale: DS.attr('boolean'),
+    isForSwap: DS.attr('boolean'),
+    isForGiveAway: DS.attr('boolean'),
+    isForLoan: DS.attr('boolean'),
     isDestroyed: DS.attr('boolean'),
 
     // localization fields
