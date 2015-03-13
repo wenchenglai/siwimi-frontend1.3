@@ -12,7 +12,7 @@ export default DS.Model.extend({
     gender: DS.attr('string'),
     avatarUrl: DS.attr('string'),
     imageData: DS.attr('string'),
-    family: DS.belongsTo('family', { async: true}),
+    family: DS.belongsTo('family'),
     isUser: DS.attr('boolean'),
     facebookId: DS.attr('string'),
     highSchool: DS.attr('string'),

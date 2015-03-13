@@ -178,3 +178,19 @@ ic-autocomplete-list {
   padding-right: 10px;
   vertical-align: middle;
 }
+
+.loading-pane {
+  margin: 25px auto;
+}
+
+.loading-message {
+  text-align: center;
+  color: #aaa;
+}
+
+.spinner {
+  background: url('/assets/images/spinner.gif') no-repeat;
+  height: 31px;
+  width: 31px;
+  margin: 0 auto;
+}
