@@ -7,7 +7,9 @@
         <input type="radio">{{filter.text}}
     </a>
     {{/each}}
+    {{#if showMisc}}
     <a class="btn btn-info" data-toggle="tab" {{ action 'filterSelected' 'misc' }}>
         <input type="radio">Misc
     </a>
+    {{/if}}
 </div>

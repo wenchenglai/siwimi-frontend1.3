@@ -19,7 +19,9 @@ export default Ember.Mixin.create(StatesDataMixin, {
                 baseCity = family.get('city');
                 baseState = family.get('state');                
             }
-        } else if (member.get('location')) {
+        }
+        
+        if (member.get('location') && longitude !== 0.0) {
             longitude = member.get('location')[0];
             latitude = member.get('location')[1];
 
@@ -42,7 +44,7 @@ export default Ember.Mixin.create(StatesDataMixin, {
         }
 
         if (Ember.isEmpty(baseState)) {
-            baseState = this.get('statesHash')[geoplugin_region()];
+            baseState = geoplugin_region();
         }
         
         session.set('longitude', longitude);

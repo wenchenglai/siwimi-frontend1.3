@@ -3,12 +3,14 @@ import Ember from 'ember';
 export default Ember.View.extend({
     classNameBindings: [':btn', ':btn-info', ':radioButtonGroup'],
 
-    attributeBindings: ['name'],
+    attributeBindings: ['name', 'group'],
 
     click: function () {
+        var group = this.get('group');
         this.set("selection", this.get('value'));
 
-        Em.$('div.radioButtonGroup').removeClass('active');
+
+        Em.$('div.radioButtonGroup[group=' + group + ']').removeClass('active');
     },
 
     active: function () {

@@ -8,26 +8,18 @@
 
 <div class="row row-xs-height">
     <div class="col-xs-12">
-        <div class="btn-group" data-toggle="buttons">
-            <a class="btn btn-info active" data-toggle="tab" {{ action 'loadData' 'active' }}>
-                <input type="radio">Active
-            </a>
-            <a class="btn btn-info" data-toggle="tab" {{ action 'loadData' 'sold' }}>
-                <input type="radio">Sold
-            </a>
-            <a class="btn btn-info" data-toggle="tab" {{ action 'loadData' 'swapped' }}>
-                <input type="radio">Swapped
-            </a>
-            <a class="btn btn-info" data-toggle="tab" {{ action 'loadData' 'gaveaway' }}>
-                <input type="radio">Gave Away
-            </a>
-            <a class="btn btn-info" data-toggle="tab" {{ action 'loadData' 'loaned' }}>
-                <input type="radio">Loaned
-            </a>
-            <a class="btn btn-info" data-toggle="tab" {{ action 'loadData' 'inactive' }}>
-                <input type="radio">Inactive
-            </a>
-        </div>
+        {{filter-selector model=allConditions apiFilterSelected="loadByCondition"}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-12">
+        {{filter-selector model=allTypes apiFilterSelected="loadByType" showMisc="1"}}
+    </div>
+</div>
+
+<div class="row row-xs-height">
+    <div class="col-xs-12">
+        {{filter-selector model=allStatus apiFilterSelected="loadByStatus"}}
     </div>
 </div>
 

@@ -63,9 +63,9 @@
         <div class="control-group">
             <div class="btn-group" data-toggle="buttons-radio">
 
-                {{#view "radio-button-view" name="new" selectionBinding="condition" value="new"}}New{{/view}}
+                {{#view "radio-button-view" name="new" selectionBinding="condition" group="condition" value="new"}}New{{/view}}
 
-                {{#view "radio-button-view" name="used" selectionBinding="condition" value="used"}}Used{{/view}}
+                {{#view "radio-button-view" name="used" selectionBinding="condition" group="condition" value="used"}}Used{{/view}}
 
             </div>
         </div>
@@ -88,17 +88,17 @@
         <div class="control-group">
             <div class="btn-group" data-toggle="buttons-radio">
 
-                {{#view "radio-button-view" name="toy" selectionBinding="type" value="toy" }}Toy{{/view}}
+                {{#view "radio-button-view" name="toy" selectionBinding="type" group="type" value="toy" }}Toy{{/view}}
 
-                {{#view "radio-button-view" name="cloth" selectionBinding="type" value="cloth" }}Cloth{{/view}}
+                {{#view "radio-button-view" name="cloth" selectionBinding="type" group="type" value="cloth" }}Cloth{{/view}}
 
-                {{#view "radio-button-view" name="book" selectionBinding="type" value="book"}}Book{{/view}}
+                {{#view "radio-button-view" name="book" selectionBinding="type" group="type" value="book"}}Book{{/view}}
 
-                {{#view "radio-button-view" name="equipment" selectionBinding="type" value="equipment" }}Equipment{{/view}}
+                {{#view "radio-button-view" name="equipment" selectionBinding="type" group="type" value="equipment" }}Equipment{{/view}}
 
-                {{#view "radio-button-view" name="furniture" selectionBinding="type" value="furniture" }}Furniture{{/view}}
+                {{#view "radio-button-view" name="furniture" selectionBinding="type" group="type" value="furniture" }}Furniture{{/view}}
 
-                {{#view "radio-button-view" name="misc" selectionBinding="type" value="misc" }}Misc{{/view}}
+                {{#view "radio-button-view" name="misc" selectionBinding="type" group="type" value="misc" }}Misc{{/view}}
 
             </div>
         </div>

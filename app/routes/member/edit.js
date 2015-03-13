@@ -14,8 +14,19 @@ export default Ember.Route.extend({
             var self = this,
                 model = self.currentModel;
 
+            var onSuccess = function(member) {
+                var session = self.get('session'),
+                    userId = session.get('id');
+                    
 
-            var onSuccess = function(ret) {
+                if (userId === member.get('id')) {
+                    // reset the base location in case user changes the location
+                    session.set('longitude', member.get('location')[0]);
+                    session.set('latitude',  member.get('location')[1]);
+                    session.set('baseCity', member.get('city'));
+                    session.set('baseState', member.get('state'));                    
+                }
+
                 self.transitionTo('family.my');
             };
 

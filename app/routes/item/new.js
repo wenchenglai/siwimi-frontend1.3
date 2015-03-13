@@ -19,6 +19,7 @@ export default Ember.Route.extend({
 
             self.store.find('member', userId).then(function(user) {
                 model.set('creator', user);
+                model.set('status', 'active');
                 model.set('isDestroyed', false);
                 model.set('createdDate', new Date());
 

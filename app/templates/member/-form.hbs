@@ -99,7 +99,7 @@
         <label>State:</label>
     </div>
     <div class="col-xs-10 col-md-6">
-        {{view "select" class="btn btn-default dropdown-toggle" prompt="Select State" content=allStates value=state}}
+        {{view "select" class="btn btn-default dropdown-toggle" prompt="Select State" content=allStates optionValuePath="content.value" optionLabelPath="content.text" value=state}}
     </div>
 </div>
 <div class="row row-xs-height">
