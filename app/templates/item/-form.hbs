@@ -157,6 +157,14 @@
     </div>
 </div>
 <div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>Zip Code:</label>
+    </div>
+    <div class="col-xs-10 col-md-6">
+        {{input class="edit_box" value=zipCode}}
+    </div>
+</div>
+<div class="row row-xs-height">
     <div class="col-xs-10 col-xs-offset-2 col-md-6 col-md-offset-1">
         <button type="button" class="btn btn-primary btn-sm" {{action "save" }} {{bind-attr disabled=disabled}}>Save</button>
         <button type="button" class="btn btn-link btn-sm" {{action "cancel" }}>Cancel</button>

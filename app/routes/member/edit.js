@@ -24,7 +24,11 @@ export default Ember.Route.extend({
                     session.set('longitude', member.get('location')[0]);
                     session.set('latitude',  member.get('location')[1]);
                     session.set('baseCity', member.get('city'));
-                    session.set('baseState', member.get('state'));                    
+                    session.set('baseState', member.get('state'));
+
+                    var controller = self.controllerFor('application');
+                    controller.set('baseCity', member.get('city'));
+                    controller.set('baseState', member.get('state'));
                 }
 
                 self.transitionTo('family.my');

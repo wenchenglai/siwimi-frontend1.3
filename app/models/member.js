@@ -22,12 +22,13 @@ export default DS.Model.extend({
     flocale: DS.attr('string'),
     flocation: DS.attr('string'),
     ftimezone: DS.attr('number'),
-    zipCode: DS.attr('string'),
     isDestroyed: DS.attr('boolean'),
 
     // localization fields
     city: DS.attr('string'),
-    state: DS.attr('string'),    
+    state: DS.attr('string'),
+    zipCode: DS.attr('string'),
+    location: DS.attr('array'),    
 
     // we use bs-datetimepicker addon which takes moment.js date type, so we must do some conversion when binding
     birthdayMoment: function(key, value, previousValue) {

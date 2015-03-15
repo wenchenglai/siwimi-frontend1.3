@@ -28,6 +28,8 @@ export default DS.Model.extend({
     // localization fields
     city: DS.attr('string'),
     state: DS.attr('string'),    
+    zipCode: DS.attr('string'),
+    location: DS.attr('array'),
 
     ageRange: function () {
         return this.get('fromAge') + ' to ' + this.get('toAge');

@@ -7,9 +7,7 @@ export default DS.Model.extend({
     fromTime: DS.attr('date'),
     toTime: DS.attr('date'),
     address: DS.attr('string'),
-    city: DS.attr('string'),
-    state: DS.attr('string'),
-    zipCode: DS.attr('string'),
+
     url: DS.attr('string'),
     imageData: DS.attr('string'),
     imageUrl: DS.attr('string'),
@@ -19,9 +17,13 @@ export default DS.Model.extend({
     fromAge: DS.attr('number'),
     toAge: DS.attr('number'),
     price: DS.attr('number'),
-    location: DS.attr('array'),
     createdDate: DS.attr('date'),
     isDestroyed: DS.attr('boolean'),
+
+    city: DS.attr('string'),
+    state: DS.attr('string'),
+    zipCode: DS.attr('string'),
+    location: DS.attr('array'),
 
     // we use bs-datetimepicker addon which takes moment.js date type, so we must do some conversion when binding
     fromTimeMoment: function(key, value, previousValue) {

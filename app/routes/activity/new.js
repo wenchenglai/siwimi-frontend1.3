@@ -5,7 +5,7 @@ export default Ember.Route.extend({
         var self = this,
             session = self.get('session');
 
-        return self.store.createRecord('activity', { city: session.get('baseCity'), state: session.get('baseState')});
+        return self.store.createRecord('activity', { city: session.get('baseCity'), state: session.get('baseState'), zipCode: session.get('zipCode')});
     }, 
 
     actions: {

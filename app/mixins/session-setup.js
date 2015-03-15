@@ -7,7 +7,8 @@ export default Ember.Mixin.create(StatesDataMixin, {
             longitude = 0.0,
             latitude = 0.0,
             baseCity = '',
-            baseState = '';
+            baseState = '',
+            baseZipCode = '';
 
         if (family) {
             if (family.get('location')) {
@@ -17,7 +18,8 @@ export default Ember.Mixin.create(StatesDataMixin, {
 
             if (family.get('city') && family.get('state')) {
                 baseCity = family.get('city');
-                baseState = family.get('state');                
+                baseState = family.get('state');
+                baseZipCode = family.get('zipCode');
             }
         }
         
@@ -27,7 +29,8 @@ export default Ember.Mixin.create(StatesDataMixin, {
 
             if (member.get('city') && member.get('state')) {
                 baseCity = member.get('city');
-                baseState = member.get('state');                
+                baseState = member.get('state');
+                baseZipCode = member.get('zipCode');
             }
         }
 
@@ -51,6 +54,7 @@ export default Ember.Mixin.create(StatesDataMixin, {
         session.set('latitude', latitude);
         session.set('baseCity', baseCity);
         session.set('baseState', baseState);
+        session.set('baseZipCode', baseZipCode);
     },
 
     _setProfilePictureInSession: function (session, member) {
