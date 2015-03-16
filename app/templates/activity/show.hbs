@@ -1,3 +1,4 @@
+{{#if session.isAuthenticated}}
 <div class="row row-xs-height">
     <div class="col-xs-6 col-sm-4 col-md-2">
         {{#link-to 'activity.my'}}<< back to list{{/link-to}}
@@ -9,6 +10,7 @@
         <div class="fb-share-button" {{bind-attr data-href="tipUrl" }} data-layout="button_count"></div>
     </div>
 </div>
+{{/if}}
 <div class="row row-xs-height">
     <div class="col-xs-3 col-sm-2 col-md-1">
         <label></label>

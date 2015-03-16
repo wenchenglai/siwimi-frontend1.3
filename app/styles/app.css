@@ -194,3 +194,7 @@ ic-autocomplete-list {
   width: 31px;
   margin: 0 auto;
 }
+
+.nav-custom {
+    margin-top: 10px;
+}

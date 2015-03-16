@@ -7,6 +7,7 @@ export default Ember.Controller.extend(CommonDataMixin, {
     allNeeds: ['ADHD', 'Autism', 'Allergies'],
     toAge: 6,
     fromAge: 0,
+    showAdvancedSearch: false,
     actions: {
         searchfamilies: function () {
             var self = this,
@@ -26,6 +27,14 @@ export default Ember.Controller.extend(CommonDataMixin, {
             }, function(error) {
                 self.send('error', error);
             });
+        },
+
+        toggleAdvancedSearch: function() {
+            if (this.get('showAdvancedSearch')) {
+                this.set('showAdvancedSearch', false);
+            } else {
+                this.set('showAdvancedSearch', true);
+            }
         }
     }
 });

@@ -27,17 +27,23 @@ export default Ember.ObjectController.extend(StatesDataMixin, {
     		session = self.get('session');
     	
     	if (session.isAuthenticated) {
-    	    self.set('baseCity', session.get('baseCity'));
-    	    self.set('baseState', session.get('baseState'));   		
-    	} else {
+    	    if (!Ember.isEmpty(session.get('baseCity')) && !Ember.isEmpty(session.get('baseCity'))) {
+    	        self.set('baseCity', session.get('baseCity'));
+    	        self.set('baseState', session.get('baseState'));   
+	        }
+    	}
+
+    	if (Ember.isEmpty(self.get('baseCity')) || Ember.isEmpty(self.get('baseCity'))) {
     	    self.set('baseCity', geoplugin_city());
     	    self.set('baseState', geoplugin_region());
 
-    	    session.set('longitude', geoplugin_longitude());
-    	    session.set('latitude', geoplugin_latitude());
-    	    session.set('baseCity', self.get('baseCity'));
-    	    session.set('baseState', self.get('baseState'));
-    	}
+	        if (!session.isAuthenticated) {
+	            session.set('longitude', geoplugin_longitude());
+	            session.set('latitude', geoplugin_latitude());
+	            session.set('baseCity', self.get('baseCity'));
+	            session.set('baseState', self.get('baseState'));
+	        }
+	    }
     	
     }.on('init'),
     

@@ -16,11 +16,15 @@
     <div class="col-xs-2 col-md-1">
         <label>Within</label>
     </div>
-    <div class="col-xs-10 col-md-6">
+    <div class="col-xs-3 col-md-2">
         {{view "select" class="btn btn-default dropdown-toggle" valueBinding=distance content=allDistances placeholder="Distance"}}
+    </div>
+    <div class="col-xs-3 col-md-2">
+        <button class="btn btn-link" {{action "toggleAdvancedSearch" }}>Advanced Search</button>
     </div>
 </div>
 
+{{#if showAdvancedSearch}}
 <div class="row row-xs-height">
     <div class="col-xs-2 col-md-1">
         <label>Favorite Toys</label>
@@ -47,6 +51,7 @@
         {{view "select" class="btn btn-default dropdown-toggle" valueBinding="needs" content=allNeeds placeholder="need" multiple=true}}
     </div>
 </div>
+{{/if}}
 
 <div class="row row-xs-height">
     <div class="col-xs-3 col-xs-offset-2 col-md-offset-1">
