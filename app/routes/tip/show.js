@@ -40,6 +40,17 @@ export default Ember.Route.extend({
     },
 
     actions: {
+        goBack: function() {
+            var self = this,
+                session = self.get('session');
+
+            if (session.isAuthenticated) {
+                self.transitionTo('tip.my');
+            } else {
+                self.transitionTo('tip.browse');
+            }
+        },
+
         voteUp: function() {
             this._addVote('up');
         },

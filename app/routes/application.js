@@ -2,10 +2,6 @@ import Ember from 'ember';
 import ApplicationRouteMixin from 'simple-auth/mixins/application-route-mixin';
 
 export default Ember.Route.extend(ApplicationRouteMixin, {
-    willTransition: function() {
-        debugger;
-    },
-
     _saveTransition: function (transition) {
         var self = this;
         if (transition.targetName !== 'login') {
@@ -48,6 +44,12 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
                 return false;
             }
             return true;
+        },
+
+        showAlertBar: function(data) {
+            var self = this;
+
+            self.controller._toggleAlert(true, data.title, data.message, data.type);            
         },
 
         willTransition: function (transition) {

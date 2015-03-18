@@ -1,11 +1,6 @@
 import Ember from 'ember';
 
-export default Ember.ObjectController.extend({
-    showAlert: false,
-    alertTitle: "",
-    alertMessage: "",
-    alertType: "",
-    
+export default Ember.ObjectController.extend({  
     disabledImportFacebook: function () {
         return Ember.isEmpty(this.get('facebookId'));
     }.property('facebookId'),
@@ -21,32 +16,22 @@ export default Ember.ObjectController.extend({
         return ret;
     }.property('password'),
 
-    _toggleAlert: function(flag, title, message, type) {
-        var self = this;
-        self.set('showAlert', flag);
-        self.set('alertTitle', title);
-        self.set('alertMessage', message);
-        self.set('alertType', type);
-    },
-
-    deactivate: function() {
-        var self = this;
-        self._toggleAlert(false);
-    },
-
     actions: {
         save: function () {
             var self = this,
                 fromModel = this.get('model'),
                 hasError = false;
 
-            self._toggleAlert(false);
             var onSuccess = function () {
-                self._toggleAlert(true, 'Success', 'Your account info has been saved.', 'alert-success');
+                self.send('showAlertBar', {
+                    title: 'Success',
+                    message: 'Your account info has been saved.',
+                    type: 'alert-success'
+                });
             };
 
-            var onFail = function () {
-                self._toggleAlert(true, 'Error', 'while saving data.', 'alert-danger');
+            var onFail = function (error) {
+                self.send('error', error);
             };
 
             if (self.get('newPassword')) {
@@ -97,11 +82,6 @@ export default Ember.ObjectController.extend({
                     fromModel.set('facebookId', fbUser.id);
                 }
             });
-        },
-
-        closeAlert: function() {
-            var self = this;
-            self._toggleAlert(false);
         }
     }
 });

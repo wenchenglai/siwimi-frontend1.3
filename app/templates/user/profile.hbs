@@ -1,8 +1,3 @@
-<div {{bind-attr class=":row :row-xs-height showAlert::collapse" }}>
-    <div class="col-xs-12">
-        {{alert-bar title=alertTitle message=alertMessage type=alertType closeAlert="closeAlert" }}
-    </div>
-</div>
 <div class="row row-xs-height">
     <div class="col-xs-10 col-xs-offset-2">
         <button class="btn btn-primary btn-sm" {{action "importFromFacebook" }} {{bind-attr disabled=disabledImportFacebook}}>

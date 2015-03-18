@@ -1,7 +1,6 @@
 import Ember from 'ember';
-import TipDataMixin from '../../mixins/tip-data';
 
-export default Ember.ObjectController.extend(TipDataMixin, {
+export default Ember.ObjectController.extend({
     showEdit: function() {
         if (Ember.isEmpty(this.get('creator'))) {
             if (this.get('session').isAuthenticated) {

@@ -1,12 +1,16 @@
 <div class="row row-xs-height">
     <div class="col-xs-2">
-        {{#link-to 'tip.my'}}<< back to list{{/link-to}}
+        <button type="button" class="btn btn-link btn-sm" {{action "goBack" }}><< Back</button>
     </div>
     <div class="col-xs-2">
-        {{#link-to 'tip.edit' id}}Edit{{/link-to}}
+        {{#if showEdit}}
+            {{#link-to 'tip.edit' id}}Edit{{/link-to}}
+        {{/if}}
     </div>
-    <div class="col-xs-4">
-        <div class="fb-share-button" {{bind-attr data-href="tipUrl"}} data-layout="button_count"></div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-12">
+        <div class="fb-share-button" {{bind-attr data-href="tipUrl" }} data-layout="button_count"></div>
     </div>
 </div>
 <div class="row row-xs-height">
