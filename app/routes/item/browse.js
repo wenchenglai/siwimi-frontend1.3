@@ -1,8 +1,23 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-    setupController: function(controller, model) {
-        this._super(controller, model);
-        controller.set('showResult', false);
-    },
+    actions: {
+        search: function () {
+            var self = this,
+                session = self.get('session'),
+                userId = self.get('session.id'),
+                query = {
+                    requester: userId,
+                    queryText: self.controller.get('queryText'),
+                    distance: self.controller.get('distance'),
+                    longitude: session.get('longitude'),
+                    latitude: session.get('latitude')
+                };
+
+            self.store.find('item', query).then(function(items) {
+                self.set('model', items.get('content'));
+                self.controller.set('showData', true);
+            });
+        }
+    }
 });

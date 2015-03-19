@@ -21,7 +21,7 @@
 </div>
 <div class="row row-xs-height">
     <div class="col-xs-1">
-        <img class="avatar" {{bind-attr src=session.profilePicture}}>
+        <img class="avatar" {{bind-attr src=creator.availableImage}}>
         <a class="vote-up" {{action "voteUp" }} title="it's userful and clear'">test</a>
         <span class="vote-count-post">{{voteCount}}</span>
         <a class="vote-down" {{action "voteDown" }} title="it's userful and clear'">test</a>
@@ -84,7 +84,7 @@
                         <li>
                             <a href="#">
                                 <h4>created</h4>
-                                <img width="20" height="20" {{bind-attr src=session.profilePicture}} class="avatar" />
+                                <img width="20" height="20" {{bind-attr src=creator.availableImage}} class="avatar" />
                                 <span>{{formatted-date createdDate 'LL'}}</span>
                             </a>
                         </li>

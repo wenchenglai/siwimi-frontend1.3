@@ -8,8 +8,14 @@ export default Ember.ObjectController.extend(CommonDataMixin, ActivityDataMixin,
     queryText: '',
     fromTime: null,
     toTime: null,
-    showResult: false,
     showFromToControls: false,
+    showData: false,
+    hasData: function() {
+        if (this.get('model')) {
+            return this.get('model').get('length') > 0;
+        }
+        return false;
+    }.property('model.length'),
 
     onSelectedPackChange:function(){
         var self = this,

@@ -36,10 +36,11 @@
     </div>
 </div>
 
-{{#if showResult }}
+
+{{#if showData}}
 <div class="row row-xs-height">
     <div class="col-xs-12">
-        {{#if model.length}}
+        {{#if hasData }}
         <table class="table">
             <thead>
             <th></th>
@@ -68,7 +69,7 @@
             </tbody>
         </table>
         {{else}}
-            There is no data
+            There is no activiy found.
         {{/if}}
     </div>
 </div>
