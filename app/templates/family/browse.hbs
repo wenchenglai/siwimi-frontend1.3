@@ -56,24 +56,24 @@
 <div class="row row-xs-height">
     <div class="col-xs-3 col-xs-offset-2 col-md-offset-1">
         <div class="input-group">
-            <button type="button" class="btn btn-primary btn-sm" {{action "searchfamilies" }}>Search</button>
+            <button type="button" class="btn btn-primary btn-sm" {{action "search" }}>Search</button>
         </div>
     </div>
 </div>
 
+{{#if showData}}
 <div class="row row-xs-height">
     <div class="col-xs-12">
-        You are searching families which have children from age {{fromAge}} to {{toAge}} in your neighborhood.
+        {{#if model.length }}
+            {{#each family in model}}
+                {{family-list model=family apiEditFamily="goToEditFamily" apiDeleteFamily="deleteFamily" apiAddMember="goToAddMember" apiEditMember="goToEditMember" apiDeleteMember="deleteMember" apiCancel="cancelUserCreation"}}
+            {{/each}}
+        {{else}}
+            There is no family found.
+        {{/if}}
     </div>
 </div>
-
-{{#each family in families}}
-<div class="row row-xs-height">
-    <div class="col-xs-12">
-        {{family-list model=family apiEditFamily="goToEditFamily" apiDeleteFamily="deleteFamily" apiAddMember="goToAddMember" apiEditMember="goToEditMember" apiDeleteMember="deleteMember" apiCancel="cancelUserCreation"}}
-    </div>
-</div>
-{{/each}}
+{{/if}}
 
 
 
