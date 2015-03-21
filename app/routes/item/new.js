@@ -28,7 +28,7 @@ export default Ember.Route.extend({
                 };
 
                 var onFail = function (error) {
-                    throw new error('Saving New Item Error');
+                    self.send('error', error);
                 };
 
                 model.save().then(onSuccess, onFail);

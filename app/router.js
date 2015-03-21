@@ -29,6 +29,7 @@ Router.map(function() {
     this.route('show', { path: ':tip_id' });
     this.route('edit', { path: ':tip_id/edit' });
     this.route("preference");
+    this.route("search");
   });
 
   this.resource("family", function() {
@@ -57,6 +58,7 @@ Router.map(function() {
     this.route("show", { path: ':item_id' });
     this.route("edit", { path: ':item_id/edit' });
     this.route("preference");
+    this.route("search");
   });
 
   this.resource('activity', function () {

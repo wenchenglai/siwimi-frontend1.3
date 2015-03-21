@@ -6,7 +6,8 @@ export default Ember.Mixin.create({
         { value: "cooking", text: "Cooking" },
         { value: "health", text: "Health" }, 
         { value: "education", text: "Education" }, 
-        { value: "entertainment", text: "Entertainment" }
+        { value: "entertainment", text: "Entertainment" },
+        { value: "travel", text: "Travel" }
     ],
 
     allTypesHash: {

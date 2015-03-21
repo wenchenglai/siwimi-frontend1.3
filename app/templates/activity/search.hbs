@@ -1,0 +1,76 @@
+<h2>Search for events that you are looking for</h2>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>Search</label>
+    </div>
+    <div class="col-xs-10 col-md-6">
+        {{input class="form-control" placeholder="e.g Dancing Babies, Cherry Picking" value=queryText}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>Within</label>
+    </div>
+    <div class="col-xs-10 col-md-6">
+        {{view "select" class="btn btn-default dropdown-toggle" valueBinding=distance content=allDistances placeholder="Distance"}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>Time</label>
+    </div>
+    <div class="col-xs-10 col-md-3">
+        {{view "select" class="btn btn-default dropdown-toggle" valueBinding=period content=allPeriods optionValuePath="content.value" optionLabelPath="content.text" action=periodChange}}
+        {{#if showFromToControls}}
+        <br />
+        From:
+        {{bs-datetimepicker date=fromTime format='YYYY-MM-DD'}}
+        To:
+        {{bs-datetimepicker date=toTime format='YYYY-MM-DD'}}
+        {{/if}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-10 col-xs-offset-2 col-md-6 col-md-offset-1">
+        <button type="button" class="btn btn-primary btn-sm" {{action "search" }} {{bind-attr disabled=disabled}}>Search</button>
+    </div>
+</div>
+
+{{#if showData}}
+<div class="row row-xs-height">
+    <div class="col-xs-12">
+        {{#if hasData }}
+        <table class="table">
+            <thead>
+            <th></th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Price</th>
+            <th>Posted Date</th>
+            <th>Age Range</th>
+            </thead>
+            <tbody>
+                {{#each event in model}}
+                <tr>
+                    <td>{{view "previewImage" width="60" height="60" srcBinding="event.availableImage"}}</td>
+                    <td>{{event.title}}</td>
+                    <td>{{event.type}}</td>
+                    <td>{{event.trueCost}}</td>
+                    <td>{{formatted-date event.createdDate 'LL'}}</td>
+                    <td>{{event.ageRange}}</td>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="...">
+                            {{#link-to 'activity.show' event class="btn btn-default"}}Detail{{/link-to}}
+                        </div>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        {{else}}
+        There is no activiy found.
+        {{/if}}
+    </div>
+</div>
+{{/if}}
+

@@ -1,46 +1,16 @@
-<h2>Search for events that you are looking for</h2>
-<div class="row row-xs-height">
-    <div class="col-xs-2 col-md-1">
-        <label>Search</label>
-    </div>
-    <div class="col-xs-10 col-md-6">
-        {{input class="form-control" placeholder="e.g Dancing Babies, Cherry Picking" value=queryText}}
-    </div>
-</div>
-<div class="row row-xs-height">
-    <div class="col-xs-2 col-md-1">
-        <label>Within</label>
-    </div>
-    <div class="col-xs-10 col-md-6">
-        {{view "select" class="btn btn-default dropdown-toggle" valueBinding=distance content=allDistances placeholder="Distance"}}
-    </div>
-</div>
-<div class="row row-xs-height">
-    <div class="col-xs-2 col-md-1">
-        <label>Time</label>
-    </div>
-    <div class="col-xs-10 col-md-3">
-        {{view "select" class="btn btn-default dropdown-toggle" valueBinding=period content=allPeriods optionValuePath="content.value" optionLabelPath="content.text" action=periodChange}}
-        {{#if showFromToControls}}
-            <br />
-            From:
-            {{bs-datetimepicker date=fromTime format='YYYY-MM-DD'}}
-            To:
-            {{bs-datetimepicker date=toTime format='YYYY-MM-DD'}}
-        {{/if}}
-    </div>
-</div>
-<div class="row row-xs-height">
-    <div class="col-xs-10 col-xs-offset-2 col-md-6 col-md-offset-1">
-        <button type="button" class="btn btn-primary btn-sm" {{action "search" }} {{bind-attr disabled=disabled}}>Search</button>
-    </div>
-</div>
-
-
-{{#if showData}}
 <div class="row row-xs-height">
     <div class="col-xs-12">
-        {{#if hasData }}
+        {{filter-selector model=allStatus apiFilterSelected="loadByStatus"}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-12">
+        {{filter-selector model=allTypes apiFilterSelected="loadByType" showMisc="1"}}
+    </div>
+</div>
+
+<div class="row row-xs-height">
+    <div class="col-xs-12">
         <table class="table">
             <thead>
             <th></th>
@@ -68,9 +38,5 @@
                 {{/each}}
             </tbody>
         </table>
-        {{else}}
-            There is no activiy found.
-        {{/if}}
     </div>
 </div>
-{{/if}}

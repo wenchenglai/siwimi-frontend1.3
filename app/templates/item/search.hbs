@@ -1,28 +1,35 @@
+<h2>Search for items that you are looking for</h2>
 <div class="row row-xs-height">
-    <div class="col-xs-12">
-        {{filter-selector model=allTypes apiFilterSelected="loadByType" showMisc="1"}}
+    <div class="col-xs-2 col-md-1">
+        <label>Search</label>
+    </div>
+    <div class="col-xs-10 col-md-6">
+        {{input class="form-control" placeholder="e.g Toys" value=queryText}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>Within</label>
+    </div>
+    <div class="col-xs-10 col-md-6">
+        {{view "select" class="btn btn-default dropdown-toggle" valueBinding=distance content=allDistances placeholder="Distance"}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-10 col-xs-offset-2 col-md-6 col-md-offset-1">
+        <button type="button" class="btn btn-primary btn-sm" {{action "search" }} {{bind-attr disabled=disabled}}>Search</button>
     </div>
 </div>
 
+{{#if showData }}
 <div class="row row-xs-height">
     <div class="col-xs-12">
-        {{filter-selector model=allStatus apiFilterSelected="loadByStatus"}}
-    </div>
-</div>
-
-<div class="row row-xs-height">
-    <div class="col-xs-12">
-        {{filter-selector model=allConditions apiFilterSelected="loadByCondition"}}
-    </div>
-</div>
-
-<div class="row row-xs-height">
-    <div class="col-xs-12">
+        {{#if hasData }}
         <table class="table">
             <thead>
             <th></th>
-            <th>Title</th>
-            <th>Type</th>
+            <th>Name</th>
+            <th>Description</th>
             <th>Price</th>
             <th>Posted Date</th>
             <th>Age Range</th>
@@ -39,13 +46,16 @@
                     <td>
                         <div class="btn-group" role="group" aria-label="...">
                             {{#link-to 'item.show' item class="btn btn-default"}}Detail{{/link-to}}
+                            <button type="button" class="btn btn-default" {{action 'openDeleteDialog' item.id target="view" bubbles="false" }}>Delete</button>
                         </div>
                     </td>
                 </tr>
                 {{/each}}
             </tbody>
         </table>
+        {{else}}
+        There is no listing found.
+        {{/if}}
     </div>
 </div>
-
-
+{{/if}}
