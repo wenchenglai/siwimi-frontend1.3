@@ -14,20 +14,6 @@ export default Ember.Mixin.create({
         { value: "sport", text: "Sports"}
     ],
 
-    allTypesHash: {
-        "birthday": "",
-        "concert": "Concerts",
-        "farm": "Farm Activity", 
-        "book": "Library & Book Reading", 
-        "misc": "Misc", 
-        "movie": "Movies", 
-        "museum": "Museums", 
-        "playdate": "Play Dates", 
-        "festival": "Festival", 
-        "show": "Shows", 
-        "sport": "Sports"
-    },
-
     allStatus: [
         { text: "Current", value: "current" },
         { text: "Upcoming", value: "upcoming" },

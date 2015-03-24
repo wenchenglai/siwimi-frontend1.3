@@ -3,7 +3,7 @@ import Ember from 'ember';
 export function displayText(input, collection) {
     var ret = "";
     if (input) {
-        ret = collection[input];
+        ret = window._.find(collection, function(obj) { return obj.value === input; }).text;        
     }
     return ret;
 }

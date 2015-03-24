@@ -22,6 +22,7 @@ app.import('bower_components/jquery-ui/ui/dialog.js');
 app.import('bower_components/jquery-ui/themes/smoothness/jquery-ui.css');
 
 app.import('bower_components/moment/moment.js');
+app.import('bower_components/underscore/underscore.js');
 app.import('bower_components/ic-autocomplete/dist/globals/main.js');
 
 app.import('bower_components/bootstrap/dist/css/bootstrap.css');
