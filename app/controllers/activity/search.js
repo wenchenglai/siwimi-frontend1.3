@@ -9,6 +9,7 @@ export default Ember.ObjectController.extend(CommonDataMixin, ActivityDataMixin,
     fromTime: null,
     toTime: null,
     showFromToControls: false,
+    showAdvancedSearch: false,
     showData: false,
     hasData: function() {
         if (this.get('model')) {
@@ -26,5 +27,15 @@ export default Ember.ObjectController.extend(CommonDataMixin, ActivityDataMixin,
         } else {
             self.set('showFromToControls', false);
         }
-    }.observes('period')
+    }.observes('period'),
+
+    actions: {
+        toggleAdvancedSearch: function() {
+            if (this.get('showAdvancedSearch')) {
+                this.set('showAdvancedSearch', false);
+            } else {
+                this.set('showAdvancedSearch', true);
+            }
+        }
+    }
 });

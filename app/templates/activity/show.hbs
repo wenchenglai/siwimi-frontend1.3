@@ -13,25 +13,30 @@
 </div>
 
 <div class="row row-xs-height">
-    <div class="col-xs-3 col-sm-2 col-md-1">
-        <label></label>
-    </div>
-    <div class="col-xs-9 col-sm-10 col-md-6">
+    <div class="col-xs-12 col-sm-6 col-md-4">
         {{#if imageUrl }}
         <img {{bind-attr src=imageUrl}} alt="image" />
         {{else}}
         {{view "previewImage" width="200" height="200" srcBinding=availableImage}}
         {{/if}}
     </div>
-</div>
-<div class="row row-xs-height">
-    <div class="col-xs-3 col-sm-2 col-md-1">
-        <label>Title:</label>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="row row-xs-height">
+            <div class="col-xs-12 col-md-6">
+                <h1>{{title}}</h1>
+            </div>
+        </div>
+        <div class="row row-xs-height">
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                From:
+                {{formatted-date fromTime 'LL'}}
+                To:
+                {{formatted-date toTime 'LL'}}
+            </div>
+        </div>        
     </div>
-    <div class="col-xs-9 col-sm-10 col-md-6">
-        {{title}}
-    </div>
 </div>
+
 <div class="row row-xs-height">
     <div class="col-xs-3 col-sm-2 col-md-1">
         <label>Web URL:</label>
@@ -48,17 +53,7 @@
         {{description}}
     </div>
 </div>
-<div class="row row-xs-height">
-    <div class="col-xs-3 col-sm-2 col-md-1">
-        <label>Date:</label>
-    </div>
-    <div class="col-xs-9 col-sm-10 col-md-6">
-        From:
-        {{formatted-date fromTime 'LL'}}
-        To:
-        {{formatted-date toTime 'LL'}}
-    </div>
-</div>
+
 <div class="row row-xs-height">
     <div class="col-xs-2 col-md-1">
         <label>Age:</label>
@@ -116,5 +111,17 @@
     </div>
     <div class="col-xs-9 col-sm-10 col-md-6">
         {{display-text type allTypes}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-3 col-sm-2 col-md-1">
+        <label>Action:</label>
+    </div>
+    <div class="col-xs-9 col-sm-10 col-md-6">
+        {{npm-radio-button value='one' checked=actionType}} I plan to attend this event.
+        <br />
+        {{npm-radio-button value='two' checked=actionType}} I am undecided.
+        <br />
+        {{npm-radio-button value='two' checked=actionType}} I am not going.
     </div>
 </div>

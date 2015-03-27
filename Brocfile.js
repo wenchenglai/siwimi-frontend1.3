@@ -37,7 +37,8 @@ app.import('vendor/bootstrap/css/dashboard.css');
 app.import('vendor/facebook/FB.js');
 app.import('vendor/google/gapi.js');
 
-
+app.import('bower_components/fullcalendar/dist/fullcalendar.css');
+app.import('bower_components/fullcalendar/dist/fullcalendar.js');
 
 
 module.exports = app.toTree();

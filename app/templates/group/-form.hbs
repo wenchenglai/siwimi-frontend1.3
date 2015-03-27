@@ -1,0 +1,23 @@
+<div class="row row-xs-height">
+    <div class="col-xs-2">
+        <label><span class="required">*</span>Group Name:</label>
+    </div>
+    <div class="col-xs-10">
+        {{input class="edit_box" value=title placeholder="e.g. Lily's friends"}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2">
+        <label>Description:</label>
+    </div>
+    <div class="col-xs-10">
+        {{textarea class="edit_box" rows="5" cols="60" value=description placeholder="Briefly describe this group so if you want, you can share your group info to your friends"}}
+    </div>
+</div>
+
+<div class="row row-xs-height">
+    <div class="col-xs-12 col-xs-offset-2">
+        <button type="button" class="btn btn-primary btn-sm" {{action "save" }} {{bind-attr disabled=disabled}}>Save</button>
+        <button type="button" class="btn btn-link btn-sm" {{action "cancel" }}>Cancel</button>
+    </div>
+</div>

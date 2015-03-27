@@ -6,11 +6,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, StatesDataMixin, {
     model: function() {
         var self = this;
         return self.store.createRecord('family');
-    }, 
-
-    disabled: function () {
-        return Ember.isEmpty(this.get('familyName')) || Ember.isEmpty(this.get('zipCode'));
-    }.property('familyName', 'zipCode'),
+    },
 
     actions: {
         save: function (params) {

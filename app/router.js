@@ -81,6 +81,12 @@ Router.map(function() {
     this.route("edit", { path: ':question_id/edit' });
     this.route("preference");
   });
+  this.route("group", function() {
+    this.route("my");
+    this.route("new");
+    this.route("show", { path: ':group_id' });
+    this.route("edit", { path: ':group_id/edit' });
+  });
 });
 
 export default Router;

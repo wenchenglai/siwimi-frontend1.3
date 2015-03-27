@@ -1,0 +1,28 @@
+<div class="row row-xs-height">
+    <div class="col-xs-2">
+        {{#link-to 'group.my'}}<< back{{/link-to}}
+    </div>
+    <div class="col-xs-2">
+        {{#link-to 'group.edit' id}}Edit{{/link-to}}
+    </div>
+    <div class="col-xs-4">
+        <div class="fb-share-button" {{bind-attr data-href="tipUrl" }} data-layout="button_count"></div>
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2">
+        Group Name:
+    </div>
+    <div class="col-xs-10">
+        {{title}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2">
+        Description:
+    </div>
+    <div class="col-xs-10">
+        {{description}}
+    </div>
+</div>
+

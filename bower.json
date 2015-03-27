@@ -21,6 +21,7 @@
     "eonasdan-bootstrap-datetimepicker": "~4.0.0",
     "ember-cli-moment-shim": "~0.0.3",
     "jquery-ui": "~1.11.2",
-    "underscore": "~1.8.2"
+    "underscore": "~1.8.2",
+    "fullcalendar": "~2.3.1"
   }
 }
