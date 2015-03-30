@@ -5,7 +5,7 @@ export default Ember.Mixin.create({
         { value: "birthday", text: "Birthdays"},
         { value: "concert", text: "Concerts" },
         { value: "farm", text: "Farm Activity" }, 
-        { value: "book", text: "Library & Book Reading" }, 
+        { value: "storytelling", text: "Storytelling" }, 
         { value: "movie", text: "Movies" }, 
         { value: "museum", text: "Museums" }, 
         { value: "playdate", text: "Play Dates" }, 

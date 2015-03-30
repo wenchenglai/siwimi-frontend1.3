@@ -1,7 +1,28 @@
 {{#if model}}
 <div class="row row-xs-height">
     <div class="col-xs-12">
-        
+        <table class="table">
+            <thead>
+                <th>Name</th>
+                <th>Member Count</th>
+                <th></th>
+            </th>
+            <tbody>
+                {{#each group in model }}
+                <tr>
+                    <td>{{group.title}}</td>
+                    <td>{{group.members.length}}</td>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="...">
+                            {{#link-to 'group.show' group class="btn btn-default"}}Detail{{/link-to}}
+                            <button type="button" class="btn btn-default" {{action 'openDeleteDialog' activity.id target="view" bubbles="false" }}>Delete</button>
+                        </div>
+                    </td>
+                </tr>
+                {{/each}}
+
+            </tbody>
+        </table>        
     </div>
 </div>
 {{else}}
@@ -24,3 +45,7 @@
     </div>
 </div>
 {{/if}}
+
+<div id="dialog-confirm-delete" title="Delete an activity?">
+    <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>This group will be deleted. Are you sure?</p>
+</div>
