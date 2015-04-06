@@ -159,7 +159,7 @@ ic-autocomplete-list {
 .image-block-content {
   display: table-cell;
   vertical-align: top;
-  width: 10000px;
+  width: 100px;
 }
 #movies {
   width: 300px;

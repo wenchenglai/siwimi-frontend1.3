@@ -2,12 +2,10 @@ import Ember from 'ember';
 
 export default Ember.Mixin.create({
     allStatus: [
-        { value: "active", text: "New"},
-        { value: "sold", text: "Sold" },
-        { value: "swapped", text: "Swapped" },
-        { value: "gaveaway", text: "Gave Away"},
-        { value: "loaned", text: "Loaned" },
-        { value: "inactive", text: "Inactive" }
+        { value: "sale", text: "Sale" },
+        { value: "swap", text: "Swap" },
+        { value: "free", text: "Free"},
+        { value: "loan", text: "Loan" }
     ],
 
     allTypes: [

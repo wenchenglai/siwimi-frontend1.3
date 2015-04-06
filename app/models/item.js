@@ -10,19 +10,17 @@ export default DS.Model.extend({
     height: DS.attr('number'),
     fromAge: DS.attr('number'),
     toAge: DS.attr('number'),
-    condition: DS.attr('string'), // new, used
-    type: DS.attr('string'), // toy, cloth, book, furniture, other
-    status: DS.attr('string'), // active, inactive, sold, swapped, gave away
+    condition: DS.attr('string'), // New, Lightly Used, Heavily Used
+    type: DS.attr('string'), // toy, cloth, book, equipment, furniture, misc
+    transitionType: DS.attr('string'), // Sale, Swap, Loan, GiveAway
+    status: DS.attr('string'), // active, inactive, completed
     imageUrl: DS.attr('string'),
     imageData: DS.attr('string'),
     creator: DS.belongsTo('member'),
     buyer: DS.belongsTo('member'),
     createdDate: DS.attr('date'),
     viewCount: DS.attr('number'),
-    isForSale: DS.attr('boolean'),
-    isForSwap: DS.attr('boolean'),
-    isForGiveAway: DS.attr('boolean'),
-    isForLoan: DS.attr('boolean'),
+    isComplete: DS.attr('boolean'),
     isDestroyed: DS.attr('boolean'),
 
     // localization fields

@@ -84,7 +84,28 @@
             <ul class="nav navbar-nav navbar-right">
             	<li>
                     <label class="nav-custom">
-                        {{input class="form-control" value=baseLocation size="15"}}
+                        
+                        {{input class="form-control" value=baseLocation size="15" readonly="true"}}
+                        {{!--
+                        <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+                        {{#ic-autocomplete
+                        id="movies"
+                        value=baseLocation
+                        on-input="getLocation"
+                        on-select="selectLocation"}}
+
+                        {{#each locations}}
+                        <!-- finally create autocomplete-options with a value and label -->
+                        {{#ic-autocomplete-option value=cityState label=cityState class="image-block"}}
+                        <div class="image-block-content">
+                            {{cityState}}
+                        </div>
+                        {{/ic-autocomplete-option}}
+                        {{else}}
+                        <div style="padding: 2px 16px;">No results found</div>
+                        {{/each}}
+                        {{/ic-autocomplete}}
+                        --}}
                     </label>
             	</li>
                 {{#if session.isAuthenticated}}

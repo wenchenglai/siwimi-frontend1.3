@@ -1,4 +1,10 @@
 <div class="row row-xs-height">
+    <div class="col-xs-12">
+        {{filter-selector model=allTypes apiFilterSelected="loadByType" showMisc="1"}}
+    </div>
+</div>
+
+<div class="row row-xs-height">
     <div class="col-lg-12">
         <div class="btn-toolbar" role="toolbar" aria-label="tiptoolbar">
             <div class="btn-group" data-toggle="buttons">
@@ -12,14 +18,9 @@
                     <input type="radio">Expired
                 </a>
             </div>
-            
+
         </div>
-        
-    </div>
-</div>
-<div class="row row-xs-height">
-    <div class="col-xs-12">
-        {{filter-selector model=allTypes apiFilterSelected="loadByType" showMisc="1"}}
+
     </div>
 </div>
 

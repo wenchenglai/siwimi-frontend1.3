@@ -1,7 +1,8 @@
 import Ember from 'ember';
 import StatesDataMixin from '../mixins/states-data';
 
-export default Ember.ObjectController.extend(StatesDataMixin, {
+export default
+Ember.ObjectController.extend(StatesDataMixin, {
     previousTransition: null,
     previousURL: null,
     showAlert: false,
@@ -10,6 +11,7 @@ export default Ember.ObjectController.extend(StatesDataMixin, {
     alertType: "alert-danger",
     baseCity: "",
     baseState: "",
+    locations: [],
     
     baseLocation: function() {
     	if (!Ember.isEmpty(this.get('baseCity'))) {
@@ -59,6 +61,18 @@ export default Ember.ObjectController.extend(StatesDataMixin, {
         closeAlert: function() {
             var self = this;
             self._toggleAlert(false);
+        },
+
+        getLocation: function(autocomplete, term) {
+            var self = this;
+
+            self.store.find('location', {queryText: term}).then(function(locations) {
+                self.set('locations', locations);
+            });
+        },
+
+        selectLocation: function(autocomplete, term) {
+            
         }
     }
 });

@@ -11,6 +11,12 @@ export default Ember.Route.extend({
             } else {
                 self.transitionTo('activity.browse');
             }
+        },
+
+        colorChanged: function(selectedValue) {
+            var ddd = 3;
+            var aaa = 4;
+            var eee = ddd + aaa;
         }
     }
 });
