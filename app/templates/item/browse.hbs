@@ -35,7 +35,7 @@
             <tbody>
                 {{#each item in model}}
                 <tr>
-                    <td>{{view "previewImage" width="60" height="60" srcBinding="item.availableImage"}}</td>
+                    <td>{{view "previewImage" width="60" height="60" src=item.availableImage}}</td>
                     <td>{{item.title}}</td>
                     <td>{{display-text item.type allTypes}}</td>
                     <td>{{item.price}}</td>

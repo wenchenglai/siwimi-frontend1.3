@@ -24,7 +24,7 @@
             <tbody>
                 {{#each event in model}}
                 <tr>
-                    <td>{{view "previewImage" width="60" height="60" srcBinding="event.availableImage"}}</td>
+                    <td>{{view "previewImage" width="60" height="60" src=event.availableImage}}</td>
                     <td>{{event.title}}</td>
                     <td>{{event.type}}</td>
                     <td>{{event.trueCost}}</td>

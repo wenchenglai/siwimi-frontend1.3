@@ -27,7 +27,7 @@
                     {{#if member.avatarUrl }}
                     <img {{bind-attr src=member.avatarUrl}} alt="avatar" />
                     {{else}}
-                    {{view "previewImage" width="200" height="200" srcBinding=member.imageData}}
+                    {{view "previewImage" width="200" height="200" src=member.imageData}}
                     {{/if}}
                 </td>
                 <td>{{member.firstName}}</td>
