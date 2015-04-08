@@ -15,9 +15,9 @@
 <div class="row row-xs-height">
     <div class="col-xs-12 col-sm-6 col-md-4">
         {{#if imageUrl }}
-        <img {{bind-attr src=imageUrl}} alt="image" />
+        <img {{bind-attr src=imageUrl}} class="img" alt="image" class="img-responsive img-rounded" />
         {{else}}
-        {{view "previewImage" width="200" height="200" src=availableImage}}
+        {{view "previewImage" width="300" height="300" class="img-responsive img-rounded" src=availableImage}}
         {{/if}}
     </div>
     <div class="col-xs-12 col-sm-6 col-md-8">
