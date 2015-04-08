@@ -1,5 +1,5 @@
 {
-  "name": "xiwami-parents",
+  "name": "siwimi-parents",
   "dependencies": {
     "handlebars": "~1.3.0",
     "jquery": "^1.11.1",

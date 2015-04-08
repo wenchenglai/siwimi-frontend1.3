@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
     var ENV = {
-        modulePrefix: 'xiwami-parents',
+        modulePrefix: 'siwimi-parents',
         environment: environment,
         baseURL: '/',
         locationType: 'hash',
@@ -55,7 +55,7 @@ module.exports = function(environment) {
     }
 
     if (environment === 'production') {
-        ENV.apiHost = 'http://199.223.236.115:8088/xiwamirest-0.0.1';
+        ENV.apiHost = 'http://199.223.236.115:8088/siwimi-webapi-0.0.1';
     }
 
     return ENV;
