@@ -1,6 +1,24 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+    setupController: function(controller, model) {
+        var self = this,
+            userId = self.get('session.id');
+
+        controller.set('content', model);
+
+        if (userId) {
+            var query = {
+                member: userId,
+                event: model.id
+            };
+
+            self.store.find('emaction', query).then(function(emactions) {
+                controller.set('emaction', emactions.content[0]);
+            });
+        }
+    },
+
     actions: {
         goBack: function() {
             var self = this,
@@ -13,10 +31,27 @@ export default Ember.Route.extend({
             }
         },
 
-        colorChanged: function(selectedValue) {
-            var ddd = 3;
-            var aaa = 4;
-            var eee = ddd + aaa;
+        setAction: function(selectedValue) {
+            var self = this,
+                userId = self.get('session.id'),
+                model = self.currentModel,
+                emaction = self.controller.get('emaction');
+
+            if (emaction) {
+                emaction.set('action', selectedValue);
+                emaction.save();
+            } else {
+                self.store.find('member', userId).then(function(user) {
+                    var newRecord = self.store.createRecord('emaction', {
+                        event: model,
+                        member: user,
+                        action: selectedValue,
+                        createdDate: new Date()
+                    });
+
+                    newRecord.save();
+                });                
+            }
         }
     }
 });

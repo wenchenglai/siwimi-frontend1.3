@@ -113,16 +113,21 @@
         {{display-text type allTypes}}
     </div>
 </div>
+{{#if session.isAuthenticated}}
 <div class="row row-xs-height">
     <div class="col-xs-3 col-sm-2 col-md-1">
         <label>Action:</label>
     </div>
     <div class="col-xs-9 col-sm-10 col-md-6">
-        {{#radio-button value="green" groupValue=color changed="colorChanged"}}
-            Green
+        {{#radio-button value="1" groupValue=emaction.action name="action" changed="setAction"}}
+            We'll attend this event.
         {{/radio-button}}
-        {{#radio-button value="blue" groupValue=color changed="colorChanged"}}
-            Blue
+        {{#radio-button value="2" groupValue=emaction.action name="action" changed="setAction"}}
+            We are thinking about it.
+        {{/radio-button}}
+        {{#radio-button value="3" groupValue=emaction.action name="action" changed="setAction"}}
+            We are not going.
         {{/radio-button}}
     </div>
 </div>
+{{/if}}
