@@ -9,7 +9,6 @@ export default DS.Model.extend({
     rootMessage: DS.belongsTo('message'), // an entity Id that points to the first message in a thread
     fromStatus: DS.attr('string'), // draft, sent
     toStatus: DS.attr('string'), // unread, read, both, trash
-    isDestroyed: DS.attr('boolean'),
 
     isChecked: DS.attr('boolean'),
 

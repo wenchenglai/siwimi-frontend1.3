@@ -15,7 +15,7 @@ export default Ember.Route.extend({
         
         if (typeof(type) !== "string") {
             type = 'all';
-        }        
+        }
 
         return self.store.find('activity', { status: status, type: type, requester: userId, longitude: session.get('longitude'), latitude: session.get('latitude') });
     },

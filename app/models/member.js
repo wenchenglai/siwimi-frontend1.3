@@ -22,7 +22,6 @@ export default DS.Model.extend({
     flocale: DS.attr('string'),
     flocation: DS.attr('string'),
     ftimezone: DS.attr('number'),
-    isDestroyed: DS.attr('boolean'),
 
     // localization fields
     city: DS.attr('string'),

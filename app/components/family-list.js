@@ -30,7 +30,7 @@ export default Ember.Component.extend({
                 "Delete": function () {
                     var id = $(this).data('id');
                     $(this).dialog("close");
-                    Em.run(function(){
+                    Ember.run(function(){
                         self.sendAction('apiDeleteFamily', id);
                     });
                 },

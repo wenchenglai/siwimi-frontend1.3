@@ -8,9 +8,8 @@ export default DS.Model.extend({
     description: DS.attr('string'),
     location: DS.attr('array'),
     members: DS.hasMany('member', { embedded: 'always' }),
-    isDestroyed: DS.attr('boolean'),
 
     hasMember: function() {
         return this.get('members').get('length') > 0;
-    }.property('members').cacheable()  
+    }.property('members')  
 });

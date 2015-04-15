@@ -1,6 +1,4 @@
-﻿// facebook
-
-import Ember from 'ember';
+﻿import Ember from 'ember';
 import Base from 'simple-auth/authenticators/base';
 
 export default Base.extend({
@@ -73,8 +71,6 @@ export default Base.extend({
 		});
 	},
 	restore: function(data) {
-		var self = this;
-
 		return new Ember.RSVP.Promise(function (resolve, reject) {
 			// this will be called when user has logged in and cookie is still valid
 			if (!Ember.isEmpty(FB.getUserID()) && !Ember.isEmpty(data.accessToken) && !Ember.isEmpty(data.id)) {

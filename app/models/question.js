@@ -9,7 +9,6 @@ export default DS.Model.extend({
     status: DS.attr('string'),
     answers: DS.hasMany('feedback', { embedded: 'always' }),
     viewCount: DS.attr('number'),
-    isDestroyed: DS.attr('boolean'),
 
     // parameters set by backend ONLY
     voteUp: DS.attr('number'),

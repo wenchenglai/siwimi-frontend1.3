@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import ItemDataMixin from '../../mixins/item-data';
 
-export default Ember.ObjectController.extend(ItemDataMixin, {
+export default Ember.Controller.extend(ItemDataMixin, {
     showEdit: function() {
         if (Ember.isEmpty(this.get('creator'))) {
             if (this.get('session').isAuthenticated) {

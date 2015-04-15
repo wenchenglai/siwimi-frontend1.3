@@ -2,7 +2,7 @@ import Ember from 'ember';
 import StatesDataMixin from '../mixins/states-data';
 
 export default
-Ember.ObjectController.extend(StatesDataMixin, {
+Ember.Controller.extend(StatesDataMixin, {
     previousTransition: null,
     previousURL: null,
     showAlert: false,

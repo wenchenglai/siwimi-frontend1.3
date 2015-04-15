@@ -7,7 +7,7 @@ export default DS.Model.extend({
     fromTime: DS.attr('date'),
     toTime: DS.attr('date'),
     address: DS.attr('string'),
-
+    status: DS.attr('string'),
     url: DS.attr('string'),
     imageData: DS.attr('string'),
     imageUrl: DS.attr('string'),
@@ -18,7 +18,7 @@ export default DS.Model.extend({
     toAge: DS.attr('number'),
     price: DS.attr('number'),
     createdDate: DS.attr('date'),
-    isDestroyed: DS.attr('boolean'),
+    isFavorite: DS.attr('boolean'),
 
     city: DS.attr('string'),
     state: DS.attr('string'),

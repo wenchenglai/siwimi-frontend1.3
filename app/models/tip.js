@@ -12,7 +12,6 @@ export default DS.Model.extend({
     expiredDate: DS.attr('date'),
     type: DS.attr('string'),
     viewCount: DS.attr('number'),
-    isDestroyed: DS.attr('boolean'),
     imageData: DS.attr('string'),
     imageUrl: DS.attr('string'),
 
@@ -73,7 +72,6 @@ export default DS.Model.extend({
         } else {
             return '';
         }
-
     },
 
     cityState: function() {

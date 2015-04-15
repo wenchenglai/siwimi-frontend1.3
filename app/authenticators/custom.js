@@ -57,7 +57,7 @@ export default Base.extend({
                         name: name,
                         message: message
                     });
-                };
+                }
             }, function(error) {
                 reject(error[0]);
             });
@@ -65,14 +65,7 @@ export default Base.extend({
     },
     invalidate: function(data) {
         return new Ember.RSVP.Promise(function (resolve, reject) {
-            var options = data;
-            options.test = 'a';
-            if (1) {
-                Ember.run(resolve);
-            } else {
-                Ember.run(reject);
-            }
-            
+            Ember.run(resolve);           
         });
     },
     _executeAjax: function(url, options){

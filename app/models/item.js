@@ -21,7 +21,6 @@ export default DS.Model.extend({
     createdDate: DS.attr('date'),
     viewCount: DS.attr('number'),
     isComplete: DS.attr('boolean'),
-    isDestroyed: DS.attr('boolean'),
 
     // localization fields
     city: DS.attr('string'),

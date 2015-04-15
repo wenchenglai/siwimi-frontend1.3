@@ -1,12 +1,12 @@
 <div class="row row-xs-height">
     <div class="col-xs-2">
-        {{#link-to 'group.my'}}<< back{{/link-to}}
+        {{#link-to 'group.my'}}back{{/link-to}}
     </div>
     <div class="col-xs-2">
-        {{#link-to 'group.edit' id}}Edit{{/link-to}}
+        {{#link-to 'group.edit' model.id}}Edit{{/link-to}}
     </div>
     <div class="col-xs-4">
-        <div class="fb-share-button" {{bind-attr data-href="tipUrl" }} data-layout="button_count"></div>
+        <div class="fb-share-button" {{bind-attr data-href="model.tipUrl" }} data-layout="button_count"></div>
     </div>
 </div>
 <div class="row row-xs-height">
@@ -14,7 +14,7 @@
         Group Name:
     </div>
     <div class="col-xs-10">
-        {{title}}
+        {{model.title}}
     </div>
 </div>
 <div class="row row-xs-height">
@@ -22,7 +22,7 @@
         Description:
     </div>
     <div class="col-xs-10">
-        {{description}}
+        {{model.description}}
     </div>
 </div>
 

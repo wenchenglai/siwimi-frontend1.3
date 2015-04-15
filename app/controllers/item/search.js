@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import CommonDataMixin from '../../mixins/common-data';
 
-export default Ember.ObjectController.extend(CommonDataMixin, {
+export default Ember.Controller.extend(CommonDataMixin, {
     queryText: null,
     distance: null,
     showData: false,
