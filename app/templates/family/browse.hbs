@@ -1,10 +1,10 @@
 <h2>Connect with other parents in your neighborhood</h2>
 
 <div class="row row-xs-height">
-    <div class="col-xs-2 col-md-1">
+    <div class="col-xs-12 col-md-2">
         <label>Age</label>
     </div>
-    <div class="col-xs-10 col-md-6">
+    <div class="col-xs-12 col-md-6">
         From
         {{view "select" class="btn btn-default dropdown-toggle" value=fromAge selection=fromAge content=allAgesYoung placeholder="Age"}} 
         To
@@ -13,48 +13,48 @@
 </div>
 
 <div class="row row-xs-height">
-    <div class="col-xs-2 col-md-1">
+    <div class="col-xs-12 col-md-2">
         <label>Within</label>
     </div>
-    <div class="col-xs-3 col-md-2">
+    <div class="col-xs-12 col-md-2">
         {{view "select" class="btn btn-default dropdown-toggle" value=distance content=allDistances placeholder="Distance"}}
     </div>
-    <div class="col-xs-3 col-md-2">
+    <div class="col-xs-12 col-md-2">
         <button class="btn btn-link btn-sm" {{action "toggleAdvancedSearch" }}>Advanced Search</button>
     </div>
 </div>
 
 {{#if showAdvancedSearch}}
 <div class="row row-xs-height">
-    <div class="col-xs-2 col-md-1">
+    <div class="col-xs-12 col-md-2">
         <label>Favorite Toys</label>
     </div>
-    <div class="col-xs-10 col-md-6">
+    <div class="col-xs-12 col-md-6">
         {{view "select" class="btn btn-default dropdown-toggle" value=toys content=allToys placeholder="toy" multiple=true}}
     </div>
 </div>
 
 <div class="row row-xs-height">
-    <div class="col-xs-2 col-md-1">
-        <label>Languages</label>
+    <div class="col-xs-12 col-md-2">
+        <label>Special Needs</label>
     </div>
-    <div class="col-xs-10 col-md-6">
-        {{view "select" class="btn btn-default dropdown-toggle" value=languages content=allLanguages placeholder="Language" multiple=true}}
+    <div class="col-xs-12 col-md-6">
+        {{view "select" class="btn btn-default dropdown-toggle" value=needs content=allNeeds placeholder="need" multiple=true}}
     </div>
 </div>
 
 <div class="row row-xs-height">
-    <div class="col-xs-2 col-md-1">
-        <label>Special needs</label>
+    <div class="col-xs-12 col-md-2">
+        <label>Languages</label>
     </div>
-    <div class="col-xs-10 col-md-6">
-        {{view "select" class="btn btn-default dropdown-toggle" value=needs content=allNeeds placeholder="need" multiple=true}}
+    <div class="col-xs-12 col-md-6">
+        {{view "select" class="btn btn-default dropdown-toggle" value=languages content=allLanguages placeholder="Language" multiple=true}}
     </div>
 </div>
 {{/if}}
 
 <div class="row row-xs-height">
-    <div class="col-xs-3 col-xs-offset-2 col-md-offset-1">
+    <div class="col-md-offset-2">
         <div class="input-group">
             <button type="button" class="btn btn-primary btn-sm" {{action "search" }}>Search</button>
         </div>

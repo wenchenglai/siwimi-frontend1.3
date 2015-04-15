@@ -1,117 +1,117 @@
 <div class="row row-xs-height">
-    <div class="col-xs-2 col-md-1">
+    <div class="col-xs-12 col-md-2">
         <label>
             First Name:
         </label>
     </div>
-    <div class="col-xs-10 col-md-6">
-        {{input class="edit_box" value=firstName}}
+    <div class="col-xs-12 col-md-6">
+        {{input class="edit_box" value=model.firstName}}
     </div>
 </div>
 <div class="row row-xs-height">
-    <div class="col-xs-2 col-md-1">
+    <div class="col-xs-12 col-md-2">
         <label>
             Last Name:
         </label>
     </div>
-    <div class="col-xs-10 col-md-6">
-        {{input class="edit_box" value=lastName}}
+    <div class="col-xs-12 col-md-6">
+        {{input class="edit_box" value=model.lastName}}
     </div>
 </div>
 <div class="row row-xs-height">
-    <div class="col-xs-2 col-md-1">
+    <div class="col-xs-12 col-md-2">
         <label>
             Nickname:
         </label>
     </div>
-    <div class="col-xs-10 col-md-6">
-        {{input class="edit_box" value=nickName}}
+    <div class="col-xs-12 col-md-6">
+        {{input class="edit_box" value=model.nickName}}
     </div>
 </div>
 <div class="row row-xs-height">
-    <div class="col-xs-2 col-md-1">
+    <div class="col-xs-12 col-md-2">
         <label>
 
         </label>
     </div>
-    <div class="col-xs-10">
+    <div class="col-xs-12 col-md-4">
         <div class="control-group">
             <div class="btn-group" data-toggle="buttons-radio">
 
-                {{#view "radio-button-view" name="male" selectionBinding="gender" value="male" }}Male{{/view}}
+                {{#view "radio-button-view" name="male" selection=model.gender value="male" }}Male{{/view}}
 
-                {{#view "radio-button-view" name="female" selectionBinding="gender" value="female" }}Female{{/view}}
+                {{#view "radio-button-view" name="female" selection=model.gender value="female" }}Female{{/view}}
 
             </div>
         </div>
     </div>
 </div>
 <div class="row row-xs-height">
-    <div class="col-xs-2 col-md-1">
+    <div class="col-xs-12 col-md-2">
         <label>
             Birthday:
         </label>
     </div>
-    <div class="col-xs-10 col-md-2">
+    <div class="col-xs-12 col-md-2">
         {{bs-datetimepicker date=birthdayMoment format='YYYY-MM-DD' width="200"}}
     </div>
 </div>
 <div class="row row-xs-height">
-    <div class="col-xs-2 col-md-1">
+    <div class="col-xs-12 col-md-2">
         <label>
             Upload Image:
         </label>
     </div>
-    <div class="col-xs-10">
-        {{view 'file-upload-view' contentBinding="imageData"}}
+    <div class="col-xs-12 col-md-4">
+        {{view 'file-upload-view' content=model.imageData}}
     </div>
 </div>
 <div class="row row-xs-height">
-    <div class="col-xs-2 col-md-1">
+    <div class="col-xs-12 col-md-2">
         <label>
             Family Role:
         </label>
     </div>
-    <div class="col-xs-10">
+    <div class="col-xs-12 col-md-4">
         {{view "select" class="btn btn-default dropdown-toggle" content=allRelationships prompt="Relationship" value=type}}
     </div>
 </div>
 <div class="row row-xs-height">
-    <div class="col-xs-2 col-md-1">
+    <div class="col-xs-12 col-md-2">
         <label>
-
+            Languages
         </label>
     </div>
-    <div class="col-xs-10 col-md-6">
-        {{pronoun}} can speak: {{view "select" class="btn btn-default dropdown-toggle" selectionBinding="languages" content=allLanguages multiple=true}}
+    <div class="col-xs-12 col-md-6">
+        {{view "select" class="btn btn-default dropdown-toggle" selection=languages content=allLanguages multiple=true}}
     </div>
 </div>
 <div class="row row-xs-height">
-    <div class="col-xs-2 col-md-1">
+    <div class="col-xs-12 col-md-2">
         <label>City:</label>
     </div>
-    <div class="col-xs-10 col-md-6">
+    <div class="col-xs-12 col-md-6">
         {{input class="edit_box" value=city}}
     </div>
 </div>
 <div class="row row-xs-height">
-    <div class="col-xs-2 col-md-1">
+    <div class="col-xs-12 col-md-2">
         <label>State:</label>
     </div>
-    <div class="col-xs-10 col-md-6">
+    <div class="col-xs-12 col-md-6">
         {{view "select" class="btn btn-default dropdown-toggle" prompt="Select State" content=allStates optionValuePath="content.value" optionLabelPath="content.text" value=state}}
     </div>
 </div>
 <div class="row row-xs-height">
-    <div class="col-xs-2 col-md-1">
+    <div class="col-xs-12 col-md-2">
         <label>Zip Code:</label>
     </div>
-    <div class="col-xs-10 col-md-6">
+    <div class="col-xs-12 col-md-6">
         {{input class="edit_box" value=zipCode}}
     </div>
 </div>
 <div class="row row-xs-height">
-    <div class="col-xs-10 col-xs-offset-2 col-md-offset-1">
+    <div class="col-md-offset-2">
         <button type="button" class="btn btn-primary btn-sm" {{action "save" }} {{bind-attr disabled=disabled}}>Save</button>
         <button type="button" class="btn btn-link btn-sm" {{action "cancel" }}>Cancel</button>
     </div>

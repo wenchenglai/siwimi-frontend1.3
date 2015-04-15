@@ -1,7 +1,15 @@
 {{#with model as family}}
 <div class="panel panel-default">
     <!-- Default panel contents -->
-    <div class="panel-heading">{{family.familyName}} | {{family.cityState}} | {{family.zipCode}}</div>
+    <div class="panel-heading">
+        {{#if family.familyName}}
+            {{family.familyName}} | 
+        {{/if}} 
+        {{#if family.cityState}}
+            {{family.cityState}} | 
+        {{/if}}
+        {{family.zipCode}}
+    </div>
     <div class="panel-body">
         <div class="btn-group" role="group" aria-label="...">
             <button type="button" class="btn btn-default" {{action 'addMember' family.id }}>Add New Member</button>
@@ -16,23 +24,17 @@
         <th></th>
         <th>First Name</th>
         <th>Last Name</th>
-        <th>Language</th>
         <th>Relationship</th>
-        <th>Action</th>
+        <th></th>
         </thead>
         <tbody>
             {{#each member in family.members }}
             <tr>
                 <td>
-                    {{#if member.avatarUrl }}
-                    <img {{bind-attr src=member.avatarUrl}} alt="avatar" />
-                    {{else}}
-                    {{view "previewImage" width="200" height="200" class="img-responsive img-rounded" src=member.imageData}}
-                    {{/if}}
+                    {{view "previewImage" width="200" height="200" class="img-responsive img-rounded" src=member.availableImage}}
                 </td>
                 <td>{{member.firstName}}</td>
                 <td>{{member.lastName}}</td>
-                <td>{{member.languages}}</td>
                 <td>{{member.type}}</td>
                 <td>
                     <div class="btn-group" role="group" aria-label="...">

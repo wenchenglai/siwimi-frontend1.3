@@ -24,17 +24,17 @@
         <div class="control-group">
             <div class="btn-group" data-toggle="buttons-radio">
 
-                {{#view "radio-button-view" name="deal" selectionBinding="type" value="deal" }}Deal{{/view}}
+                {{#view "radio-button-view" name="deal" selection=type value="deal" }}Deal{{/view}}
 
-                {{#view "radio-button-view" name="education" selectionBinding="type" value="education" }}Education{{/view}}
+                {{#view "radio-button-view" name="education" selection=type value="education" }}Education{{/view}}
 
-                {{#view "radio-button-view" name="entertainment" selectionBinding="type" value="entertainment" }}Entertainment{{/view}}
+                {{#view "radio-button-view" name="entertainment" selection=type value="entertainment" }}Entertainment{{/view}}
 
-                {{#view "radio-button-view" name="health" selectionBinding="type" value="health"}}Health{{/view}}
+                {{#view "radio-button-view" name="health" selection=type value="health"}}Health{{/view}}
 
-                {{#view "radio-button-view" name="travel" selectionBinding="type" value="travel" }}Travel{{/view}}
+                {{#view "radio-button-view" name="travel" selection=type value="travel" }}Travel{{/view}}
 
-                {{#view "radio-button-view" name="misc" selectionBinding="type" value="misc" }}Misc{{/view}}
+                {{#view "radio-button-view" name="misc" selection=type value="misc" }}Misc{{/view}}
 
             </div>
         </div>
@@ -47,7 +47,7 @@
         </label>
     </div>
     <div class="col-xs-10 col-md-11">
-        {{view 'file-upload-view' contentBinding="imageData"}}
+        {{view 'file-upload-view' content=imageData}}
     </div>
 </div>
 <div class="row row-xs-height">

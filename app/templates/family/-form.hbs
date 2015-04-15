@@ -3,7 +3,7 @@
         <label><span class="required">*</span>Zip Code:</label>
     </div>
     <div class="col-xs-10">
-        {{input class="edit_box" size="5" maxlength="5" value=zipCode}}
+        {{input class="edit_box" size="5" maxlength="5" value=model.zipCode}}
     </div>
 </div>
 <div class="row row-xs-height">
@@ -11,7 +11,7 @@
         <label>Family Name:</label>
 </div>
     <div class="col-xs-10">
-        {{input class="edit_box" value=familyName placeholder="e.g. Smith's famly"}}
+        {{input class="edit_box" value=model.familyName placeholder="e.g. Smith's famly"}}
     </div>
 </div>
 <div class="row row-xs-height">
@@ -19,7 +19,7 @@
         <label>Description:</label>
 </div>
     <div class="col-xs-10">
-        {{textarea class="edit_box" rows="5" cols="60" value=description placeholder="Briefly describe your family so others can know more about your family"}}
+        {{textarea class="edit_box" rows="5" cols="60" value=model.description placeholder="Briefly describe your family so others can know more about your family"}}
     </div>
 </div>
 
