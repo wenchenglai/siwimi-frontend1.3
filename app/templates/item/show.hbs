@@ -4,18 +4,18 @@
 	</div>
 	<div class="col-xs-2">
         {{#if showEdit}}
-            {{#link-to 'item.edit' id}}Edit{{/link-to}}
+            {{#link-to 'item.edit' model.id}}Edit{{/link-to}}
         {{/if}}
 	</div>
 </div>
 <div class="row row-xs-height">
     <div class="col-xs-12">
-        <div class="fb-share-button" {{bind-attr data-href="tipUrl" }} data-layout="button_count"></div>
+        <div class="fb-share-button" {{bind-attr data-href="model.tipUrl" }} data-layout="button_count"></div>
     </div>
 </div>
 <div class="row row-xs-height">
 	<div class="col-xs-12 col-md-2">
-        <img {{bind-attr src=availableImage}} width="300" height="300" class="img-responsive img-rounded" style="margin-bottom:-15px; margin-top:-15px" alt="item" />
+        <img {{bind-attr src=model.availableImage}} width="300" height="300" class="img-responsive img-rounded" style="margin-bottom:-15px; margin-top:-15px" alt="item" />
 	</div>
 	<div class="col-xs-12 col-md-10">
 		<div class="row row-xs-height">
@@ -23,7 +23,7 @@
 				<label>Title:</label>
 			</div>
 			<div class="col-xs-10 col-md-6">
-				<h1>{{title}}</h1>
+				<h1>{{model.title}}</h1>
 			</div>
 		</div>
 		<div class="row row-xs-height">
@@ -44,7 +44,7 @@
 				<label>Price:</label>
 			</div>
 			<div class="col-xs-10 col-md-6">
-				{{price}}
+				{{model.price}}
 			</div>
 		</div>		
 		<div class="row row-xs-height">
@@ -52,7 +52,7 @@
 				<label>Description:</label>
 			</div>
 			<div class="col-xs-10 col-md-6">
-				{{description}}
+				{{model.description}}
 			</div>
 		</div>
 		<div class="row row-xs-height">
@@ -60,7 +60,7 @@
 				<label>Status:</label>
 			</div>
 			<div class="col-xs-10 col-md-6">
-				{{status}}
+				{{model.status}}
 			</div>
 		</div>
 		<div class="row row-xs-height">
@@ -68,7 +68,7 @@
 				<label>Type:</label>
 			</div>
 			<div class="col-xs-10 col-md-6">
-                {{display-text type allTypes}}
+                {{display-text model.type allTypes}}
 			</div>
 		</div>
 		<div class="row row-xs-height">
@@ -76,7 +76,7 @@
 				<label>Condition:</label>
 			</div>
 			<div class="col-xs-10 col-md-6">
-				{{condition}}
+				{{model.condition}}
 			</div>
 		</div>
 		<div class="row row-xs-height">
@@ -84,7 +84,7 @@
 				<label>Size:</label>
 			</div>
 			<div class="col-xs-10 col-md-6">
-				{{size}}
+				{{model.size}}
 			</div>
 		</div>
 		<div class="row row-xs-height">
@@ -92,7 +92,7 @@
 				<label>Age:</label>
 			</div>
 			<div class="col-xs-10 col-md-6">
-				From {{fromAge}} to {{toAge}}
+				From {{model.fromAge}} to {{model.toAge}}
 			</div>
 		</div>
 		<div class="row row-xs-height">
@@ -100,7 +100,7 @@
 				<label>Width:</label>
 			</div>
 			<div class="col-xs-10 col-md-6">
-				{{width}}
+				{{model.width}}
 			</div>
 		</div>
 		<div class="row row-xs-height">
@@ -108,7 +108,7 @@
 				<label>Length:</label>
 			</div>
 			<div class="col-xs-10 col-md-6">
-				{{length}}
+				{{model.length}}
 			</div>
 		</div>
 		<div class="row row-xs-height">
@@ -116,7 +116,7 @@
 				<label>Height:</label>
 			</div>
 			<div class="col-xs-10 col-md-6">
-				{{height}}
+				{{model.height}}
 			</div>
 		</div>    	
 	</div>

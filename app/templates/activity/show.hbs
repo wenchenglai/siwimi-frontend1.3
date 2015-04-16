@@ -4,34 +4,34 @@
     </div>
     <div class="col-xs-6 col-sm-4 col-md-2">
         {{#if showEdit}}
-            {{#link-to 'activity.edit' id}}Edit{{/link-to}}
+            {{#link-to 'activity.edit' model.id}}Edit{{/link-to}}
         {{/if}}
     </div>
     <div class="col-xs-4">
-        <div class="fb-share-button" {{bind-attr data-href="tipUrl" }} data-layout="button_count"></div>
+        <div class="fb-share-button" {{bind-attr data-href="model.tipUrl" }} data-layout="button_count"></div>
     </div>
 </div>
 
 <div class="row row-xs-height">
     <div class="col-xs-12 col-sm-6 col-md-4">
-        {{#if imageUrl }}
-        <img {{bind-attr src=imageUrl}} class="img" alt="image" class="img-responsive img-rounded" />
+        {{#if model.imageUrl }}
+            <img {{bind-attr src=model.imageUrl}} class="img" alt="image" class="img-responsive img-rounded" />
         {{else}}
-        {{view "previewImage" width="300" height="300" class="img-responsive img-rounded" src=availableImage}}
+            {{view "previewImage" width="300" height="300" class="img-responsive img-rounded" src=model.availableImage}}
         {{/if}}
     </div>
     <div class="col-xs-12 col-sm-6 col-md-8">
         <div class="row row-xs-height">
             <div class="col-xs-12">
-                <h1>{{title}}</h1>
+                <h1>{{model.title}}</h1>
             </div>
         </div>
         <div class="row row-xs-height">
             <div class="col-xs-12">
                 From:
-                {{formatted-date fromTime 'LL'}}
+                {{formatted-date model.fromTime 'LL'}}
                 To:
-                {{formatted-date toTime 'LL'}}
+                {{formatted-date model.toTime 'LL'}}
             </div>
         </div>        
     </div>
@@ -42,7 +42,7 @@
         <label>Web URL:</label>
     </div>
     <div class="col-xs-9 col-sm-10 col-md-6">
-        <a {{bind-attr href=url}} target="_blank">{{url}}</a>
+        <a {{bind-attr href=model.url}} target="_blank">{{url}}</a>
     </div>
 </div>
 <div class="row row-xs-height">
@@ -50,7 +50,7 @@
         <label>Description:</label>
     </div>
     <div class="col-xs-9 col-sm-10 col-md-6">
-        {{description}}
+        {{model.description}}
     </div>
 </div>
 
@@ -59,8 +59,8 @@
         <label>Age:</label>
     </div>
     <div class="col-xs-10 col-md-6">
-        From {{fromAge}}
-        To {{toAge}}
+        From {{model.fromAge}}
+        To {{model.toAge}}
     </div>
 </div>
 <div class="row row-xs-height">
@@ -69,7 +69,7 @@
     </div>
     <div class="col-xs-4 col-md-3">
         <div class="input-group">
-            {{price}}
+            {{model.price}}
         </div>
     </div>
 </div>
@@ -78,7 +78,7 @@
         <label>Address:</label>
     </div>
     <div class="col-xs-9 col-sm-10 col-md-6">
-        {{address}}
+        {{model.address}}
     </div>
 </div>
 <div class="row row-xs-height">
@@ -86,7 +86,7 @@
         <label>City:</label>
     </div>
     <div class="col-xs-9 col-sm-10 col-md-6">
-        {{city}}
+        {{model.city}}
     </div>
 </div>
 <div class="row row-xs-height">
@@ -94,7 +94,7 @@
         <label>State:</label>
     </div>
     <div class="col-xs-9 col-sm-10 col-md-6">
-        {{state}}
+        {{model.state}}
     </div>
 </div>
 <div class="row row-xs-height">
@@ -102,7 +102,7 @@
         <label>Zip Code:</label>
     </div>
     <div class="col-xs-9 col-sm-10 col-md-6">
-        {{zipCode}}
+        {{model.zipCode}}
     </div>
 </div>
 <div class="row row-xs-height">
@@ -110,7 +110,7 @@
         <label>Type:</label>
     </div>
     <div class="col-xs-9 col-sm-10 col-md-6">
-        {{display-text type allTypes}}
+        {{display-text model.type allTypes}}
     </div>
 </div>
 {{#if session.isAuthenticated}}

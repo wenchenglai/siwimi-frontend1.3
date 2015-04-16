@@ -2,20 +2,20 @@
     <div class="col-xs-12">
         <label>
             Question:
-            {{input class="edit_box" value=title}}
+            {{input class="edit_box" value=model.title}}
         </label>
     </div>
     <div class="col-xs-12">
         <label for="lblQDescription">
             Description
         </label>
-        {{textarea id="lblQDescription" cols="60" rows="5"  class="form-control" value=description}}
+        {{textarea id="lblQDescription" cols="60" rows="5"  class="form-control" value=model.description}}
     </div>
 </div>
 <div class="row row-xs-height">
     <div class="col-xs-12">
         <label>
-            Post Date: {{createdDate}}
+            Post Date: {{model.createdDate}}
         </label>
     </div>
 </div>

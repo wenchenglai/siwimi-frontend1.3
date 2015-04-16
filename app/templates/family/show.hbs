@@ -3,10 +3,10 @@
         {{#link-to 'family.my'}}back{{/link-to}}
     </div>
     <div class="col-xs-2">
-        {{#link-to 'family.edit' id}}Edit{{/link-to}}
+        {{#link-to 'family.edit' model.id}}Edit{{/link-to}}
     </div>
     <div class="col-xs-4">
-        <div class="fb-share-button" {{bind-attr data-href="tipUrl" }} data-layout="button_count"></div>
+        <div class="fb-share-button" {{bind-attr data-href="model.tipUrl" }} data-layout="button_count"></div>
     </div>
 </div>
 <div class="row row-xs-height">
@@ -14,7 +14,7 @@
         Family Name:
     </div>
     <div class="col-xs-10">
-        {{familyName}}
+        {{model.familyName}}
     </div>
 </div>
 <div class="row row-xs-height">
@@ -22,7 +22,7 @@
         Zip Code:
     </div>
     <div class="col-xs-10">
-        {{zipCode}}
+        {{model.zipCode}}
     </div>
 </div>
 <div class="row row-xs-height">
@@ -30,6 +30,6 @@
         Description:
     </div>
     <div class="col-xs-10">
-        {{description}}
+        {{model.description}}
     </div>
 </div>

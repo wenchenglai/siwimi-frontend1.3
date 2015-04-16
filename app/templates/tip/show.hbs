@@ -4,7 +4,7 @@
     </div>
     <div class="col-xs-2">
         {{#if showEdit}}
-            {{#link-to 'tip.edit' id}}Edit{{/link-to}}
+            {{#link-to 'tip.edit' model.id}}Edit{{/link-to}}
         {{/if}}
     </div>
 </div>
@@ -15,15 +15,15 @@
 </div>
 <div class="row row-xs-height">
     <div class="col-xs-12">
-        <h3>{{ title }}</h3>
+        <h3>{{ model.title }}</h3>
         <hr style="border-width:4px" />
     </div>
 </div>
 <div class="row row-xs-height">
     <div class="col-xs-1">
-        <img class="avatar" {{bind-attr src=creator.availableImage}} width="300" height="300" class="img-responsive img-rounded">
+        <img class="avatar" {{bind-attr src=model.creator.availableImage}} width="300" height="300" class="img-responsive img-rounded">
         <a class="vote-up" {{action "voteUp" }} title="it's userful and clear'">test</a>
-        <span class="vote-count-post">{{voteCount}}</span>
+        <span class="vote-count-post">{{model.voteCount}}</span>
         <a class="vote-down" {{action "voteDown" }} title="it's userful and clear'">test</a>
         <a {{bind-attr class=isFavorite:star-on:star-off }} href="#" {{action "setFavorite" }} title="This is a favorite question (click again to undo)">favorite</a>
     </div>
@@ -31,48 +31,48 @@
     <div class="col-xs-11">
         <div class="row row-xs-height">
             <div class="col-xs-12">
-                by <strong>{{creator.displayName}}</strong>
+                by <strong>{{model.creator.displayName}}</strong>
             </div>
         </div>
         <div class="row row-xs-height">
             <div class="col-xs-2">
                 <div style="min-height:100px">
-                    {{view "previewImage" width="60" height="60" src=availableImage}}
+                    {{view "previewImage" width="60" height="60" class="img-responsive img-thumbnail" src=model.availableImage}}
                 </div>
             </div>
             <div class="col-xs-10">
                 <div style="min-height:100px">
-                    {{description}}
+                    {{model.description}}
                 </div>
             </div>
         </div>
         <div class="row row-xs-height">
             <div class="col-xs-2">
                 <label>Type:</label>
-                {{display-text type allTypes}}
+                {{display-text model.type allTypes}}
             </div>
             <div class="col-xs-2">
                 <label>Location:</label>
-                {{cityState}}
+                {{model.cityState}}
             </div>
             <div class="col-xs-3">
                 <label>Expired:</label>
-                {{formatted-date expiredDate 'LL'}}
+                {{formatted-date model.expiredDate 'LL'}}
             </div>
             <div class="col-xs-5">
                 <label>Link:</label>
-                <a {{bind-attr href=url}} target="_blank" alt="original link">{{shorten-string url 30}}</a>
+                <a {{bind-attr href=model.url}} target="_blank" alt="original link">{{shorten-string model.url 30}}</a>
             </div>
         </div>
         {{#if previewText}}
         <div class="row row-xs-height">
             <div class="col-xs-12">
                 <label>
-                    {{view "previewImage" width="200" readonly="true" height="200" src=previewImage}}
+                    {{view "previewImage" width="200" readonly="true" height="200" class="img-responsive img-thumbnail" src=model.previewImage}}
                 </label>
                 <label>
                     Preview Text:
-                    {{previewText}}
+                    {{model.previewText}}
                 </label>
             </div>
         </div>
@@ -84,8 +84,8 @@
                         <li>
                             <a href="#">
                                 <h4>created</h4>
-                                <img width="20" height="20" {{bind-attr src=creator.availableImage}} class="avatar" />
-                                <span>{{formatted-date createdDate 'LL'}}</span>
+                                <img width="20" height="20" class="img-responsive img-thumbnail" {{bind-attr src=model.creator.availableImage}} class="avatar" />
+                                <span>{{formatted-date model.createdDate 'LL'}}</span>
                             </a>
                         </li>
                         <li>
@@ -93,7 +93,7 @@
                             <h4>comments</h4>
                         </li>
                         <li>
-                            <span>{{viewCount}}</span>
+                            <span>{{model.viewCount}}</span>
                             <h4>views</h4>
                         </li>
                     </ul>
@@ -114,7 +114,7 @@
     <div class="col-xs-1">
         <img class="avatar" {{bind-attr src=session.profilePicture}}>
         <a class="vote-up" {{action "voteUp" }} title="it's userful and clear'">test</a>
-        <span class="vote-count-post">{{voteCount}}</span>
+        <span class="vote-count-post">{{fb.voteCount}}</span>
         <a class="vote-down" {{action "voteDown" }} title="it's userful and clear'">test</a>       
     </div>
     <div class="col-xs-11">

@@ -3,7 +3,7 @@
         <label><span class="required">*</span>Title:</label>
     </div>
     <div class="col-xs-10 col-md-6">
-        {{input class="form-control" placeholder="10 words or less" value=title size="80"}}
+        {{input class="form-control" placeholder="10 words or less" value=model.title size="80"}}
     </div>
 </div>
 <div class="row row-xs-height">
@@ -13,7 +13,7 @@
         </label>
     </div>
     <div class="col-xs-10 col-md-6">
-        {{textarea class="form-control" placeholder="Description" rows="5" cols="60" value=description}}
+        {{textarea class="form-control" placeholder="Description" rows="5" cols="60" value=model.description}}
     </div>
 </div>
 <div class="row row-xs-height">
@@ -24,17 +24,17 @@
         <div class="control-group">
             <div class="btn-group" data-toggle="buttons-radio">
 
-                {{#view "radio-button-view" name="deal" selection=type value="deal" }}Deal{{/view}}
+                {{#view "radio-button-view" name="deal" selection=model.type value="deal" }}Deal{{/view}}
 
-                {{#view "radio-button-view" name="education" selection=type value="education" }}Education{{/view}}
+                {{#view "radio-button-view" name="education" selection=model.type value="education" }}Education{{/view}}
 
-                {{#view "radio-button-view" name="entertainment" selection=type value="entertainment" }}Entertainment{{/view}}
+                {{#view "radio-button-view" name="entertainment" selection=model.type value="entertainment" }}Entertainment{{/view}}
 
-                {{#view "radio-button-view" name="health" selection=type value="health"}}Health{{/view}}
+                {{#view "radio-button-view" name="health" selection=model.type value="health"}}Health{{/view}}
 
-                {{#view "radio-button-view" name="travel" selection=type value="travel" }}Travel{{/view}}
+                {{#view "radio-button-view" name="travel" selection=model.type value="travel" }}Travel{{/view}}
 
-                {{#view "radio-button-view" name="misc" selection=type value="misc" }}Misc{{/view}}
+                {{#view "radio-button-view" name="misc" selection=model.type value="misc" }}Misc{{/view}}
 
             </div>
         </div>
@@ -47,7 +47,7 @@
         </label>
     </div>
     <div class="col-xs-10 col-md-11">
-        {{view 'file-upload-view' content=imageData}}
+        {{view 'file-upload-view' content=model.imageData}}
     </div>
 </div>
 <div class="row row-xs-height">
@@ -57,7 +57,7 @@
         </label>
     </div>
     <div class="col-xs-2">
-        {{bs-datetimepicker date=expiredDateMoment format='YYYY-MM-DD'}}
+        {{bs-datetimepicker date=model.expiredDateMoment format='YYYY-MM-DD'}}
     </div>
 </div>
 <div class="row row-xs-height">
@@ -67,7 +67,7 @@
         </label>
     </div>
     <div class="col-xs-10 col-md-8">
-        {{input class="form-control" placeholder="web url if there is any" value=url size="60"}}
+        {{input class="form-control" placeholder="web url if there is any" value=model.url size="60"}}
         <button class="btn btn-primary btn-sm" type="button" {{action "preview" }}>
             Preview
         </button>
@@ -76,11 +76,11 @@
 <div class="row row-xs-height">
     <div class="col-xs-2 col-xs-offset-2  col-md-offset-1">
         <div style="width:30px; height:20px">
-            <iframe id="frame" {{bind-attr src=url}}></iframe>
+            <iframe id="frame" {{bind-attr src=model.url}}></iframe>
         </div>
     </div>
     <div class="col-xs-4">
-        {{textarea class="form-control" readonly="true" rows="4" cols="60" value=previewText}}
+        {{textarea class="form-control" readonly="true" rows="4" cols="60" value=model.previewText}}
     </div>
 </div>
 <div class="row row-xs-height">
@@ -88,7 +88,7 @@
         <label>City:</label>
     </div>
     <div class="col-xs-10 col-md-6">
-        {{input class="edit_box" value=city}}
+        {{input class="edit_box" value=model.city}}
     </div>
 </div>
 <div class="row row-xs-height">
@@ -96,7 +96,7 @@
         <label>State:</label>
     </div>
     <div class="col-xs-10 col-md-6">
-        {{view "select" class="btn btn-default dropdown-toggle" prompt="Select State" content=allStates optionValuePath="content.value" optionLabelPath="content.text" value=state}}
+        {{view "select" class="btn btn-default dropdown-toggle" prompt="Select State" content=allStates optionValuePath="content.value" optionLabelPath="content.text" value=model.state}}
     </div>
 </div>
 <div class="row row-xs-height">
@@ -104,7 +104,7 @@
         <label>Zip Code:</label>
     </div>
     <div class="col-xs-10 col-md-6">
-        {{input class="edit_box" value=zipCode}}
+        {{input class="edit_box" value=model.zipCode}}
     </div>
 </div>
 <div class="clearfix visible-xs-block"></div>

@@ -30,13 +30,13 @@
         <label for="lblQ">
             <span class="required">*</span>Type your question here:
         </label>
-        {{input id="lblQ" class="form-control" value=title}}
+        {{input id="lblQ" class="form-control" value=model.title}}
     </div>
     <div class="col-xs-12">
         <label for="lblQDescription">
             (Optional) You can give more detail to clarify
         </label>
-        {{textarea id="lblQDescription" cols="60" rows="5"  class="form-control" value=description}}
+        {{textarea id="lblQDescription" cols="60" rows="5"  class="form-control" value=model.description}}
     </div>
 </div>
 
@@ -51,7 +51,7 @@
     <div class="col-lg-12">
         {{#if asked}}
         <p>
-            You asked: {{title}}
+            You asked: {{model.title}}
         </p>
         <p>
             We've sent out your questions to parents who live in your neighborhood.  They will contact you via emails shortly.
