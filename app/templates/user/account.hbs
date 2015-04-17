@@ -1,112 +1,132 @@
 <div class="row row-xs-height">
-    <div class="col-xs-10 col-xs-offset-2">
+    <div class="col-xs-12 col-sm-offset-3 col-md-offset-2">
         <button class="btn btn-primary btn-sm" {{action "importFromFacebook" }} {{bind-attr disabled=disabledImportFacebook}}>
             Import my profile from facebook
         </button>
     </div>
 </div>
 <div class="row row-xs-height">
-    <div class="col-xs-2">
+    <div class="col-xs-12 col-sm-3 col-md-2">
         <label>
             User Id:
         </label>
     </div>
-    <div class="col-xs-10">
+    <div class="col-xs-12 col-sm-6">
         {{input class="edit_box" size="40" value=model.id}}
     </div>
 </div>
 <div class="row row-xs-height">
-    <div class="col-xs-2">
+    <div class="col-xs-12 col-sm-3 col-md-2">
         <label>
             Facebook Id:
         </label>
     </div>
-    <div class="col-xs-10">
+    <div class="col-xs-12 col-sm-6">
         {{input class="edit_box" size="40" value=model.facebookId}}
     </div>
 </div>
 <div class="row row-xs-height">
-    <div class="col-xs-2">
+    <div class="col-xs-12 col-sm-3 col-md-2">
         <label>
             Email:
         </label>
     </div>
-    <div class="col-xs-10">
+    <div class="col-xs-12 col-sm-6">
         {{input class="edit_box" size="40" value=model.email}}
     </div>
 </div>
 <div class="row row-xs-height">
-    <div class="col-xs-2">
+    <div class="col-xs-12 col-sm-3 col-md-2">
+        <label>
+            Your location:
+        </label>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+        The location you've set here will be the main location for the data we present to you.
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-12 col-sm-3 col-md-2">
+        <label>
+            Location:
+        </label>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-12 col-sm-3 col-md-2">
         <label>
             City:
         </label>
     </div>
-    <div class="col-xs-10">
+    <div class="col-xs-12 col-sm-6">
         {{input class="edit_box" size="40" value=model.city}}
     </div>
 </div>
 <div class="row row-xs-height">
-    <div class="col-xs-2">
+    <div class="col-xs-12 col-sm-3 col-md-2">
         <label>
             State:
         </label>
     </div>
-    <div class="col-xs-10">
+    <div class="col-xs-12 col-sm-6">
         {{input class="edit_box" size="40" value=model.state}}
     </div>
 </div>
 <div class="row row-xs-height">
-    <div class="col-xs-2">
+    <div class="col-xs-12 col-sm-3 col-md-2">
         <label>
             Zip Code:
         </label>
     </div>
-    <div class="col-xs-10">
+    <div class="col-xs-12 col-sm-6">
         {{input class="edit_box" size="40" value=model.zipCode}}
     </div>
 </div>
 <div class="row row-xs-height">
-    <div class="col-xs-2">
+    <div class="col-xs-12 col-sm-3 col-md-2">
         <label>
             Change Passwords:
         </label>
     </div>
-    <div class="col-xs-10">
+    <div class="col-xs-12">
         
     </div>
 </div>
 <div {{bind-attr class=":row :row-xs-height hasOldPassword::collapse" }}>
-    <div class="col-xs-2">
+    <div class="col-xs-12 col-sm-3 col-md-2">
         <label>
             Old Password:
         </label>
     </div>
-    <div class="col-xs-10">
+    <div class="col-xs-12 col-sm-6">
         {{input class="edit_box" type="password" size="40" value=oldPassword}}
     </div>
 </div>
 <div class="row row-xs-height">
-    <div class="col-xs-2">
+    <div class="col-xs-12 col-sm-3 col-md-2">
         <label>
             New Password:
         </label>
     </div>
-    <div class="col-xs-10">
+    <div class="col-xs-12 col-sm-6">
         {{input class="edit_box" type="password" size="40" value=newPassword}}
     </div>
 </div>
 <div class="row row-xs-height">
-    <div class="col-xs-2">
+    <div class="col-xs-12 col-sm-3 col-md-2">
         <label>
             Confirm New Password:
         </label>
     </div>
-    <div class="col-xs-10">
+    <div class="col-xs-12 col-sm-6">
         {{input class="edit_box" type="password" size="40" value=newPassword2}}
     </div>
 </div>
 <div class="row row-xs-height">
-    <div class="col-xs-10 col-xs-offset-2">
+    <div class="col-xs-12 col-sm-offset-3 col-md-offset-2">
         <button class="btn btn-primary btn-sm" {{action "save" }}>
             Save
         </button>
