@@ -4,9 +4,8 @@
     "ember": "1.11.1",
     "ember-cli-shims": "stefanpenner/ember-cli-shims#0.0.3",
     "ember-cli-test-loader": "rwjblue/ember-cli-test-loader#0.0.4",
-    "ember-load-initializers": "stefanpenner/ember-load-initializers#0.0.2",
-    "ember-data": "components/ember-data#canary",
     "ember-load-initializers": "ember-cli/ember-load-initializers#0.1.4",
+    "ember-data": "components/ember-data#canary",
     "ember-qunit": "0.3.1",
     "ember-qunit-notifications": "0.0.7",
     "ember-resolver": "~0.1.15",
@@ -17,14 +16,10 @@
     "moment": "~2.9.0",
     "ember-simple-auth": "0.7.3",
     "bootstrap-datepicker": "~1.4.0",
-    "ic-autocomplete": "~0.2.0",
     "eonasdan-bootstrap-datetimepicker": "~4.0.0",
     "ember-cli-moment-shim": "~0.0.3",
-    "jquery-ui": "~1.11.2",
+    "jquery-ui": "1.11.1",
     "underscore": "~1.8.2",
     "fullcalendar": "~2.3.1"
-  },
-  "resolutions": {
-    "ember-data": "canary"
   }
 }

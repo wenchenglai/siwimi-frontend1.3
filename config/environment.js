@@ -24,7 +24,7 @@ module.exports = function(environment) {
             'style-src': "'self' 'unsafe-inline' use.typekit.net",
             'img-src': "'self' data: fbcdn-profile-a.akamaihd.net",
             'frame-src': "accounts.google.com static.ak.facebook.com s-static.ak.facebook.com www.facebook.com",
-            'connect-src': "199.223.236.115:8088 localhost:8088 maps.googleapis.com"
+            'connect-src': "199.223.236.115:8080 localhost:8080 maps.googleapis.com"
         }
     };
 
@@ -38,7 +38,7 @@ module.exports = function(environment) {
         //ENV.APP.LOG_TRANSITIONS = true;
         //ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
         //ENV.APP.LOG_VIEW_LOOKUPS = true;
-        ENV.apiHost = 'http://localhost:8088';
+        ENV.apiHost = 'http://localhost:8080';
 
     }
 
@@ -55,7 +55,7 @@ module.exports = function(environment) {
     }
 
     if (environment === 'production') {
-        ENV.apiHost = 'http://199.223.236.115:8088/siwimi-webapi-0.0.1';
+        ENV.apiHost = 'http://199.223.236.115:8080/siwimi-webapi-0.0.1';
     }
 
     return ENV;

@@ -11,27 +11,40 @@ Ember.Controller.extend(StatesDataMixin, {
     alertType: "alert-danger",
     baseCity: "",
     baseState: "",
-    locations: [],
-    
-    baseLocation: function() {
+    locations: ['Ann Arbor, MI', "Abb, MI", "ACC, MI", "ADD, CA"],
+
+    baseLocation: function(key, value, previousValue) {
+
+      // setter
+      //if (arguments.length > 1) {
+      //    var arr = value.split(',');
+      //    this.set('baseCity', arr[0]);
+      //    this.set('baseState', arr[1]);
+      //}
+
     	if (!Ember.isEmpty(this.get('baseCity'))) {
     		return "%@, %@".fmt(this.get('baseCity'), this.get('baseState'));
     	} else {
     		return "";
     	}
     }.property('baseCity', 'baseState'),
-    
+
+    // test code saved for later
+    friendList: function() {
+        return ["c++", "java", "php", "javascript", "ruby", "python", "c"];
+    }.property('friends'),
+
     // this function will be called every time app is loaded
     // we need to preapre for at least 4 variables in session variable.
     // An anoymous user will have at least 4 variables
     setBase: function() {
     	var self = this,
     		session = self.get('session');
-    	
+
     	if (session.isAuthenticated) {
     	    if (!Ember.isEmpty(session.get('baseCity')) && !Ember.isEmpty(session.get('baseCity'))) {
     	        self.set('baseCity', session.get('baseCity'));
-    	        self.set('baseState', session.get('baseState'));   
+    	        self.set('baseState', session.get('baseState'));
 	        }
     	}
 
@@ -46,9 +59,9 @@ Ember.Controller.extend(StatesDataMixin, {
 	            session.set('baseState', self.get('baseState'));
 	        }
 	    }
-    	
+
     }.on('init'),
-    
+
     _toggleAlert: function(flag, title, message, type) {
         var self = this;
         self.set('showAlert', flag);
@@ -57,22 +70,27 @@ Ember.Controller.extend(StatesDataMixin, {
         self.set('alertType', type);
     },
 
+    //getLocations: function() {
+    //  var self = this;
+    //
+    //  self.store.find('location', {queryText: request.term}).then(function(returnedLocations) {
+    //    //self.set('locations', returnedLocations);
+    //    self.set('locations', ['aaa', 'bbb', 'ccc', 'ddd']);
+    //  });
+    //}.property('baseLocation'),
+
     actions: {
         closeAlert: function() {
             var self = this;
             self._toggleAlert(false);
-        },
-
-        getLocation: function(autocomplete, term) {
-            var self = this;
-
-            self.store.find('location', {queryText: term}).then(function(locations) {
-                self.set('locations', locations);
-            });
-        },
-
-        selectLocation: function(autocomplete, term) {
-            
         }
+
+        //getLocation: function(autocomplete, term) {
+        //    var self = this;
+        //
+        //    self.store.find('location', {queryText: term}).then(function(locations) {
+        //        self.set('locations', locations);
+        //    });
+        //}
     }
 });

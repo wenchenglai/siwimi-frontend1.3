@@ -2,7 +2,11 @@
 
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
-var app = new EmberApp();
+var app = new EmberApp({
+	'ember-cli-jquery-ui': {
+		'theme': 'base'
+	}
+});
 
 // Use `app.import` to add additional libraries to the generated
 // output files.
@@ -17,13 +21,9 @@ var app = new EmberApp();
 // please specify an object with the list of modules as keys
 // along with the exports of each module as its value.
 
-app.import('bower_components/jquery-ui/jquery-ui.js');
-app.import('bower_components/jquery-ui/ui/dialog.js');
-app.import('bower_components/jquery-ui/themes/smoothness/jquery-ui.css');
 
 app.import('bower_components/moment/moment.js');
 app.import('bower_components/underscore/underscore.js');
-app.import('bower_components/ic-autocomplete/dist/globals/main.js');
 
 app.import('bower_components/bootstrap/dist/css/bootstrap.css');
 app.import('bower_components/bootstrap/dist/css/bootstrap.css.map', { destDir: 'assets' });

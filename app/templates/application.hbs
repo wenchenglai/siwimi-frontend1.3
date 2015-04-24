@@ -82,36 +82,18 @@
                 {{/if}}
             </ul>
             <ul class="nav navbar-nav navbar-right">
-            	<li>
-                    <label class="nav-custom">
-                        
-                        {{input class="form-control" value=baseLocation size="15" readonly="true"}}
-                        {{!--
+                <li>
+                    <a href="#">
                         <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
-                        {{#ic-autocomplete
-                        id="movies"
-                        value=baseLocation
-                        on-input="getLocation"
-                        on-select="selectLocation"}}
-
-                        {{#each locations}}
-                        <!-- finally create autocomplete-options with a value and label -->
-                        {{#ic-autocomplete-option value=cityState label=cityState class="image-block"}}
-                        <div class="image-block-content">
-                            {{cityState}}
-                        </div>
-                        {{/ic-autocomplete-option}}
-                        {{else}}
-                        <div style="padding: 2px 16px;">No results found</div>
-                        {{/each}}
-                        {{/ic-autocomplete}}
-                        --}}
-                    </label>
-            	</li>
+                        {{baseLocation}}
+                        {{!--{{input class="form-control" value=baseLocation size="15" readonly="true"}}--}}
+                        {{!--{{jqui-autocomplete value=baseLocation size="15" class="superZ" source=locations}}--}}
+                    </a>
+                </li>
                 {{#if session.isAuthenticated}}
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    	
+
                         {{session.user.firstName}}&nbsp;&nbsp;
                         <img {{bind-attr src=session.profilePicture}} height="32" width="32" style="margin-bottom:-15px; margin-top:-15px" alt="avatar" />
                         <span class="caret"></span>
@@ -128,7 +110,7 @@
                         		Profile
                         	{{/link-to}}
                         </li>
-                        <li>	
+                        <li>
                         	{{#link-to 'inbox.browse'}}
                         		<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
                         		Inbox
