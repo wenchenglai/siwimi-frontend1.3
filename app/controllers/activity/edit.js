@@ -5,6 +5,6 @@ import StatesDataMixin from '../../mixins/states-data';
 
 export default Ember.Controller.extend(CommonDataMixin, ActivityDataMixin, StatesDataMixin, {
     disabled: function () {
-        return Ember.isEmpty(this.get('title')) || Ember.isEmpty(this.get('description'));
-    }.property('title', 'description'),
+        return Ember.isEmpty(this.get('model.title')) || Ember.isEmpty(this.get('model.description'));
+    }.property('model.title', 'model.description')
 });
