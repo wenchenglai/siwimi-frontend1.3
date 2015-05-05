@@ -11,7 +11,8 @@ export default Ember.Mixin.create({
         { value: "playdate", text: "Play Dates" }, 
         { value: "festival", text: "Festival" }, 
         { value: "show", text: "Shows" }, 
-        { value: "sport", text: "Sports"}
+        { value: "sport", text: "Sports"},
+        { value: "misc", text: "Misc"}
     ],
 
     allStatus: [

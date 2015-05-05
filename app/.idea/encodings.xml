@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/../../myapp/.ember-cli" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../myapp/app/pods/activity/browse/route.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../myapp/app/pods/activity/model.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../myapp/config/environment.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../config/environment.js" charset="UTF-8" />
   </component>
 </project>

@@ -3,21 +3,27 @@ import Ember from 'ember';
 export default Ember.Route.extend({
     currentStatus: "all",
     currentType: "all",
+    currentPage: 1,
 	
-    model: function (status, type) {
+    model: function () {
         var self = this,
             session = self.get('session'),
-            userId = self.get('session.id');
+            userId = self.get('session.id'),
+            currentPerPage = 5;
 
-        if (typeof(status) !== "string") {
-            status = 'all';
-        }
-        
-        if (typeof(type) !== "string") {
-            type = 'all';
-        }
+            if (self.get('controller.currentPerPage'))
+                currentPerPage = self.get('controller.currentPerPage');
 
-        return self.store.find('activity', { status: status, type: type, requester: userId, longitude: session.get('longitude'), latitude: session.get('latitude') });
+        return self.store.find('activity',
+            {
+                status: self.get('currentStatus'),
+                type: self.get('currentType'),
+                requester: userId,
+                longitude: session.get('longitude'),
+                latitude: session.get('latitude'),
+                per_page: currentPerPage,
+                page: self.get('currentPage') }
+        );
     },
 
     actions: {
@@ -25,7 +31,7 @@ export default Ember.Route.extend({
             var self = this;
 
             self.set('currentStatus', status);
-            self.model(status, self.get('currentType')).then(function(records) {
+            self.model().then(function(records) {
                 self.controller.set('content', records);
             });
         },
@@ -34,9 +40,31 @@ export default Ember.Route.extend({
             var self = this;
 
             self.set('currentType', type);
-            self.model(self.get('currentStatus'), type).then(function(records) {
+            self.model().then(function(records) {
                 self.controller.set('content', records);
             });        	
+        },
+
+        loadNextPage: function (type) {
+            var self = this;
+
+            self.incrementProperty('currentPage');
+            self.model().then(function(records) {
+                //var data = self.controller.get('content');
+                //data.addObject(records);
+                self.controller.set('content', records);
+            });
+        },
+
+        loadPrevPage: function (type) {
+            var self = this;
+
+            self.decrementProperty('currentPage');
+            self.model().then(function(records) {
+                //var data = self.controller.get('content');
+                //data.addObject(records);
+                self.controller.set('content', records);
+            });
         }
     }
 });

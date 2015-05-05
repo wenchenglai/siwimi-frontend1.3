@@ -80,6 +80,7 @@ Router.map(function() {
     this.route('calendar');
     this.route('map');
     this.route("preference");
+    this.route('infinite');
   });
 
   this.route("questions", function() {

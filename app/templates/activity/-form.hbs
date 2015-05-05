@@ -31,6 +31,7 @@
         {{bs-datetimepicker date=model.fromTimeMoment format='YYYY-MM-DD'}}
         To:
         {{bs-datetimepicker date=model.toTimeMoment format='YYYY-MM-DD'}}
+        {{jqui-autocomplete value=selectedTime size="20" focus="focus" change="change" close="close" search="search" source=times}}
     </div>
 </div>
 <div class="row row-xs-height">
@@ -48,7 +49,7 @@
         <label>Type:</label>
     </div>
     <div class="col-xs-10 col-md-6">
-        {{view "select" class="btn btn-default dropdown-toggle" prompt="Select Type" content=allTypes optionValuePath="content.value" optionLabelPath="content.text" value=type}}
+        {{view "select" class="btn btn-default dropdown-toggle" prompt="Select Type" content=allTypes optionValuePath="content.value" optionLabelPath="content.text" value=model.type}}
     </div>
 </div>
 <div class="row row-xs-height">

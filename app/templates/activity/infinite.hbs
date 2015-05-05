@@ -1,0 +1,6 @@
+{{#each model as |event|}}
+    <h1>{{event.title}}</h1>
+    <h2>{{event.description}}</h2>
+{{/each}}
+
+{{infinity-loader infinityModel=model developmentMode=false loadingText="Loading..." loadedText="Loaded!"}}
