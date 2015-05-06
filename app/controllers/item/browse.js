@@ -5,6 +5,7 @@ import ItemDataMixin from '../../mixins/item-data';
 export default Ember.ArrayController.extend(CommonDataMixin, ItemDataMixin, {
     showAdvancedSearch: false,
     searchToggleText: "More Filters",
+    pageSize: 5,
 
     actions: {
         toggleAdvancedSearch: function() {

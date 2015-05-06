@@ -28,10 +28,20 @@
     </div>
     <div class="col-xs-10 col-md-2">
         From:
-        {{bs-datetimepicker date=model.fromTimeMoment format='YYYY-MM-DD'}}
+        {{bs-datetimepicker date=model.fromDateMoment format='YYYY-MM-DD'}}
         To:
-        {{bs-datetimepicker date=model.toTimeMoment format='YYYY-MM-DD'}}
-        {{jqui-autocomplete value=selectedTime size="20" focus="focus" change="change" close="close" search="search" source=times}}
+        {{bs-datetimepicker date=model.toDateMoment format='YYYY-MM-DD'}}
+    </div>
+</div>
+<div class="row row-xs-height">
+    <div class="col-xs-2 col-md-1">
+        <label>Time:</label>
+    </div>
+    <div class="col-xs-10 col-md-6">
+        {{view "select" value=model.fromTime content=allTimes prompt="From Time" class="btn btn-default dropdown-toggle"}}
+        &nbsp;
+        {{view "select" value=model.toTime content=allTimes prompt="To Time" class="btn btn-default dropdown-toggle"}}
+
     </div>
 </div>
 <div class="row row-xs-height">

@@ -4,8 +4,10 @@ export default DS.Model.extend({
     creator: DS.belongsTo('member'),
     title: DS.attr('string'),
     description: DS.attr('string'),
-    fromTime: DS.attr('date'),
-    toTime: DS.attr('date'),
+    fromDate: DS.attr('date'),
+    toDate: DS.attr('date'),
+    fromTime: DS.attr('string'),
+    toTime: DS.attr('string'),
     address: DS.attr('string'),
     status: DS.attr('string'),
     url: DS.attr('string'),
@@ -26,24 +28,24 @@ export default DS.Model.extend({
     location: DS.attr('array'),
 
     // we use bs-datetimepicker addon which takes moment.js date type, so we must do some conversion when binding
-    fromTimeMoment: function(key, value, previousValue) {
+    fromDateMoment: function(key, value, previousValue) {
         // setter
         if (arguments.length > 1) {
-            this.set('fromTime', value.toDate());
+            this.set('fromDate', value.toDate());
         }
         // getter
-        return this.get('fromTime');
-    }.property('fromTime'),
+        return this.get('fromDate');
+    }.property('fromDate'),
 
     // we use bs-datetimepicker addon which takes moment.js date type, so we must do some conversion when binding
-    toTimeMoment: function(key, value, previousValue) {
+    toDateMoment: function(key, value, previousValue) {
         // setter
         if (arguments.length > 1) {
-            this.set('toTime', value.toDate());
+            this.set('toDate', value.toDate());
         }
         // getter
-        return this.get('toTime');
-    }.property('toTime'),
+        return this.get('toDate');
+    }.property('toDate'),
 
     availableImage: function() {
         if (!Em.isEmpty(this.get('imageData'))) {

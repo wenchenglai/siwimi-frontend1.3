@@ -3,16 +3,16 @@ import Ember from 'ember';
 export default Ember.Route.extend({
     currentStatus: "all",
     currentType: "all",
-    currentPage: 1,
+    pageNumber: 1,
 	
     model: function () {
         var self = this,
             session = self.get('session'),
             userId = self.get('session.id'),
-            currentPerPage = 5;
+            pageSize = 5;
 
-            if (self.get('controller.currentPerPage'))
-                currentPerPage = self.get('controller.currentPerPage');
+            if (self.get('controller.pageSize'))
+                pageSize = self.get('controller.pageSize');
 
         return self.store.find('activity',
             {
@@ -21,9 +21,9 @@ export default Ember.Route.extend({
                 requester: userId,
                 longitude: session.get('longitude'),
                 latitude: session.get('latitude'),
-                per_page: currentPerPage,
-                page: self.get('currentPage') }
-        );
+                per_page: pageSize,
+                page: self.get('pageNumber')
+            });
     },
 
     actions: {
@@ -48,7 +48,7 @@ export default Ember.Route.extend({
         loadNextPage: function (type) {
             var self = this;
 
-            self.incrementProperty('currentPage');
+            self.incrementProperty('pageNumber');
             self.model().then(function(records) {
                 //var data = self.controller.get('content');
                 //data.addObject(records);
@@ -59,7 +59,7 @@ export default Ember.Route.extend({
         loadPrevPage: function (type) {
             var self = this;
 
-            self.decrementProperty('currentPage');
+            self.decrementProperty('pageNumber');
             self.model().then(function(records) {
                 //var data = self.controller.get('content');
                 //data.addObject(records);

@@ -53,4 +53,13 @@
     </div>
 </div>
 
+{{#if model}}
+<div class="row row-xs-height">
+    <div class="col-xs-12">
+        <button class="btn btn-info btn-lg" {{action "loadPrevPage"}}>Prev Page</button>
+        {{view "select" class="btn btn-default dropdown-toggle" prompt="Page Size" content=allPageSizes value=pageSize}}
+        <button class="btn btn-info btn-lg" {{action "loadNextPage"}}>Next Page</button>
+    </div>
+</div>
+{{/if}}
 
