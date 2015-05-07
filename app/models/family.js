@@ -9,6 +9,9 @@ export default DS.Model.extend({
     location: DS.attr('array'),
     members: DS.hasMany('member', { embedded: 'always' }),
 
+    // data management fields
+    isDeletedRecord: DS.attr('boolean'),
+
     hasMember: function() {
         return this.get('members').get('length') > 0;
     }.property('members')  

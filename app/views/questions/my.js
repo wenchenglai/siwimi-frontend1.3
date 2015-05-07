@@ -12,19 +12,21 @@ export default Ember.View.extend({
             modal: true,
             buttons: {
                 "Delete": function () {
-                    var id = $(this).data('id');
-                    $(this).dialog("close");
+                    var id = self.$(this).data('id');
+                    self.$(this).dialog("close");
                     controller.send('delete', id);
                 },
                 Cancel: function () {
-                    $(this).dialog("close");
+                    self.$(this).dialog("close");
                 }
             }
         });
     },
     actions: {
         openDeleteDialog: function (id) {
-            $("#dialog-confirm-delete").data('id', id).dialog("open");
+            var self = this;
+
+            self.$("#dialog-confirm-delete").data('id', id).dialog("open");
         }      
     }
 });

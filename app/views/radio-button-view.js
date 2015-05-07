@@ -10,7 +10,7 @@ export default Ember.View.extend({
         this.set("selection", this.get('value'));
 
 
-        Em.$('div.radioButtonGroup[group=' + group + ']').removeClass('active');
+        this.$('div.radioButtonGroup[group=' + group + ']').removeClass('active');
     },
 
     active: function () {
@@ -18,8 +18,8 @@ export default Ember.View.extend({
         var selector = 'div[name=' + this.get('name') + ']';
 
         if (!flag) {
-            if (Em.$(selector).hasClass('active')) {
-                Em.$(selector).removeClass('active');
+            if (this.$(selector).hasClass('active')) {
+                this.$(selector).removeClass('active');
             }
         }
 
@@ -31,12 +31,12 @@ export default Ember.View.extend({
         var selector = 'div[name=' + this.get('name') + ']';
 
         if (!flag) {
-            if (Em.$(selector).hasClass('active')) {
-                Em.$(selector).removeClass('active');
+            if (this.$(selector).hasClass('active')) {
+                this.$(selector).removeClass('active');
             }
         } else {
             //if (!Em.$(selector).hasClass('active')) {
-            Em.$(selector).addClass('active');
+            this.$(selector).addClass('active');
             //}
         }
     },

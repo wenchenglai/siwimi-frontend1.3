@@ -2,23 +2,21 @@ import Ember from 'ember';
 
 export default Ember.View.extend({
     text: '',
+
     didInsertElement: function () {
         var self = this,
-            host = self.get('controller').store.adapterFor('application').get('host'),
-            controller = self.get('controller');
+            host = self.get('controller').store.adapterFor('application').get('host');
 
-        $("#myTags").tagit({
+        self.$("#myTags").tagit({
             //availableTags: controller.get('friendList'),
             placeholderText: "Type your friends names here",
             beforeTagAdded: function(event, ui) {
                 // do something special
                 console.log("Inside beforeTagAdded: ui.tag = " + ui.tag);
-            }
-            ,afterTagAdded: function(event, ui) {
+            },afterTagAdded: function(event, ui) {
                 // do something special
                 console.log("Inside beforeTagAdded: ui.tag = " + ui.tag);
-            }
-            ,autocomplete: {delay: 0, minLength: 1
+            },autocomplete: {delay: 0, minLength: 1
                 //source: function(requestObj, responseCB) {
             //    //var self = this,
             //    //    host = self.store.adapterFor('application').get('host');
@@ -33,11 +31,11 @@ export default Ember.View.extend({
                 // using search instead of autocomplete.source will have automatic filtering on selected tags and
                 // availableTags
                 ,search: function(event, ui) {
-                    $.ajax({
+                    self.$.ajax({
                         url: host + "/membersajax?queryText=" + this.value,
                         success: function( data ) {
                             Ember.run(function () {
-                                $('#myTags').tagit({availableTags: data});
+                                self.$('#myTags').tagit({availableTags: data});
                             });
                         }
                     });
@@ -56,8 +54,9 @@ export default Ember.View.extend({
             ////    console.log("Inside autocomplete:select: this.value = " + this.value + ", ui.item.label = " + ui.item.label);
             ////    //return true;
             //}
-            }
-            ,preprocessTag: function(val) {
+            },
+
+            preprocessTag: function(val) {
                 console.log("Inside PreprocessTag: val = " + val);
                 return val;
             }

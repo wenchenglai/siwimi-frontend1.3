@@ -12,19 +12,19 @@ export default Ember.Controller.extend(CommonDataMixin, ActivityDataMixin, State
     selectedTime: null,
     actions: {
         focus: function() {
-            debugger;
+
         },
 
-        change: function(a, b) {
-            debugger;
+        change: function() {
+
         },
 
         close: function() {
-            debugger;
+
         },
 
-        search: function(a, b) {
-            debugger;
+        search: function() {
+
         }
     }
 });

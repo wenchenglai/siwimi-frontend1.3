@@ -9,7 +9,7 @@ export default Ember.Route.extend(SessionSetupMixin, {
                 email = controller.get('email'),
                 password = controller.get('password'),
                 password2 = controller.get('password2'),
-                appController = self.get('container').lookup('controller:application');;
+                appController = self.get('container').lookup('controller:application');
 
             if (password === password2 && password != null) {
                 var newMember = self.store.createRecord('member', {
@@ -36,7 +36,7 @@ export default Ember.Route.extend(SessionSetupMixin, {
                         self._setProfilePictureInSession(session, session.get('user'));
 
                     }, function (error) {
-                        self.send('error', { name: 'Login Error', message: "Failed to login" });
+                        self.send('error', { name: 'Login Error', message: "Failed to login" + error.toString() });
                     });
 
                 }, function(error) {

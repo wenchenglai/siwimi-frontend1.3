@@ -5,5 +5,8 @@ export default DS.Model.extend({
     voteType: DS.attr('string'),
     targetObject: DS.attr('string'),
     objectType: DS.attr('string'),
-    createdDate: DS.attr('date')
+    createdDate: DS.attr('date'),
+
+    // data management fields
+    isDeletedRecord: DS.attr('boolean'),
 });

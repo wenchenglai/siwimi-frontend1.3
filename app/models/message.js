@@ -12,6 +12,9 @@ export default DS.Model.extend({
 
     isChecked: DS.attr('boolean'),
 
+    // data management fields
+    isDeletedRecord: DS.attr('boolean'),
+
     subjectReduced: function () {
         return this._getSubString(this.get('subject'), 25);
     }.property('subject'),

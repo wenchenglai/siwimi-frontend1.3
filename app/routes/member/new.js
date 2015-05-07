@@ -28,12 +28,12 @@ export default Ember.Route.extend({
                 //    model.set('expiredDate', birthday.toDate());
                 //}
 
-                var onSuccess = function (ret) {
+                var onSuccess = function () {
                     self.transitionTo('family.my');
                 };
 
                 var onFail = function (error) {
-                    throw new error('Saving New Member Error');
+
                 };
 
                 model.save().then(onSuccess, onFail);

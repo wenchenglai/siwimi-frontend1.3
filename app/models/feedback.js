@@ -11,5 +11,8 @@ export default DS.Model.extend({
     likeCount: DS.attr('number'),
     viewCount: DS.attr('number'),
     city: DS.attr('string'),
-    state: DS.attr('string')
+    state: DS.attr('string'),
+
+    // data management fields
+    isDeletedRecord: DS.attr('boolean'),
 });

@@ -11,8 +11,9 @@ export default Ember.Route.extend({
             userId = self.get('session.id'),
             pageSize = 5;
 
-        if (self.get('controller.pageSize'))
+        if (self.get('controller.pageSize')) {
             pageSize = self.get('controller.pageSize');
+        }
 
         return this.store.find('tip', { 
             requester: userId, 
@@ -48,7 +49,7 @@ export default Ember.Route.extend({
             });
         },
 
-        loadNextPage: function (type) {
+        loadNextPage: function () {
             var self = this;
 
             self.incrementProperty('pageNumber');
@@ -59,7 +60,7 @@ export default Ember.Route.extend({
             });
         },
 
-        loadPrevPage: function (type) {
+        loadPrevPage: function () {
             var self = this;
 
             self.decrementProperty('pageNumber');

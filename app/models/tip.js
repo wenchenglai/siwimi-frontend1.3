@@ -26,6 +26,9 @@ export default DS.Model.extend({
     location: DS.attr('array'),
     isFavorite: DS.attr('boolean'),
 
+    // data management fields
+    isDeletedRecord: DS.attr('boolean'),
+
     //setupVoteCounts: function() {
     //    if (!this.get('voteUpCount')) {
     //        this.set('voteUpCount', 0);

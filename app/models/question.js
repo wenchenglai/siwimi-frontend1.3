@@ -19,5 +19,8 @@ export default DS.Model.extend({
     city: DS.attr('string'),
     state: DS.attr('string'),    
     zipCode: DS.attr('string'),
-    location: DS.attr('array')
+    location: DS.attr('array'),
+
+    // data management fields
+    isDeletedRecord: DS.attr('boolean'),
 });

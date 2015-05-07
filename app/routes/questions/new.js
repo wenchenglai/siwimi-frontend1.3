@@ -20,7 +20,7 @@ export default Ember.Route.extend({
                 model.set('isDestroyed', false);
                 model.set('createdDate', new Date());
 
-                model.save().then(function (record) {
+                model.save().then(function () {
                     self.controller.set("asked", true);
                 });
             });

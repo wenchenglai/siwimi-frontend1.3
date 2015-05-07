@@ -5,16 +5,18 @@ export default Ember.TextField.extend({
     type: 'file',
 
     resizeBase64Img: function(base64, width, height) {
-        var canvas = document.createElement("canvas");
+        var self = this,
+            canvas = document.createElement("canvas");
+
         canvas.width = width;
         canvas.height = height;
         var context = canvas.getContext("2d");
-        var deferred = $.Deferred();
+        var deferred = self.$.Deferred();
         //$("<img/>").attr("src", "data:image/gif;base64," + base64).load(function() {
-        $("<img/>").attr("src", base64).load(function() {
+        self.$("<img/>").attr("src", base64).load(function() {
             context.scale(width/this.width,  height/this.height);
             context.drawImage(this, 0, 0);
-            deferred.resolve($("<img/>").attr("src", canvas.toDataURL()));
+            deferred.resolve(self.$("<img/>").attr("src", canvas.toDataURL()));
         });
         return deferred.promise();
     },
@@ -43,9 +45,9 @@ export default Ember.TextField.extend({
                 };
 
                 origImage.onerror = function() {
-                    console.log('invalid file type:' + file.type);
+                    console.log('invalid file type:' + data.type);
                 };
-            }
+            };
             reader.readAsDataURL(input.files[0]);
         }
     }

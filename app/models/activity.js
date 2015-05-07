@@ -27,6 +27,9 @@ export default DS.Model.extend({
     zipCode: DS.attr('string'),
     location: DS.attr('array'),
 
+    // data management fields
+    isDeletedRecord: DS.attr('boolean'),
+
     // we use bs-datetimepicker addon which takes moment.js date type, so we must do some conversion when binding
     fromDateMoment: function(key, value, previousValue) {
         // setter

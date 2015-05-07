@@ -28,6 +28,9 @@ export default DS.Model.extend({
     zipCode: DS.attr('string'),
     location: DS.attr('array'),
 
+    // data management fields
+    isDeletedRecord: DS.attr('boolean'),
+
     ageRange: function () {
         return this.get('fromAge') + ' to ' + this.get('toAge');
     }.property('fromAge', 'toAge'),

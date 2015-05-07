@@ -5,5 +5,8 @@ export default DS.Model.extend({
     title: DS.attr('string'),
     description: DS.attr('string'),
     members: DS.hasMany('member', { embedded: 'always' }),
-    createdDate: DS.attr('date')
+    createdDate: DS.attr('date'),
+
+    // data management fields
+    isDeletedRecord: DS.attr('boolean'),
 });
