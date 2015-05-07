@@ -63,10 +63,9 @@
         <div class="control-group">
             <div class="btn-group" data-toggle="buttons-radio">
 
-                {{#view "radio-button-view" name="new" selection=model.condition group="condition" value="new"}}New{{/view}}
+                {{#view "radio-button-view" selectedValue=model.condition group="condition" value="new"}}New{{/view}}
 
-                {{#view "radio-button-view" name="used" selection=model.condition group="condition" value="used"}}Used{{/view}}
-
+                {{#view "radio-button-view" selectedValue=model.condition group="condition" value="used"}}Used{{/view}}
 
             </div>
         </div>
@@ -89,17 +88,17 @@
         <div class="control-group">
             <div class="btn-group" data-toggle="buttons-radio">
 
-                {{#view "radio-button-view" name="toy" selection=model.type group="type" value="toy" }}Toy{{/view}}
+                {{#view "radio-button-view" selectedValue=model.type group="type" value="toy" }}Toy{{/view}}
 
-                {{#view "radio-button-view" name="cloth" selection=model.type group="type" value="cloth" }}Cloth{{/view}}
+                {{#view "radio-button-view" selectedValue=model.type group="type" value="cloth" }}Cloth{{/view}}
 
-                {{#view "radio-button-view" name="book" selection=model.type group="type" value="book"}}Book{{/view}}
+                {{#view "radio-button-view" selectedValue=model.type group="type" value="book"}}Book{{/view}}
 
-                {{#view "radio-button-view" name="equipment" selection=model.type group="type" value="equipment" }}Equipment{{/view}}
+                {{#view "radio-button-view" selectedValue=model.type group="type" value="equipment" }}Equipment{{/view}}
 
-                {{#view "radio-button-view" name="furniture" selection=model.type group="type" value="furniture" }}Furniture{{/view}}
+                {{#view "radio-button-view" selectedValue=model.type group="type" value="furniture" }}Furniture{{/view}}
 
-                {{#view "radio-button-view" name="misc" selection=model.type group="type" value="misc" }}Misc{{/view}}
+                {{#view "radio-button-view" selectedValue=model.type group="type" value="misc" }}Misc{{/view}}
 
             </div>
         </div>

@@ -24,17 +24,17 @@
         <div class="control-group">
             <div class="btn-group" data-toggle="buttons-radio">
 
-                {{#view "radio-button-view" name="deal" selection=model.type value="deal" }}Deal{{/view}}
+                {{#view "radio-button-view" group="type" selectedValue=model.type value="deal" }}Deal{{/view}}
 
-                {{#view "radio-button-view" name="education" selection=model.type value="education" }}Education{{/view}}
+                {{#view "radio-button-view" group="type" selectedValue=model.type value="education" }}Education{{/view}}
 
-                {{#view "radio-button-view" name="entertainment" selection=model.type value="entertainment" }}Entertainment{{/view}}
+                {{#view "radio-button-view" group="type" selectedValue=model.type value="entertainment" }}Entertainment{{/view}}
 
-                {{#view "radio-button-view" name="health" selection=model.type value="health"}}Health{{/view}}
+                {{#view "radio-button-view" group="type" selectedValue=model.type value="health"}}Health{{/view}}
 
-                {{#view "radio-button-view" name="travel" selection=model.type value="travel" }}Travel{{/view}}
+                {{#view "radio-button-view" group="type" selectedValue=model.type value="travel" }}Travel{{/view}}
 
-                {{#view "radio-button-view" name="misc" selection=model.type value="misc" }}Misc{{/view}}
+                {{#view "radio-button-view" group="type" selectedValue=model.type value="misc" }}Misc{{/view}}
 
             </div>
         </div>

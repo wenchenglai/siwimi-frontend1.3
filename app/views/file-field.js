@@ -11,7 +11,7 @@ export default Ember.TextField.extend({
         canvas.width = width;
         canvas.height = height;
         var context = canvas.getContext("2d");
-        var deferred = self.$.Deferred();
+        var deferred = Ember.$.Deferred();
         //$("<img/>").attr("src", "data:image/gif;base64," + base64).load(function() {
         self.$("<img/>").attr("src", base64).load(function() {
             context.scale(width/this.width,  height/this.height);
