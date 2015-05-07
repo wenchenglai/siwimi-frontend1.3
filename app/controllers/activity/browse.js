@@ -4,5 +4,6 @@ import ActivityDataMixin from '../../mixins/activity-data';
 import PagingMixin from '../../mixins/paging';
 
 export default Ember.Controller.extend(CommonDataMixin, ActivityDataMixin, PagingMixin, {
-    pageSize: 5
+    pageSize: 5,
+    pages: [1, 2, 3, 4, 5]
 });

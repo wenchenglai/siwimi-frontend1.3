@@ -26,45 +26,40 @@ export default Ember.Route.extend({
             });
     },
 
+    reload: function() {
+        self.model().then(function(records) {
+            var totalRecordCount = 26;
+            self.controller.set('content', records);
+        });
+    },
+
     actions: {
         loadByStatus: function (status) {
             var self = this;
 
             self.set('currentStatus', status);
-            self.model().then(function(records) {
-                self.controller.set('content', records);
-            });
+            self.reload();
         },
         
         loadByType: function (type) {
             var self = this;
 
             self.set('currentType', type);
-            self.model().then(function(records) {
-                self.controller.set('content', records);
-            });        	
+            self.reload();
         },
 
         loadNextPage: function (type) {
             var self = this;
 
             self.incrementProperty('pageNumber');
-            self.model().then(function(records) {
-                //var data = self.controller.get('content');
-                //data.addObject(records);
-                self.controller.set('content', records);
-            });
+            self.reload();
         },
 
         loadPrevPage: function (type) {
             var self = this;
 
             self.decrementProperty('pageNumber');
-            self.model().then(function(records) {
-                //var data = self.controller.get('content');
-                //data.addObject(records);
-                self.controller.set('content', records);
-            });
+            self.reload();
         }
     }
 });

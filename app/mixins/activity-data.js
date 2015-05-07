@@ -18,7 +18,8 @@ export default Ember.Mixin.create({
     allStatus: [
         { text: "Current", value: "current" },
         { text: "Upcoming", value: "upcoming" },
-        { text: "Past", value: "past" }
+        { text: "Past", value: "past" },
+        { text: "Timeless", value: "timeless" }
     ],
 
     allPeriods: [
