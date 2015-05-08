@@ -6,7 +6,7 @@ export default Ember.Route.extend({
             session = self.get('session');
 
         return self.store.createRecord('activity', { city: session.get('baseCity'), state: session.get('baseState'), zipCode: session.get('zipCode')});
-    }, 
+    },
 
     actions: {
         cancel: function () {
@@ -34,6 +34,9 @@ export default Ember.Route.extend({
                 };
 
                 model.save().then(onSuccess, onFail);
+            }, function(error) {
+                self.send('error', error);
+                self.controller.set('isDisabled', false);
             });
         }
     }

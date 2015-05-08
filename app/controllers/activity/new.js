@@ -7,7 +7,7 @@ export default Ember.Controller.extend(CommonDataMixin, ActivityDataMixin, State
     isDisabled: false,
     disabled: function () {
         return Ember.isEmpty(this.get('model.title')) || Ember.isEmpty(this.get('model.description')) || this.get('isDisabled');
-    }.property('model.title', 'model.description'),
+    }.property('model.title', 'model.description', 'isDisabled'),
     selectedTime: null,
     actions: {
         focus: function() {
