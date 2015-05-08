@@ -49,7 +49,7 @@
         <nav>
             <ul class="pagination">
                 <li class={{disabled}}>
-                    <a {{action "loadPrevPage"}} aria-label="Previous">
+                    <a class="btn" {{action "loadPrevPage"}} aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>
@@ -57,7 +57,7 @@
                     <li><a class="btn" {{action "loadPage" page}}>{{page}}</a></li>
                 {{/each}}
                 <li class={{disabled}}>
-                    <a{{action "loadNextPage"}} aria-label="Next">
+                    <a class="btn" {{action "loadNextPage"}} aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
                     </a>
                 </li>

@@ -6,7 +6,7 @@ import PagingMixin from '../../mixins/paging';
 export default Ember.Controller.extend(CommonDataMixin, ActivityDataMixin, PagingMixin, {
     pageSize: 5,
     queryCount: 0,
-    disabled: function() {
+    isDisabled: function() {
         var self = this;
 
         if (self.get('queryCount') / self.get('pageSize') <= 1) {

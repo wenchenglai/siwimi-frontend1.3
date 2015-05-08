@@ -40,6 +40,10 @@ export default Ember.Route.extend({
         self.model().then(function(records) {
             var totalRecordCount = records.get('content')[0].get('queryCount');
             self.controller.set('queryCount', totalRecordCount);
+            Ember.$('.pagination li').each(function(key, value){
+                Ember.$(this).removeClass('active');
+            });
+            Ember.$('.pagination li:nth-child(' + (self.get('pageNumber') + 1) + ')').addClass("active");
             self.controller.set('content', records);
         });
     },
