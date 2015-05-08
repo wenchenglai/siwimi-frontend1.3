@@ -21,6 +21,7 @@ export default DS.Model.extend({
     price: DS.attr('number'),
     createdDate: DS.attr('date'),
     isFavorite: DS.attr('boolean'),
+    queryCount: DS.attr('number'),
 
     city: DS.attr('string'),
     state: DS.attr('string'),

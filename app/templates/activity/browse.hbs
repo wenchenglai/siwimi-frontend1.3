@@ -42,28 +42,22 @@
     </div>
 </div>
 
-{{#if model}}
+{{#if queryCount}}
 <div class="row row-xs-height">
     <div class="col-xs-12">
-        <button class="btn btn-info btn-lg" {{action "loadPrevPage"}}>Prev Page</button>
         {{view "select" class="btn btn-default dropdown-toggle" prompt="Page Size" content=allPageSizes value=pageSize}}
-        <button class="btn btn-info btn-lg" {{action "loadNextPage"}}>Next Page</button>
-    </div>
-</div>
-<div class="row row-xs-height">
-    <div class="col-xs-12">
         <nav>
             <ul class="pagination">
-                <li>
-                    <a href="#" aria-label="Previous">
+                <li class={{disabled}}>
+                    <a {{action "loadPrevPage"}} aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>
                 {{#each page in pages}}
-                    <li><a {{action "loadPage" page}}>{{page}}</a></li>
+                    <li><a class="btn" {{action "loadPage" page}}>{{page}}</a></li>
                 {{/each}}
-                <li>
-                    <a href="#" aria-label="Next">
+                <li class={{disabled}}>
+                    <a{{action "loadNextPage"}} aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
                     </a>
                 </li>
@@ -71,5 +65,4 @@
         </nav>
     </div>
 </div>
-
 {{/if}}

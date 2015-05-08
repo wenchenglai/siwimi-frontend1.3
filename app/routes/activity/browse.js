@@ -11,8 +11,9 @@ export default Ember.Route.extend({
             userId = self.get('session.id'),
             pageSize = 5;
 
-            if (self.get('controller.pageSize'))
+            if (self.get('controller.pageSize')) {
                 pageSize = self.get('controller.pageSize');
+            }
 
         return self.store.find('activity',
             {
@@ -26,9 +27,19 @@ export default Ember.Route.extend({
             });
     },
 
+    setupController: function(controller, model) {
+        controller.set('model', model);
+        if (model.get('length') > 0) {
+            var totalRecordCount = model.get('content')[0].get('queryCount');
+            controller.set('queryCount', totalRecordCount);
+        }
+    },
+
     reload: function() {
+        var self = this;
         self.model().then(function(records) {
-            var totalRecordCount = 26;
+            var totalRecordCount = records.get('content')[0].get('queryCount');
+            self.controller.set('queryCount', totalRecordCount);
             self.controller.set('content', records);
         });
     },
@@ -48,18 +59,32 @@ export default Ember.Route.extend({
             self.reload();
         },
 
-        loadNextPage: function (type) {
-            var self = this;
+        loadNextPage: function () {
+            var self = this,
+                currentPageCount = self.controller.get('pages').length;
 
-            self.incrementProperty('pageNumber');
-            self.reload();
+            if (self.get('pageNumber') < currentPageCount) {
+                self.incrementProperty('pageNumber');
+                self.reload();
+            }
         },
 
-        loadPrevPage: function (type) {
+        loadPrevPage: function () {
             var self = this;
 
-            self.decrementProperty('pageNumber');
-            self.reload();
+            if (self.get('pageNumber') > 1 ) {
+                self.decrementProperty('pageNumber');
+                self.reload();
+            }
+        },
+
+        loadPage: function (pageNumber) {
+            var self = this;
+
+            if (pageNumber !== self.get('pageNumber')) {
+                self.set('pageNumber', pageNumber);
+                self.reload();
+            }
         }
     }
 });
