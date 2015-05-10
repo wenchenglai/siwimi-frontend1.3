@@ -89,6 +89,11 @@ export default Ember.Route.extend({
                 self.set('pageNumber', pageNumber);
                 self.reload();
             }
+        },
+
+        loadPageOnPageSizeChange: function () {
+            var self = this;
+            self.reload();
         }
     }
 });

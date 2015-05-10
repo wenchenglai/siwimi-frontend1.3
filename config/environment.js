@@ -55,7 +55,7 @@ module.exports = function(environment) {
     }
 
     if (environment === 'production') {
-        ENV.apiHost = 'http://199.223.236.115:8080/siwimi-webapi-0.0.1';
+        ENV.apiHost = 'http://199.223.236.115/siwimi-webapi-0.0.1';
     }
 
     return ENV;

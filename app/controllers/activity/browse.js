@@ -16,8 +16,12 @@ export default Ember.Controller.extend(CommonDataMixin, ActivityDataMixin, Pagin
         }
     }.property('queryCount', 'pageSize'),
 
+    watchPageSize: function() {
+        this.send('loadPageOnPageSizeChange');
+    }.observes('pageSize'),
+
     pages: function() {
         var size = this.get('queryCount') / this.get('pageSize') + 1;
         return window._.range(1, size);
-    }.property('queryCount')
+    }.property('queryCount', 'pageSize')
 });

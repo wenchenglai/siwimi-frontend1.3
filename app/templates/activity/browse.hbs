@@ -45,7 +45,7 @@
 {{#if queryCount}}
 <div class="row row-xs-height">
     <div class="col-xs-12">
-        {{view "select" class="btn btn-default dropdown-toggle" prompt="Page Size" content=allPageSizes value=pageSize}}
+        Size: {{view "select" class="btn btn-default dropdown-toggle" content=allPageSizes value=pageSize}}
         <nav>
             <ul class="pagination">
                 <li class={{disabled}}>
