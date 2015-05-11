@@ -2,69 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="95e9278d-092f-43be-b852-af790d8147be" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/activity/-form.hbs" afterPath="$PROJECT_DIR$/templates/activity/-form.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/family/-form.hbs" afterPath="$PROJECT_DIR$/templates/family/-form.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/group/-form.hbs" afterPath="$PROJECT_DIR$/templates/group/-form.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/item/-form.hbs" afterPath="$PROJECT_DIR$/templates/item/-form.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/member/-form.hbs" afterPath="$PROJECT_DIR$/templates/member/-form.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/tip/-form.hbs" afterPath="$PROJECT_DIR$/templates/tip/-form.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/user/account.hbs" afterPath="$PROJECT_DIR$/templates/user/account.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/app.css" afterPath="$PROJECT_DIR$/styles/app.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/application.hbs" afterPath="$PROJECT_DIR$/templates/application.hbs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/activity/browse.hbs" afterPath="$PROJECT_DIR$/templates/activity/browse.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/family/browse.hbs" afterPath="$PROJECT_DIR$/templates/family/browse.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/inbox/browse.hbs" afterPath="$PROJECT_DIR$/templates/inbox/browse.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/item/browse.hbs" afterPath="$PROJECT_DIR$/templates/item/browse.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/questions/browse.hbs" afterPath="$PROJECT_DIR$/templates/questions/browse.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/tip/browse.hbs" afterPath="$PROJECT_DIR$/templates/tip/browse.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/activity/calendar.js" afterPath="$PROJECT_DIR$/views/activity/calendar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/inbox/detail.hbs" afterPath="$PROJECT_DIR$/templates/inbox/detail.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/activity/edit.hbs" afterPath="$PROJECT_DIR$/templates/activity/edit.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/family/edit.hbs" afterPath="$PROJECT_DIR$/templates/family/edit.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/group/edit.hbs" afterPath="$PROJECT_DIR$/templates/group/edit.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/item/edit.hbs" afterPath="$PROJECT_DIR$/templates/item/edit.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/member/edit.hbs" afterPath="$PROJECT_DIR$/templates/member/edit.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/questions/edit.hbs" afterPath="$PROJECT_DIR$/templates/questions/edit.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/tip/edit.hbs" afterPath="$PROJECT_DIR$/templates/tip/edit.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/family-list.js" afterPath="$PROJECT_DIR$/components/family-list.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/inbox.hbs" afterPath="$PROJECT_DIR$/templates/inbox.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/login.hbs" afterPath="$PROJECT_DIR$/templates/login.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/activity/my.hbs" afterPath="$PROJECT_DIR$/templates/activity/my.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/family/my.hbs" afterPath="$PROJECT_DIR$/templates/family/my.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/group/my.hbs" afterPath="$PROJECT_DIR$/templates/group/my.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/item/my.hbs" afterPath="$PROJECT_DIR$/templates/item/my.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/questions/my.hbs" afterPath="$PROJECT_DIR$/templates/questions/my.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/tip/my.hbs" afterPath="$PROJECT_DIR$/templates/tip/my.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/activity/my.js" afterPath="$PROJECT_DIR$/views/activity/my.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/item/my.js" afterPath="$PROJECT_DIR$/views/item/my.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/tip/my.js" afterPath="$PROJECT_DIR$/views/tip/my.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/activity/new.hbs" afterPath="$PROJECT_DIR$/templates/activity/new.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/family/new.hbs" afterPath="$PROJECT_DIR$/templates/family/new.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/feedback/new.hbs" afterPath="$PROJECT_DIR$/templates/feedback/new.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/group/new.hbs" afterPath="$PROJECT_DIR$/templates/group/new.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/inbox/new.hbs" afterPath="$PROJECT_DIR$/templates/inbox/new.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/item/new.hbs" afterPath="$PROJECT_DIR$/templates/item/new.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/member/new.hbs" afterPath="$PROJECT_DIR$/templates/member/new.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/questions/new.hbs" afterPath="$PROJECT_DIR$/templates/questions/new.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/tip/new.hbs" afterPath="$PROJECT_DIR$/templates/tip/new.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/activity/preference.hbs" afterPath="$PROJECT_DIR$/templates/activity/preference.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/family/preference.hbs" afterPath="$PROJECT_DIR$/templates/family/preference.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/item/preference.hbs" afterPath="$PROJECT_DIR$/templates/item/preference.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/questions/preference.hbs" afterPath="$PROJECT_DIR$/templates/questions/preference.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/tip/preference.hbs" afterPath="$PROJECT_DIR$/templates/tip/preference.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/user/profile.hbs" afterPath="$PROJECT_DIR$/templates/user/profile.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/activity/search.hbs" afterPath="$PROJECT_DIR$/templates/activity/search.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/item/search.hbs" afterPath="$PROJECT_DIR$/templates/item/search.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/tip/search.hbs" afterPath="$PROJECT_DIR$/templates/tip/search.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/inbox/sent.hbs" afterPath="$PROJECT_DIR$/templates/inbox/sent.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/activity/show.hbs" afterPath="$PROJECT_DIR$/templates/activity/show.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/family/show.hbs" afterPath="$PROJECT_DIR$/templates/family/show.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/group/show.hbs" afterPath="$PROJECT_DIR$/templates/group/show.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/item/show.hbs" afterPath="$PROJECT_DIR$/templates/item/show.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/questions/show.hbs" afterPath="$PROJECT_DIR$/templates/questions/show.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/tip/show.hbs" afterPath="$PROJECT_DIR$/templates/tip/show.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/signup.hbs" afterPath="$PROJECT_DIR$/templates/signup.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/inbox/trash.hbs" afterPath="$PROJECT_DIR$/templates/inbox/trash.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/activity/browse.js" afterPath="$PROJECT_DIR$/routes/activity/browse.js" />
     </list>
     <ignored path="app.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -88,8 +27,48 @@
       <file leaf-file-name="browse.hbs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/activity/browse.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3486328">
-              <caret line="21" column="38" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
+            <state vertical-scroll-proportion="0.28222656">
+              <caret line="26" column="55" selection-start-line="26" selection-start-column="55" selection-end-line="26" selection-end-column="55" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application.hbs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/application.hbs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-11.115385">
+              <caret line="87" column="95" selection-start-line="87" selection-start-column="24" selection-end-line="87" selection-end-column="95" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="my.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/activity/my.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="my.hbs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/activity/my.hbs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-21.076923">
+              <caret line="42" column="60" selection-start-line="42" selection-start-column="24" selection-end-line="42" selection-end-column="63" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="browse.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/activity/browse.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="41" column="36" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -105,21 +84,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/styles/app.css">
+      <file leaf-file-name="activity.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/activity.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application.hbs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/application.hbs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.769231">
-              <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
+              <caret line="65" column="32" selection-start-line="65" selection-start-column="32" selection-end-line="65" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -176,11 +145,9 @@
         <option value="$PROJECT_DIR$/templates/user/profile.hbs" />
         <option value="$PROJECT_DIR$/templates/member/-form.hbs" />
         <option value="$USER_HOME$/Google Drive/AACCOM/newsletter/20150508.html" />
-        <option value="$PROJECT_DIR$/models/activity.js" />
         <option value="$PROJECT_DIR$/controllers/activity/new.js" />
         <option value="$PROJECT_DIR$/mixins/activity-data.js" />
         <option value="$PROJECT_DIR$/views/activity/browse.js" />
-        <option value="$PROJECT_DIR$/routes/activity/browse.js" />
         <option value="$PROJECT_DIR$/controllers/activity/browse.js" />
         <option value="$PROJECT_DIR$/../../xiwami-parents/config/environment.js" />
         <option value="$PROJECT_DIR$/../config/environment.js" />
@@ -193,6 +160,8 @@
         <option value="$PROJECT_DIR$/styles/app.css" />
         <option value="$PROJECT_DIR$/templates/activity/-form.hbs" />
         <option value="$PROJECT_DIR$/templates/activity/edit.hbs" />
+        <option value="$PROJECT_DIR$/routes/activity/browse.js" />
+        <option value="$PROJECT_DIR$/models/activity.js" />
         <option value="$PROJECT_DIR$/templates/activity/browse.hbs" />
       </list>
     </option>
@@ -267,70 +236,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tip" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="item" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -350,48 +255,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="activity" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="styles" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="helpers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -521,14 +384,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/models/follow.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12952381">
-          <caret line="8" column="40" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/group.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.16190477">
@@ -787,14 +642,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/activity.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../Brocfile.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.48">
@@ -859,14 +706,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/activity/browse.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="93" column="32" selection-start-line="93" selection-start-column="8" selection-end-line="93" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../xiwami-parents/config/environment.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5356098">
@@ -903,14 +742,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.16190477">
           <caret line="10" column="50" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/activity/my.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -955,26 +786,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../xiwami-parents/Brocfile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.72">
-          <caret line="29" column="83" selection-start-line="29" selection-start-column="83" selection-end-line="29" selection-end-column="83" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/application.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.769231">
-          <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/activity/-form.hbs">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
           <caret line="0" column="16" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/styles/app.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.09714286">
+          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../xiwami-parents/Brocfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-19.72">
+          <caret line="29" column="83" selection-start-line="29" selection-start-column="83" selection-end-line="29" selection-end-column="83" />
           <folding />
         </state>
       </provider>
@@ -987,18 +818,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/styles/app.css">
+    <entry file="file://$PROJECT_DIR$/routes/activity/browse.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+          <caret line="41" column="36" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/activity/my.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/activity/my.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-21.076923">
+          <caret line="42" column="60" selection-start-line="42" selection-start-column="24" selection-end-line="42" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/application.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.115385">
+          <caret line="87" column="95" selection-start-line="87" selection-start-column="24" selection-end-line="87" selection-end-column="95" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/activity.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="65" column="32" selection-start-line="65" selection-start-column="32" selection-end-line="65" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/activity/browse.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3486328">
-          <caret line="21" column="38" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
+        <state vertical-scroll-proportion="0.28222656">
+          <caret line="26" column="55" selection-start-line="26" selection-start-column="55" selection-end-line="26" selection-end-column="55" />
           <folding />
         </state>
       </provider>

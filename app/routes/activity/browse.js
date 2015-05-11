@@ -38,12 +38,20 @@ export default Ember.Route.extend({
     reload: function() {
         var self = this;
         self.model().then(function(records) {
-            var totalRecordCount = records.get('content')[0].get('queryCount');
+            var recordArray = records.get('content'),
+                totalRecordCount = 0;
+
+            if (recordArray.get('length') > 0) {
+                totalRecordCount = recordArray[0].get('queryCount');
+
+                Ember.$('.pagination li').each(function(key, value){
+                    Ember.$(this).removeClass('active');
+                });
+                Ember.$('.pagination li:nth-child(' + (self.get('pageNumber') + 1) + ')').addClass("active");
+            }
+
             self.controller.set('queryCount', totalRecordCount);
-            Ember.$('.pagination li').each(function(key, value){
-                Ember.$(this).removeClass('active');
-            });
-            Ember.$('.pagination li:nth-child(' + (self.get('pageNumber') + 1) + ')').addClass("active");
+
             self.controller.set('content', records);
         });
     },
