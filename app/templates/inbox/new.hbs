@@ -1,9 +1,9 @@
-<div {{bind-attr class=":row :row-xs-height showAlert::collapse" }}>
+<div {{bind-attr class=":row :row-gutter-bottom showAlert::collapse" }}>
     <div class="col-xs-12">
         {{alert-bar title=alertTitle message=alertMessage type=alertType closeAlert="closeAlert" }}
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2">
         <label>
             To:
@@ -27,7 +27,7 @@
         {{/ic-autocomplete}}
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2">
         <label>
             Subject:
@@ -37,7 +37,7 @@
         {{input class="edit_box" value=model.subject placeholder="Enter a subject"}}
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2">
         <label>
             Body:
@@ -48,7 +48,7 @@
     </div>
 </div>
 
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-10 col-xs-offset-2">
         <button class="btn btn-primary btn-sm" {{action "sendMessage" }} {{bind-attr disabled=disabled}}>
             Send Message

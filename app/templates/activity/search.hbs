@@ -1,5 +1,5 @@
 <h2>Search for events that you are looking for</h2>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label>Search</label>
     </div>
@@ -7,7 +7,7 @@
         {{input class="form-control" placeholder="e.g Dancing Babies, Cherry Picking" value=queryText}}
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label>Within</label>
     </div>
@@ -15,7 +15,7 @@
         {{view "select" class="btn btn-default dropdown-toggle" value=distance content=allDistances placeholder="Distance"}}
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label>Time</label>
     </div>
@@ -34,7 +34,7 @@
     </div>
 </div>
 {{#if showAdvancedSearch}}
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label>Group</label>
     </div>
@@ -43,14 +43,14 @@
     </div>
 </div>
 {{/if}}
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-10 col-xs-offset-2 col-md-6 col-md-offset-1">
         <button type="button" class="btn btn-primary btn-sm" {{action "search" }} {{bind-attr disabled=disabled}}>Search</button>
     </div>
 </div>
 
 {{#if showData}}
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-12">
         {{#if hasData }}
         <table class="table">

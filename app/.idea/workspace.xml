@@ -2,12 +2,69 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="95e9278d-092f-43be-b852-af790d8147be" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/activity/-form.hbs" afterPath="$PROJECT_DIR$/templates/activity/-form.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/family/-form.hbs" afterPath="$PROJECT_DIR$/templates/family/-form.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/group/-form.hbs" afterPath="$PROJECT_DIR$/templates/group/-form.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/item/-form.hbs" afterPath="$PROJECT_DIR$/templates/item/-form.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/member/-form.hbs" afterPath="$PROJECT_DIR$/templates/member/-form.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/tip/-form.hbs" afterPath="$PROJECT_DIR$/templates/tip/-form.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/user/account.hbs" afterPath="$PROJECT_DIR$/templates/user/account.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/app.css" afterPath="$PROJECT_DIR$/styles/app.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/application.hbs" afterPath="$PROJECT_DIR$/templates/application.hbs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/activity/browse.hbs" afterPath="$PROJECT_DIR$/templates/activity/browse.hbs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/activity/browse.js" afterPath="$PROJECT_DIR$/controllers/activity/browse.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/activity/browse.js" afterPath="$PROJECT_DIR$/routes/activity/browse.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../config/environment.js" afterPath="$PROJECT_DIR$/../config/environment.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/family/browse.hbs" afterPath="$PROJECT_DIR$/templates/family/browse.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/inbox/browse.hbs" afterPath="$PROJECT_DIR$/templates/inbox/browse.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/item/browse.hbs" afterPath="$PROJECT_DIR$/templates/item/browse.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/questions/browse.hbs" afterPath="$PROJECT_DIR$/templates/questions/browse.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/tip/browse.hbs" afterPath="$PROJECT_DIR$/templates/tip/browse.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/activity/calendar.js" afterPath="$PROJECT_DIR$/views/activity/calendar.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/inbox/detail.hbs" afterPath="$PROJECT_DIR$/templates/inbox/detail.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/activity/edit.hbs" afterPath="$PROJECT_DIR$/templates/activity/edit.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/family/edit.hbs" afterPath="$PROJECT_DIR$/templates/family/edit.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/group/edit.hbs" afterPath="$PROJECT_DIR$/templates/group/edit.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/item/edit.hbs" afterPath="$PROJECT_DIR$/templates/item/edit.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/member/edit.hbs" afterPath="$PROJECT_DIR$/templates/member/edit.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/questions/edit.hbs" afterPath="$PROJECT_DIR$/templates/questions/edit.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/tip/edit.hbs" afterPath="$PROJECT_DIR$/templates/tip/edit.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/family-list.js" afterPath="$PROJECT_DIR$/components/family-list.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/inbox.hbs" afterPath="$PROJECT_DIR$/templates/inbox.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/login.hbs" afterPath="$PROJECT_DIR$/templates/login.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/activity/my.hbs" afterPath="$PROJECT_DIR$/templates/activity/my.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/family/my.hbs" afterPath="$PROJECT_DIR$/templates/family/my.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/group/my.hbs" afterPath="$PROJECT_DIR$/templates/group/my.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/item/my.hbs" afterPath="$PROJECT_DIR$/templates/item/my.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/questions/my.hbs" afterPath="$PROJECT_DIR$/templates/questions/my.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/tip/my.hbs" afterPath="$PROJECT_DIR$/templates/tip/my.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/activity/my.js" afterPath="$PROJECT_DIR$/views/activity/my.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/item/my.js" afterPath="$PROJECT_DIR$/views/item/my.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/tip/my.js" afterPath="$PROJECT_DIR$/views/tip/my.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/activity/new.hbs" afterPath="$PROJECT_DIR$/templates/activity/new.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/family/new.hbs" afterPath="$PROJECT_DIR$/templates/family/new.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/feedback/new.hbs" afterPath="$PROJECT_DIR$/templates/feedback/new.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/group/new.hbs" afterPath="$PROJECT_DIR$/templates/group/new.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/inbox/new.hbs" afterPath="$PROJECT_DIR$/templates/inbox/new.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/item/new.hbs" afterPath="$PROJECT_DIR$/templates/item/new.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/member/new.hbs" afterPath="$PROJECT_DIR$/templates/member/new.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/questions/new.hbs" afterPath="$PROJECT_DIR$/templates/questions/new.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/tip/new.hbs" afterPath="$PROJECT_DIR$/templates/tip/new.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/activity/preference.hbs" afterPath="$PROJECT_DIR$/templates/activity/preference.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/family/preference.hbs" afterPath="$PROJECT_DIR$/templates/family/preference.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/item/preference.hbs" afterPath="$PROJECT_DIR$/templates/item/preference.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/questions/preference.hbs" afterPath="$PROJECT_DIR$/templates/questions/preference.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/tip/preference.hbs" afterPath="$PROJECT_DIR$/templates/tip/preference.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/user/profile.hbs" afterPath="$PROJECT_DIR$/templates/user/profile.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/activity/search.hbs" afterPath="$PROJECT_DIR$/templates/activity/search.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/item/search.hbs" afterPath="$PROJECT_DIR$/templates/item/search.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/tip/search.hbs" afterPath="$PROJECT_DIR$/templates/tip/search.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/inbox/sent.hbs" afterPath="$PROJECT_DIR$/templates/inbox/sent.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/activity/show.hbs" afterPath="$PROJECT_DIR$/templates/activity/show.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/family/show.hbs" afterPath="$PROJECT_DIR$/templates/family/show.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/group/show.hbs" afterPath="$PROJECT_DIR$/templates/group/show.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/item/show.hbs" afterPath="$PROJECT_DIR$/templates/item/show.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/questions/show.hbs" afterPath="$PROJECT_DIR$/templates/questions/show.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/tip/show.hbs" afterPath="$PROJECT_DIR$/templates/tip/show.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/signup.hbs" afterPath="$PROJECT_DIR$/templates/signup.hbs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/inbox/trash.hbs" afterPath="$PROJECT_DIR$/templates/inbox/trash.hbs" />
     </list>
     <ignored path="app.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,21 +85,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="browse.hbs" pinned="false" current-in-tab="false">
+      <file leaf-file-name="browse.hbs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/activity/browse.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-23.692308">
-              <caret line="49" column="17" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="17" />
+            <state vertical-scroll-proportion="0.3486328">
+              <caret line="21" column="38" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="browse.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controllers/activity/browse.js">
+      <file leaf-file-name="edit.hbs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/activity/edit.hbs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="16" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/styles/app.css">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+              <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application.hbs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/application.hbs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-11.769231">
+              <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -58,26 +135,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="environment.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../config/environment.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.817561">
-              <caret line="57" column="45" selection-start-line="57" selection-start-column="45" selection-end-line="57" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="browse.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/activity/browse.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="93" column="32" selection-start-line="93" selection-start-column="8" selection-end-line="93" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="Git.Settings">
@@ -86,9 +143,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/routes/item/browse.js" />
-        <option value="$PROJECT_DIR$/controllers/tip/browse.js" />
-        <option value="$PROJECT_DIR$/controllers/item/browse.js" />
         <option value="$PROJECT_DIR$/templates/item/browse.hbs" />
         <option value="$PROJECT_DIR$/templates/tip/browse.hbs" />
         <option value="$PROJECT_DIR$/../Brocfile.js" />
@@ -105,20 +159,14 @@
         <option value="$PROJECT_DIR$/models/question.js" />
         <option value="$PROJECT_DIR$/models/tip.js" />
         <option value="$PROJECT_DIR$/models/vote.js" />
-        <option value="$PROJECT_DIR$/views/tip/my.js" />
-        <option value="$PROJECT_DIR$/templates/activity/-form.hbs" />
         <option value="$PROJECT_DIR$/views/questions/my.js" />
-        <option value="$PROJECT_DIR$/views/item/my.js" />
         <option value="$PROJECT_DIR$/views/group/my.js" />
-        <option value="$PROJECT_DIR$/views/activity/my.js" />
         <option value="$PROJECT_DIR$/views/group/edit.js" />
         <option value="$PROJECT_DIR$/views/application.js" />
-        <option value="$PROJECT_DIR$/views/activity/calendar.js" />
         <option value="$PROJECT_DIR$/routes/signup.js" />
         <option value="$PROJECT_DIR$/routes/member/new.js" />
         <option value="$PROJECT_DIR$/routes/questions/new.js" />
         <option value="$PROJECT_DIR$/routes/item/edit.js" />
-        <option value="$PROJECT_DIR$/components/family-list.js" />
         <option value="$PROJECT_DIR$/routes/tip/edit.js" />
         <option value="$PROJECT_DIR$/routes/tip/browse.js" />
         <option value="$PROJECT_DIR$/views/file-field.js" />
@@ -132,11 +180,20 @@
         <option value="$PROJECT_DIR$/controllers/activity/new.js" />
         <option value="$PROJECT_DIR$/mixins/activity-data.js" />
         <option value="$PROJECT_DIR$/views/activity/browse.js" />
-        <option value="$PROJECT_DIR$/templates/activity/browse.hbs" />
         <option value="$PROJECT_DIR$/routes/activity/browse.js" />
         <option value="$PROJECT_DIR$/controllers/activity/browse.js" />
         <option value="$PROJECT_DIR$/../../xiwami-parents/config/environment.js" />
         <option value="$PROJECT_DIR$/../config/environment.js" />
+        <option value="$PROJECT_DIR$/views/activity/calendar.js" />
+        <option value="$PROJECT_DIR$/views/tip/my.js" />
+        <option value="$PROJECT_DIR$/templates/tip/my.hbs" />
+        <option value="$PROJECT_DIR$/views/activity/my.js" />
+        <option value="$PROJECT_DIR$/views/item/my.js" />
+        <option value="$PROJECT_DIR$/components/family-list.js" />
+        <option value="$PROJECT_DIR$/styles/app.css" />
+        <option value="$PROJECT_DIR$/templates/activity/-form.hbs" />
+        <option value="$PROJECT_DIR$/templates/activity/edit.hbs" />
+        <option value="$PROJECT_DIR$/templates/activity/browse.hbs" />
       </list>
     </option>
   </component>
@@ -228,7 +285,25 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="activity" />
+              <option name="myItemId" value="tip" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="item" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -288,7 +363,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="routes" />
+              <option name="myItemId" value="styles" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -302,11 +377,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="routes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="activity" />
+              <option name="myItemId" value="helpers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -320,25 +391,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="activity" />
+              <option name="myItemId" value="components" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -468,38 +521,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/models/message.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24285714">
-          <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/member.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.51809525">
-          <caret line="32" column="40" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/location.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/item.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4857143">
-          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/follow.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.12952381">
@@ -516,14 +537,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/tip/my.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/questions/my.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.24285714">
@@ -536,22 +549,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.45333335">
           <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/item/my.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/activity/my.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30761904">
-          <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
           <folding />
         </state>
       </provider>
@@ -592,14 +589,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/family-list.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="18" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
           <folding />
         </state>
       </provider>
@@ -774,14 +763,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/application.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3154297">
-          <caret line="19" column="90" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="90" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/helpers/shorten-string.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -794,14 +775,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/helpers/formatted-date.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.03142329">
-          <caret line="1" column="34" selection-start-line="1" selection-start-column="34" selection-end-line="1" selection-end-column="34" />
           <folding />
         </state>
       </provider>
@@ -878,34 +851,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/activity/-form.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.049804688">
-          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/activity/calendar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.04857143">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/activity/browse.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.06476191">
           <caret line="4" column="66" selection-start-line="4" selection-start-column="66" selection-end-line="4" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/activity/browse.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-23.692308">
-          <caret line="49" column="17" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -918,18 +867,90 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../../xiwami-parents/config/environment.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5356098">
+          <caret line="40" column="44" selection-start-line="40" selection-start-column="44" selection-end-line="40" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../config/environment.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.817561">
+          <caret line="57" column="45" selection-start-line="57" selection-start-column="45" selection-end-line="57" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/activity/browse.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.43714285">
           <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../xiwami-parents/config/environment.js">
+    <entry file="file://$PROJECT_DIR$/templates/tip/my.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5356098">
-          <caret line="40" column="44" selection-start-line="40" selection-start-column="44" selection-end-line="40" selection-end-column="44" />
+        <state vertical-scroll-proportion="-4.576923">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/family-list.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16190477">
+          <caret line="10" column="50" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/activity/my.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/item/my.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16190477">
+          <caret line="10" column="50" selection-start-line="10" selection-start-column="50" selection-end-line="10" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/activity/my.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22666667">
+          <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/tip/my.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16190477">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/activity/calendar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17809524">
+          <caret line="11" column="46" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/helpers/formatted-date.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.016190477">
+          <caret line="1" column="34" selection-start-line="1" selection-start-column="34" selection-end-line="1" selection-end-column="34" />
           <folding />
         </state>
       </provider>
@@ -942,10 +963,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../config/environment.js">
+    <entry file="file://$PROJECT_DIR$/templates/application.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.817561">
-          <caret line="57" column="45" selection-start-line="57" selection-start-column="45" selection-end-line="57" selection-end-column="45" />
+        <state vertical-scroll-proportion="-11.769231">
+          <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/activity/-form.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="16" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/activity/edit.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="16" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/styles/app.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/activity/browse.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3486328">
+          <caret line="21" column="38" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
           <folding />
         </state>
       </provider>

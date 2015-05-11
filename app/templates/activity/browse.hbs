@@ -1,49 +1,43 @@
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-12">
         {{filter-selector model=allTypes apiFilterSelected="loadByType" showMisc="0"}}
     </div>
 </div>
 
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-12">
         {{filter-selector model=allStatus apiFilterSelected="loadByStatus"}}
     </div>
 </div>
 
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-12">
-        <table class="table table-hover">
-            <thead>
-            <th></th>
-            <th>Name</th>
-            <th>Type</th>
-            <th>From</th>
-            <th>To</th>
-            <th>Age Range</th>
-            </thead>
-            <tbody>
-                {{#each event in model}}
-                <tr>
-                    <td>{{view "previewImage" width="80" height="80" class="img-responsive img-thumbnail" src=event.availableImage}}</td>
-                    <td>{{event.title}}</td>
-                    <td>{{event.type}}</td>
-                    <td>{{formatted-date activity.fromDate 'LL'}}</td>
-                    <td>{{formatted-date activity.toDate 'LL'}}</td>
-                    <td>{{event.ageRange}}</td>
-                    <td>
-                        <div class="btn-group" role="group" aria-label="...">
-                            {{#link-to 'activity.show' event class="btn btn-default"}}Detail{{/link-to}}
-                        </div>
-                    </td>
-                </tr>
-                {{/each}}
-            </tbody>
-        </table>
+        <div class="list-group">
+            {{#each event in model}}
+                {{#link-to 'activity.show' event class="list-group-item"}}
+                <div class="row row-gutter-bottom">
+                    <div class="col-xs-4">{{view "previewImage" width="80" height="80" class="img-responsive img-thumbnail" src=event.availableImage}}</div>
+                    <div class="col-xs-6">
+                        {{event.title}}
+                        {{event.type}}
+                    </div>
+                    <div class="col-xs-2">
+                        {{formatted-date event.fromDate 'LL'}}
+                        {{formatted-date event.toDate 'LL'}}
+                    </div>
+                </div>
+
+
+
+
+                {{/link-to}}
+            {{/each}}
+        </div>
     </div>
 </div>
 
 {{#if queryCount}}
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-12">
         Size: {{view "select" class="btn btn-default dropdown-toggle" content=allPageSizes value=pageSize}}
         <nav>

@@ -1,18 +1,18 @@
 {{#if model}}
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-12">
         {{family-list model=model apiEditFamily="goToEditFamily" apiDeleteFamily="deleteFamily" apiAddMember="goToAddMember" apiEditMember="goToEditMember" apiDeleteMember="deleteMember" apiCancel="cancelUserCreation"}}
     </div>
 </div>
 {{else}}
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-12">
         <p class="lead">
             It appears that you don't have a family profile yet.  Creating a family profile will allow other familes in your area to find you.
         </p>
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-12">
         {{#link-to 'family.new' class="btn btn-primary"}}Add New Family{{/link-to}}
     </div>

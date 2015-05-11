@@ -1,11 +1,11 @@
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-12 col-sm-offset-3 col-md-offset-2">
         <button class="btn btn-primary btn-sm" {{action "importFromFacebook" }} {{bind-attr disabled=disabledImportFacebook}}>
             Import my profile from facebook
         </button>
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-12 col-sm-3 col-md-2">
         <label>
             First Name:
@@ -15,7 +15,7 @@
         {{input class="edit_box" size="40" value=model.firstName}}
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-12 col-sm-3 col-md-2">
         <label>
             Last Name:
@@ -25,7 +25,7 @@
         {{input class="edit_box" size="40" value=model.lastName}}
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-12 col-sm-3 col-md-2">
         <label>
             Nickname:
@@ -35,7 +35,7 @@
         {{input class="edit_box" size="40" value=model.nickName}}
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-12 col-sm-3 col-md-2">
         <label>
             Gender:
@@ -53,7 +53,7 @@
         </div>
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-12 col-sm-3 col-md-2">
         <label>
             Birthday:
@@ -63,7 +63,7 @@
         {{bs-datetimepicker date=model.birthdayMoment format='YYYY-MM-DD' width="200" size="40"}}
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-12 col-sm-3 col-md-2">
         <label>
             Hometown:
@@ -73,7 +73,7 @@
         {{input class="edit_box" size="40" value=model.fhometown}}
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-12 col-sm-3 col-md-2">
         <label>
             Facebook Location:
@@ -83,14 +83,14 @@
         {{input class="edit_box" size="40" value=model.flocation}}
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-12 col-sm-3 col-md-2">
         <label>
             Education
         </label>
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-12 col-sm-3 col-md-2">
         <label>
             High School:
@@ -100,7 +100,7 @@
         {{input class="edit_box" size="40" value=model.highSchool}}
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-12 col-sm-3 col-md-2">
         <label>
             College:
@@ -110,7 +110,7 @@
         {{input class="edit_box" size="40" value=model.college}}
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-12 col-sm-offset-3 col-md-offset-2">
         <button class="btn btn-primary btn-sm" {{action "save" }}>
             Save

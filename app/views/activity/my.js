@@ -8,6 +8,7 @@ export default Ember.View.extend({
         self.$("#dialog-confirm-delete").dialog({
             autoOpen: false,
             resizable: false,
+            appendTo: '#' + self.get('elementId'),
             height: 240,
             modal: true,
             buttons: {

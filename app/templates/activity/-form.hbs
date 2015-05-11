@@ -1,4 +1,4 @@
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label><span class="required">*</span>Title:</label>
     </div>
@@ -6,7 +6,7 @@
         {{input class="edit_box" placeholder="10 words or less" value=model.title size="60"}}
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label><span class="required">*</span>Description:</label>
     </div>
@@ -15,7 +15,7 @@
     </div>
 </div>
 {{!--
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label><span class="required">*</span>Description:</label>
     </div>
@@ -24,7 +24,7 @@
     </div>
 </div>
 --}}
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label>Web URL:</label>
     </div>
@@ -32,7 +32,7 @@
         {{input class="edit_box" value=model.url size="60"}}
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label>Date:</label>
     </div>
@@ -43,7 +43,7 @@
         {{bs-datetimepicker date=model.toDateMoment format='YYYY-MM-DD'}}
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label>Time:</label>
     </div>
@@ -54,7 +54,7 @@
 
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label>
             Upload Image:
@@ -64,7 +64,7 @@
         {{view 'file-upload-view' content=model.imageData}}
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label>Type:</label>
     </div>
@@ -72,7 +72,7 @@
         {{view "select" class="btn btn-default dropdown-toggle" prompt="Select Type" content=allTypes optionValuePath="content.value" optionLabelPath="content.text" value=model.type}}
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label>Age:</label>
     </div>
@@ -81,7 +81,7 @@
         To {{view "select" class="btn btn-default dropdown-toggle" value=model.toAge content=allAgesOld}}
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label>Price:</label>
     </div>
@@ -93,7 +93,7 @@
         </div>
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label>Address:</label>
     </div>
@@ -101,7 +101,7 @@
         {{input class="edit_box" value=model.address size="40"}}
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label>City:</label>
     </div>
@@ -109,7 +109,7 @@
         {{input class="edit_box" value=model.city}}
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label>State:</label>
     </div>
@@ -117,7 +117,7 @@
         {{view "select" class="btn btn-default dropdown-toggle" prompt="Select State" content=allStates optionValuePath="content.value" optionLabelPath="content.text" value=model.state}}
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label>Zip Code:</label>
     </div>
@@ -125,7 +125,7 @@
         {{input class="edit_box" value=model.zipCode}}
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-10 col-xs-offset-2 col-md-6 col-md-offset-1">
         <button type="button" class="btn btn-primary btn-sm" {{action "save" }} {{bind-attr disabled=disabled}}>Save</button>
         <button type="button" class="btn btn-link btn-sm" {{action "cancel" }}>Cancel</button>

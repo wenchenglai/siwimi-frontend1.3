@@ -1,10 +1,10 @@
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-12">
         {{filter-selector model=allTypes apiFilterSelected="loadByType" showMisc="1"}}
     </div>
 </div>
 
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-12 col-md-4">
         {{filter-selector model=allStatus apiFilterSelected="loadByStatus"}}
     </div>
@@ -14,14 +14,14 @@
 </div>
 
 {{#if showAdvancedSearch}}
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-12">
         {{filter-selector model=allConditions apiFilterSelected="loadByCondition"}}
     </div>
 </div>
 {{/if}}
 
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-12">
         <table class="table table-hover">
             <thead>
@@ -54,7 +54,7 @@
 </div>
 
 {{#if model}}
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-12">
         <button class="btn btn-info btn-lg" {{action "loadPrevPage"}}>Prev Page</button>
         {{view "select" class="btn btn-default dropdown-toggle" prompt="Page Size" content=allPageSizes value=pageSize}}

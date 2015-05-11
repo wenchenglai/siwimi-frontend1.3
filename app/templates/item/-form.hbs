@@ -1,4 +1,4 @@
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label><span class="required">*</span>Title:</label>
     </div>
@@ -6,7 +6,7 @@
         {{input class="form-control" placeholder="10 words or less" value=model.title}}
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label><span class="required">*</span>Description:</label>
     </div>
@@ -14,7 +14,7 @@
         {{textarea class="form-control" placeholder="Description" rows="5" cols="60" value=model.description}}
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label>
             Upload Image:
@@ -25,7 +25,7 @@
     </div>
 </div>
 
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label>By:</label>
     </div>
@@ -42,7 +42,7 @@
     </div>
 </div>
 {{#if isForSale}}
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label>Price:</label>
     </div>
@@ -55,7 +55,7 @@
     </div>
 </div>
 {{/if}}
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label>Condition:</label>
     </div>
@@ -71,7 +71,7 @@
         </div>
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label>Age:</label>
     </div>
@@ -80,7 +80,7 @@
         To {{view "select" class="btn btn-default dropdown-toggle" value=model.toAge content=allAges}}
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label>Type:</label>
     </div>
@@ -105,7 +105,7 @@
     </div>
 </div>
 {{#if isCloth }}
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label>Size:</label>
     </div>
@@ -115,7 +115,7 @@
 </div>
 {{/if}}
 {{#if isFurniture }}
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label>Width:</label>
     </div>
@@ -123,7 +123,7 @@
         {{input class="form-control" placeholder="Width" value=model.width}}
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label>Length:</label>
     </div>
@@ -131,7 +131,7 @@
         {{input class="form-control" placeholder="Length" value=model.length}}
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label>Height:</label>
     </div>
@@ -140,7 +140,7 @@
     </div>
 </div>
 {{/if}}
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label>City:</label>
     </div>
@@ -148,7 +148,7 @@
         {{input class="edit_box" value=model.city}}
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label>State:</label>
     </div>
@@ -156,7 +156,7 @@
         {{view "select" class="btn btn-default dropdown-toggle" prompt="Select State" content=allStates optionValuePath="content.value" optionLabelPath="content.text" value=model.state}}
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label>Zip Code:</label>
     </div>
@@ -164,7 +164,7 @@
         {{input class="edit_box" value=model.zipCode}}
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-10 col-xs-offset-2 col-md-6 col-md-offset-1">
         <button type="button" class="btn btn-primary btn-sm" {{action "save" }} {{bind-attr disabled=disabled}}>Save</button>
         <button type="button" class="btn btn-link btn-sm" {{action "cancel" }}>Cancel</button>

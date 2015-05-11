@@ -11,7 +11,7 @@ export default Ember.View.extend({
             // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
             // it doesn't need to have a start or end
             var eventObject = {
-                title: self.$.trim(self.$(this).text()) // use the element's text as the event title
+                title: Ember.$.trim(self.$(this).text()) // use the element's text as the event title
             };
 
             // store the Event Object in the DOM element so we can get to it later

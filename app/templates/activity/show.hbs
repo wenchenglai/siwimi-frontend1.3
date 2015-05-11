@@ -1,4 +1,4 @@
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-6 col-sm-4 col-md-2">
         <button type="button" class="btn btn-link btn-sm" {{action "goBack" }}>Back</button>
     </div>
@@ -12,7 +12,7 @@
     </div>
 </div>
 
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-12 col-sm-6 col-md-4">
         {{#if model.imageUrl }}
             <img {{bind-attr src=model.imageUrl}} class="img" alt="image" class="img-responsive img-rounded" />
@@ -21,12 +21,12 @@
         {{/if}}
     </div>
     <div class="col-xs-12 col-sm-6 col-md-8">
-        <div class="row row-xs-height">
+        <div class="row row-gutter-bottom">
             <div class="col-xs-12">
                 <h1>{{model.title}}</h1>
             </div>
         </div>
-        <div class="row row-xs-height">
+        <div class="row row-gutter-bottom">
             <div class="col-xs-12">
                 From:
                 {{formatted-date model.fromTime 'LL'}}
@@ -37,7 +37,7 @@
     </div>
 </div>
 
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-3 col-sm-2 col-md-1">
         <label>Web URL:</label>
     </div>
@@ -45,7 +45,7 @@
         <a {{bind-attr href=model.url}} target="_blank">{{url}}</a>
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-3 col-sm-2 col-md-1">
         <label>Description:</label>
     </div>
@@ -54,7 +54,7 @@
     </div>
 </div>
 
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label>Age:</label>
     </div>
@@ -63,7 +63,7 @@
         To {{model.toAge}}
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label>Price:</label>
     </div>
@@ -73,7 +73,7 @@
         </div>
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-3 col-sm-2 col-md-1">
         <label>Address:</label>
     </div>
@@ -81,7 +81,7 @@
         {{model.address}}
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-3 col-sm-2 col-md-1">
         <label>City:</label>
     </div>
@@ -89,7 +89,7 @@
         {{model.city}}
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-3 col-sm-2 col-md-1">
         <label>State:</label>
     </div>
@@ -97,7 +97,7 @@
         {{model.state}}
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-3 col-sm-2 col-md-1">
         <label>Zip Code:</label>
     </div>
@@ -105,7 +105,7 @@
         {{model.zipCode}}
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-3 col-sm-2 col-md-1">
         <label>Type:</label>
     </div>
@@ -114,7 +114,7 @@
     </div>
 </div>
 {{#if session.isAuthenticated}}
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-3 col-sm-2 col-md-1">
         <label>Action:</label>
     </div>

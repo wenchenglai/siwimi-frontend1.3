@@ -1,6 +1,6 @@
 <h2>Connect with other parents in your neighborhood</h2>
 
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-12 col-md-2">
         <label>Age</label>
     </div>
@@ -12,7 +12,7 @@
     </div>
 </div>
 
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-12 col-md-2">
         <label>Within</label>
     </div>
@@ -25,7 +25,7 @@
 </div>
 
 {{#if showAdvancedSearch}}
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-12 col-md-2">
         <label>Favorite Toys</label>
     </div>
@@ -34,7 +34,7 @@
     </div>
 </div>
 
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-12 col-md-2">
         <label>Special Needs</label>
     </div>
@@ -43,7 +43,7 @@
     </div>
 </div>
 
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-12 col-md-2">
         <label>Languages</label>
     </div>
@@ -53,7 +53,7 @@
 </div>
 {{/if}}
 
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-md-offset-2">
         <div class="input-group">
             <button type="button" class="btn btn-primary btn-sm" {{action "search" }}>Search</button>
@@ -62,7 +62,7 @@
 </div>
 
 {{#if showData}}
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-12">
         {{#if model.length }}
             {{#each family in model}}

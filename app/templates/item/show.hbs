@@ -1,4 +1,4 @@
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
 	<div class="col-xs-2">
         <button type="button" class="btn btn-link btn-sm" {{action "goBack" }}>Back</button>
 	</div>
@@ -8,17 +8,17 @@
         {{/if}}
 	</div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-12">
         <div class="fb-share-button" {{bind-attr data-href="model.tipUrl" }} data-layout="button_count"></div>
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
 	<div class="col-xs-12 col-md-2">
         <img {{bind-attr src=model.availableImage}} width="300" height="300" class="img-responsive img-rounded" style="margin-bottom:-15px; margin-top:-15px" alt="item" />
 	</div>
 	<div class="col-xs-12 col-md-10">
-		<div class="row row-xs-height">
+		<div class="row row-gutter-bottom">
 			<div class="col-xs-2 col-md-1">
 				<label>Title:</label>
 			</div>
@@ -26,7 +26,7 @@
 				<h1>{{model.title}}</h1>
 			</div>
 		</div>
-		<div class="row row-xs-height">
+		<div class="row row-gutter-bottom">
 			<div class="col-xs-2 col-md-1">
 				
 			</div>
@@ -34,12 +34,12 @@
 				by {{item.creator.displayName}}
 			</div>
 		</div>
-		<div class="row row-xs-height">
+		<div class="row row-gutter-bottom">
 			<div class="col-xs-12">
 				<hr>
 			</div>
 		</div>
-		<div class="row row-xs-height">
+		<div class="row row-gutter-bottom">
 			<div class="col-xs-2 col-md-1">
 				<label>Price:</label>
 			</div>
@@ -47,7 +47,7 @@
 				{{model.price}}
 			</div>
 		</div>		
-		<div class="row row-xs-height">
+		<div class="row row-gutter-bottom">
 			<div class="col-xs-2 col-md-1">
 				<label>Description:</label>
 			</div>
@@ -55,7 +55,7 @@
 				{{model.description}}
 			</div>
 		</div>
-		<div class="row row-xs-height">
+		<div class="row row-gutter-bottom">
 			<div class="col-xs-2 col-md-1">
 				<label>Status:</label>
 			</div>
@@ -63,7 +63,7 @@
 				{{model.status}}
 			</div>
 		</div>
-		<div class="row row-xs-height">
+		<div class="row row-gutter-bottom">
 			<div class="col-xs-2 col-md-1">
 				<label>Type:</label>
 			</div>
@@ -71,7 +71,7 @@
                 {{display-text model.type allTypes}}
 			</div>
 		</div>
-		<div class="row row-xs-height">
+		<div class="row row-gutter-bottom">
 			<div class="col-xs-2 col-md-1">
 				<label>Condition:</label>
 			</div>
@@ -79,7 +79,7 @@
 				{{model.condition}}
 			</div>
 		</div>
-		<div class="row row-xs-height">
+		<div class="row row-gutter-bottom">
 			<div class="col-xs-2 col-md-1">
 				<label>Size:</label>
 			</div>
@@ -87,7 +87,7 @@
 				{{model.size}}
 			</div>
 		</div>
-		<div class="row row-xs-height">
+		<div class="row row-gutter-bottom">
 			<div class="col-xs-2 col-md-1">
 				<label>Age:</label>
 			</div>
@@ -95,7 +95,7 @@
 				From {{model.fromAge}} to {{model.toAge}}
 			</div>
 		</div>
-		<div class="row row-xs-height">
+		<div class="row row-gutter-bottom">
 			<div class="col-xs-2 col-md-1">
 				<label>Width:</label>
 			</div>
@@ -103,7 +103,7 @@
 				{{model.width}}
 			</div>
 		</div>
-		<div class="row row-xs-height">
+		<div class="row row-gutter-bottom">
 			<div class="col-xs-2 col-md-1">
 				<label>Length:</label>
 			</div>
@@ -111,7 +111,7 @@
 				{{model.length}}
 			</div>
 		</div>
-		<div class="row row-xs-height">
+		<div class="row row-gutter-bottom">
 			<div class="col-xs-2 col-md-1">
 				<label>Height:</label>
 			</div>

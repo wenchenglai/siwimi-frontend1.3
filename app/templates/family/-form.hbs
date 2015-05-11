@@ -1,4 +1,4 @@
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2">
         <label><span class="required">*</span>Zip Code:</label>
     </div>
@@ -6,7 +6,7 @@
         {{input class="edit_box" size="5" maxlength="5" value=model.zipCode}}
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2">
         <label>Family Name:</label>
 </div>
@@ -14,7 +14,7 @@
         {{input class="edit_box" value=model.familyName placeholder="e.g. Smith's famly"}}
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2">
         <label>Description:</label>
 </div>
@@ -23,7 +23,7 @@
     </div>
 </div>
 
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-12 col-xs-offset-2">
         <button type="button" class="btn btn-primary btn-sm" {{action "save" }} {{bind-attr disabled=disabled}}>Save</button>
         <button type="button" class="btn btn-link btn-sm" {{action "cancel" }}>Cancel</button>

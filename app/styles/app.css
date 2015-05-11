@@ -4,7 +4,7 @@ body {
     margin-bottom: 60px; /* Margin bottom by footer height */
 }
 
-.row-xs-height {
+.row-gutter-bottom {
 	margin-bottom: 15px;
 	/*display: table-row;*/
 }

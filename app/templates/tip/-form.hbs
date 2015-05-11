@@ -1,4 +1,4 @@
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label><span class="required">*</span>Title:</label>
     </div>
@@ -6,7 +6,7 @@
         {{input class="form-control" placeholder="10 words or less" value=model.title size="80"}}
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label>
             <span class="required">*</span>Description:
@@ -16,7 +16,7 @@
         {{textarea class="form-control" placeholder="Description" rows="5" cols="60" value=model.description}}
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label>Type</label>
     </div>
@@ -40,7 +40,7 @@
         </div>
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label>
             Upload Image:
@@ -50,7 +50,7 @@
         {{view 'file-upload-view' content=model.imageData}}
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label>
             Expired:
@@ -60,7 +60,7 @@
         {{bs-datetimepicker date=model.expiredDateMoment format='YYYY-MM-DD'}}
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label>
             Url:
@@ -73,7 +73,7 @@
         </button>
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2 col-xs-offset-2  col-md-offset-1">
         <div style="width:30px; height:20px">
             <iframe id="frame" {{bind-attr src=model.url}}></iframe>
@@ -83,7 +83,7 @@
         {{textarea class="form-control" readonly="true" rows="4" cols="60" value=model.previewText}}
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label>City:</label>
     </div>
@@ -91,7 +91,7 @@
         {{input class="edit_box" value=model.city}}
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label>State:</label>
     </div>
@@ -99,7 +99,7 @@
         {{view "select" class="btn btn-default dropdown-toggle" prompt="Select State" content=allStates optionValuePath="content.value" optionLabelPath="content.text" value=model.state}}
     </div>
 </div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label>Zip Code:</label>
     </div>
@@ -108,12 +108,12 @@
     </div>
 </div>
 <div class="clearfix visible-xs-block"></div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-12">
     </div>
 </div>
 <div class="clearfix visible-xs-block"></div>
-<div class="row row-xs-height">
+<div class="row row-gutter-bottom">
     <div class="col-xs-10 col-xs-offset-2 col-md-6 col-md-offset-1">
         <button type="button" class="btn btn-primary btn-sm" {{action "save" }} {{bind-attr disabled=disabled}}>Save</button>
         <button type="button" class="btn btn-link btn-sm" {{action "cancel" }}>Cancel</button>
