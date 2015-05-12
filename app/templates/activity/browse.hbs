@@ -5,8 +5,11 @@
 </div>
 
 <div class="row row-gutter-bottom">
-    <div class="col-xs-12">
+    <div class="col-xs-12 col-md-8">
         {{filter-selector model=allStatus apiFilterSelected="loadByStatus"}}
+    </div>
+    <div class="col-xs-12 col-md-4">
+        Page Size: {{view "select" class="btn btn-default dropdown-toggle" content=allPageSizes value=pageSize}}
     </div>
 </div>
 
@@ -16,6 +19,12 @@
             {{#each event in model}}
                 {{#link-to 'activity.show' event class="list-group-item"}}
                     <div class="row">
+                        <div class="col-xs-2 col-md-1">
+                            <div style="text-align: center;">{{formatted-date event.fromDateMoment 'MMM'}}</div>
+                            <div style="text-align: center;"><strong>{{formatted-date event.fromDateMoment 'D'}}</strong></div>
+                            <div style="text-align: center;">{{formatted-date event.fromDateMoment 'ddd'}}</div>
+                            <div style="background-color: #61b2a7; width:100%; height:5px"></div>
+                        </div>
                         <div class="col-xs-4 col-md-2">
                             {{view "previewImage" width="100" height="100" class="img-responsive img-thumbnail" src=event.availableImage}}
                         </div>
@@ -24,7 +33,7 @@
                             <p class="list-group-item-text">
                                 <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
                                 {{#if event.address}}
-                                    {{event.address}}, 
+                                    {{event.address}},
                                 {{/if}}
                                 {{event.cityState}}
                             </p>
@@ -47,7 +56,7 @@
                             {{/if}}
                             </p>
                         </div>
-                        <div class="col-xs-12 col-md-3">
+                        <div class="col-xs-12 col-md-1">
                             <p class="list-group-item-text">{{display-text event.type allTypes}}</p>
                         </div>
                     </div>
@@ -60,7 +69,6 @@
 {{#if queryCount}}
 <div class="row row-gutter-bottom">
     <div class="col-xs-12">
-        Size: {{view "select" class="btn btn-default dropdown-toggle" content=allPageSizes value=pageSize}}
         <nav>
             <ul class="pagination">
                 <li class={{disabled}}>

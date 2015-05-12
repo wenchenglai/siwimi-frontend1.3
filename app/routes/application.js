@@ -11,7 +11,7 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
     },
 
     actions: {
-        error: function(error, transition) {
+        error: function(error) {
             var self = this,
                 name,
                 message;
@@ -38,7 +38,7 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
                     name = error.name;
                 }
 
-                Em.run(function(){
+                Ember.run(function(){
                     self.controller._toggleAlert(true, name, message, 'alert-danger');
                 });
                 return false;
@@ -55,7 +55,7 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
         willTransition: function (transition) {
             var self = this;
 
-            Em.run(function(){
+            Ember.run(function(){
                 self.controller._toggleAlert(false);
             });
 
