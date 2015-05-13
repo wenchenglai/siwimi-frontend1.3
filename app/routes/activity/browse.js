@@ -99,9 +99,14 @@ export default Ember.Route.extend({
             }
         },
 
-        loadPageOnPageSizeChange: function () {
+        loadPageOnPageSizeChange: function (newSize) {
             var self = this;
+
+            if (newSize) {
+                self.get('controller').set('pageSize', newSize);
+            }
             self.reload();
         }
+
     }
 });

@@ -9,59 +9,64 @@
         {{filter-selector model=allStatus apiFilterSelected="loadByStatus"}}
     </div>
     <div class="col-xs-12 col-md-4">
-        Show {{view "select" class="btn btn-default dropdown-toggle" content=allPageSizes value=pageSize}}
+        Show
+        {{view "select" class="btn btn-default dropdown-toggle" content=allPageSizes value=pageSize}}
     </div>
 </div>
 
 <div class="row">
     <div class="col-xs-12">
         <div class="list-group">
-            {{#each event in model}}
-                {{#link-to 'activity.show' event class="list-group-item"}}
-                    <div class="row">
-                        <div class="col-xs-2 col-md-1">
-                            <div style="text-align: center;">{{formatted-date event.fromDateMoment 'MMM'}}</div>
-                            <div style="text-align: center;"><strong>{{formatted-date event.fromDateMoment 'D'}}</strong></div>
-                            <div style="text-align: center;">{{formatted-date event.fromDateMoment 'ddd'}}</div>
-                            <div style="background-color: #61b2a7; width:100%; height:5px"></div>
-                        </div>
-                        <div class="col-xs-4 col-md-2">
-                            {{view "previewImage" width="180" height="180" class="img-responsive img-thumbnail" src=event.availableImage}}
-                        </div>
-                        <div class="col-xs-8 col-md-4">
-                            <h4 class="list-group-item-heading">{{event.title}}</h4>
-                            <p class="list-group-item-text">
-                                <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
-                                {{#if event.address}}
-                                    {{event.address}},
-                                {{/if}}
-                                {{event.cityState}}
-                            </p>
-                        </div>
-                        <div class="col-xs-12 col-md-3">
-                            <p class="list-group-item-text">
-                            {{formatted-date event.fromDateMoment 'LL'}}
+            {{#if model}}
+                {{#each event in model}}
+                    {{#link-to 'activity.show' event class="list-group-item"}}
+                        <div class="row">
+                            <div class="col-xs-2 col-md-1">
+                                <div style="text-align: center;">{{formatted-date event.fromDateMoment 'MMM'}}</div>
+                                <div style="text-align: center;"><strong>{{formatted-date event.fromDateMoment 'D'}}</strong></div>
+                                <div style="text-align: center;">{{formatted-date event.fromDateMoment 'ddd'}}</div>
+                                <div style="background-color: #61b2a7; width:100%; height:5px"></div>
+                            </div>
+                            <div class="col-xs-4 col-md-2">
+                                {{view "previewImage" width="180" height="180" class="img-responsive img-thumbnail" src=event.availableImage}}
+                            </div>
+                            <div class="col-xs-8 col-md-4">
+                                <h4 class="list-group-item-heading">{{event.title}}</h4>
+                                <p class="list-group-item-text">
+                                    <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+                                    {{#if event.address}}
+                                        {{event.address}},
+                                    {{/if}}
+                                    {{event.cityState}}
+                                </p>
+                            </div>
+                            <div class="col-xs-12 col-md-3">
+                                <p class="list-group-item-text">
+                                    {{formatted-date event.fromDateMoment 'LL'}}
 
-                            {{#if event.toDateMoment}}
-                                - {{formatted-date event.toDateMoment 'LL'}}
-                            {{/if}}
-                            </p>
-                            <p class="list-group-item-text">
-                            {{#if event.fromTime}}
-                                {{event.fromTime}}
+                                    {{#if event.toDateMoment}}
+                                        - {{formatted-date event.toDateMoment 'LL'}}
+                                    {{/if}}
+                                </p>
+                                <p class="list-group-item-text">
+                                    {{#if event.fromTime}}
+                                        {{event.fromTime}}
 
-                                {{#if event.toTime}}
-                                 to {{event.toTime}}
-                                {{/if}}
-                            {{/if}}
-                            </p>
+                                        {{#if event.toTime}}
+                                            to {{event.toTime}}
+                                        {{/if}}
+                                    {{/if}}
+                                </p>
+                            </div>
+                            <div class="col-xs-12 col-md-1">
+                                <p class="list-group-item-text">{{display-text event.type allTypes}}</p>
+                            </div>
                         </div>
-                        <div class="col-xs-12 col-md-1">
-                            <p class="list-group-item-text">{{display-text event.type allTypes}}</p>
-                        </div>
-                    </div>
-                {{/link-to}}
-            {{/each}}
+                    {{/link-to}}
+                {{/each}}
+            {{else}}
+                <p class="lead">There is no event found under the selection criteria.</p>
+            {{/if}}
         </div>
     </div>
 </div>
