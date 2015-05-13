@@ -7,7 +7,7 @@
 </div>
 <div class="row row-gutter-bottom">
     <div class="col-xs-2">
-        
+
     </div>
     <div class="col-xs-10">
         {{textarea class="edit_box" rows="10" cols="60" value=model.description placeholder="We welcome any suggestions!"}}
@@ -16,7 +16,7 @@
 
 <div class="row row-gutter-bottom">
     <div class="col-xs-10 col-xs-offset-2">
-        <button class="btn btn-primary btn-sm" type="button" class="btn btn-default btn-lg" {{action "send" }} {{bind-attr disabled=disabled}}>Send</button>
+        <button class="btn btn-primary btn-sm" type="button" {{action "send" }} disabled={{disabled}}>Send</button>
         {{link-to 'Cancel' 'application' }}
     </div>
 </div>
