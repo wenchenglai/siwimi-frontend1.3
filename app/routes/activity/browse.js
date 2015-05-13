@@ -9,7 +9,7 @@ export default Ember.Route.extend({
         var self = this,
             session = self.get('session'),
             userId = self.get('session.id'),
-            pageSize = 5;
+            pageSize = 10;
 
             if (self.get('controller.pageSize')) {
                 pageSize = self.get('controller.pageSize');

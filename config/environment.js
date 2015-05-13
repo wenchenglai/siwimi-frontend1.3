@@ -39,7 +39,7 @@ module.exports = function(environment) {
         //ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
         //ENV.APP.LOG_VIEW_LOOKUPS = true;
         ENV.apiHost = 'http://localhost:8080';
-
+        ENV.facebookAppId = '343069969185068';
     }
 
     if (environment === 'test') {
@@ -52,10 +52,13 @@ module.exports = function(environment) {
         ENV.APP.LOG_VIEW_LOOKUPS = false;
 
         ENV.APP.rootElement = '#ember-testing';
+
+        ENV.facebookAppId = '343069969185068';
     }
 
     if (environment === 'production') {
         ENV.apiHost = 'http://199.223.236.115/siwimi-webapi-0.0.1';
+        ENV.facebookAppId = '290368724455193';
     }
 
     return ENV;

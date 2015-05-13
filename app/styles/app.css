@@ -4,9 +4,20 @@ body {
     margin-bottom: 60px; /* Margin bottom by footer height */
 }
 
+.backgroundAll {
+    background-color: #f9f9f9
+}
+
+.navbar-brand {
+    padding-top: 3px;
+}
+
+.row-gutter-top {
+    margin-top: 15px;
+}
+
 .row-gutter-bottom {
 	margin-bottom: 15px;
-	/*display: table-row;*/
 }
 
 .required {
@@ -56,10 +67,10 @@ body {
 }
 
 .blog-footer {
-    padding: 20px 0;
+    padding: 0px 0;
     color: #999;
     text-align: center;
-    background-color: #f9f9f9;
+    background-color: #222;
     border-top: 1px solid #e5e5e5;
 }
 

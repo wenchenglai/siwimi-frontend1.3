@@ -4,7 +4,7 @@ import ActivityDataMixin from '../../mixins/activity-data';
 import PagingMixin from '../../mixins/paging';
 
 export default Ember.Controller.extend(CommonDataMixin, ActivityDataMixin, PagingMixin, {
-    pageSize: 5,
+    pageSize: 10,
     queryCount: 0,
     isDisabled: function() {
         var self = this;

@@ -1,6 +1,6 @@
-<div class="row row-gutter-bottom">
+<div class="row row-gutter-bottom row-gutter-top">
     <div class="col-xs-12">
-        {{filter-selector model=allTypes apiFilterSelected="loadByType" showMisc="0"}}
+        {{filter-selector model=allTypes apiFilterSelected="loadByType"}}
     </div>
 </div>
 
@@ -9,7 +9,7 @@
         {{filter-selector model=allStatus apiFilterSelected="loadByStatus"}}
     </div>
     <div class="col-xs-12 col-md-4">
-        Page Size: {{view "select" class="btn btn-default dropdown-toggle" content=allPageSizes value=pageSize}}
+        Show {{view "select" class="btn btn-default dropdown-toggle" content=allPageSizes value=pageSize}}
     </div>
 </div>
 
@@ -26,7 +26,7 @@
                             <div style="background-color: #61b2a7; width:100%; height:5px"></div>
                         </div>
                         <div class="col-xs-4 col-md-2">
-                            {{view "previewImage" width="100" height="100" class="img-responsive img-thumbnail" src=event.availableImage}}
+                            {{view "previewImage" width="180" height="180" class="img-responsive img-thumbnail" src=event.availableImage}}
                         </div>
                         <div class="col-xs-8 col-md-4">
                             <h4 class="list-group-item-heading">{{event.title}}</h4>

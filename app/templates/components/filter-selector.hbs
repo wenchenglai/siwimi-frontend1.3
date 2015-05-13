@@ -1,14 +1,14 @@
 <div class="btn-group" data-toggle="buttons">
-    <a class="btn btn-info active" data-toggle="tab" {{ action 'filterSelected' 'all' }}>
+    <a class="btn btn-default active" data-toggle="tab" {{ action 'filterSelected' 'all' }}>
         <input type="radio">All
     </a>
     {{#each filter in model}}
-    <a class="btn btn-info" data-toggle="tab" {{ action 'filterSelected' filter.value }}>
+    <a class="btn btn-default" data-toggle="tab" {{ action 'filterSelected' filter.value }}>
         <input type="radio">{{filter.text}}
     </a>
     {{/each}}
     {{#if showMisc}}
-    <a class="btn btn-info" data-toggle="tab" {{ action 'filterSelected' 'misc' }}>
+    <a class="btn btn-default" data-toggle="tab" {{ action 'filterSelected' 'misc' }}>
         <input type="radio">Misc
     </a>
     {{/if}}
