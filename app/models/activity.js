@@ -35,7 +35,11 @@ export default DS.Model.extend({
     fromDateMoment: function(key, value, previousValue) {
         // setter
         if (arguments.length > 1) {
-            this.set('fromDate', value.toDate());
+            if (value) {
+                this.set('fromDate', value.toDate());
+            } else {
+                this.set('fromDate', null);
+            }
         }
         // getter
         return this.get('fromDate');
@@ -45,7 +49,11 @@ export default DS.Model.extend({
     toDateMoment: function(key, value, previousValue) {
         // setter
         if (arguments.length > 1) {
-            this.set('toDate', value.toDate());
+            if (value) {
+                this.set('toDate', value.toDate());
+            } else {
+                this.set('Date', null);
+            }
         }
         // getter
         return this.get('toDate');
@@ -70,7 +78,7 @@ export default DS.Model.extend({
 
         if (this.get('price')) {
             if (this.get('price') > 0) {
-                result = this.get('price');   
+                result = this.get('price');
             }
         }
 
