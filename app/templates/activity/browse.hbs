@@ -1,16 +1,27 @@
 <div class="row row-gutter-bottom row-gutter-top">
     <div class="col-xs-12">
-        {{filter-selector model=allTypes apiFilterSelected="loadByType"}}
+        <a class="btn btn-default" {{action 'loadByType' 'all'}}>All</a>
+        <a class="btn btn-default" {{action 'loadByType' 'birthday'}}>Birthdays</a>
+        <a class="btn btn-default" {{action 'loadByType' 'concert'}}>Concerts</a>
+        <a class="btn btn-default" {{action 'loadByType' 'farm'}}>Farm Activity</a>
+        <a class="btn btn-default" {{action 'loadByType' 'storytelling'}}>Storytelling</a>
+        <a class="btn btn-default" {{action 'loadByType' 'movie'}}>Movies</a>
+        <a class="btn btn-default" {{action 'loadByType' 'museum'}}>Museums</a>
+        <a class="btn btn-default" {{action 'loadByType' 'playdate'}}>Play Dates</a>
+        <a class="btn btn-default" {{action 'loadByType' 'festival'}}>Festival</a>
+        <a class="btn btn-default" {{action 'loadByType' 'show'}}>Shows</a>
+        <a class="btn btn-default" {{action 'loadByType' 'sport'}}>Sports</a>
+        <a class="btn btn-default" {{action 'loadByType' 'misc'}}>Misc</a>
     </div>
 </div>
 
 <div class="row row-gutter-bottom">
     <div class="col-xs-12 col-md-8">
-        {{filter-selector model=allStatus apiFilterSelected="loadByStatus"}}
-    </div>
-    <div class="col-xs-12 col-md-4">
-        Show
-        {{view "select" class="btn btn-default dropdown-toggle" content=allPageSizes value=pageSize}}
+        <a class="btn btn-default-inverse" {{action 'loadByStatus' 'all'}}>All</a>
+        <a class="btn btn-default-inverse" {{action 'loadByStatus' 'current'}}>Current</a>
+        <a class="btn btn-default-inverse" {{action 'loadByStatus' 'upcoming'}}>Upcoming</a>
+        <a class="btn btn-default-inverse" {{action 'loadByStatus' 'past'}}>Past</a>
+        <a class="btn btn-default-inverse" {{action 'loadByStatus' 'timeless'}}>Timeless</a>
     </div>
 </div>
 
@@ -19,19 +30,24 @@
         <div class="list-group">
             {{#if model}}
                 {{#each event in model}}
-                    {{#link-to 'activity.show' event class="list-group-item"}}
+                    <div style="border-bottom:3px; border-color: #fff">
                         <div class="row">
                             <div class="col-xs-2 col-md-1">
-                                <div style="text-align: center;">{{formatted-date event.fromDateMoment 'MMM'}}</div>
-                                <div style="text-align: center;"><strong>{{formatted-date event.fromDateMoment 'D'}}</strong></div>
-                                <div style="text-align: center;">{{formatted-date event.fromDateMoment 'ddd'}}</div>
-                                <div style="background-color: #61b2a7; width:100%; height:5px"></div>
+                                {{#link-to 'activity.show' event class="unlink"}}
+                                    <div class="date-box">
+                                        <div style="text-align: center;">{{formatted-date event.fromDateMoment 'MMM'}}</div>
+                                        <div style="text-align: center;"><strong>{{formatted-date event.fromDateMoment 'D'}}</strong></div>
+                                        <div style="text-align: center;">{{formatted-date event.fromDateMoment 'ddd'}}</div>
+                                    </div>
+                                {{/link-to}}
                             </div>
                             <div class="col-xs-4 col-md-2">
-                                {{view "previewImage" width="180" height="180" class="img-responsive img-thumbnail" src=event.availableImage}}
+                                {{#link-to 'activity.show' event}}
+                                    {{view "previewImage" width="300" height="300" class="img-thumbnail" src=event.availableImage}}
+                                {{/link-to}}
                             </div>
                             <div class="col-xs-8 col-md-4">
-                                <h4 class="list-group-item-heading">{{event.title}}</h4>
+                                <h4 class="list-group-item-heading">{{#link-to 'activity.show' event}}{{event.title}}{{/link-to}}</h4>
                                 <p class="list-group-item-text">
                                     <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
                                     {{#if event.address}}
@@ -59,10 +75,14 @@
                                 </p>
                             </div>
                             <div class="col-xs-12 col-md-1">
-                                <p class="list-group-item-text">{{display-text event.type allTypes}}</p>
+                                {{#if event.type}}
+                                    <div class="tag-default">
+                                        {{display-text event.type allTypes}}
+                                    </div>
+                                {{/if}}
                             </div>
                         </div>
-                    {{/link-to}}
+                    </div>
                 {{/each}}
             {{else}}
                 <p class="lead">There is no event found under the selection criteria.</p>
@@ -73,7 +93,7 @@
 
 {{#if queryCount}}
 <div class="row row-gutter-bottom">
-    <div class="col-xs-12">
+    <div class="col-xs-12 col-md-11">
         <nav>
             <ul class="pagination">
                 <li class={{disabled}}>
@@ -91,6 +111,10 @@
                 </li>
             </ul>
         </nav>
+    </div>
+    <div class="col-xs-12 col-md-1">
+        Show
+        {{view "select" class="btn dropdown-toggle" content=allPageSizes value=pageSize}}
     </div>
 </div>
 {{/if}}

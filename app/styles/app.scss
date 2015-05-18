@@ -1,11 +1,65 @@
+$primary-control-color: #19B9B5; // #61b2a7;
+$primary-control-font-color: #fff;
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,300,400,700);
+
 body {
     padding-top: 50px; /* needed so content wont overlap with bootstrap's fixed nav bar */
-  
+  font-family: 'Open Sans', sans-serif;
     margin-bottom: 60px; /* Margin bottom by footer height */
 }
 
 .backgroundAll {
     background-color: #f9f9f9
+}
+
+.unlink:hover {
+  text-decoration: none;
+}
+
+.date-box {
+  background-color: $primary-control-color;
+  width: 50px;
+  padding-top:10px;
+  padding-bottom:10px;
+  color: $primary-control-font-color;
+}
+
+.tag-default {
+  border:3px solid;
+  color: $primary-control-font-color;
+  background-color: $primary-control-color;
+  border-color: $primary-control-color;
+  display: inline-block;
+  padding: 6px 12px;
+}
+
+.btn-default-inverse {
+  color: $primary-control-color;
+  background-color: $primary-control-font-color;
+  font-weight: bold;
+}
+/*
+Bootstrap CSS rules overwrite
+*/
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+  background-color: $primary-control-color;
+  border-color: $primary-control-color;
+}
+
+.btn-default:hover {
+  color: $primary-control-color;
+  background-color: $primary-control-font-color;
+  border-color: $primary-control-color;
+}
+
+.btn-default {
+  border:3px solid;
+  color: $primary-control-font-color;
+  background-color: $primary-control-color;
+  border-color: $primary-control-color;
+  margin-bottom:3px;
+  font-weight: bold;
 }
 
 .navbar-brand {

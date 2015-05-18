@@ -65,14 +65,7 @@
     </div>
 </div>
 <hr>
-<div class="row row-gutter-bottom">
-    <div class="col-xs-3 col-sm-2 col-md-1">
-        <label>Web URL:</label>
-    </div>
-    <div class="col-xs-9 col-sm-10 col-md-10">
-        <a href={{model.url}} target="_blank">{{model.url}}</a>
-    </div>
-</div>
+
 <div class="row row-gutter-bottom">
     <div class="col-xs-3 col-sm-2 col-md-1">
         <label>Description:</label>
@@ -81,6 +74,18 @@
         {{model.description}}
     </div>
 </div>
+
+{{#if model.url }}
+<div class="row row-gutter-bottom">
+    <div class="col-xs-3 col-sm-2 col-md-1">
+        <label>Web URL:</label>
+    </div>
+    <div class="col-xs-9 col-sm-10 col-md-10">
+        <a href={{model.url}} target="_blank">{{model.url}}</a>
+    </div>
+</div>
+{{/if}}
+{{#if model.type }}
 <div class="row row-gutter-bottom">
     <div class="col-xs-3 col-sm-2 col-md-1">
         <label>Type:</label>
@@ -89,6 +94,7 @@
         {{display-text model.type allTypes}}
     </div>
 </div>
+{{/if}}
 {{#if model.fromAge }}
 <div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
