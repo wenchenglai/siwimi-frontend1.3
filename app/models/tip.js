@@ -21,7 +21,7 @@ export default DS.Model.extend({
 
     // localization fields
     city: DS.attr('string'),
-    state: DS.attr('string'),    
+    state: DS.attr('string'),
     zipCode: DS.attr('string'),
     location: DS.attr('array'),
     isFavorite: DS.attr('boolean'),
@@ -43,7 +43,11 @@ export default DS.Model.extend({
     expiredDateMoment: function(key, value, previousValue) {
         // setter
         if (arguments.length > 1) {
-            this.set('expiredDate', value.toDate());
+            if (value) {
+                this.set('expiredDate', value.toDate());
+            } else {
+                this.set('expiredDate', null)
+            }
         }
         // getter
         return this.get('expiredDate');
