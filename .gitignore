@@ -16,6 +16,6 @@
 /libpeerconnection.log
 npm-debug.log
 testem.log
-/.idea
-/app/.idea
+.idea
+app/.idea
 *.csv
