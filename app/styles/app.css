@@ -20,6 +20,12 @@ body {
 	margin-bottom: 15px;
 }
 
+.row-division-top {
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: '#eee';
+}
+
 .required {
     color: red;   
 }
