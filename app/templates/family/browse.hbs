@@ -6,9 +6,9 @@
     </div>
     <div class="col-xs-12 col-md-6">
         From
-        {{view "select" class="btn btn-default dropdown-toggle" value=fromAge selection=fromAge content=allAgesYoung placeholder="Age"}} 
+        {{view "select" class="btn dropdown-toggle" value=fromAge selection=fromAge content=allAgesYoung placeholder="Age"}}
         To
-        {{view "select" class="btn btn-default dropdown-toggle" value=toAge selection=toAge content=allAgesYoung}} years old.
+        {{view "select" class="btn dropdown-toggle" value=toAge selection=toAge content=allAgesYoung}} years old.
     </div>
 </div>
 
@@ -17,7 +17,7 @@
         <label>Within</label>
     </div>
     <div class="col-xs-12 col-md-2">
-        {{view "select" class="btn btn-default dropdown-toggle" value=distance content=allDistances placeholder="Distance"}}
+        {{view "select" class="btn dropdown-toggle" value=distance content=allDistances placeholder="Distance"}}
     </div>
     <div class="col-xs-12 col-md-2">
         <button class="btn btn-link btn-sm" {{action "toggleAdvancedSearch" }}>Advanced Search</button>

@@ -64,7 +64,12 @@
         </h4>
     </div>
 </div>
-<hr>
+
+<div class="row row-gutter-bottom">
+    <div class="col-xs-12 col-md-7">
+        <hr>
+    </div>
+</div>
 
 <div class="row row-gutter-bottom">
     <div class="col-xs-3 col-sm-2 col-md-1">
@@ -120,20 +125,26 @@
 {{/if}}
 
 {{#if session.isAuthenticated}}
-<div class="row row-gutter-bottom">
-    <div class="col-xs-3 col-sm-2 col-md-1">
-        <label>Action:</label>
+    <div class="row row-gutter-bottom">
+        <div class="col-xs-12 col-md-7">
+            <hr>
+        </div>
     </div>
-    <div class="col-xs-9 col-sm-10 col-md-6">
-        {{#radio-button value="1" groupValue=emaction.action name="action" changed="setAction"}}
-            We'll attend this event.
-        {{/radio-button}}
-        {{#radio-button value="2" groupValue=emaction.action name="action" changed="setAction"}}
-            We are thinking about it.
-        {{/radio-button}}
-        {{#radio-button value="3" groupValue=emaction.action name="action" changed="setAction"}}
-            We are not going.
-        {{/radio-button}}
+<div class="row row-gutter-bottom">
+    <div class="col-xs-12 col-md-2">
+      {{#radio-button value="1" groupValue=emaction.action name="action" changed="setAction"}}
+          &nbsp;&nbsp;<span style="font-size:18px">Attending</span>
+      {{/radio-button}}
+    </div>
+    <div class="col-xs-12 col-md-2">
+      {{#radio-button value="2" groupValue=emaction.action name="action" changed="setAction"}}
+          &nbsp;&nbsp;<span style="font-size:18px">Maybe</span>
+      {{/radio-button}}
+    </div>
+    <div class="col-xs-12 col-md-2">
+      {{#radio-button value="3" groupValue=emaction.action name="action" changed="setAction"}}
+          &nbsp;&nbsp;<span style="font-size:18px">Not attending</span>
+      {{/radio-button}}
     </div>
 </div>
 {{/if}}

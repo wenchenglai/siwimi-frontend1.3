@@ -1,45 +1,111 @@
 <div class="row row-gutter-bottom row-gutter-top">
     <div class="col-xs-12">
-        <a class="btn btn-default" {{action 'loadByType' 'all'}}>All</a>
-        <a class="btn btn-default" {{action 'loadByType' 'birthday'}}>Birthdays</a>
-        <a class="btn btn-default" {{action 'loadByType' 'concert'}}>Concerts</a>
-        <a class="btn btn-default" {{action 'loadByType' 'farm'}}>Farm Activity</a>
-        <a class="btn btn-default" {{action 'loadByType' 'storytelling'}}>Storytelling</a>
-        <a class="btn btn-default" {{action 'loadByType' 'movie'}}>Movies</a>
-        <a class="btn btn-default" {{action 'loadByType' 'museum'}}>Museums</a>
-        <a class="btn btn-default" {{action 'loadByType' 'playdate'}}>Play Dates</a>
-        <a class="btn btn-default" {{action 'loadByType' 'festival'}}>Festival</a>
-        <a class="btn btn-default" {{action 'loadByType' 'show'}}>Shows</a>
-        <a class="btn btn-default" {{action 'loadByType' 'sport'}}>Sports</a>
-        <a class="btn btn-default" {{action 'loadByType' 'misc'}}>Misc</a>
+        <!--<a class="btn btn-cys" {{action 'loadByType' 'all'}}>All</a>-->
+        <!--<a class="btn btn-cys" {{action 'loadByType' 'birthday'}}>Birthdays</a>-->
+        <!--<a class="btn btn-cys" {{action 'loadByType' 'concert'}}>Concerts</a>-->
+        <!--<a class="btn btn-cys" {{action 'loadByType' 'farm'}}>Farm Activity</a>-->
+        <!--<a class="btn btn-cys" {{action 'loadByType' 'storytelling'}}>Storytelling</a>-->
+        <!--<a class="btn btn-cys" {{action 'loadByType' 'movie'}}>Movies</a>-->
+        <!--<a class="btn btn-cys" {{action 'loadByType' 'museum'}}>Museums</a>-->
+        <!--<a class="btn btn-cys" {{action 'loadByType' 'playdate'}}>Play Dates</a>-->
+        <!--<a class="btn btn-cys" {{action 'loadByType' 'festival'}}>Festival</a>-->
+        <!--<a class="btn btn-cys" {{action 'loadByType' 'show'}}>Shows</a>-->
+        <!--<a class="btn btn-cys" {{action 'loadByType' 'sport'}}>Sports</a>-->
+        <!--<a class="btn btn-cys" {{action 'loadByType' 'misc'}}>Misc</a>-->
+
+      {{#single-select group="type" btnClassName="btn btn-cys" onSelectedHookAction="loadByType" selectedValue=currentType value="all"}}
+          All
+      {{/single-select}}
+
+      {{#single-select group="type" btnClassName="btn btn-cys" onSelectedHookAction="loadByType" selectedValue=currentType value="birthday"}}
+          Birthdays
+      {{/single-select}}
+
+      {{#single-select group="type" btnClassName="btn btn-cys" onSelectedHookAction="loadByType" selectedValue=currentType value="concert"}}
+          Concerts
+      {{/single-select}}
+
+      {{#single-select group="type" btnClassName="btn btn-cys" onSelectedHookAction="loadByType" selectedValue=currentType value="farm"}}
+          Farm Activity
+      {{/single-select}}
+
+      {{#single-select group="type" btnClassName="btn btn-cys" onSelectedHookAction="loadByType" selectedValue=currentType value="storytelling"}}
+          Storytelling
+      {{/single-select}}
+
+      {{#single-select group="type" btnClassName="btn btn-cys" onSelectedHookAction="loadByType" selectedValue=currentType value="movie"}}
+          Movies
+      {{/single-select}}
+
+      {{#single-select group="type" btnClassName="btn btn-cys" onSelectedHookAction="loadByType" selectedValue=currentType value="museum"}}
+          Museums
+      {{/single-select}}
+
+      {{#single-select group="type" btnClassName="btn btn-cys" onSelectedHookAction="loadByType" selectedValue=currentType value="playdate"}}
+          Play Dates
+      {{/single-select}}
+
+      {{#single-select group="type" btnClassName="btn btn-cys" onSelectedHookAction="loadByType" selectedValue=currentType value="festival"}}
+          Festival
+      {{/single-select}}
+
+      {{#single-select group="type" btnClassName="btn btn-cys" onSelectedHookAction="loadByType" selectedValue=currentType value="show"}}
+          Shows
+      {{/single-select}}
+
+      {{#single-select group="type" btnClassName="btn btn-cys" onSelectedHookAction="loadByType" selectedValue=currentType value="sport"}}
+          Sports
+      {{/single-select}}
+
+      {{#single-select group="type" btnClassName="btn btn-cys" onSelectedHookAction="loadByType" selectedValue=currentType value="misc"}}
+          Misc
+      {{/single-select}}
     </div>
 </div>
 
 <div class="row row-gutter-bottom">
     <div class="col-xs-12 col-md-8">
-        <a class="btn btn-default-inverse" {{action 'loadByStatus' 'all'}}>All</a>
-        <a class="btn btn-default-inverse" {{action 'loadByStatus' 'current'}}>Current</a>
-        <a class="btn btn-default-inverse" {{action 'loadByStatus' 'upcoming'}}>Upcoming</a>
-        <a class="btn btn-default-inverse" {{action 'loadByStatus' 'past'}}>Past</a>
-        <a class="btn btn-default-inverse" {{action 'loadByStatus' 'timeless'}}>Timeless</a>
+
+      {{#single-select group="status" btnClassName="btn-cys-secondary" onSelectedHookAction="loadByStatus" selectedValue=currentStatus value="all"}}
+          All
+      {{/single-select}}
+
+      {{#single-select group="status" btnClassName="btn-cys-secondary" onSelectedHookAction="loadByStatus" selectedValue=currentStatus value="current"}}
+          Current
+      {{/single-select}}
+
+      {{#single-select group="status" btnClassName="btn-cys-secondary" onSelectedHookAction="loadByStatus" selectedValue=currentStatus value="upcoming"}}
+          Upcoming
+      {{/single-select}}
+
+      {{#single-select group="status" btnClassName="btn-cys-secondary" onSelectedHookAction="loadByStatus" selectedValue=currentStatus value="past"}}
+          Past
+      {{/single-select}}
+
+      {{#single-select group="status" btnClassName="btn-cys-secondary" onSelectedHookAction="loadByStatus" selectedValue=currentStatus value="timeless"}}
+          Timeless
+      {{/single-select}}
+
     </div>
 </div>
 
-<div class="row">
+<div class="row main-content">
     <div class="col-xs-12">
         <div class="list-group">
             {{#if model}}
                 {{#each event in model}}
                     <div style="border-bottom:3px; border-color: #fff">
                         <div class="row">
-                            <div class="col-xs-2 col-md-1">
-                                {{#link-to 'activity.show' event class="unlink"}}
-                                    <div class="date-box">
-                                        <div style="text-align: center;">{{formatted-date event.fromDateMoment 'MMM'}}</div>
-                                        <div style="text-align: center;"><strong>{{formatted-date event.fromDateMoment 'D'}}</strong></div>
-                                        <div style="text-align: center;">{{formatted-date event.fromDateMoment 'ddd'}}</div>
-                                    </div>
-                                {{/link-to}}
+                            <div class="col-xs-2 col-md-1" style="">
+                                {{#if event.fromDate }}
+                                  {{#link-to 'activity.show' event class="unlink"}}
+                                      <div class="date-box">
+                                          <div style="text-align: center;">{{formatted-date event.fromDateMoment 'MMM'}}</div>
+                                          <div style="text-align: center;"><strong>{{formatted-date event.fromDateMoment 'D'}}</strong></div>
+                                          <div style="text-align: center;">{{formatted-date event.fromDateMoment 'ddd'}}</div>
+                                      </div>
+                                  {{/link-to}}
+                                {{/if}}
                             </div>
                             <div class="col-xs-4 col-md-2">
                                 {{#link-to 'activity.show' event}}

@@ -49,7 +49,7 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
         showAlertBar: function(data) {
             var self = this;
 
-            self.controller._toggleAlert(true, data.title, data.message, data.type);            
+            self.controller._toggleAlert(true, data.title, data.message, data.type);
         },
 
         willTransition: function (transition) {

@@ -1,15 +1,21 @@
 $primary-control-color: #19B9B5; // #61b2a7;
+$secondary-control-color: #736E6E;
 $primary-control-font-color: #fff;
+$navigtion-font-size: 17px;
 
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,300,400,700);
 
 body {
     padding-top: 50px; /* needed so content wont overlap with bootstrap's fixed nav bar */
-  font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     margin-bottom: 60px; /* Margin bottom by footer height */
 }
 
-.backgroundAll {
+input[type="radio"] {
+  background-color: $primary-control-color;
+}
+
+.main-content {
     background-color: #f9f9f9
 }
 
@@ -23,6 +29,9 @@ body {
   padding-top:10px;
   padding-bottom:10px;
   color: $primary-control-font-color;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 4px;
 }
 
 .tag-default {
@@ -31,41 +40,82 @@ body {
   background-color: $primary-control-color;
   border-color: $primary-control-color;
   display: inline-block;
-  padding: 6px 12px;
+  padding: 2px 4px;
+  border-radius: 4px;
+  line-height: 0.9;
 }
 
-.btn-default-inverse {
+/*.btn-default-inverse {
   color: $primary-control-color;
   background-color: $primary-control-font-color;
   font-weight: bold;
+}*/
+.navbar-inverse .navbar-nav > li > a .active {
+  color: $primary-control-color;
+  background-color: white;
+}
+
+.btn-cys-secondary:last-child {
+  border-right: 0;
+}
+
+.btn-cys-secondary:active,
+.btn-cys-secondary.active,
+.btn-cys-secondary:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.btn-cys-secondary {
+    color: $secondary-control-color;
+    background-color: $primary-control-font-color;
+    font-weight: bold;
+    display: inline-block;
+    border-right: 1px solid #e8e8e8;
+    height: 20px;
+    line-height: 20px;
+    margin-right: 10px;
+    padding-right: 10px;
 }
 /*
 Bootstrap CSS rules overwrite
 */
+.navbar-nav > li > a {
+    font-weight: bold;
+    font-size: $navigtion-font-size;
+}
+
 .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
   background-color: $primary-control-color;
   border-color: $primary-control-color;
+  font-size: $navigtion-font-size;
+  font-weight: bold;
 }
 
-.btn-default:hover {
+.btn-cys:hover,
+.btn-cys:active,
+.btn-cys.active {
   color: $primary-control-color;
   background-color: $primary-control-font-color;
   border-color: $primary-control-color;
 }
 
-.btn-default {
+.btn-cys {
   border:3px solid;
   color: $primary-control-font-color;
   background-color: $primary-control-color;
   border-color: $primary-control-color;
   margin-bottom:3px;
   font-weight: bold;
+  font-size: $navigtion-font-size;
+  padding: 6px 6px;
+  line-height: 0.9;
 }
-
+/*
 .navbar-brand {
     padding-top: 3px;
 }
-
+*/
 .row-gutter-top {
     margin-top: 15px;
 }
@@ -81,7 +131,7 @@ Bootstrap CSS rules overwrite
 }
 
 .required {
-    color: red;   
+    color: red;
 }
 
 .bold {
@@ -116,6 +166,10 @@ Bootstrap CSS rules overwrite
 }
 
 /* Bootstrap Theme example sticky footer*/
+.navbar {
+  min-height: 46px;
+}
+
 .footer {
   position: absolute;
   bottom: 0;

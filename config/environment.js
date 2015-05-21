@@ -21,10 +21,11 @@ module.exports = function(environment) {
         contentSecurityPolicy: {
             'default-src': "'self'",
             'script-src': "'self' 'unsafe-inline' 'unsafe-eval' use.typekit.net connect.facebook.net apis.google.com maps.googleapis.com maps.gstatic.com www.geoplugin.net www.google-analytics.com graph.facebook.com",
-            'style-src': "'self' 'unsafe-inline' use.typekit.net",
+            'style-src': "'self' 'unsafe-inline' use.typekit.net fonts.googleapis.com",
             'img-src': "'self' data: fbcdn-profile-a.akamaihd.net apis.google.com www.google-analytics.com",
             'frame-src': "accounts.google.com static.ak.facebook.com s-static.ak.facebook.com www.facebook.com",
-            'connect-src': "199.223.236.115:8080 localhost:8080 maps.googleapis.com"
+            'connect-src': "199.223.236.115:8080 localhost:8080 maps.googleapis.com",
+            'font-src': "'self' fonts.gstatic.com"
         }
     };
 

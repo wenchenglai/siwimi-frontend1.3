@@ -4,7 +4,7 @@ export default Ember.Route.extend({
     currentStatus: "upcoming",
     currentType: "all",
     pageNumber: 1,
-	
+
     model: function () {
         var self = this,
             session = self.get('session'),
@@ -63,7 +63,7 @@ export default Ember.Route.extend({
             self.set('currentStatus', status);
             self.reload();
         },
-        
+
         loadByType: function (type) {
             var self = this;
 

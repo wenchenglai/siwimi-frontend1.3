@@ -6,6 +6,8 @@ import PagingMixin from '../../mixins/paging';
 export default Ember.Controller.extend(CommonDataMixin, ActivityDataMixin, PagingMixin, {
     pageSize: 10,
     queryCount: 0,
+    currentStatus: "upcoming",
+    currentType: "all",
     isDisabled: function() {
         var self = this;
 
@@ -19,6 +21,14 @@ export default Ember.Controller.extend(CommonDataMixin, ActivityDataMixin, Pagin
     watchPageSize: function() {
         this.send('loadPageOnPageSizeChange');
     }.observes('pageSize'),
+
+    watchCurrentStatus: function() {
+      this.send('loadByStatus', this.get('currentStatus'));
+    }.observes('currentStatus'),
+
+    watchCurrentType: function() {
+      this.send('loadByType', this.get('currentType'));
+    }.observes('currentType'),
 
     pages: function() {
         var size = this.get('queryCount') / this.get('pageSize') + 1;
