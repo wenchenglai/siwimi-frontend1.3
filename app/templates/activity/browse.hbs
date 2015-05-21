@@ -163,15 +163,15 @@
         <nav>
             <ul class="pagination">
                 <li class={{disabled}}>
-                    <a class="btn" {{action "loadPrevPage"}} aria-label="Previous">
+                    <a {{action "loadPrevPage"}} aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>
                 {{#each page in pages}}
-                    <li><a class="btn" {{action "loadPage" page}}>{{page}}</a></li>
+                    <li><a {{action "loadPage" page}}>{{page}}</a></li>
                 {{/each}}
                 <li class={{disabled}}>
-                    <a class="btn" {{action "loadNextPage"}} aria-label="Next">
+                    <a {{action "loadNextPage"}} aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
                     </a>
                 </li>
@@ -179,8 +179,11 @@
         </nav>
     </div>
     <div class="col-xs-12 col-md-1">
-        Show
-        {{view "select" class="btn dropdown-toggle" content=allPageSizes value=pageSize}}
+        <nav>
+            <div class="pagination">
+              {{view "select" class="btn-cys-inverse dropdown-toggle" content=allPageSizes value=decoratedPageSize}}
+            </div>
+        </nav>
     </div>
 </div>
 {{/if}}

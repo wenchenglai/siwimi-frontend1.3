@@ -8,6 +8,18 @@ export default Ember.Controller.extend(CommonDataMixin, ActivityDataMixin, Pagin
     queryCount: 0,
     currentStatus: "upcoming",
     currentType: "all",
+
+    decoratedPageSize: function(key, value, previousValue) {
+      if (arguments.length > 1) {
+        if (value) {
+          this.set('pageSize', value.substring(5, 7));
+        } else {
+          this.set('pageSize', 10);
+        }
+      }
+      return "Show " + this.get('pageSize');
+    }.property('pageSize'),
+
     isDisabled: function() {
         var self = this;
 

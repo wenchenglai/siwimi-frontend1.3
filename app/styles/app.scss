@@ -77,20 +77,6 @@ input[type="radio"] {
     margin-right: 10px;
     padding-right: 10px;
 }
-/*
-Bootstrap CSS rules overwrite
-*/
-.navbar-nav > li > a {
-    font-weight: bold;
-    font-size: $navigtion-font-size;
-}
-
-.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
-  background-color: $primary-control-color;
-  border-color: $primary-control-color;
-  font-size: $navigtion-font-size;
-  font-weight: bold;
-}
 
 .btn-cys:hover,
 .btn-cys:active,
@@ -98,6 +84,18 @@ Bootstrap CSS rules overwrite
   color: $primary-control-color;
   background-color: $primary-control-font-color;
   border-color: $primary-control-color;
+}
+
+.btn-cys-inverse,
+.btn-cys-inverse:hover,
+.btn-cys-inverse:active,
+.btn-cys-inverse.active {
+  color: $primary-control-color;
+  background-color: $primary-control-font-color;
+  border-color: $primary-control-color;
+  line-height: 0.9;
+  font-weight: bold;
+  font-size: $navigtion-font-size;
 }
 
 .btn-cys {
@@ -112,10 +110,25 @@ Bootstrap CSS rules overwrite
   line-height: 0.9;
 }
 /*
-.navbar-brand {
-    padding-top: 3px;
-}
+Bootstrap CSS rules overwrite
 */
+.navbar-nav > li > a {
+    font-weight: bold;
+    font-size: $navigtion-font-size;
+}
+
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+  background-color: $primary-control-color;
+  border-color: $primary-control-color;
+}
+
+.pagination > li > a, .pagination > li > span {
+  color: $primary-control-color;
+  border: 1px solid $primary-control-color;
+  font-size: $navigtion-font-size;
+  font-weight: bold;
+}
+
 .row-gutter-top {
     margin-top: 15px;
 }
