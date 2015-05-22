@@ -52,7 +52,7 @@ export default DS.Model.extend({
             if (value) {
                 this.set('toDate', value.toDate());
             } else {
-                this.set('Date', null);
+                this.set('toDate', null);
             }
         }
         // getter
