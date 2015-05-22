@@ -2,6 +2,8 @@ import Ember from 'ember';
 
 export default Ember.View.extend({
     didInsertElement: function () {
-        Ember.$('.pagination li:nth-child(2)').addClass("active");
+        if (Ember.$('.pagination li').find('.active').length == 0) {
+            Ember.$('.pagination li:nth-child(2)').addClass("active");
+        }
     }
 });

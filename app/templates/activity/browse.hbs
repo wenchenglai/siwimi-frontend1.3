@@ -94,9 +94,8 @@
         <div class="list-group">
             {{#if model}}
                 {{#each event in model}}
-                    <div style="border-bottom:3px; border-color: #fff">
-                        <div class="row">
-                            <div class="col-xs-2 col-md-1" style="">
+                    <div class="row event-list">
+                            <div class="col-xs-2 col-md-1">
                                 {{#if event.fromDate }}
                                   {{#link-to 'activity.show' event class="unlink"}}
                                       <div class="date-box">
@@ -140,7 +139,7 @@
                                     {{/if}}
                                 </p>
                             </div>
-                            <div class="col-xs-12 col-md-1">
+                            <div class="col-xs-12 col-md-1" style="border-left: 5px solid white">
                                 {{#if event.type}}
                                     <div class="tag-default">
                                         {{display-text event.type allTypes}}
@@ -148,7 +147,6 @@
                                 {{/if}}
                             </div>
                         </div>
-                    </div>
                 {{/each}}
             {{else}}
                 <p class="lead">There is no event found under the selection criteria.</p>
@@ -162,7 +160,7 @@
     <div class="col-xs-12 col-md-11">
         <nav>
             <ul class="pagination">
-                <li class={{disabled}}>
+                <li class={{isDisabled}}>
                     <a {{action "loadPrevPage"}} aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span>
                     </a>
@@ -170,7 +168,7 @@
                 {{#each page in pages}}
                     <li><a {{action "loadPage" page}}>{{page}}</a></li>
                 {{/each}}
-                <li class={{disabled}}>
+                <li class={{isDisabled}}>
                     <a {{action "loadNextPage"}} aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
                     </a>

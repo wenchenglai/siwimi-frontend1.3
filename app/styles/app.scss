@@ -11,16 +11,38 @@ body {
     margin-bottom: 60px; /* Margin bottom by footer height */
 }
 
+.cover-page {
+    background-color: #4a4c55;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.cover-page2 {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
 input[type="radio"] {
   background-color: $primary-control-color;
 }
 
 .main-content {
-    background-color: #f9f9f9
+    background-color: #f0f1f6
 }
 
 .unlink:hover {
   text-decoration: none;
+}
+
+.event-list:last-child {
+  border-bottom: 0px solid #fff;
+  padding: 10px;
+}
+
+.event-list {
+    border-bottom: 5px solid #fff;
+    padding: 20px;
 }
 
 .date-box {
@@ -127,6 +149,7 @@ Bootstrap CSS rules overwrite
   border: 1px solid $primary-control-color;
   font-size: $navigtion-font-size;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .row-gutter-top {
