@@ -8,6 +8,14 @@ export default Ember.Controller.extend({
             self.store.find('location', {queryText: term}).then(function(locations) {
                 self.set('locations', locations);
             });
+        },
+
+        login: function() {
+          this.transitionTo('login');
+        },
+
+        signup: function() {
+          this.transitionTo('signup');
         }
     }
 });

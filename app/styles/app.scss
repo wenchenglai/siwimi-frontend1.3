@@ -17,10 +17,37 @@ body {
     padding-bottom: 50px;
 }
 
+.cover-paragraph {
+  color:white;
+  padding: 15px 1px;
+}
+
+.cover-button {
+  background-color: #4a4c55;
+  border:1px solid #fff;
+  width:100px;
+  height:40px;
+  padding: 15px 60px;
+  color: white;
+  font-size:20px;
+  margin:15px;
+  cursor:pointer;
+}
+
 .cover-page2 {
+  padding: 80px 1px;
   margin-left: auto;
   margin-right: auto;
-  width: 100%;
+  width: 50%;
+  text-align: center;
+}
+
+.cover-page-item {
+  padding: 100px 1px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  text-align: center;
 }
 
 input[type="radio"] {
