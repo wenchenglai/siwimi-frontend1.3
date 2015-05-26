@@ -15,12 +15,13 @@
 
 <div class="row row-gutter-bottom">
     <div class="col-xs-12">
-        {{filter-selector model=allStatus apiFilterSelected="loadByStatus"}}
+        {{filter-selector model=allTypes apiFilterSelected="loadByType" showMisc="1"}}
     </div>
 </div>
+
 <div class="row row-gutter-bottom">
     <div class="col-xs-12">
-        {{filter-selector model=allTypes apiFilterSelected="loadByType" showMisc="1"}}
+      {{filter-selector model=allStatus apiFilterSelected="loadByStatus"}}
     </div>
 </div>
 

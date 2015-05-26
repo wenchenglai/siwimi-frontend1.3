@@ -1,17 +1,5 @@
 <div class="row row-gutter-bottom row-gutter-top">
     <div class="col-xs-12">
-        <!--<a class="btn btn-cys" {{action 'loadByType' 'all'}}>All</a>-->
-        <!--<a class="btn btn-cys" {{action 'loadByType' 'birthday'}}>Birthdays</a>-->
-        <!--<a class="btn btn-cys" {{action 'loadByType' 'concert'}}>Concerts</a>-->
-        <!--<a class="btn btn-cys" {{action 'loadByType' 'farm'}}>Farm Activity</a>-->
-        <!--<a class="btn btn-cys" {{action 'loadByType' 'storytelling'}}>Storytelling</a>-->
-        <!--<a class="btn btn-cys" {{action 'loadByType' 'movie'}}>Movies</a>-->
-        <!--<a class="btn btn-cys" {{action 'loadByType' 'museum'}}>Museums</a>-->
-        <!--<a class="btn btn-cys" {{action 'loadByType' 'playdate'}}>Play Dates</a>-->
-        <!--<a class="btn btn-cys" {{action 'loadByType' 'festival'}}>Festival</a>-->
-        <!--<a class="btn btn-cys" {{action 'loadByType' 'show'}}>Shows</a>-->
-        <!--<a class="btn btn-cys" {{action 'loadByType' 'sport'}}>Sports</a>-->
-        <!--<a class="btn btn-cys" {{action 'loadByType' 'misc'}}>Misc</a>-->
 
       {{#single-select group="type" btnClassName="btn btn-cys" onSelectedHookAction="loadByType" selectedValue=currentType value="all"}}
           All
@@ -108,7 +96,7 @@
                             </div>
                             <div class="col-xs-4 col-md-2">
                                 {{#link-to 'activity.show' event}}
-                                    {{view "previewImage" width="300" height="300" class="img-thumbnail" src=event.availableImage}}
+                                    {{view "previewImage" width="200" height="200" class="img-thumbnail img-responsive" src=event.availableImage}}
                                 {{/link-to}}
                             </div>
                             <div class="col-xs-8 col-md-4">
@@ -139,7 +127,7 @@
                                     {{/if}}
                                 </p>
                             </div>
-                            <div class="col-xs-12 col-md-1" style="border-left: 5px solid white">
+                            <div class="col-xs-12 col-md-1">
                                 {{#if event.type}}
                                     <div class="tag-default">
                                         {{display-text event.type allTypes}}

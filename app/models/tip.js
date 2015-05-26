@@ -14,6 +14,7 @@ export default DS.Model.extend({
     viewCount: DS.attr('number'),
     imageData: DS.attr('string'),
     imageUrl: DS.attr('string'),
+    queryCount: DS.attr('number'),
 
     // parameters set by backend ONLY
     voteUpCount: DS.attr('number'),

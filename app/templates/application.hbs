@@ -16,13 +16,13 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     	<span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
-                        Connect<span class="caret"></span>
+                        Connect <span style="font-size:11px;">(Beta)</span><span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
                         <li>{{#link-to 'family.browse'}}Search My Neighborhood{{/link-to}}</li>
                         <li>{{#link-to 'family.my'}}My Family Setting{{/link-to}}</li>
                         <li>{{#link-to 'group.my'}}My Groups{{/link-to}}</li>
-                        <li>{{#link-to 'family.preference'}}My Preference{{/link-to}}</li>
+                        {{!--<li>{{#link-to 'family.preference'}}My Preference{{/link-to}}</li>--}}
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -34,7 +34,7 @@
                         <li>{{#link-to 'tip.browse' (query-params status="all" type="all")}}Browse{{/link-to}}</li>
                         <li>{{#link-to 'tip.search'}}Search{{/link-to}}</li>
                         <li>{{#link-to 'tip.my'}}My Tips{{/link-to}}</li>
-                        <li>{{#link-to 'tip.preference'}}My Preference{{/link-to}}</li>
+                        {{!--<li>{{#link-to 'tip.preference'}}My Preference{{/link-to}}</li>--}}
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -47,50 +47,50 @@
                         <li>{{#link-to 'activity.browse'}}Browse{{/link-to}}</li>
                         <li>{{#link-to 'activity.search'}}Search{{/link-to}}</li>
                         <li>{{#link-to 'activity.my'}}My Events Posts{{/link-to}}</li>
-                        <li>{{#link-to 'activity.calendar'}}My Calendar{{/link-to}}</li>
-                        <li>{{#link-to 'activity.preference'}}My Preference{{/link-to}}</li>
-                        <li>{{#link-to 'activity.infinite'}}Infinite Scroll{{/link-to}}</li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    	<span class="glyphicon glyphicon-tag" aria-hidden="true"></span>
-                        Listing<span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li>{{#link-to 'item.browse'}}Browse{{/link-to}}</li>
-                        <li>{{#link-to 'item.search'}}Search{{/link-to}}</li>
-                        <li>{{#link-to 'item.my'}}My Listings{{/link-to}}</li>
-                        <li>{{#link-to 'item.preference'}}My Preference{{/link-to}}</li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    	<span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
-                        Ask<span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li>{{#link-to 'questions.new'}}Ask{{/link-to}}</li>
-                        <li>{{#link-to 'questions.browse'}}Browse{{/link-to}}</li>
-                        <li>{{#link-to 'questions.my'}}My Questions{{/link-to}}</li>
-                        <li>{{#link-to 'questions.preference'}}My Preference{{/link-to}}</li>
-                    </ul>
-                </li>
-                {{#if session.isAuthenticated}}
-                <li>
-                    {{#link-to 'feedback.new'}}
-                    	<span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
-                    	Feedback
-                    {{/link-to}}
-                </li>
-                {{/if}}
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="#">
-                        <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
-                        {{baseLocation}}
-                        {{!--{{input class="form-control" value=baseLocation size="15" readonly="true"}}--}}
+                        {{!--<li>{{#link-to 'activity.calendar'}}My Calendar{{/link-to}}</li>--}}
+                      {{!--<li>{{#link-to 'activity.preference'}}My Preference{{/link-to}}</li>--}}
+                      {{!--<li>{{#link-to 'activity.infinite'}}Infinite Scroll{{/link-to}}</li>--}}
+                  </ul>
+              </li>
+              <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                      <span class="glyphicon glyphicon-tag" aria-hidden="true"></span>
+                      Listing<span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu">
+                      <li>{{#link-to 'item.browse'}}Browse{{/link-to}}</li>
+                      <li>{{#link-to 'item.search'}}Search{{/link-to}}</li>
+                      <li>{{#link-to 'item.my'}}My Listings{{/link-to}}</li>
+                      {{!--<li>{{#link-to 'item.preference'}}My Preference{{/link-to}}</li>--}}
+                  </ul>
+              </li>
+              <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                      <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+                      Ask<span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu">
+                      <li>{{#link-to 'questions.new'}}Ask{{/link-to}}</li>
+                      {{!--<li>{{#link-to 'questions.browse'}}Browse{{/link-to}}</li>--}}
+                      <li>{{#link-to 'questions.my'}}My Questions{{/link-to}}</li>
+                      {{!--<li>{{#link-to 'questions.preference'}}My Preference{{/link-to}}</li>--}}
+                  </ul>
+              </li>
+              {{#if session.isAuthenticated}}
+              <li>
+                  {{#link-to 'feedback.new'}}
+                      <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+                      Feedback
+                  {{/link-to}}
+              </li>
+              {{/if}}
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+              <li>
+                  <a href="#">
+                      <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+                      {{baseLocation}}
+                      {{!--{{input class="form-control" value=baseLocation size="15" readonly="true"}}--}}
                         {{!--{{jqui-autocomplete value=baseLocation size="15" class="superZ" source=locations}}--}}
                     </a>
                 </li>

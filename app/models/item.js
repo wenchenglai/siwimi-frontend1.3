@@ -21,10 +21,11 @@ export default DS.Model.extend({
     createdDate: DS.attr('date'),
     viewCount: DS.attr('number'),
     isComplete: DS.attr('boolean'),
+    queryCount: DS.attr('number'),
 
     // localization fields
     city: DS.attr('string'),
-    state: DS.attr('string'),    
+    state: DS.attr('string'),
     zipCode: DS.attr('string'),
     location: DS.attr('array'),
 

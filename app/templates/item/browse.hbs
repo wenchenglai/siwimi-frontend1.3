@@ -1,12 +1,58 @@
 <div class="row row-gutter-bottom row-gutter-top">
     <div class="col-xs-12">
-        {{filter-selector model=allTypes apiFilterSelected="loadByType" showMisc="1"}}
+
+      {{#single-select group="type" btnClassName="btn btn-cys" onSelectedHookAction="loadByType" selectedValue=currentType value="all"}}
+          All
+      {{/single-select}}
+
+      {{#single-select group="type" btnClassName="btn btn-cys" onSelectedHookAction="loadByType" selectedValue=currentType value="toy"}}
+          Toys
+      {{/single-select}}
+
+      {{#single-select group="type" btnClassName="btn btn-cys" onSelectedHookAction="loadByType" selectedValue=currentType value="cloth"}}
+          Cloths
+      {{/single-select}}
+
+      {{#single-select group="type" btnClassName="btn btn-cys" onSelectedHookAction="loadByType" selectedValue=currentType value="book"}}
+          Books
+      {{/single-select}}
+
+      {{#single-select group="type" btnClassName="btn btn-cys" onSelectedHookAction="loadByType" selectedValue=currentType value="equipment"}}
+          Equipments
+      {{/single-select}}
+
+      {{#single-select group="type" btnClassName="btn btn-cys" onSelectedHookAction="loadByType" selectedValue=currentType value="furniture"}}
+          Furnitures
+      {{/single-select}}
+
+      {{#single-select group="type" btnClassName="btn btn-cys" onSelectedHookAction="loadByType" selectedValue=currentType value="misc"}}
+          Misc
+      {{/single-select}}
+
     </div>
 </div>
 
 <div class="row row-gutter-bottom">
     <div class="col-xs-12 col-md-4">
-        {{filter-selector model=allStatus apiFilterSelected="loadByStatus"}}
+      {{#single-select group="status" btnClassName="btn-cys-secondary" onSelectedHookAction="loadByStatus" selectedValue=currentStatus value="all"}}
+          All
+      {{/single-select}}
+
+      {{#single-select group="status" btnClassName="btn-cys-secondary" onSelectedHookAction="loadByStatus" selectedValue=currentStatus value="sale"}}
+          Sale
+      {{/single-select}}
+
+      {{#single-select group="status" btnClassName="btn-cys-secondary" onSelectedHookAction="loadByStatus" selectedValue=currentStatus value="upcoming"}}
+          Swap
+      {{/single-select}}
+
+      {{#single-select group="status" btnClassName="btn-cys-secondary" onSelectedHookAction="loadByStatus" selectedValue=currentStatus value="past"}}
+          Free
+      {{/single-select}}
+
+      {{#single-select group="status" btnClassName="btn-cys-secondary" onSelectedHookAction="loadByStatus" selectedValue=currentStatus value="timeless"}}
+          Loan
+      {{/single-select}}
     </div>
     <div class="col-xs-3 col-md-2">
         <button class="btn btn-link btn-sm" {{action "toggleAdvancedSearch" }}>{{searchToggleText}}</button>
@@ -52,14 +98,4 @@
         </table>
     </div>
 </div>
-
-{{#if model}}
-<div class="row row-gutter-bottom">
-    <div class="col-xs-12">
-        <button class="btn btn-info btn-lg" {{action "loadPrevPage"}}>Prev Page</button>
-        {{view "select" class="btn btn-default dropdown-toggle" prompt="Page Size" content=allPageSizes value=pageSize}}
-        <button class="btn btn-info btn-lg" {{action "loadNextPage"}}>Next Page</button>
-    </div>
-</div>
-{{/if}}
 
