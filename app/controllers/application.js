@@ -42,8 +42,8 @@ Ember.Controller.extend(StatesDataMixin, {
     // baseCity, baseState, longitude and latitude
     setBase: function() {
         var self = this,
-    		session = self.get('session');
-        debugger;
+    		    session = self.get('session');
+
     	  if (session.isAuthenticated) {
     	      if (!Ember.isEmpty(session.get('baseCity')) && !Ember.isEmpty(session.get('baseCity'))) {
     	          self.set('baseCity', session.get('baseCity'));
@@ -58,7 +58,6 @@ Ember.Controller.extend(StatesDataMixin, {
 
                     var onSuccess = function (json) {
                         var addarr = json.results[4].formatted_address.split(",");
-                        debugger;
                         self.set('baseCity', addarr[0]);
                         self.set('baseState', addarr[1]);
                         self.set('baseLongitude', position.coords.latitude);
