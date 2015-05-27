@@ -36,7 +36,11 @@ export default DS.Model.extend({
     birthdayMoment: function(key, value, previousValue) {
         // setter
         if (arguments.length > 1) {
+          if (value) {
             this.set('birthday', value.toDate());
+        } else {
+            this.set('birthday', null);
+            }
         }
         // getter
         return this.get('birthday');
