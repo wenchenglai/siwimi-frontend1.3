@@ -36,7 +36,7 @@ app.import('bower_components/bootstrap/dist/js/bootstrap.js');
 
 app.import('vendor/bootstrap/css/dashboard.css');
 app.import('vendor/facebook/FB.js');
-app.import('vendor/google/gapi.js');
+//app.import('vendor/google/gapi.js');
 app.import('vendor/tag-it/tag-it.js');
 app.import('vendor/tag-it/css/tag-it.css');
 app.import('vendor/ckeditor/ckeditor.js');
