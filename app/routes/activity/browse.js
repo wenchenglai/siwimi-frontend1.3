@@ -7,6 +7,7 @@ export default Ember.Route.extend({
 
     model: function () {
         var self = this,
+            appController = self.controllerFor('application'),
             session = self.get('session'),
             userId = self.get('session.id'),
             pageSize = 10;
@@ -20,8 +21,8 @@ export default Ember.Route.extend({
                 status: self.get('currentStatus'),
                 type: self.get('currentType'),
                 requester: userId,
-                longitude: session.get('longitude'),
-                latitude: session.get('latitude'),
+                longitude: appController.get('baseLongitude'),
+                latitude: appController.get('baseLatitude'),
                 per_page: pageSize,
                 page: self.get('pageNumber')
             });

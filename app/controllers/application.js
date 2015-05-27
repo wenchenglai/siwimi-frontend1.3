@@ -11,6 +11,8 @@ Ember.Controller.extend(StatesDataMixin, {
     alertType: "alert-danger",
     baseCity: "",
     baseState: "",
+    baseLatitude: 0,
+    baseLongitude: 0,
     locations: ['Ann Arbor, MI', "Abb, MI", "ACC, MI", "ADD, CA"],
 
     baseLocation: function(key, value, previousValue) {
@@ -36,31 +38,62 @@ Ember.Controller.extend(StatesDataMixin, {
 
     // this function will be called every time app is loaded
     // we need to preapre for at least 4 variables in session variable.
-    // An anoymous user will have at least 4 variables
+    // An anonymous user will have at least 4 variables, they are:
+    // baseCity, baseState, longitude and latitude
     setBase: function() {
-    	var self = this,
+        var self = this,
     		session = self.get('session');
+        debugger;
+    	  if (session.isAuthenticated) {
+    	      if (!Ember.isEmpty(session.get('baseCity')) && !Ember.isEmpty(session.get('baseCity'))) {
+    	          self.set('baseCity', session.get('baseCity'));
+    	          self.set('baseState', session.get('baseState'));
+	          }
+    	  }
 
-    	if (session.isAuthenticated) {
-    	    if (!Ember.isEmpty(session.get('baseCity')) && !Ember.isEmpty(session.get('baseCity'))) {
-    	        self.set('baseCity', session.get('baseCity'));
-    	        self.set('baseState', session.get('baseState'));
-	        }
-    	}
+        if (Ember.isEmpty(self.get('baseCity')) || Ember.isEmpty(self.get('baseCity'))) {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position){
+                    var latlng = position.coords.latitude + "," + position.coords.longitude;
 
-    	if (Ember.isEmpty(self.get('baseCity')) || Ember.isEmpty(self.get('baseCity'))) {
-    	    self.set('baseCity', geoplugin_city());
-    	    self.set('baseState', geoplugin_region());
+                    var onSuccess = function (json) {
+                        var addarr = json.results[4].formatted_address.split(",");
+                        debugger;
+                        self.set('baseCity', addarr[0]);
+                        self.set('baseState', addarr[1]);
+                        self.set('baseLongitude', position.coords.latitude);
+                        self.set('baseLatitude', position.coords.longitude);
+                    };
 
-	        if (!session.isAuthenticated) {
-	            session.set('longitude', geoplugin_longitude());
-	            session.set('latitude', geoplugin_latitude());
-	            session.set('baseCity', self.get('baseCity'));
-	            session.set('baseState', self.get('baseState'));
-	        }
-	    }
+                    var onGoogleApiFail = function (error) {
+                        self.send('error', error);
+                    };
+
+                    // Google Map API for getting location info from latitude and longitude
+                    Ember.$.getJSON('http://maps.googleapis.com/maps/api/geocode/json?latlng=' + latlng + '&sensor=true').then(onSuccess, onGoogleApiFail);
+
+                }, function(err){
+                    if (err.code == 1) {
+                        // User refused to grant the right
+                        self._setLocationGeoPlugin();
+                    }
+                });
+            } else {
+                // User's browser doesn't support HTML5 Geolocation API
+                self._setLocationGeoPlugin();
+            }
+	      }
 
     }.on('init'),
+
+    _setLocationGeoPlugin() {
+        var self = this;
+        // we use geoPlugin from http://www.geoplugin.com/
+        self.set('baseCity', geoplugin_city());
+        self.set('baseState', geoplugin_region());
+        self.set('baseLongitude', geoplugin_longitude());
+        self.set('baseLatitude', geoplugin_latitude());
+    },
 
     _toggleAlert: function(flag, title, message, type) {
         var self = this;

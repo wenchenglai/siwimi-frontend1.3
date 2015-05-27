@@ -32,7 +32,7 @@ module.exports = function(environment) {
     ENV['simple-auth'] = {
         authorizer: 'authorizer:custom',
         store: 'simple-auth-session-store:local-storage',
-        crossOriginWhitelist: ['http://localhost:8080']
+        crossOriginWhitelist: ['http://localhost:8080', 'http://104.197.18.44']
     };
 
     if (environment === 'development') {
