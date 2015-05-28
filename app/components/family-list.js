@@ -26,6 +26,7 @@ export default Ember.Component.extend({
             autoOpen: false,
             resizable: false,
             height: 240,
+            appendTo: '#' + self.get('elementId'),
             modal: true,
             buttons: {
                 "Delete": function () {
