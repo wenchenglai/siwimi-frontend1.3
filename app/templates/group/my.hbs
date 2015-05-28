@@ -15,21 +15,21 @@
                     <td>
                         <div class="btn-group" role="group" aria-label="...">
                             {{#link-to 'group.show' group class="btn btn-default"}}Detail{{/link-to}}
-                            <button type="button" class="btn btn-default" {{action 'openDeleteDialog' activity.id target="view" bubbles="false" }}>Delete</button>
+                            <button type="button" class="btn btn-default" {{action 'openDeleteDialog' group.id target="view" bubbles="false" }}>Delete</button>
                         </div>
                     </td>
                 </tr>
                 {{/each}}
 
             </tbody>
-        </table>        
+        </table>
     </div>
 </div>
 {{else}}
 <div class="row row-gutter-bottom">
     <div class="col-xs-12">
         <p class="lead">
-            It appears that you don't have a group yet.  
+            It appears that you don't have a group yet.
         </p>
         <p>
             Creating a group allows you to share your posts, i.e. your private events such as birthday or an outing to a local zoo, only to this group.
