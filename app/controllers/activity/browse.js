@@ -4,20 +4,26 @@ import ActivityDataMixin from '../../mixins/activity-data';
 import PagingMixin from '../../mixins/paging';
 
 export default Ember.Controller.extend(CommonDataMixin, ActivityDataMixin, PagingMixin, {
+    queryParams: ['type', 'status', 'pageNumber', 'pageSize'],
+    type: "all",
+    status: "upcoming",
+    pageNumber: 1,
     pageSize: 10,
     queryCount: 0,
-    currentStatus: "upcoming",
-    currentType: "all",
 
     decoratedPageSize: function(key, value, previousValue) {
-        // our show page drop down shows "show 10" instead of "10"
+        // our show page size drop down shows "show 10" instead of "10"
+        // therefore we need the extra logic here to strip down "show 10" to "10"
         if (arguments.length > 1) {
-          if (value) {
-            this.set('pageSize', value.substring(5, 7));
-          } else {
-            this.set('pageSize', 10);
-          }
+            if (value) {
+                if (value !== previousValue) {
+                    this.set('pageSize', value.substring(5, 7));
+                }
+            } else {
+                this.set('pageSize', 10);
+            }
         }
+
         return "Show " + this.get('pageSize');
     }.property('pageSize'),
 
@@ -32,17 +38,17 @@ export default Ember.Controller.extend(CommonDataMixin, ActivityDataMixin, Pagin
         }
     }.property('queryCount', 'pageSize'),
 
-    watchPageSize: function() {
-        this.send('loadPageOnPageSizeChange');
-    }.observes('pageSize'),
-
-    watchCurrentStatus: function() {
-      this.send('loadByStatus', this.get('currentStatus'));
-    }.observes('currentStatus'),
-
-    watchCurrentType: function() {
-      this.send('loadByType', this.get('currentType'));
-    }.observes('currentType'),
+    //watchPageSize: function() {
+    //    this.send('loadPageOnPageSizeChange');
+    //}.observes('pageSize'),
+    //
+    //watchStatus: function() {
+    //    this.send('loadByStatus', this.get('status'));
+    //}.observes('status'),
+    //
+    //watchType: function() {
+    //    this.send('loadByType', this.get('type'));
+    //}.observes('type'),
 
     // returns the paginatio array 1,2,3... depends total items and page size
     pages: function() {

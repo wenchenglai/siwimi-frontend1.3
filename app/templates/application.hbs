@@ -1,7 +1,8 @@
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -15,7 +16,7 @@
             <ul class="nav navbar-nav">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    	<span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
                         Connect <span style="font-size:11px;">(Beta)</span><span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
@@ -27,7 +28,7 @@
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    	<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
                         Tips<span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
@@ -39,7 +40,7 @@
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle active" data-toggle="dropdown">
-                    	<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
                         Event
                         <span class="caret"></span>
                     </a>
@@ -48,99 +49,100 @@
                         <li>{{#link-to 'activity.search'}}Search{{/link-to}}</li>
                         <li>{{#link-to 'activity.my'}}My Events Posts{{/link-to}}</li>
                         {{!--<li>{{#link-to 'activity.calendar'}}My Calendar{{/link-to}}</li>--}}
-                      {{!--<li>{{#link-to 'activity.preference'}}My Preference{{/link-to}}</li>--}}
-                      {{!--<li>{{#link-to 'activity.infinite'}}Infinite Scroll{{/link-to}}</li>--}}
-                  </ul>
-              </li>
-              <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                      <span class="glyphicon glyphicon-tag" aria-hidden="true"></span>
-                      Listing<span class="caret"></span>
-                  </a>
-                  <ul class="dropdown-menu">
-                      <li>{{#link-to 'item.browse'}}Browse{{/link-to}}</li>
-                      <li>{{#link-to 'item.search'}}Search{{/link-to}}</li>
-                      <li>{{#link-to 'item.my'}}My Listings{{/link-to}}</li>
-                      {{!--<li>{{#link-to 'item.preference'}}My Preference{{/link-to}}</li>--}}
-                  </ul>
-              </li>
-              <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                      <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
-                      Ask<span class="caret"></span>
-                  </a>
-                  <ul class="dropdown-menu">
-                      <li>{{#link-to 'questions.new'}}Ask{{/link-to}}</li>
-                      {{!--<li>{{#link-to 'questions.browse'}}Browse{{/link-to}}</li>--}}
-                      <li>{{#link-to 'questions.my'}}My Questions{{/link-to}}</li>
-                      {{!--<li>{{#link-to 'questions.preference'}}My Preference{{/link-to}}</li>--}}
-                  </ul>
-              </li>
-              {{#if session.isAuthenticated}}
-              <li>
-                  {{#link-to 'feedback.new'}}
-                      <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
-                      Feedback
-                  {{/link-to}}
-              </li>
-              {{/if}}
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-              <li>
-                  <a href="#">
-                      <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
-                      {{baseLocation}}
-                      {{!--{{input class="form-control" value=baseLocation size="15" readonly="true"}}--}}
+                        {{!--<li>{{#link-to 'activity.preference'}}My Preference{{/link-to}}</li>--}}
+                        {{!--<li>{{#link-to 'activity.infinite'}}Infinite Scroll{{/link-to}}</li>--}}
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="glyphicon glyphicon-tag" aria-hidden="true"></span>
+                        Listing<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>{{#link-to 'item.browse'}}Browse{{/link-to}}</li>
+                        <li>{{#link-to 'item.search'}}Search{{/link-to}}</li>
+                        <li>{{#link-to 'item.my'}}My Listings{{/link-to}}</li>
+                        {{!--<li>{{#link-to 'item.preference'}}My Preference{{/link-to}}</li>--}}
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+                        Ask<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>{{#link-to 'questions.new'}}Ask{{/link-to}}</li>
+                        {{!--<li>{{#link-to 'questions.browse'}}Browse{{/link-to}}</li>--}}
+                        <li>{{#link-to 'questions.my'}}My Questions{{/link-to}}</li>
+                        {{!--<li>{{#link-to 'questions.preference'}}My Preference{{/link-to}}</li>--}}
+                    </ul>
+                </li>
+                {{#if session.isAuthenticated}}
+                    <li>
+                        {{#link-to 'feedback.new'}}
+                            <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+                            Feedback
+                        {{/link-to}}
+                    </li>
+                {{/if}}
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#">
+                        <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+                        {{baseLocation}}
+                        {{!--{{input class="form-control" value=baseLocation size="15" readonly="true"}}--}}
                         {{!--{{jqui-autocomplete value=baseLocation size="15" class="superZ" source=locations}}--}}
                     </a>
                 </li>
                 {{#if session.isAuthenticated}}
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 
-                        {{session.user.firstName}}&nbsp;&nbsp;
-                        <img src={{session.profilePicture}} height="32" width="32" style="margin-bottom:-15px; margin-top:-15px" alt="avatar" />
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li>
-                        	{{#link-to 'user.account'}}
-                        		<span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
-                        		Account
-                        	{{/link-to}}</li>
-                        <li>
-                        	{{#link-to 'user.profile'}}
-                        		<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                        		Profile
-                        	{{/link-to}}
-                        </li>
-                        <li>
-                        	{{#link-to 'inbox.browse'}}
-                        		<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-                        		Inbox
-                        	{{/link-to}}</li>
-                        <li>
-                        	<a href="#" {{ action 'openUserModal' 'user.rewards' }}>
-                        		<span class="glyphicon glyphicon-gift" aria-hidden="true"></span>
-                        		Rewards
-                        	</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                        	<a style="cursor:pointer" {{ action 'invalidateSession' }}>
-                        		<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
-                        		Logout
-                        	</a>
-                        </li>
-                    </ul>
-                </li>
+                            {{session.user.firstName}}&nbsp;&nbsp;
+                            <img src={{session.profilePicture}} height="32" width="32"
+                                 style="margin-bottom:-15px; margin-top:-15px" alt="avatar"/>
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                {{#link-to 'user.account'}}
+                                    <span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
+                                    Account
+                                {{/link-to}}</li>
+                            <li>
+                                {{#link-to 'user.profile'}}
+                                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                    Profile
+                                {{/link-to}}
+                            </li>
+                            <li>
+                                {{#link-to 'inbox.browse'}}
+                                    <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                                    Inbox
+                                {{/link-to}}</li>
+                            <li>
+                                <a href="#" {{ action 'openUserModal' 'user.rewards' }}>
+                                    <span class="glyphicon glyphicon-gift" aria-hidden="true"></span>
+                                    Rewards
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a style="cursor:pointer" {{ action 'invalidateSession' }}>
+                                    <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+                                    Logout
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                 {{else}}
-                <li>
-                    {{#link-to 'login'}}
-                    	<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
-                    	Login
-                    {{/link-to}}
-                </li>
+                    <li>
+                        {{#link-to 'login'}}
+                            <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+                            Login
+                        {{/link-to}}
+                    </li>
                 {{/if}}
             </ul>
         </div>
@@ -155,9 +157,11 @@
     {{outlet}}
 </div>
 {{!--
-<footer class="blog-footer">
-    <div class="container">
-        <p><a href="http://www.adarp.com" target="_blank">Siwimi LLC</a></p>
-    </div>
-</footer>
---}}
+    <footer class="footer">
+        <div class="container-fluid">
+            <p><a href="http://www.adarp.com" target="_blank">Siwimi LLC</a></p>
+        </div>
+    </footer>
+   --}}
+
+

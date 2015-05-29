@@ -8,7 +8,7 @@ $navigtion-font-size: 17px;
 body {
     padding-top: 50px; /* needed so content wont overlap with bootstrap's fixed nav bar */
     font-family: 'Open Sans', sans-serif;
-    margin-bottom: 60px; /* Margin bottom by footer height */
+    margin-bottom: 0px; /* Margin bottom by footer height */
 }
 
 .cover-page {
@@ -249,6 +249,9 @@ Bootstrap CSS rules overwrite
     text-align: center;
     background-color: #222;
     border-top: 1px solid #e5e5e5;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
 }
 
 .vote-up {

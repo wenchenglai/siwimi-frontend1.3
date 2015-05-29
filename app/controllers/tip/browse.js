@@ -11,11 +11,13 @@ export default Ember.Controller.extend(TipDataMixin, PagingMixin, {
     decoratedPageSize: function(key, value, previousValue) {
         // our show page drop down shows "show 10" instead of "10"
         if (arguments.length > 1) {
-          if (value) {
-            this.set('pageSize', value.substring(5, 7));
-          } else {
-            this.set('pageSize', 10);
-          }
+            if (value) {
+                if (value !== previousValue) {
+                    this.set('pageSize', value.substring(5, 7));
+                }
+            } else {
+                this.set('pageSize', 10);
+            }
         }
         return "Show " + this.get('pageSize');
     }.property('pageSize'),
