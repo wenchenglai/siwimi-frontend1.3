@@ -13,7 +13,7 @@ export default Ember.Route.extend({
         },
         pageNumber: {
             refreshModel: true
-        },
+        }
     },
 
     model: function (params) {
@@ -88,7 +88,7 @@ export default Ember.Route.extend({
         loadByPageNumber: function (pageNumber) {
             var self = this;
 
-            if (pageNumber !== self.get('pageNumber')) {
+            if (pageNumber !== self.get('controller.pageNumber')) {
                 self.set('pageNumber', pageNumber);
                 self._reload();
             }
@@ -99,12 +99,33 @@ export default Ember.Route.extend({
 
             //
             if (newSize) {
-                if (newSize !== self.get('pageSize')) {
+                if (newSize !== self.get('controller.pageSize')) {
                     self.get('controller').set('pageSize', newSize);
                 }
             }
             self._reload();
-        }
+        },
 
+        loadNextPage: function () {
+            var self = this;
+
+            self.incrementProperty('controller.pageNumber');
+            self.model().then(function(records) {
+                //var data = self.controller.get('content');
+                //data.addObject(records);
+                self.controller.set('content', records);
+            });
+        },
+
+        loadPrevPage: function () {
+            var self = this;
+
+            self.decrementProperty('controller.pageNumber');
+            self.model().then(function(records) {
+                //var data = self.controller.get('content');
+                //data.addObject(records);
+                self.controller.set('content', records);
+            });
+        }
     }
 });
