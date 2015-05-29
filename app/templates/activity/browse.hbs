@@ -1,51 +1,51 @@
 <div class="row row-gutter-bottom row-gutter-top">
     <div class="col-xs-12">
 
-      {{#single-select group="type" btnClassName="btn btn-cys" onSelectedHookAction="loadByType" selectedValue=currentType value="all"}}
+      {{#single-select group="type" btnClassName="btn btn-cys" onSelectedHookAction="loadByType" selectedValue=type value="all"}}
           All
       {{/single-select}}
 
-      {{#single-select group="type" btnClassName="btn btn-cys" onSelectedHookAction="loadByType" selectedValue=currentType value="birthday"}}
+      {{#single-select group="type" btnClassName="btn btn-cys" onSelectedHookAction="loadByType" selectedValue=type value="birthday"}}
           Birthdays
       {{/single-select}}
 
-      {{#single-select group="type" btnClassName="btn btn-cys" onSelectedHookAction="loadByType" selectedValue=currentType value="concert"}}
+      {{#single-select group="type" btnClassName="btn btn-cys" onSelectedHookAction="loadByType" selectedValue=type value="concert"}}
           Concerts
       {{/single-select}}
 
-      {{#single-select group="type" btnClassName="btn btn-cys" onSelectedHookAction="loadByType" selectedValue=currentType value="farm"}}
+      {{#single-select group="type" btnClassName="btn btn-cys" onSelectedHookAction="loadByType" selectedValue=type value="farm"}}
           Farm Activity
       {{/single-select}}
 
-      {{#single-select group="type" btnClassName="btn btn-cys" onSelectedHookAction="loadByType" selectedValue=currentType value="storytelling"}}
+      {{#single-select group="type" btnClassName="btn btn-cys" onSelectedHookAction="loadByType" selectedValue=type value="storytelling"}}
           Storytelling
       {{/single-select}}
 
-      {{#single-select group="type" btnClassName="btn btn-cys" onSelectedHookAction="loadByType" selectedValue=currentType value="movie"}}
+      {{#single-select group="type" btnClassName="btn btn-cys" onSelectedHookAction="loadByType" selectedValue=type value="movie"}}
           Movies
       {{/single-select}}
 
-      {{#single-select group="type" btnClassName="btn btn-cys" onSelectedHookAction="loadByType" selectedValue=currentType value="museum"}}
+      {{#single-select group="type" btnClassName="btn btn-cys" onSelectedHookAction="loadByType" selectedValue=type value="museum"}}
           Museums
       {{/single-select}}
 
-      {{#single-select group="type" btnClassName="btn btn-cys" onSelectedHookAction="loadByType" selectedValue=currentType value="playdate"}}
+      {{#single-select group="type" btnClassName="btn btn-cys" onSelectedHookAction="loadByType" selectedValue=type value="playdate"}}
           Play Dates
       {{/single-select}}
 
-      {{#single-select group="type" btnClassName="btn btn-cys" onSelectedHookAction="loadByType" selectedValue=currentType value="festival"}}
+      {{#single-select group="type" btnClassName="btn btn-cys" onSelectedHookAction="loadByType" selectedValue=type value="festival"}}
           Festival
       {{/single-select}}
 
-      {{#single-select group="type" btnClassName="btn btn-cys" onSelectedHookAction="loadByType" selectedValue=currentType value="show"}}
+      {{#single-select group="type" btnClassName="btn btn-cys" onSelectedHookAction="loadByType" selectedValue=type value="show"}}
           Shows
       {{/single-select}}
 
-      {{#single-select group="type" btnClassName="btn btn-cys" onSelectedHookAction="loadByType" selectedValue=currentType value="sport"}}
+      {{#single-select group="type" btnClassName="btn btn-cys" onSelectedHookAction="loadByType" selectedValue=type value="sport"}}
           Sports
       {{/single-select}}
 
-      {{#single-select group="type" btnClassName="btn btn-cys" onSelectedHookAction="loadByType" selectedValue=currentType value="misc"}}
+      {{#single-select group="type" btnClassName="btn btn-cys" onSelectedHookAction="loadByType" selectedValue=type value="misc"}}
           Misc
       {{/single-select}}
     </div>
@@ -54,23 +54,23 @@
 <div class="row row-gutter-bottom">
     <div class="col-xs-12 col-md-8">
 
-      {{#single-select group="status" btnClassName="btn-cys-secondary" onSelectedHookAction="loadByStatus" selectedValue=currentStatus value="all"}}
+      {{#single-select group="status" btnClassName="btn-cys-secondary" onSelectedHookAction="loadByStatus" selectedValue=status value="all"}}
           All
       {{/single-select}}
 
-      {{#single-select group="status" btnClassName="btn-cys-secondary" onSelectedHookAction="loadByStatus" selectedValue=currentStatus value="current"}}
+      {{#single-select group="status" btnClassName="btn-cys-secondary" onSelectedHookAction="loadByStatus" selectedValue=status value="current"}}
           Current
       {{/single-select}}
 
-      {{#single-select group="status" btnClassName="btn-cys-secondary" onSelectedHookAction="loadByStatus" selectedValue=currentStatus value="upcoming"}}
+      {{#single-select group="status" btnClassName="btn-cys-secondary" onSelectedHookAction="loadByStatus" selectedValue=status value="upcoming"}}
           Upcoming
       {{/single-select}}
 
-      {{#single-select group="status" btnClassName="btn-cys-secondary" onSelectedHookAction="loadByStatus" selectedValue=currentStatus value="past"}}
+      {{#single-select group="status" btnClassName="btn-cys-secondary" onSelectedHookAction="loadByStatus" selectedValue=status value="past"}}
           Past
       {{/single-select}}
 
-      {{#single-select group="status" btnClassName="btn-cys-secondary" onSelectedHookAction="loadByStatus" selectedValue=currentStatus value="timeless"}}
+      {{#single-select group="status" btnClassName="btn-cys-secondary" onSelectedHookAction="loadByStatus" selectedValue=status value="timeless"}}
           Timeless
       {{/single-select}}
 
@@ -154,7 +154,7 @@
                     </a>
                 </li>
                 {{#each page in pages}}
-                    <li><a {{action "loadPage" page}}>{{page}}</a></li>
+                    <li><a {{action "loadByPageNumber" page}}>{{page}}</a></li>
                 {{/each}}
                 <li class={{isDisabled}}>
                     <a {{action "loadNextPage"}} aria-label="Next">

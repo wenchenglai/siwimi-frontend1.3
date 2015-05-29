@@ -1,4 +1,4 @@
-  import Ember from 'ember';
+import Ember from 'ember';
 import StatesDataMixin from '../mixins/states-data';
 
 export default
@@ -9,10 +9,6 @@ Ember.Controller.extend(StatesDataMixin, {
     alertTitle: "",
     alertMessage: "",
     alertType: "alert-danger",
-    baseCity: "",
-    baseState: "",
-    baseLatitude: 0,
-    baseLongitude: 0,
     locations: ['Ann Arbor, MI', "Abb, MI", "ACC, MI", "ADD, CA"],
 
     baseLocation: function(key, value, previousValue) {

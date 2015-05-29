@@ -1,11 +1,22 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-    currentStatus: "upcoming",
-    currentType: "all",
-    pageNumber: 1,
+    queryParams: {
+        status: {
+            refreshModel: true
+        },
+        type: {
+            refreshModel: true
+        },
+        pageSize: {
+            refreshModel: true
+        },
+        pageNumber: {
+            refreshModel: true
+        },
+    },
 
-    model: function () {
+    model: function (params) {
         var self = this,
             appController = self.controllerFor('application'),
             session = self.get('session'),
@@ -16,16 +27,15 @@ export default Ember.Route.extend({
                 pageSize = self.get('controller.pageSize');
             }
 
-        return self.store.find('activity',
-            {
-                status: self.get('currentStatus'),
-                type: self.get('currentType'),
+            return self.store.find('activity', Ember.merge(params, {
+                //status: self.get('currentStatus'),
+                //type: self.get('currentType'),
                 requester: userId,
                 longitude: appController.get('baseLongitude'),
                 latitude: appController.get('baseLatitude'),
-                per_page: pageSize,
-                page: self.get('pageNumber')
-            });
+                //per_page: pageSize,
+                //page: self.get('pageNumber')
+            }));
     },
 
     setupController: function(controller, model) {
@@ -33,11 +43,13 @@ export default Ember.Route.extend({
         controller.set('model', model);
         if (model.get('length') > 0) {
             var totalRecordCount = model.get('content')[0].get('queryCount');
-            controller.set('queryCount', totalRecordCount);
+            if (totalRecordCount != controller.get('queryCount')) {
+                controller.set('queryCount', totalRecordCount);
+            }
         }
     },
 
-    reload: function() {
+    _reload: function() {
         var self = this;
         self.model().then(function(records) {
             var recordArray = records.get('content'),
@@ -62,52 +74,36 @@ export default Ember.Route.extend({
         loadByStatus: function (status) {
             var self = this;
 
-            self.set('currentStatus', status);
-            self.reload();
+            self.set('status', status);
+            self._reload();
         },
 
         loadByType: function (type) {
             var self = this;
 
-            self.set('currentType', type);
-            self.reload();
+            self.set('type', type);
+            self._reload();
         },
 
-        loadNextPage: function () {
-            var self = this,
-                currentPageCount = self.controller.get('pages').length;
-
-            if (self.get('pageNumber') < currentPageCount) {
-                self.incrementProperty('pageNumber');
-                self.reload();
-            }
-        },
-
-        loadPrevPage: function () {
-            var self = this;
-
-            if (self.get('pageNumber') > 1 ) {
-                self.decrementProperty('pageNumber');
-                self.reload();
-            }
-        },
-
-        loadPage: function (pageNumber) {
+        loadByPageNumber: function (pageNumber) {
             var self = this;
 
             if (pageNumber !== self.get('pageNumber')) {
                 self.set('pageNumber', pageNumber);
-                self.reload();
+                self._reload();
             }
         },
 
-        loadPageOnPageSizeChange: function (newSize) {
+        loadOnPageSizeChange: function (newSize) {
             var self = this;
 
+            //
             if (newSize) {
-                self.get('controller').set('pageSize', newSize);
+                if (newSize !== self.get('pageSize')) {
+                    self.get('controller').set('pageSize', newSize);
+                }
             }
-            self.reload();
+            self._reload();
         }
 
     }
