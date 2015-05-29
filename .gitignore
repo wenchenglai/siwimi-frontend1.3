@@ -19,3 +19,4 @@ testem.log
 .idea
 app/.idea
 *.csv
+app/.idea/workspace.xml
