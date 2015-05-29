@@ -7,9 +7,11 @@ export default Ember.Route.extend({
                 session = self.get('session');
 
             var query = {
-                longitude: session.get('longitude'),
-                latitude: session.get('latitude'),
+                longitude: 97,
+                latitude: -41,
                 distance: self.controller.get('distance'),
+                toys: self.controller.get('toys'),
+                needs: self.controller.get('needs'),
                 languages: self.controller.get('languages'),
                 fromAge: self.controller.get('fromAge'),
                 toAge: self.controller.get('toAge')
