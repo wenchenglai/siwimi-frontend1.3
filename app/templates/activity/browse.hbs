@@ -154,7 +154,7 @@
                     </a>
                 </li>
                 {{#each page in pages}}
-                    <li><a {{action "loadByPageNumber" page}}>{{page}}</a></li>
+                    <li class={{page.className}}><a {{action "loadByPageNumber" page.text}}>{{page.text}}</a></li>
                 {{/each}}
                 <li class={{isDisabled}}>
                     <a {{action "loadNextPage"}} aria-label="Next">

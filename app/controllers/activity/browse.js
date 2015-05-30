@@ -10,6 +10,11 @@ export default Ember.Controller.extend(CommonDataMixin, ActivityDataMixin, Pagin
     pageNumber: 1,
     pageSize: 10,
     queryCount: 0,
+    pagesArray: [Ember.Object.create({text: 1, className: "active"})],
+
+    pages: function() {
+        return this.get('pagesArray');
+    }.property('pagesArray.@each.className'),
 
     decoratedPageSize: function(key, value, previousValue) {
         // our show page size drop down shows "show 10" instead of "10"
@@ -51,8 +56,16 @@ export default Ember.Controller.extend(CommonDataMixin, ActivityDataMixin, Pagin
     //}.observes('type'),
 
     // returns the paginatio array 1,2,3... depends total items and page size
-    pages: function() {
-        var size = this.get('queryCount') / this.get('pageSize') + 1;
-        return window._.range(1, size);
-    }.property('queryCount', 'pageSize')
+    createPages: function() {
+        var self = this,
+            size = self.get('queryCount') / self.get('pageSize') + 1,
+            range = window._.range(1, size),
+            pagesArray = self.get('pagesArray');
+
+        pagesArray.length = 0;
+        for (let i of range ) {
+            var obj = Ember.Object.create({text: i, className: self.get('pageNumber') === i ? "active": ""});
+            pagesArray.pushObject(obj);
+        }
+    }.observes('queryCount', 'pageSize')
 });

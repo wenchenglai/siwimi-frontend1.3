@@ -168,9 +168,12 @@ Bootstrap CSS rules overwrite
 }
 
 .pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus {
-    font-weight: bold;
-  background-color: $primary-control-color;
-  border-color: $primary-control-color;
+/*    font-weight: bold;
+  background-color: $primary-control-color;*/
+  color: $primary-control-color;
+  border: 2px solid $primary-control-color;
+  background-color: #fff;
+  font-size: 19px;
 }
 
 .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {

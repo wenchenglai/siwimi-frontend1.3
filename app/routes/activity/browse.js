@@ -90,6 +90,8 @@ export default Ember.Route.extend({
 
             if (pageNumber !== self.get('controller.pageNumber')) {
                 self.set('controller.pageNumber', pageNumber);
+                var array = self.get('controller.pagesArray');
+                array[pageNumber].className = "active";
                 //self._reload();
             }
         },
