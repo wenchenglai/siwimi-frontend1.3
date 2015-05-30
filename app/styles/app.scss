@@ -161,9 +161,16 @@ input[type="radio"] {
 /*
 Bootstrap CSS rules overwrite
 */
+
 .navbar-nav > li > a {
+  font-weight: bold;
+  font-size: $navigtion-font-size;
+}
+
+.pagination > li > a:hover, .pagination > li > span:hover, .pagination > li > a:focus, .pagination > li > span:focus {
     font-weight: bold;
-    font-size: $navigtion-font-size;
+  background-color: $primary-control-color;
+  border-color: $primary-control-color;
 }
 
 .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {

@@ -89,8 +89,8 @@ export default Ember.Route.extend({
             var self = this;
 
             if (pageNumber !== self.get('controller.pageNumber')) {
-                self.set('pageNumber', pageNumber);
-                self._reload();
+                self.set('controller.pageNumber', pageNumber);
+                //self._reload();
             }
         },
 
