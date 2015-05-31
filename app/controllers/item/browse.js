@@ -1,11 +1,15 @@
 import Ember from 'ember';
 import CommonDataMixin from '../../mixins/common-data';
 import ItemDataMixin from '../../mixins/item-data';
+import PagingMixin from '../../mixins/paging';
 
-export default Ember.ArrayController.extend(CommonDataMixin, ItemDataMixin, {
+export default Ember.Controller.extend(CommonDataMixin, ItemDataMixin, PagingMixin, {
+    queryParams: ['type', 'status', 'pageNumber', 'pageSize', 'condition'],
+    type: "all",
+    status: "all",
+    condition: "all",
     showAdvancedSearch: false,
     searchToggleText: "More Filters",
-    pageSize: 5,
 
     actions: {
         toggleAdvancedSearch: function() {

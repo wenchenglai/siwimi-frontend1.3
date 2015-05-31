@@ -1,92 +1,51 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-    currentStatus: "all",
-    currentType: "all",
-    currentCondition: "all",
-    pageNumber: 1,
-
-    model: function (status, type, condition) {
-        var self = this,
-            session = self.get('session'),
-            userId = self.get('session.id'),
-            pageSize = 5;
-
-        if (self.get('controller.pageSize'))
-            pageSize = self.get('controller.pageSize');
-
-        if (typeof(status) !== "string") {
-            status = 'all';
+    queryParams: {
+        status: {
+            refreshModel: true
+        },
+        type: {
+            refreshModel: true
+        },
+        pageSize: {
+            refreshModel: true
+        },
+        pageNumber: {
+            refreshModel: true
+        },
+        condition: {
+            refreshModel: true
         }
-        
-        if (typeof(type) !== "string") {
-            type = 'all';
-        }   
-
-        if (typeof(condition) !== "string") {
-            condition = 'all';
-        }   
-
-        return self.store.find('item', {
-            status: status,
-            type: type,
-            condition: condition,
-            requester: userId,
-            longitude: session.get('longitude'),
-            latitude: session.get('latitude'),
-            per_page: pageSize,
-            page: self.get('pageNumber')
-        });
     },
 
-    actions: {
-        loadByStatus: function (status) {
-            var self = this;
+    model: function (params) {
+        var self = this,
+            appController = self.controllerFor('application'),
+            userId = self.get('session.id');
 
-            self.set('currentStatus', status);
-            self.model(status, self.get('currentType'), self.get('currentCondition')).then(function(records) {
-                self.get('controller').set('content', records);
-            });
-        },
+        return self.store.find('item', Ember.merge(params, {
+            requester: userId,
+            longitude: appController.get('baseLongitude'),
+            latitude: appController.get('baseLatitude')
+        }));
+    },
 
-        loadByCondition: function (condition) {
-            var self = this;
+    setupController: function(controller, model) {
+        // we get the total item count so we can generate the right pagination.
+        controller.set('model', model);
+        if (model.get('length') > 0) {
+            var totalRecordCount = model.get('content')[0].get('queryCount');
+            if (totalRecordCount != controller.get('queryCount')) {
+                controller.set('queryCount', totalRecordCount);
+            }
+        }
+    },
 
-            self.set('currentCondition', condition);
-            self.model(self.get('currentStatus'), self.get('currentType'), condition).then(function(records) {
-                self.get('controller').set('content', records);
-            });
-        },
-        
-        loadByType: function (type) {
-            var self = this;
-
-            self.set('currentType', type);
-            self.model(self.get('currentStatus'), type, self.get('currentCondition')).then(function(records) {
-                self.get('controller').set('content', records);
-            });        	
-        },
-
-        loadNextPage: function (type) {
-            var self = this;
-
-            self.incrementProperty('pageNumber');
-            self.model().then(function(records) {
-                //var data = self.controller.get('content');
-                //data.addObject(records);
-                self.controller.set('content', records);
-            });
-        },
-
-        loadPrevPage: function (type) {
-            var self = this;
-
-            self.decrementProperty('pageNumber');
-            self.model().then(function(records) {
-                //var data = self.controller.get('content');
-                //data.addObject(records);
-                self.controller.set('content', records);
-            });
+    resetController: function (controller, isExiting, transition) {
+        if (isExiting) {
+            // isExiting would be false if only the route's model was changing
+            controller.set('pageNumber', 1);
         }
     }
 });
