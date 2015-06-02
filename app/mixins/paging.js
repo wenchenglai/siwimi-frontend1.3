@@ -6,6 +6,7 @@ export default Ember.Mixin.create({
     pageSize: 10,
     queryCount: 0, // total query count from this specific query
     pagesArray: [], // hold the pagination number sequence
+    keepPageNumber: false, // due to a condition when user was in high page number, but change other filters (e.g. type or status) that leaves empty model
 
     // we need to watch whenever the pagination array changes (either add/remove new pages, or change active state
     pages: function() {
@@ -70,6 +71,7 @@ export default Ember.Mixin.create({
         }
     }.observes('queryCount', 'pageSize'),
 
+    // hightlight the selected page number
     _markPaginationActive: function(pageNumber) {
         var self = this,
             array = self.get('pagesArray');
@@ -89,6 +91,7 @@ export default Ember.Mixin.create({
 
             if (pageNumber !== self.get('pageNumber')) {
                 self.set('pageNumber', pageNumber);
+                self.set('keepPageNumber', true);
                 self._markPaginationActive(pageNumber);
             }
         },
@@ -96,12 +99,14 @@ export default Ember.Mixin.create({
         loadNextPage: function () {
             var self = this;
 
+            self.set('keepPageNumber', true);
             self._markPaginationActive(self.incrementProperty('pageNumber'));
         },
 
         loadPrevPage: function () {
             var self = this;
 
+            self.set('keepPageNumber', true);
             self._markPaginationActive(self.decrementProperty('pageNumber'));
         }
     }

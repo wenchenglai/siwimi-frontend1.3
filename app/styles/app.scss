@@ -50,6 +50,13 @@ body {
   text-align: center;
 }
 
+.navbarLocationBar {
+  color: white;
+  padding: 15px;
+  font-weight: bold;
+  font-size: 17px;
+}
+
 input[type="radio"] {
   background-color: $primary-control-color;
 }
@@ -161,6 +168,12 @@ input[type="radio"] {
 /*
 Bootstrap CSS rules overwrite
 */
+
+/*
+.navbar-nav > li > a.active {
+  background-color: white;
+  padding-bottom: 19px;
+}*/
 
 .navbar-nav > li > a {
   font-weight: bold;

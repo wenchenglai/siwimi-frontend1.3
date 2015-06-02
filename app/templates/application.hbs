@@ -39,7 +39,7 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle active" data-toggle="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
                         Event
                         <span class="caret"></span>
@@ -88,12 +88,10 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="#">
+                    <div class="navbarLocationBar">
                         <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
-                        {{baseLocation}}
-                        {{!--{{input class="form-control" value=baseLocation size="15" readonly="true"}}--}}
-                        {{!--{{jqui-autocomplete value=baseLocation size="15" class="superZ" source=locations}}--}}
-                    </a>
+                      {{baseLocation}}
+                    </div>
                 </li>
                 {{#if session.isAuthenticated}}
                     <li class="dropdown">
@@ -116,17 +114,20 @@
                                     Profile
                                 {{/link-to}}
                             </li>
+                            {{!--
                             <li>
                                 {{#link-to 'inbox.browse'}}
                                     <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
                                     Inbox
-                                {{/link-to}}</li>
+                                {{/link-to}}
+                            </li>
+
                             <li>
                                 <a href="#" {{ action 'openUserModal' 'user.rewards' }}>
                                     <span class="glyphicon glyphicon-gift" aria-hidden="true"></span>
                                     Rewards
                                 </a>
-                            </li>
+                            </li> --}}
                             <li class="divider"></li>
                             <li>
                                 <a style="cursor:pointer" {{ action 'invalidateSession' }}>

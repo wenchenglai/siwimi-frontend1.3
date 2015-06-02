@@ -21,6 +21,10 @@ export default Ember.Route.extend({
             appController = self.controllerFor('application'),
             userId = self.get('session.id');
 
+            if (!self.get('controller.keepPageNumber')) {
+                params.pageNumber = 1;
+            }
+
             return self.store.find('activity', Ember.merge(params, {
                 requester: userId,
                 longitude: appController.get('baseLongitude'),
@@ -31,6 +35,7 @@ export default Ember.Route.extend({
     setupController: function(controller, model) {
         // we get the total item count so we can generate the right pagination.
         controller.set('model', model);
+        controller.set('keepPageNumber', false);
         if (model.get('length') > 0) {
             var totalRecordCount = model.get('content')[0].get('queryCount');
             if (totalRecordCount != controller.get('queryCount')) {

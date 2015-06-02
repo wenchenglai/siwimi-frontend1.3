@@ -1,21 +1,17 @@
-<div class="row row-gutter-bottom">
-    <div class="col-xs-10 col-xs-offset-2">
+<div class="row row-gutter-bottom row-gutter-top">
+    <div class="col-xs-12">
         <h1>We welcome your feedback</h1>
-        <h3>You can tell us any feature improvement.</h3>
-        <h3>Or you can suggest features that you want.</h3>
+        <h3>You can tell us any feature improvement. Or you can suggest features that you want.</h3>
     </div>
 </div>
 <div class="row row-gutter-bottom">
-    <div class="col-xs-2">
-
-    </div>
-    <div class="col-xs-10">
-        {{textarea class="edit_box" rows="10" cols="60" value=model.description placeholder="We welcome any suggestions!"}}
+    <div class="col-xs-12">
+        {{textarea class="edit_box" rows="10" cols="60" value=model.description placeholder="Please type your suggestions here!"}}
     </div>
 </div>
 
 <div class="row row-gutter-bottom">
-    <div class="col-xs-10 col-xs-offset-2">
+    <div class="col-xs-12">
         <button class="btn btn-cys" type="button" {{action "send" }} disabled={{disabled}}>Send</button>
         {{link-to 'Cancel' 'application' class="btn btn-link" }}
     </div>

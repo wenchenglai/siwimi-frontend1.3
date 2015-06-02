@@ -34,6 +34,7 @@ export default Ember.Route.extend({
     setupController: function(controller, model) {
         // we get the total item count so we can generate the right pagination.
         controller.set('model', model);
+        controller.set('keepPageNumber', false);
         if (model.get('length') > 0) {
             var totalRecordCount = model.get('content')[0].get('queryCount');
             if (totalRecordCount != controller.get('queryCount')) {
