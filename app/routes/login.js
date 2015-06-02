@@ -8,7 +8,7 @@ export default Ember.Route.extend(SessionSetupMixin, {
                 session = self.get('session');
 
             session.authenticate('authenticator:facebook', {}).then(function () {
-                self._setLongitudeAndLatitudeInSession(session, session.get('user'));
+                //self._setLongitudeAndLatitudeInSession(session, session.get('user'));
                 self._setProfilePictureInSession(session, session.get('user'));
             }, function (error) {
                 self.send('error', error);
@@ -24,7 +24,7 @@ export default Ember.Route.extend(SessionSetupMixin, {
                 host = self.store.adapterFor('application').get('host');
 
             session.authenticate('authenticator:custom', {email: email, password: password, host: host}).then(function () {
-                self._setLongitudeAndLatitudeInSession(session, session.get('user'));
+                //self._setLongitudeAndLatitudeInSession(session, session.get('user'));
                 self._setProfilePictureInSession(session, session.get('user'));
             }, function (error) {
                 self.send('error', error);

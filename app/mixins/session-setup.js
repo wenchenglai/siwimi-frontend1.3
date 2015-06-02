@@ -22,7 +22,7 @@ export default Ember.Mixin.create(StatesDataMixin, {
                 baseZipCode = family.get('zipCode');
             }
         }
-        
+
         if (member.get('location') && longitude !== 0.0) {
             longitude = member.get('location')[0];
             latitude = member.get('location')[1];

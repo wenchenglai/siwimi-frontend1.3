@@ -108,9 +108,8 @@ export default Base.extend({
 						store.find('member', fbResponse.authResponse.userID).then(function (member) {
 							//var adapter = store.adapterFor('application'),
 							//	userObj = adapter.serialize(member);
-
 							resolve({
-								user: member,
+								user: member.toJSON(),
 								//currentUser: userObj,
 								id: member.id,
 								accessToken: fbResponse.authResponse.accessToken,

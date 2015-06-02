@@ -2,32 +2,55 @@ import Ember from 'ember';
 import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin';
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
-    model: function (status) {
+    queryParams: {
+        status: {
+            refreshModel: true
+        },
+        type: {
+            refreshModel: true
+        },
+        pageSize: {
+            refreshModel: true
+        },
+        pageNumber: {
+            refreshModel: true
+        }
+    },
+
+    model: function (params) {
         var self = this,
-            session = self.get('session'),
+            appController = self.controllerFor('application'),
             userId = self.get('session.id');
 
-        if (typeof(status) !== "string") {
-            status = 'all';
-        }
+        return this.store.find('tip', Ember.merge(params, {
+            requester: userId,
+            longitude: appController.get('baseLongitude'),
+            latitude: appController.get('baseLatitude')
+        }));
+    },
 
-        return self.store.find('tip', { status: status, creator: userId, requester: userId, longitude: session.get('longitude'), latitude: session.get('latitude') });
+    setupController: function (controller, model) {
+        // we get the total item count so we can generate the right pagination.
+        controller.set('model', model);
+        if (model.get('length') > 0) {
+            var totalRecordCount = model.get('content')[0].get('queryCount');
+            if (totalRecordCount != controller.get('queryCount')) {
+                controller.set('queryCount', totalRecordCount);
+            }
+        }
+    },
+
+    resetController: function (controller, isExiting, transition) {
+        if (isExiting) {
+            // isExiting would be false if only the route's model was changing
+            controller.set('pageNumber', 1);
+        }
     },
 
     actions: {
-        loadData: function (status) {
-            var self = this;
-
-            self.model(status).then(function(records) {
-                self.get('controller').set('content', records);
-            });
-        },
-
         delete: function (id) {
             this.store.find('tip', id).then(function (record) {
                 record.destroyRecord();
-                //record.deleteRecord();
-                //record.save();
             });
         }
     }

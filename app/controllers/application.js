@@ -29,13 +29,26 @@ Ember.Controller.extend(StatesDataMixin, {
             session = self.get('session');
 
         if (session.isAuthenticated) {
-            if (!Ember.isEmpty(session.get('baseCity')) && !Ember.isEmpty(session.get('baseCity'))) {
-                self.set('baseCity', session.get('baseCity'));
-                self.set('baseState', session.get('baseState'));
+            var user = session.get('user'),
+                location = user.location,
+                city = user.city,
+                state = user.state;
+
+            if (location) {
+                self.set('baseLongitude', location[0]);
+                self.set('baseLatitude', location[1]);
+            }
+
+            if (city && state) {
+                self.set('baseCity', city);
+                self.set('baseState', state);
             }
         }
 
-        if (Ember.isEmpty(self.get('baseCity')) || Ember.isEmpty(self.get('baseCity'))) {
+        if (Ember.isEmpty(self.get('baseCity')) ||
+            Ember.isEmpty(self.get('baseState')) ||
+            Ember.isEmpty(self.get('baseLongitude')) ||
+            Ember.isEmpty(self.get('baseLatitude'))) {
             // HTML 5 Geolocation will return ONLY longitude and latitude
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function (position) {

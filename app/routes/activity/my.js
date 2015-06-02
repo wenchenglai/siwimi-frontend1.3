@@ -2,44 +2,52 @@ import Ember from 'ember';
 import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin';
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
-	currentStatus: "all",
-	currentType: "all",
-	
-    model: function (status, type) {
+    queryParams: {
+        status: {
+            refreshModel: true
+        },
+        type: {
+            refreshModel: true
+        },
+        pageSize: {
+            refreshModel: true
+        },
+        pageNumber: {
+            refreshModel: true
+        }
+    },
+
+    model: function (params) {
         var self = this,
-            session = self.get('session'),
+            appController = self.controllerFor('application'),
             userId = self.get('session.id');
 
-        if (typeof(status) !== "string") {
-            status = 'all';
-        }
-        
-        if (typeof(type) !== "string") {
-            type = 'all';
-        }        
+        return self.store.find('activity', Ember.merge(params, {
+            requester: userId,
+            longitude: appController.get('baseLongitude'),
+            latitude: appController.get('baseLatitude')
+        }));
+    },
 
-        return self.store.find('activity', { status: status, type: type, creator: userId, requester: userId, longitude: session.get('longitude'), latitude: session.get('latitude') });
+    setupController: function(controller, model) {
+        // we get the total item count so we can generate the right pagination.
+        controller.set('model', model);
+        if (model.get('length') > 0) {
+            var totalRecordCount = model.get('content')[0].get('queryCount');
+            if (totalRecordCount != controller.get('queryCount')) {
+                controller.set('queryCount', totalRecordCount);
+            }
+        }
+    },
+
+    resetController: function (controller, isExiting, transition) {
+        if (isExiting) {
+            // isExiting would be false if only the route's model was changing
+            controller.set('pageNumber', 1);
+        }
     },
 
     actions: {
-        loadByStatus: function (status) {
-            var self = this;
-
-            self.set('currentStatus', status);
-            self.model(status, self.get('currentType')).then(function(records) {
-                self.get('controller').set('content', records);
-            });
-        },
-        
-        loadByType: function (type) {
-            var self = this;
-
-            self.set('currentType', type);
-            self.model(self.get('currentStatus'), type).then(function(records) {
-                self.get('controller').set('content', records);
-            });        	
-        },
-
         delete: function (id) {
             this.store.find('activity', id).then(function (record) {
                 record.destroyRecord();

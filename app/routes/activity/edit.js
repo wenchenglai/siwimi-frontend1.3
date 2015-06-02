@@ -25,7 +25,7 @@ export default Ember.Route.extend({
         },
 
         cancel: function() {
-            this.transitionTo('activity.show', this.currentModel);
+            this.transitionTo('activity.my');
         }
     }
 });
