@@ -1,3 +1,38 @@
+<div class="row row-gutter-bottom row-gutter-top">
+    <div class="col-xs-12 col-sm-3 col-md-2">
+        <label>
+            Your location:
+        </label>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+        <p class="lead">The location you've set here will be the main location for the data we present to you.</p>
+    </div>
+</div>
+<div class="row row-gutter-bottom">
+    <div class="col-xs-12 col-sm-3 col-md-2">
+        <label>
+            City:
+        </label>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+        {{input class="edit_box" size="40" value=model.city}}
+    </div>
+</div>
+<div class="row row-gutter-bottom">
+    <div class="col-xs-12 col-sm-3 col-md-2">
+        <label>
+            State:
+        </label>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+        {{input class="edit_box" size="40" value=model.state}}
+    </div>
+</div>
+<div class="row row-gutter-bottom">
+    <div class="col-xs-12 col-md-7">
+        <hr>
+    </div>
+</div>
 <div class="row row-gutter-bottom">
     <div class="col-xs-12 col-sm-offset-3 col-md-offset-2">
         <button class="btn btn-primary btn-sm" {{action "importFromFacebook" }} {{bind-attr disabled=disabledImportFacebook}}>
@@ -33,56 +68,6 @@
     </div>
     <div class="col-xs-12 col-sm-6">
         {{input class="edit_box" size="40" value=model.email}}
-    </div>
-</div>
-<div class="row row-gutter-bottom">
-    <div class="col-xs-12 col-sm-3 col-md-2">
-        <label>
-            Your location:
-        </label>
-    </div>
-    <div class="col-xs-12 col-sm-6">
-        The location you've set here will be the main location for the data we present to you.
-    </div>
-</div>
-<div class="row row-gutter-bottom">
-    <div class="col-xs-12 col-sm-3 col-md-2">
-        <label>
-            Location:
-        </label>
-    </div>
-    <div class="col-xs-12 col-sm-6">
-        {{jqui-autocomplete value=selectedLocation size="20" source=locations}}
-    </div>
-</div>
-<div class="row row-gutter-bottom">
-    <div class="col-xs-12 col-sm-3 col-md-2">
-        <label>
-            City:
-        </label>
-    </div>
-    <div class="col-xs-12 col-sm-6">
-        {{input class="edit_box" size="40" value=model.city}}
-    </div>
-</div>
-<div class="row row-gutter-bottom">
-    <div class="col-xs-12 col-sm-3 col-md-2">
-        <label>
-            State:
-        </label>
-    </div>
-    <div class="col-xs-12 col-sm-6">
-        {{input class="edit_box" size="40" value=model.state}}
-    </div>
-</div>
-<div class="row row-gutter-bottom">
-    <div class="col-xs-12 col-sm-3 col-md-2">
-        <label>
-            Zip Code:
-        </label>
-    </div>
-    <div class="col-xs-12 col-sm-6">
-        {{input class="edit_box" size="40" value=model.zipCode}}
     </div>
 </div>
 <div class="row row-gutter-bottom">

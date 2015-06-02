@@ -1,4 +1,4 @@
-<div class="row row-gutter-bottom">
+<div class="row row-gutter-bottom row-gutter-top">
     <div class="col-xs-12 col-sm-offset-3 col-md-offset-2">
         <button class="btn btn-primary btn-sm" {{action "importFromFacebook" }} {{bind-attr disabled=disabledImportFacebook}}>
             Import my profile from facebook
@@ -42,15 +42,27 @@
         </label>
     </div>
     <div class="col-xs-12 col-sm-6">
+        {{#single-select group="gender" btnClassName="btn btn-cys" selectedValue=model.gender value="male"}}
+            Male
+        {{/single-select}}
+
+        {{#single-select group="gender" btnClassName="btn btn-cys" selectedValue=model.gender value="female"}}
+            Female
+        {{/single-select}}
+        {{!--
         <div class="control-group">
             <div class="btn-group" data-toggle="buttons-radio">
 
-                {{#view "radio-button-view" selectedValue=model.gender value="male" }}Male{{/view}}
+                {{#single-select group="gender" btnClassName="btn btn-cys" selectedValue=model.gender value="male"}}
+                    Male
+                {{/single-select}}
 
-                {{#view "radio-button-view" selectedValue=model.gender value="female" }}Female{{/view}}
+                {{#single-select group="gender" btnClassName="btn btn-cys" selectedValue=model.gender value="female"}}
+                    Female
+                {{/single-select}}
 
             </div>
-        </div>
+        </div>--}}
     </div>
 </div>
 <div class="row row-gutter-bottom">

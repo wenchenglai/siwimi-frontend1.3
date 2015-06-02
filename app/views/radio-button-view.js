@@ -7,7 +7,8 @@ TODO: need to allow multi-selection on certain features
 */
 
 export default Ember.View.extend({
-    classNameBindings: [':btn', ':btn-info', ':radioButtonGroup', 'isActive:active'],
+    btnClassName: "btn-default",
+    classNameBindings: [':btn', 'btnClassName', ':radioButtonGroup', 'isActive:active'],
 
     attributeBindings: ['name', 'group'],
 

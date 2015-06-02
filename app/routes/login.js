@@ -1,7 +1,8 @@
 import Ember from 'ember';
 import SessionSetupMixin from '../mixins/session-setup';
+import UnauthenticatedRouteMixin from 'simple-auth/mixins/unauthenticated-route-mixin';
 
-export default Ember.Route.extend(SessionSetupMixin, {
+export default Ember.Route.extend(SessionSetupMixin, UnauthenticatedRouteMixin, {
     actions: {
         authenticateWithFacebook: function () {
             var self = this,

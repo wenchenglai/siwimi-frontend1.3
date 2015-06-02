@@ -1,5 +1,9 @@
-<h2>My Tips</h2>
+<div class="row row-gutter-bottom row-gutter-top">
+    <div class="col-xs-12">
+        <h2>My Tips {{#link-to 'tip.new' class="btn btn-cys"}}Add New Tip{{/link-to}} </h2>
 
+    </div>
+</div>
 <div class="row row-gutter-bottom">
     <div class="col-xs-12">
         {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="all"}}
