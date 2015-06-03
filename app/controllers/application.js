@@ -10,6 +10,21 @@ Ember.Controller.extend(StatesDataMixin, {
     alertMessage: "",
     alertType: "alert-danger",
     locations: ['Ann Arbor, MI', "Abb, MI", "ACC, MI", "ADD, CA"],
+    activeTab: "",
+
+    getCurrentPath: function() {
+        var self = this,
+            currentPath = this.get('currentPath').split('.');
+
+        if (currentPath[0] === "activity") {
+            self.set('activeTab', "activity");
+        }
+
+    }.observes("currentPath"),
+
+    isActiveTab: function() {
+
+    },
 
     // used at application HBS template
     baseLocation: function (key, value, previousValue) {

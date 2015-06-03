@@ -1,12 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.View.extend({
-  getLocations: function(request, response) {
-    var self = this;
+    isActive: function(request, response) {
+        var self = this;
+        debugger;
+        var a = self.get('controller.currentPath');
 
-    self.store.find('location', {queryText: request.term}).then(function(locations) {
-      self.set('locations', locations);
-      response(locations);
-    });
-  }.property()
+    }.property('currentPath')
 });
