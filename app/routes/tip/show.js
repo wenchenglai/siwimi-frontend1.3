@@ -5,7 +5,7 @@ export default Ember.Route.extend({
         controller.set('content', model);
 
         var query = {
-            parent: model.get('id'),
+            parent: this.get('id'),
             parentType: 'tip'
         };
         this.store.find('feedback', query).then(function(feedbacks) {
@@ -36,7 +36,7 @@ export default Ember.Route.extend({
                 }
                 model.set(voteTypeName, model.get(voteTypeName) + 1);
             });
-        });        
+        });
     },
 
     actions: {
