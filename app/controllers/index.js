@@ -11,11 +11,11 @@ export default Ember.Controller.extend({
         },
 
         login: function() {
-          this.transitionTo('login');
+          this.transitionToRoute('login');
         },
 
         signup: function() {
-          this.transitionTo('signup');
+          this.transitionToRoute('signup');
         }
     }
 });

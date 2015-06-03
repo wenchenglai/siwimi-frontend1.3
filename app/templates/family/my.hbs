@@ -1,5 +1,5 @@
 {{#if model}}
-<div class="row row-gutter-bottom">
+<div class="row row-gutter-bottom row-gutter-top">
     <div class="col-xs-12">
         {{family-list model=model apiEditFamily="goToEditFamily" apiDeleteFamily="deleteFamily" apiAddMember="goToAddMember" apiEditMember="goToEditMember" apiDeleteMember="deleteMember" apiCancel="cancelUserCreation"}}
     </div>
@@ -14,6 +14,9 @@
 </div>
 <div class="row row-gutter-bottom">
     <div class="col-xs-12">
+        <p class="lead">
+            Register as a family, so others at your neighborhood can find you.
+        </p>
         {{#link-to 'family.new' class="btn btn-primary"}}Add New Family{{/link-to}}
     </div>
 </div>

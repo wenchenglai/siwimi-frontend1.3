@@ -6,13 +6,21 @@
 </div>
 <div class="row row-gutter-bottom">
     <div class="col-xs-12">
-        {{textarea class="edit_box" rows="10" cols="60" value=model.description placeholder="Please type your suggestions here!"}}
+        <label><span class="required">*</span>Email:
+            {{input class="form-control" placeholder="" value=model.creator.email}}
+        </label>
     </div>
 </div>
-
 <div class="row row-gutter-bottom">
     <div class="col-xs-12">
-        <button class="btn btn-cys" type="button" {{action "send" }} disabled={{disabled}}>Send</button>
+        <span class="required">*</span>
+        {{textarea class="edit_box" rows="10" cols="60" value=model.feedback.description placeholder="Please type your suggestions here!"}}
+    </div>
+</div>
+<div class="row row-gutter-bottom">
+    <div class="col-xs-12">
+        <button class="btn btn-cys" type="button" {{action "save" }} disabled={{disabled}}>Send</button>
         {{link-to 'Cancel' 'application' class="btn btn-link" }}
     </div>
 </div>
+

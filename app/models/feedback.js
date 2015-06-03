@@ -12,7 +12,8 @@ export default DS.Model.extend({
     viewCount: DS.attr('number'),
     city: DS.attr('string'),
     state: DS.attr('string'),
+    isAppFeedback: DS.attr('boolean'),
 
     // data management fields
-    isDeletedRecord: DS.attr('boolean'),
+    isDeletedRecord: DS.attr('boolean')
 });
