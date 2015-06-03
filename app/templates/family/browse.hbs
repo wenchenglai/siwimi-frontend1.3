@@ -1,4 +1,8 @@
-<h2>Connect with other parents in your neighborhood</h2>
+<div class="row row-gutter-bottom row-gutter-top">
+    <div class="col-xs-12">
+        <h2>Connect with other parents in your neighborhood</h2>
+    </div>
+</div>
 
 <div class="row row-gutter-bottom">
     <div class="col-xs-12 col-md-2">
@@ -6,9 +10,9 @@
     </div>
     <div class="col-xs-12 col-md-6">
         From
-        {{view "select" class="btn dropdown-toggle" value=fromAge selection=fromAge content=allAgesYoung placeholder="Age"}}
+        {{view "select" class="btn btn-default dropdown-toggle" value=fromAge selection=fromAge content=allAgesYoung placeholder="Age"}}
         To
-        {{view "select" class="btn dropdown-toggle" value=toAge selection=toAge content=allAgesYoung}} years old.
+        {{view "select" class="btn btn-default dropdown-toggle" value=toAge selection=toAge content=allAgesYoung}} years old.
     </div>
 </div>
 
@@ -36,19 +40,19 @@
 
 <div class="row row-gutter-bottom">
     <div class="col-xs-12 col-md-2">
-        <label>Special Needs</label>
+        <label>Languages</label>
     </div>
     <div class="col-xs-12 col-md-6">
-        {{view "select" class="btn btn-default dropdown-toggle" value=needs content=allNeeds placeholder="need" multiple=true}}
+        {{view "select" class="btn btn-default dropdown-toggle" value=languages content=allLanguages placeholder="Language" multiple=true}}
     </div>
 </div>
 
 <div class="row row-gutter-bottom">
     <div class="col-xs-12 col-md-2">
-        <label>Languages</label>
+        <label>Special Needs</label>
     </div>
     <div class="col-xs-12 col-md-6">
-        {{view "select" class="btn btn-default dropdown-toggle" value=languages content=allLanguages placeholder="Language" multiple=true}}
+        {{view "select" class="btn btn-default dropdown-toggle" value=needs content=allNeeds placeholder="need" multiple=true}}
     </div>
 </div>
 {{/if}}
