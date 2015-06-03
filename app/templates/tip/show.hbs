@@ -1,10 +1,10 @@
-<div class="row row-gutter-bottom">
+<div class="row row-gutter-bottom row-gutter-top">
     <div class="col-xs-2">
-        <button type="button" class="btn btn-link btn-sm" {{action "goBack" }}>Back</button>
+        <button type="button" class="btn btn-cys" {{action "goBack" }}>Back</button>
     </div>
     <div class="col-xs-2">
         {{#if showEdit}}
-            {{#link-to 'tip.edit' model.id}}Edit{{/link-to}}
+            {{#link-to 'tip.edit' model.id class="btn btn-cys"}}Edit{{/link-to}}
         {{/if}}
     </div>
 </div>

@@ -65,7 +65,7 @@ export default DS.Model.extend({
         } else if (!Em.isEmpty(this.get('imageUrl'))) {
             return this.get('imageUrl');
         } else {
-            return '/assets/images/empty_event.jpg';
+            return '/assets/images/placeholder-events.jpg';
         }
     }.property('imageUrl', 'imageData'),
 

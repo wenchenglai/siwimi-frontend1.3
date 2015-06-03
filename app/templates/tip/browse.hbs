@@ -66,11 +66,15 @@
                             {{/link-to}}
                         </div>
                         <div class="col-xs-8 col-md-4">
-                            <h4 class="list-group-item-heading">{{#link-to 'tip.show' tip}}{{tip.title}}{{/link-to}}</h4>
+                            <h4 class="list-group-item-heading">
+                                {{#link-to 'tip.show' tip}}{{tip.title}}{{/link-to}}
+                            </h4>
                         </div>
                         <div class="col-xs-12 col-md-3">
                             <p class="list-group-item-text">
-                                {{tip.descriptionReduced}}
+                                {{#link-to 'tip.show' tip}}
+                                    {{tip.descriptionReduced}}
+                                {{/link-to}}
                             </p>
                         </div>
                         <div class="col-xs-12 col-md-1">

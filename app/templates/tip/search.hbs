@@ -17,30 +17,32 @@
 <div class="row row-gutter-bottom">
     <div class="col-xs-12">
         {{#if hasData }}
-        <table class="table">
-            <thead>
-            <th></th>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Type</th>
-            <th>Action</th>
-            </thead>
-            <tbody>
-                {{#each tip in model}}
-                <tr>
-                    <th>{{view "previewImage" width="40" height="40" src=tip.availableImage}}</th>
-                    <td>{{tip.titleReduced}}</td>
-                    <td>{{tip.descriptionReduced}}</td>
-                    <td>{{display-text tip.type allTypes}}</td>
-                    <td>
-                        {{#link-to 'tip.show' tip}}Detail{{/link-to}}
-                    </td>
-                </tr>
-                {{/each}}
-            </tbody>
-        </table>
+            <table class="table">
+                <thead>
+                    <th></th>
+                    <th>title</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                    <th>Expired Date</th>
+                    <th>Action</th>
+                </thead>
+                <tbody>
+                    {{#each tip in model}}
+                    <tr>
+                        <th>{{view "previewImage" width="80" height="80" class="img-responsive img-thumbnail" src=tip.availableImage}}</th>
+                        <td>{{tip.titleReduced}}</td>
+                        <td>{{tip.descriptionReduced}}</td>
+                        <td>{{display-text tip.type allTypes}}</td>
+                        <td>{{formatted-date tip.expiredDate 'LL'}}</td>
+                        <td>
+                            {{#link-to 'tip.show' tip}}Detail{{/link-to}}
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
         {{else}}
-        There is no tip found.
+            There is no tip found.
         {{/if}}
     </div>
 </div>

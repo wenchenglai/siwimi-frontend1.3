@@ -56,21 +56,21 @@
         <table class="table">
             <thead>
             <th></th>
-            <th>Name</th>
+            <th>Title</th>
             <th>Type</th>
-            <th>Price</th>
-            <th>Posted Date</th>
-            <th>Age Range</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Location</th>
             </thead>
             <tbody>
                 {{#each event in model}}
                 <tr>
-                    <td>{{view "previewImage" width="60" height="60" src=event.availableImage}}</td>
+                    <th>{{view "previewImage" width="80" height="80" class="img-responsive img-thumbnail" src=event.availableImage}}</th>
                     <td>{{event.title}}</td>
-                    <td>{{event.type}}</td>
-                    <td>{{event.trueCost}}</td>
-                    <td>{{formatted-date event.createdDate 'LL'}}</td>
-                    <td>{{event.ageRange}}</td>
+                    <td>{{display-text event.type allTypes}}</td>
+                    <td>{{formatted-date event.fromDate 'LL'}}</td>
+                    <td>{{formatted-date event.toDate 'LL'}}</td>
+                    <td>{{event.cityState}}</td>
                     <td>
                         <div class="btn-group" role="group" aria-label="...">
                             {{#link-to 'activity.show' event class="btn btn-default"}}Detail{{/link-to}}

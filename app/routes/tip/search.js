@@ -4,17 +4,17 @@ export default Ember.Route.extend({
     actions: {
         search: function () {
             var self = this,
-                session = self.get('session'),
+                appController = self.controllerFor('application'),
                 userId = self.get('session.id'),
                 query = {
                     requester: userId,
                     queryText: self.controller.get('queryText'),
-                    longitude: session.get('longitude'),
-                    latitude: session.get('latitude')
+                    longitude: appController.get('baseLongitude'),
+                    latitude: appController.get('baseLatitude')
                 };
 
             self.store.find('tip', query).then(function(records) {
-                self.set('model', records.get('content'));
+                self.controller.set('model', records.get('content'));
                 self.controller.set('showData', true);
             }, function(error) {
                 self.send('error', error);

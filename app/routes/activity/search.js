@@ -4,7 +4,7 @@ export default Ember.Route.extend({
     actions: {
         search: function () {
             var self = this,
-                session = self.get('session'),
+                appController = self.controllerFor('application'),
                 userId = self.get('session.id'),
                 query = {
                     requester: userId,
@@ -13,8 +13,8 @@ export default Ember.Route.extend({
                     period: self.controller.get('period'),
                     fromTime: self.controller.get('fromTime') ? self.controller.get('fromTime').toDate(): "",
                     toTime: self.controller.get('toTime') ? self.controller.get('toTime').toDate(): "",
-                    longitude: session.get('longitude'),
-                    latitude: session.get('latitude')
+                    longitude: appController.get('baseLongitude'),
+                    latitude: appController.get('baseLatitude')
                 };
 
             self.store.find('activity', query).then(function(records) {

@@ -60,27 +60,27 @@
     <div class="col-xs-12">
         <table class="table table-hover">
             <thead>
-            <th></th>
-            <th>title</th>
-            <th>Description</th>
-            <th>Type</th>
-            <th>Expired Date</th>
-            <th>Action</th>
+                <th></th>
+                <th>title</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Expired Date</th>
+                <th>Action</th>
             </thead>
             <tbody>
                 {{#each tip in model}}
-                <tr>
-                    <th>{{view "previewImage" width="80" height="80" class="img-responsive img-thumbnail" src=tip.availableImage}}</th>
-                    <td>{{tip.titleReduced}}</td>
-                    <td>{{tip.descriptionReduced}}</td>
-                    <td>{{display-text tip.type allTypes}}</td>
-                    <td>{{formatted-date tip.expiredDate 'LL'}}</td>
-                    <td>
-                        {{#link-to 'tip.edit' tip}}Edit{{/link-to}}
-                        &nbsp;|&nbsp;
-                        <a href="#" {{action "openDeleteDialog" tip.id target="view" bubbles=false }}>Delete</a>
-                    </td>
-                </tr>
+                    <tr>
+                        <th>{{view "previewImage" width="80" height="80" class="img-responsive img-thumbnail" src=tip.availableImage}}</th>
+                        <td>{{tip.titleReduced}}</td>
+                        <td>{{tip.descriptionReduced}}</td>
+                        <td>{{display-text tip.type allTypes}}</td>
+                        <td>{{formatted-date tip.expiredDate 'LL'}}</td>
+                        <td>
+                            {{#link-to 'tip.edit' tip}}Edit{{/link-to}}
+                            &nbsp;|&nbsp;
+                            <a href="#" {{action "openDeleteDialog" tip.id target="view" bubbles=false }}>Delete</a>
+                        </td>
+                    </tr>
                 {{/each}}
             </tbody>
         </table>

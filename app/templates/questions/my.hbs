@@ -1,20 +1,36 @@
-<h2>My Questions</h2>
+<div class="row row-gutter-bottom row-gutter-top">
+    <div class="col-xs-12">
+        <h2>My Questions</h2>
+    </div>
+</div>
 
 <div class="row row-gutter-bottom">
     <div class="col-xs-12">
-        <div class="btn-group" data-toggle="buttons">
-            <a class="btn btn-info active" data-toggle="tab" {{ action 'loadData' 'open' }}>
-                <input type="radio">Open Questions
-            </a>
-            <a class="btn btn-info" data-toggle="tab" {{ action 'loadData' 'closed' }}>
-                <input type="radio">Closed Questions
-            </a>
-        </div>
-        <div class="btn-group" data-toggle="buttons">
-            <a class="btn btn-default" data-toggle="tab" {{ action 'loadIsAnswered' 'answered' }}>
-                <input type="radio">Answered
-            </a>
-        </div>
+        {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="all"}}
+            All
+        {{/single-select}}
+
+        {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="active"}}
+            Active
+        {{/single-select}}
+
+        {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="inactive"}}
+            Inactive
+        {{/single-select}}
+
+    </div>
+</div>
+
+<div class="row row-gutter-bottom">
+    <div class="col-xs-12">
+        {{#single-select group="status" btnClassName="btn-cys-secondary" selectedValue=status value="all"}}
+            All
+        {{/single-select}}
+
+        {{#single-select group="status" btnClassName="btn-cys-secondary" selectedValue=status value="answered"}}
+            Answered
+        {{/single-select}}
+
     </div>
 </div>
 

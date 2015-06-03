@@ -92,7 +92,7 @@ export default DS.Model.extend({
         } else if (!Em.isEmpty(this.get('imageUrl'))) {
             return this.get('imageUrl');
         } else {
-            return '/assets/images/tip.png';
+            return '/assets/images/placeholder-tips.jpg';
         }
     }.property('imageUrl', 'imageData'),
 });
