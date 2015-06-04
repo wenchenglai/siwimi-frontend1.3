@@ -106,9 +106,10 @@ input[type="radio"] {
   background-color: $primary-control-font-color;
   font-weight: bold;
 }*/
-.navbar-inverse .navbar-nav > li > a .active {
+.navbar-inverse .navbar-nav > li > a.active {
   color: $primary-control-color;
   background-color: white;
+  line-height: inherit;
 }
 
 .btn-cys-secondary:last-child {
