@@ -19,7 +19,7 @@ export default Ember.Route.extend({
         },
 
         cancel: function() {
-            this.transitionTo('questions.show', this.currentModel);
+            this.transitionTo('questions.my', this.currentModel);
         }
     }
 });

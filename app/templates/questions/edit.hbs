@@ -22,7 +22,7 @@
 <div class="row row-gutter-bottom">
     <div class="col-xs-10 col-xs-offset-2 col-md-6 col-md-offset-1">
         <button type="button" class="btn btn-primary btn-sm" {{action "save" }} {{bind-attr disabled=disabled}}>Save</button>
-        <button type="button" class="btn btn-link btn-sm" {{action "cancel" }}>Cancel</button>
+        {{link-to 'Cancel' 'questions.my' class="btn btn-default"}}
     </div>
 </div>
 

@@ -1,19 +1,29 @@
-<div class="row row-gutter-bottom">
-    <div class="col-xs-2">
-        {{#link-to 'questions.my'}}back to list{{/link-to}}
+<br>
+<div class="container">
+<div class="panel panel-default">
+  <header class="panel-heading">
+  <div class="col-xs-2">
+     <label>Question Title: </label>
+  </div>
+    &nbsp;&nbsp;{{model.title}}
+  </header>
+  <div class="panel-body">
+    <div>
+    <span class="col-md-2">Description: </span>
+      <p class="col-md-10">{{model.description}}</p>
     </div>
-    <div class="col-xs-2">
-        {{#link-to 'questions.edit' model.id}}Edit{{/link-to}}
+    <div>
+    <span class="col-md-2">Create Date: </span>
+      <p class="col-md-10">{{model.createdDate}}</p>
     </div>
-    <div class="col-xs-4">
-        <div class="fb-share-button" {{bind-attr data-href="model.tipUrl" }} data-layout="button_count"></div>
+    <div>
+    <span class="col-md-2">Status:  </span>
+      <p class="col-md-10"> {{model.status}}</p>
     </div>
-</div>
-<div class="row row-gutter-bottom">
-    <div class="col-xs-12">
-        {{model.title}}
-    </div>
-    <div class="col-xs-12">
-        {{model.description}}
-    </div>
+  </div>
+  <div class="panel-footer">
+    {{link-to 'Go Back' 'questions.my' class="btn btn-default"}}
+    {{link-to 'Edit' 'questions.edit' model.id class='btn btn-primary'}}
+  </div>
+ </div>
 </div>
