@@ -1,24 +1,24 @@
 <br>
 <div class="container">
 <div class="panel panel-default">
-  <header class="panel-heading">
-  <div class="col-xs-2">
-     <label>Question Title: </label>
+  <div class="panel-heading">
+  <div class="row">
+     <label class="col-sm-2">Question Title: </label>
+     <p class="col-sm-10">{{model.title}}</p>
   </div>
-    &nbsp;&nbsp;{{model.title}}
-  </header>
+  </div>
   <div class="panel-body">
-    <div>
-    <span class="col-md-2">Description: </span>
-      <p class="col-md-10">{{model.description}}</p>
+    <div class="row">
+    <span class="col-sm-2">Description: </span>
+      <p class="col-sm-10">{{model.description}}</p>
     </div>
-    <div>
-    <span class="col-md-2">Create Date: </span>
-      <p class="col-md-10">{{model.createdDate}}</p>
+    <div class="row">
+    <span class="col-sm-2">Create Date: </span>
+      <p class="col-sm-10">{{model.createdDate}}</p>
     </div>
-    <div>
-    <span class="col-md-2">Status:  </span>
-      <p class="col-md-10"> {{model.status}}</p>
+    <div class="row">
+    <span class="col-sm-2">Status:  </span>
+      <p class="col-sm-10"> {{model.status}}</p>
     </div>
   </div>
   <div class="panel-footer">
