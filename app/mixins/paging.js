@@ -65,10 +65,17 @@ export default Ember.Mixin.create({
 
         // we must use Ember's built-in enumerable object's pushObject or clear so the computed properties could fire
         pagesArray.clear();
-        for (let i of range ) {
+        var i = 1;
+        for (i = 1; i <= range.length; i++) {
             var obj = Ember.Object.create({text: i, className: self.get('pageNumber') === i ? "active": ""});
             pagesArray.pushObject(obj);
         }
+
+        // Some older browser (safari) on tablet cannot understand the new syntax
+        //for (let i of range ) {
+        //    var obj = Ember.Object.create({text: i, className: self.get('pageNumber') === i ? "active": ""});
+        //    pagesArray.pushObject(obj);
+        //}
     }.observes('queryCount', 'pageSize'),
 
     // hightlight the selected page number

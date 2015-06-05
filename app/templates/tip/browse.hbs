@@ -65,7 +65,7 @@
                                 {{view "previewImage" width="200" height="200" class="img-thumbnail img-responsive" src=tip.availableImage}}
                             {{/link-to}}
                         </div>
-                        <div class="col-xs-8 col-md-4">
+                        <div class="col-xs-8 col-md-3">
                             <h4 class="list-group-item-heading">
                                 {{#link-to 'tip.show' tip}}{{tip.title}}{{/link-to}}
                             </h4>
@@ -74,6 +74,13 @@
                             <p class="list-group-item-text">
                                 {{#link-to 'tip.show' tip}}
                                     {{tip.descriptionReduced}}
+                                {{/link-to}}
+                            </p>
+                        </div>
+                        <div class="col-xs-12 col-md-3">
+                            <p class="list-group-item-text">
+                                {{#link-to 'tip.show' tip}}
+                                    {{formatted-date tip.createdDate 'LL'}}
                                 {{/link-to}}
                             </p>
                         </div>
