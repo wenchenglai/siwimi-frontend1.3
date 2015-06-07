@@ -11,10 +11,11 @@ body {
     margin-bottom: 0px; /* Margin bottom by footer height */
 }
 
-.cover-page {
+.jumbotron {
     background-color: #4a4c55;
     padding-top: 50px;
     padding-bottom: 50px;
+    height: 450px;
 }
 
 .cover-paragraph {
@@ -25,11 +26,11 @@ body {
 .cover-button {
   background-color: #4a4c55;
   border:1px solid #fff;
-  width:100px;
-  height:40px;
-  padding: 15px 60px;
+  width:60px;
+  height:20px;
+  padding: 10px 40px;
   color: white;
-  font-size:20px;
+  font-size:16px;
   margin:15px;
   cursor:pointer;
 }
