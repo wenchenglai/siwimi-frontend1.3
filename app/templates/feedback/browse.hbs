@@ -1,0 +1,32 @@
+<div class="row row-gutter-bottom row-gutter-top">
+    <div class="col-xs-12">
+        <table class="table table-hover">
+            <thead>
+            <th>Creator</th>
+            <th>Description</th>
+            <th>Is App Feedbacki</th>
+            <th>Created</th>
+            <th>Action</th>
+            </thead>
+            <tbody>
+            {{#each obj in model}}
+                <tr>
+                    <th></th>
+                    <td>{{obj.description}}</td>
+                    <td>{{obj.isAppFeedback}}</td>
+                    <td>{{formatted-date obj.createdDate 'LL'}}</td>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="...">
+                            {{#link-to 'member.edit' obj class="btn btn-default"}}Edit{{/link-to}}
+                            <button type="button"
+                                    class="btn btn-default" {{action 'openDeleteDialog' activity.id target="view" bubbles="false" }}>
+                                Delete
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

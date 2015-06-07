@@ -1,0 +1,40 @@
+<div class="row row-gutter-bottom row-gutter-top">
+    <div class="col-xs-12">
+        <table class="table table-hover">
+            <thead>
+                <th></th>
+                <th>Last Name</th>
+                <th>Frst Name</th>
+                <th>Email</th>
+                <th>Type</th>
+                <th>FacebookId</th>
+                <th>Location</th>
+                <th>Created</th>
+                <th>Action</th>
+            </thead>
+            <tbody>
+            {{#each obj in model}}
+                <tr>
+                    <th>{{view "previewImage" width="80" height="80" class="img-responsive img-thumbnail" src=obj.availableImage}}</th>
+                    <td>{{obj.lastName}}</td>
+                    <td>{{obj.firstName}}</td>
+                    <td>{{obj.email}}</td>
+                    <td>{{obj.type}}</td>
+                    <td>{{obj.facebookId}}</td>
+                    <td>{{obj.city}}, {{obj.state}} {{obj.zipCode}}</td>
+                    <td>{{formatted-date obj.createdDate 'LL'}}</td>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="...">
+                            {{#link-to 'member.edit' obj class="btn btn-default"}}Edit{{/link-to}}
+                            <button type="button"
+                                    class="btn btn-default" {{action 'openDeleteDialog' activity.id target="view" bubbles="false" }}>
+                                Delete
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
