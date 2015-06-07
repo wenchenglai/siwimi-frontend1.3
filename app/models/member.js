@@ -77,7 +77,7 @@ export default DS.Model.extend({
     }.property('firstName', 'lastName'),
 
     availableImage: function() {
-        if (!Em.isEmpty(this.get('imageData'))) {
+        if (!Ember.isEmpty(this.get('imageData'))) {
             return this.get('imageData');
         } else {
             return this.get('avatarUrl');

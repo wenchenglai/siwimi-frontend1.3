@@ -1,10 +1,31 @@
 <div class="row row-gutter-bottom row-gutter-top">
+    <div class="col-xs-12">
+        <ol class="breadcrumb">
+            <li>{{#link-to 'index'}}Home{{/link-to}}</li>
+            <li class="active">User Porfile Information</li>
+        </ol>
+    </div>
+</div>
+
+<div class="row row-gutter-bottom">
     <div class="col-xs-12 col-sm-offset-3 col-md-offset-2">
         <button class="btn btn-primary btn-sm" {{action "importFromFacebook" }} {{bind-attr disabled=disabledImportFacebook}}>
             Import my profile from facebook
         </button>
     </div>
 </div>
+
+<div class="row row-gutter-bottom">
+    <div class="col-xs-2 col-sm-3 col-md-2">
+        <label>
+            Upload Image:
+        </label>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+        {{view 'file-upload-view' content=model.imageData}}
+    </div>
+</div>
+
 <div class="row row-gutter-bottom">
     <div class="col-xs-12 col-sm-3 col-md-2">
         <label>

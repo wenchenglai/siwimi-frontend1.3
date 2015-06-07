@@ -10,7 +10,7 @@ export default Ember.Route.extend(SessionSetupMixin, UnauthenticatedRouteMixin, 
 
             session.authenticate('authenticator:facebook', {}).then(function () {
                 //self._setLongitudeAndLatitudeInSession(session, session.get('user'));
-                self._setProfilePictureInSession(session, session.get('user'));
+                //self._setProfilePictureInSession(session, session.get('user'));
             }, function (error) {
                 self.send('error', error);
             });
@@ -19,14 +19,13 @@ export default Ember.Route.extend(SessionSetupMixin, UnauthenticatedRouteMixin, 
         authenticateCustom: function () {
             var self = this,
                 session = self.get('session'),
-                controller = self.get('controller'),
-                email = controller.get('email'),
-                password = controller.get('password'),
+                email = self.get('controller.email'),
+                password = self.get('controller.password'),
                 host = self.store.adapterFor('application').get('host');
 
             session.authenticate('authenticator:custom', {email: email, password: password, host: host}).then(function () {
                 //self._setLongitudeAndLatitudeInSession(session, session.get('user'));
-                self._setProfilePictureInSession(session, session.get('user'));
+                //self._setProfilePictureInSession(session, session.get('user'));
             }, function (error) {
                 self.send('error', error);
             });        
