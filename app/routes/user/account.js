@@ -7,10 +7,15 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
             id = self.get('session.id');
 
             return self.store.find('member', id);
-    }
+    },
 
-    //deactivate: function() {
-    //    var self = this;
-    //    self.get('controller').deactivate();
-    //}
+    afterModel: function(model) {
+        var self = this,
+            appController = self.controllerFor('application');
+
+        if (Ember.isEmpty(model.get('city')) || Ember.isEmpty(model.get('state'))) {
+            model.set('city', appController.get('baseCity'));
+            model.set('state', appController.get('baseState'));
+        }
+    }
 });

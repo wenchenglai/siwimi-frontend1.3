@@ -8,6 +8,14 @@ export default Base.extend({
         return new Ember.RSVP.Promise(function (resolve, reject) {
             if (!Ember.isEmpty(data.id)) {
                 resolve(data);
+                //this.SiwimiParents.__container__.lookup('store:main').find('member', data.id).then(function(user) {
+                //    resolve({
+                //        id: user.id,
+                //        user: user
+                //    });
+                //}, function() {
+                //    reject();
+                //});
             } else {
                 reject();
             }

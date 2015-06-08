@@ -76,7 +76,7 @@ export default Base.extend({
 			if (!Ember.isEmpty(FB.getUserID()) && !Ember.isEmpty(data.accessToken) && !Ember.isEmpty(data.id)) {
 
 				// somehow simple-auth would turn the user model object into a regular Javasript object.  So I need to get the user object from store again
-				// 2014-01-20 There is no store injected in the container in this authenticator, I have dificulty inject it properly by using the initializer.
+				// 2014-01-20 There is no store injected in the container in this authenticator, I have difficulty inject it properly by using the initializer.
 				// Therefore, I'll use regular javascript object for the user in a session
 				resolve(data);
 
