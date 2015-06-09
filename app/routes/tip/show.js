@@ -1,8 +1,12 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+    model: function(params) {
+        return this.store.find('tip', params.id);
+    },
+
     setupController: function(controller, model) {
-        controller.set('content', model);
+        this._super(controller, model);
 
         var query = {
             parent: this.get('id'),

@@ -1,7 +1,7 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-    creator: DS.belongsTo('member'),
+    creator: DS.belongsTo('member', {async: true}),
     //discussions: DS.hasMany('discussion'),
     title: DS.attr('string'),
     description: DS.attr('string'),

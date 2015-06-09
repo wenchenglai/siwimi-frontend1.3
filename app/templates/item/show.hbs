@@ -1,18 +1,18 @@
-<div class="row row-gutter-bottom">
-	<div class="col-xs-2">
-        <button type="button" class="btn btn-link btn-sm" {{action "goBack" }}>Back</button>
-	</div>
-	<div class="col-xs-2">
+<div class="row row-gutter-bottom row-gutter-top">
+    <div class="col-xs-12 col-md-6">
+        <ol class="breadcrumb">
+            <li>{{#link-to 'index'}}Home{{/link-to}}</li>
+            <li>{{#link-to 'item.browse'}}Listings{{/link-to}}</li>
+            <li class="active">Detail</li>
+        </ol>
+    </div>
+    <div class="col-xs-12 col-md-6">
         {{#if showEdit}}
-            {{#link-to 'item.edit' model.id}}Edit{{/link-to}}
+            {{#link-to 'item.edit' model.id class="btn btn-default"}}Edit{{/link-to}}
         {{/if}}
-	</div>
-</div>
-<div class="row row-gutter-bottom">
-    <div class="col-xs-12">
-        <div class="fb-share-button" {{bind-attr data-href="model.tipUrl" }} data-layout="button_count"></div>
     </div>
 </div>
+
 <div class="row row-gutter-bottom">
 	<div class="col-xs-12 col-md-2">
         <img {{bind-attr src=model.availableImage}} width="300" height="300" class="img-responsive img-rounded" style="margin-bottom:-15px; margin-top:-15px" alt="item" />
@@ -31,7 +31,7 @@
 				
 			</div>
 			<div class="col-xs-10 col-md-6">
-				by {{item.creator.displayName}}
+				by {{model.creator.displayName}}
 			</div>
 		</div>
 		<div class="row row-gutter-bottom">

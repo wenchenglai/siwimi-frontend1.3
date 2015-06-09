@@ -1,18 +1,18 @@
 <div class="row row-gutter-bottom row-gutter-top">
-    <div class="col-xs-2">
-        <button type="button" class="btn btn-cys" {{action "goBack" }}>Back</button>
+    <div class="col-xs-12 col-md-6">
+        <ol class="breadcrumb">
+            <li>{{#link-to 'index'}}Home{{/link-to}}</li>
+            <li>{{#link-to 'tip.browse'}}Tips{{/link-to}}</li>
+            <li class="active">Detail</li>
+        </ol>
     </div>
-    <div class="col-xs-2">
+    <div class="col-xs-12 col-md-6">
         {{#if showEdit}}
-            {{#link-to 'tip.edit' model.id class="btn btn-cys"}}Edit{{/link-to}}
+            {{#link-to 'tip.edit' model class="btn btn-default"}}Edit{{/link-to}}
         {{/if}}
     </div>
 </div>
-<div class="row row-gutter-bottom">
-    <div class="col-xs-12">
-        <div class="fb-share-button" {{bind-attr data-href="tipUrl" }} data-layout="button_count"></div>
-    </div>
-</div>
+
 <div class="row row-gutter-bottom">
     <div class="col-xs-12">
         <h3>{{ model.title }}</h3>
@@ -21,7 +21,10 @@
 </div>
 <div class="row row-gutter-bottom">
     <div class="col-xs-1">
-        <img class="avatar" {{bind-attr src=model.creator.availableImage}} width="300" height="300" class="img-responsive img-rounded">
+        {{#link-to 'member.show' model.creator}}
+            <img class="avatar" src={{model.creator.availableImage}} width="100" height="100" class="img-responsive img-rounded">
+        {{/link-to}}
+
         <a class="vote-up" {{action "voteUp" }} title="it's userful and clear'">test</a>
         <span class="vote-count-post">{{model.voteCount}}</span>
         <a class="vote-down" {{action "voteDown" }} title="it's userful and clear'">test</a>
@@ -31,73 +34,45 @@
     <div class="col-xs-11">
         <div class="row row-gutter-bottom">
             <div class="col-xs-12">
-                by <strong>{{model.creator.displayName}}</strong>
+                by <strong>{{model.creator.displayName}}</strong> on <span>{{formatted-date model.createdDate 'LL'}}</span>
             </div>
         </div>
         <div class="row row-gutter-bottom">
             <div class="col-xs-2">
                 <div style="min-height:100px">
-                    {{view "previewImage" width="60" height="60" class="img-responsive img-thumbnail" src=model.availableImage}}
+                    {{view "previewImage" width="300" height="300" class="img-responsive img-thumbnail" src=model.availableImage}}
                 </div>
             </div>
             <div class="col-xs-10">
                 <div style="min-height:100px">
                     {{model.description}}
                 </div>
+                <div>
+                    <label>Link:</label>
+                    <a href={{model.url}} target="_blank" alt="original link">{{shorten-string model.url 30}}</a>
+                </div>
             </div>
         </div>
         <div class="row row-gutter-bottom">
-            <div class="col-xs-2">
+            <div class="col-sm-2">
                 <label>Type:</label>
                 {{display-text model.type allTypes}}
             </div>
-            <div class="col-xs-2">
+            <div class="col-sm-2">
                 <label>Location:</label>
                 {{model.cityState}}
             </div>
-            <div class="col-xs-3">
+            <div class="col-sm-2">
                 <label>Expired:</label>
                 {{formatted-date model.expiredDate 'LL'}}
             </div>
-            <div class="col-xs-5">
-                <label>Link:</label>
-                <a {{bind-attr href=model.url}} target="_blank" alt="original link">{{shorten-string model.url 30}}</a>
+            <div class="col-sm-2">
+                <label>Comments:</label>
+                {{controller.feedbacks.length}}
             </div>
-        </div>
-        {{#if previewText}}
-        <div class="row row-gutter-bottom">
-            <div class="col-xs-12">
-                <label>
-                    {{view "previewImage" width="200" readonly="true" height="200" class="img-responsive img-thumbnail" src=model.previewImage}}
-                </label>
-                <label>
-                    Preview Text:
-                    {{model.previewText}}
-                </label>
-            </div>
-        </div>
-        {{/if}}
-        <div class="row row-gutter-bottom">
-            <div class="col-xs-12">
-                <div class="topic-map">
-                    <ul>
-                        <li>
-                            <a href="#">
-                                <h4>created</h4>
-                                <img width="20" height="20" class="img-responsive img-thumbnail" {{bind-attr src=model.creator.availableImage}} class="avatar" />
-                                <span>{{formatted-date model.createdDate 'LL'}}</span>
-                            </a>
-                        </li>
-                        <li>
-                            <span>{{controller.feedbacks.length}}</span>
-                            <h4>comments</h4>
-                        </li>
-                        <li>
-                            <span>{{model.viewCount}}</span>
-                            <h4>views</h4>
-                        </li>
-                    </ul>
-                </div>
+            <div class="col-sm-2">
+                <label>Views:</label>
+                {{model.viewCount}}
             </div>
         </div>
     </div>
@@ -112,10 +87,9 @@
 </div>
 <div class="row row-gutter-bottom">
     <div class="col-xs-1">
-        <img class="avatar" {{bind-attr src=session.profilePicture}}>
-        <a class="vote-up" {{action "voteUp" }} title="it's userful and clear'">test</a>
-        <span class="vote-count-post">{{fb.voteCount}}</span>
-        <a class="vote-down" {{action "voteDown" }} title="it's userful and clear'">test</a>       
+        {{#link-to 'member.show' model.creator}}
+            <img class="avatar" src={{fb.creator.availableImage}}>
+        {{/link-to}}
     </div>
     <div class="col-xs-11">
         <div class="row row-gutter-bottom">
@@ -123,27 +97,6 @@
                 {{fb.description}}
             </div>
         </div>
-        <div class="row row-gutter-bottom">
-            <div class="col-xs-12">
-                <div class="topic-map">
-                    <ul>
-                        <li>
-                            <span>{{fb.likeCount}}</span>
-                            <h4>Likes</h4>
-                        </li>
-                        <li>
-                            <a href="#">By: {{fb.creator.displayName}} On {{formatted-date fb.createdDate 'LL'}}.</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        
-    </div>
-</div>
-<div class="row row-gutter-bottom">
-    <div class="col-xs-3 col-xs-offset-9">
-       
     </div>
 </div>
 {{/each}}
