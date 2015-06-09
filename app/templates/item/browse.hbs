@@ -117,9 +117,39 @@
                     </div>
                 {{/each}}
             {{else}}
-                <p class="lead">There is no event found under the selection criteria.</p>
+                <p class="lead">There is no items found under the selection criteria.</p>
             {{/if}}
         </div>
     </div>
 </div>
 
+{{#if model}}
+    <div class="row row-gutter-bottom">
+        <div class="col-xs-12 col-md-11">
+            <nav>
+                <ul class="pagination">
+                    <li class={{isLeftArrowDisabled}}>
+                        <a {{action "loadPrevPage"}} aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    {{#each page in pages}}
+                        <li class={{page.className}}><a {{action "loadByPageNumber" page.text}}>{{page.text}}</a></li>
+                    {{/each}}
+                    <li class={{isRightArrowDisabled}}>
+                        <a {{action "loadNextPage"}} aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="col-xs-12 col-md-1">
+            <nav>
+                <div class="pagination">
+                    {{view "select" class="btn-cys-inverse dropdown-toggle" content=allPageSizes value=decoratedPageSize}}
+                </div>
+            </nav>
+        </div>
+    </div>
+{{/if}}
