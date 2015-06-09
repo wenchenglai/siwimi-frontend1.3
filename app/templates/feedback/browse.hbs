@@ -19,7 +19,7 @@
                         <div class="btn-group" role="group" aria-label="...">
                             {{#link-to 'member.edit' obj class="btn btn-default"}}Edit{{/link-to}}
                             <button type="button"
-                                    class="btn btn-default" {{action 'openDeleteDialog' activity.id target="view" bubbles="false" }}>
+                                    class="btn btn-default" {{action 'openDeleteDialog' obj.id target="view" bubbles="false" }}>
                                 Delete
                             </button>
                         </div>
@@ -29,4 +29,8 @@
             </tbody>
         </table>
     </div>
+</div>
+
+<div id="dialog-confirm-delete" title="Delete a feedback?">
+    <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>This feedback will be deleted. Are you sure?</p>
 </div>
