@@ -2,20 +2,28 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
     model: function(params) {
-        return this.store.find('tip', params.id);
-    },
-
-    setupController: function(controller, model) {
-        this._super(controller, model);
-
         var query = {
-            parent: this.get('id'),
+            parent: params.id,
             parentType: 'tip'
         };
-        this.store.find('feedback', query).then(function(feedbacks) {
-            controller.set('feedbacks', feedbacks);
+
+        return Ember.RSVP.hash({
+            tip: this.store.find('tip', params.id),
+            feedback: this.store.find('feedback', query)
         });
     },
+
+    //setupController: function(controller, model) {
+    //    this._super(controller, model);
+    //
+    //    var query = {
+    //        parent: this.get('id'),
+    //        parentType: 'tip'
+    //    };
+    //    this.store.find('feedback', query).then(function(feedbacks) {
+    //        controller.set('feedbacks', feedbacks);
+    //    });
+    //},
 
     _addVote: function(voteType) {
         var self = this,
@@ -85,7 +93,7 @@ export default Ember.Route.extend({
             }
         },
 
-        addNewFeedback: function () {
+        addNewFeedback: function (id) {
             var self = this,
                 userId = self.get('session.id'),
                 model = self.currentModel,
@@ -94,22 +102,20 @@ export default Ember.Route.extend({
             self.store.find('member', userId).then(function(member) {
                 newObj = self.store.createRecord('feedback', {
                     creator: member,
-                    parent: model.get('id'),
+                    parent: id,
                     parentType: 'tip',
                     createdDate: new Date(),
-                    description: self.controller.get('feedbackText'),
+                    description: self.controller.get('newFeedbackText'),
                     viewCount: 0,
                     likeCount: 0,
                     city: member.get('city'),
                     state: member.get('state'),
-                    isDestroyed: false
+                    isDeletedRecord: false
                 });
 
                 newObj.save().then(function (feedback) {
-                    var feedbacks = self.controller.get('feedbacks');
-                    feedbacks.addRecord(feedback);
-                    self.set('feedbacks', feedbacks);
-
+                    model.feedback.pushObject(feedback);
+                    self.controller.set('newFeedbackText', '');
                 }, function (error) {
                     self.send('error', error);
                 });

@@ -31,7 +31,7 @@ export default Ember.Controller.extend(StatesDataMixin, {
         },
 
         cancel: function() {
-            this.transitionToRoute('tip.show', this.get('model'));
+            this.transitionToRoute('tip.show', this.get('model.id'));
         }
     }
 });
