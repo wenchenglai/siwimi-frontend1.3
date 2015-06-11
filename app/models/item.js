@@ -16,7 +16,7 @@ export default DS.Model.extend({
     status: DS.attr('string'), // active, inactive, completed
     imageUrl: DS.attr('string'),
     imageData: DS.attr('string'),
-    creator: DS.belongsTo('member'),
+    creator: DS.belongsTo('member', {async: true}),
     buyer: DS.belongsTo('member'),
     createdDate: DS.attr('date'),
     viewCount: DS.attr('number'),

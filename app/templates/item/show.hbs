@@ -31,7 +31,7 @@
 				
 			</div>
 			<div class="col-xs-10 col-md-6">
-				by {{model.creator.displayName}}
+				by {{#link-to 'member.show' model.creator}} {{model.creator.displayName}} {{/link-to}}
 			</div>
 		</div>
 		<div class="row row-gutter-bottom">

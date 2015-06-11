@@ -1,6 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+    model: function(params) {
+        return this.store.find('activity', params.id);
+    },
+
     setupController: function(controller, model) {
         var self = this,
             userId = self.get('session.id');
