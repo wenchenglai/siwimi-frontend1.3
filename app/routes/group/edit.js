@@ -1,6 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+     model: function(params) {
+    return this.store.find('group', params.id);
+  },
+
     afterModel: function(model, transition) {
         if (model.get('isDirty')) {
             model.rollback();
@@ -25,5 +29,5 @@ export default Ember.Route.extend({
             self.currentModel.rollback();
             self.transitionTo('group.my');
         }
-    }    
+    }
 });
