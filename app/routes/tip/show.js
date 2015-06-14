@@ -120,32 +120,6 @@ export default Ember.Route.extend({
                     self.send('error', error);
                 });
             });
-        },
-
-        addNewComment: function (fbId, commentText) {
-
-            var self = this,
-                user = self.get('session.user');
-
-            self.store.find('feedback', fbId).then(function(feedback) {
-                var newObj = self.store.createRecord('feedback', {
-                    creator: user,
-                    parent: fbId,
-                    createdDate: new Date(),
-                    description: commentText,
-                    viewCount: 0,
-                    likeCount: 0,
-                    isDestroyed: false
-                });
-
-                newObj.save().then(function (data) {
-                    var comments = feedback.get('comments');
-                    comments.addObject(data);
-                    self.send('refresh');
-                }, function (error) {
-                    self.send('error', error);
-                });
-            });
-        },
+        }
     }
 });

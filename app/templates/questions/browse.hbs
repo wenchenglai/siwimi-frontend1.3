@@ -1,52 +1,75 @@
-<div class="row row-gutter-bottom">
-    <div class="col-xs-12">
-        <label>
-            Search questions that you want to help other parents.
-        </label>
-    </div>
-</div>
-
-<div class="row row-gutter-bottom">
+<div class="row row-gutter-bottom row-gutter-top">
     <div class="col-lg-12">
-        <table class="table">
-            <tbody>
-                {{#each question in model}}
-                <tr>
-                    <div class="question-summary narrow" id="question-summary-27459766">
-                        <div onclick="window.location.href='/questions/27459766/how-to-implement-android-expandable-navigation-drawer'" class="cp">
-                            <div class="votes">
-                                <div class="mini-counts"><span title="0 votes">0</span></div>
-                                <div>votes</div>
-                            </div>
-                            <div class="status unanswered">
-                                <div class="mini-counts"><span title="0 answers">0</span></div>
-                                <div>answers</div>
-                            </div>
-                            <div class="views">
-                                <div class="mini-counts"><span title="4 views">4</span></div>
-                                <div>views</div>
-                            </div>
-                        </div>
-                        <div class="summary">
+        <div class="list-group">
+            {{#if model}}
+                <div class="row event-list">
+                    <div class="col-xs-12 col-sm-2 col-md-1">
 
-                            <h3>
-                                <a href="/questions/27459766/how-to-implement-android-expandable-navigation-drawer" class="question-hyperlink"
-                                   title="question.detail">
-                                    {{question.title}}
-                                </a>
-                            </h3>
-                            <div class="tags t-java t-android t-expandablelistview t-android-navigation">
-                                <a href="/questions/tagged/java" class="post-tag" title="show questions tagged 'java'" rel="tag">java</a> <a href="/questions/tagged/android" class="post-tag" title="show questions tagged 'android'" rel="tag"><img src="http://i.stack.imgur.com/tKsDb.png" height="16" width="18" alt="" class="sponsor-tag-img">android</a> <a href="/questions/tagged/expandablelistview" class="post-tag" title="show questions tagged 'expandablelistview'" rel="tag">expandablelistview</a> <a href="/questions/tagged/android-navigation" class="post-tag" title="show questions tagged 'android-navigation'" rel="tag">android-navigation</a>
-                            </div>
-                            <div class="started">
-                                <a href="/questions/27459766/how-to-implement-android-expandable-navigation-drawer" class="started-link">modified <span title="2014-12-13 14:30:16Z" class="relativetime">1m ago</span></a>
-                                <a href="/users/3879847/ranjith">{{question.member.displayName}}</a> <span class="reputation-score" title="reputation score " dir="ltr">46</span>
-                            </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-2 col-md-1">
+                        <h4 class="list-group-item-heading">
+                            Replies
+                        </h4>
+                    </div>
+                    <div class="col-xs-12 col-sm-2 col-md-1">
+                        <h4 class="list-group-item-heading">
+                            Views
+                        </h4>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-6">
+                        <h4 class="list-group-item-heading">
+                            Topic
+                        </h4>
+                    </div>
+                    <div class="col-xs-12 col-sm-2 col-md-3">
+                        <h4 class="list-group-item-heading">
+                            Created
+                        </h4>
+                    </div>
+                </div>
+                {{#each obj in model}}
+                    <div class="row event-list">
+                        <div class="col-xs-12 col-sm-2 col-md-1">
+                            {{#link-to 'member.show' obj.creator}}
+                                {{view "previewImage" width="50" height="50" class="img-responsive" src=obj.creator.availableImage}}
+                            {{/link-to}}
+                        </div>
+                        <div class="col-xs-12 col-sm-2 col-md-1">
+                            <p class="list-group-item-text">
+                                {{#link-to 'questions.show' obj.id}}
+                                    {{obj.answers.length}}
+                                {{/link-to}}
+                            </p>
+                        </div>
+                        <div class="col-xs-12 col-sm-2 col-md-1">
+                            <p class="list-group-item-text">
+                                {{#link-to 'questions.show' obj.id}}
+                                    {{obj.viewCount}}
+                                {{/link-to}}
+                            </p>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-6">
+                            <p class="list-group-item-text lead">
+                                {{#link-to 'questions.show' obj.id}}{{obj.title}}{{/link-to}}
+                            </p>
+                            <p class="list-group-item-text">
+                                {{#link-to 'questions.show' obj.id}}
+                                    {{obj.description}}
+                                {{/link-to}}
+                            </p>
+                        </div>
+                        <div class="col-xs-12 col-sm-2 col-md-3">
+                            <p class="list-group-item-text">
+                                {{#link-to 'questions.show' obj.id}}
+                                    {{formatted-date obj.createdDate 'LL'}}
+                                {{/link-to}}
+                            </p>
                         </div>
                     </div>
-                </tr>
                 {{/each}}
-            </tbody>
-        </table>
+            {{else}}
+                <p class="lead">There are no questions found under the selection criteria.</p>
+            {{/if}}
+        </div>
     </div>
 </div>

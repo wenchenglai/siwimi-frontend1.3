@@ -6,7 +6,6 @@ export default DS.Model.extend({
     parent: DS.attr('string'),
     parentType: DS.attr('string'),
     createdDate: DS.attr('date'),
-    comments: DS.hasMany('feedback', { embedded: 'always' }),
     description: DS.attr('string'),
     likeCount: DS.attr('number'),
     viewCount: DS.attr('number'),
