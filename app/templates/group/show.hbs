@@ -1,14 +1,18 @@
-<div class="row row-gutter-bottom">
-    <div class="col-xs-2">
-        {{#link-to 'group.my'}}back{{/link-to}}
+<div class="row row-gutter-bottom row-gutter-top">
+    <div class="col-xs-12 col-md-6">
+        <ol class="breadcrumb">
+            <li>{{#link-to 'index'}}Home{{/link-to}}</li>
+            <li><button class="btn-link" {{action "goBack"}}>Groups</button></li>
+            <li class="active">Detail</li>
+        </ol>
     </div>
-    <div class="col-xs-2">
-        {{#link-to 'group.edit' model.id}}Edit{{/link-to}}
-    </div>
-    <div class="col-xs-4">
-        <div class="fb-share-button" {{bind-attr data-href="model.tipUrl" }} data-layout="button_count"></div>
+    <div class="col-xs-12 col-md-6">
+        {{#if showEdit}}
+            {{#link-to 'group.edit' model.id class="btn btn-default"}}Edit{{/link-to}}
+        {{/if}}
     </div>
 </div>
+
 <div class="row row-gutter-bottom">
     <div class="col-xs-2">
         Group Name:

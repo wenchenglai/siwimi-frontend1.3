@@ -27,10 +27,13 @@ export default Ember.Route.extend({
         goBack: function() {
             var self = this,
                 session = self.get('session'),
-                appController = self.controllerFor('application');
+                previousURL = self.controllerFor('application').get('previousURL');
 
-            debugger;
-            self.transitionTo(appController.get('previousTransition'));
+            if (previousURL) {
+                self.transitionTo(previousURL);
+            } else {
+                self.transitionTo('activity.browse');
+            }
         },
 
         setAction: function(selectedValue) {

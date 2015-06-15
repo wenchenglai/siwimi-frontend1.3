@@ -16,12 +16,13 @@ export default Ember.Route.extend({
     actions: {
         goBack: function() {
             var self = this,
-                session = self.get('session');
+                session = self.get('session'),
+                previousURL = self.controllerFor('application').get('previousURL');
 
-            if (session.isAuthenticated) {
-                self.transitionTo('tip.my');
+            if (previousURL) {
+                self.transitionTo(previousURL);
             } else {
-                self.transitionTo('tip.browse');
+                self.transitionTo('questions.browse');
             }
         },
 
