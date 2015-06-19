@@ -13,7 +13,7 @@
             Your location:
         </label>
     </div>
-    <div class="col-xs-12 col-sm-9">
+    <div class="col-xs-12 col-sm-9 col-md-10">
         <p class="lead">The location you've set here will be the main location for the data we present to you.</p>
     </div>
 </div>
@@ -46,7 +46,7 @@
 </div>
 <div class="row row-gutter-bottom">
     <div class="col-xs-12 col-sm-offset-3 col-md-offset-2">
-        <button class="btn btn-primary btn-sm" {{action "importFromFacebook" }} {{bind-attr disabled=disabledImportFacebook}}>
+        <button class="btn btn-primary btn-sm" {{action "importFromFacebook" }}>
             Import my profile from facebook
         </button>
     </div>
@@ -87,8 +87,8 @@
             Change Passwords:
         </label>
     </div>
-    <div class="col-xs-12">
-
+    <div class="col-xs-12 col-sm-9 col-md-10">
+        <p>Setting the passwords below allows you to login using email and password</p>
     </div>
 </div>
 <div {{bind-attr class=":row :row-gutter-bottom hasOldPassword::collapse" }}>

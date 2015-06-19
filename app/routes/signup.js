@@ -7,13 +7,19 @@ export default Ember.Route.extend(SessionSetupMixin, {
             var self = this,
                 controller = self.get('controller'),
                 email = controller.get('email'),
+                userName = controller.get('userName'),
                 password = controller.get('password'),
                 password2 = controller.get('password2'),
-                appController = self.get('container').lookup('controller:application');
+                appController = self.controllerFor('application');
+
+            if (Ember.isEmpty(email) || Ember.isEmpty(userName)) {
+                self.send('error', { name: 'Data Error', message: "Email and User Name cannot be empty." });
+            }
 
             if (password === password2 && password != null) {
                 var newMember = self.store.createRecord('member', {
                     email: email,
+                    nickName: userName,
                     password: password,
                     isUser: true,
                     avatarUrl: '/assets/images/avatar.jpg',

@@ -105,7 +105,9 @@
                             {{formatted-date item.createdDate 'LL'}}
                         </div>
                         <div class="col-xs-12 col-md-2">
-                            {{item.ageRange}}
+                          {{#if item.ageRange}}
+                              Age from {{item.ageRange}}
+                          {{/if}}
                         </div>
                         <div class="col-xs-12 col-md-1">
                             {{#if item.type}}

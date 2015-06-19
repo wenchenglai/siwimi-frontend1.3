@@ -55,7 +55,7 @@ function findStates() {
     ];
 }
 
-export default Ember.Controller.extend({  
+export default Ember.Controller.extend({
     //locations: [{ label: "Ann Arbor, MI", value: "Ann Arbor, MI"},
     //    {label: "ARR, MI", value: "ARR, MI"},
     //    {label: "BB, MI", value: "BB, MI"},
@@ -94,9 +94,9 @@ export default Ember.Controller.extend({
     state: 'UT',
     filteredStates: findStates(),
 
-    disabledImportFacebook: function () {
-        return Ember.isEmpty(this.get('facebookId'));
-    }.property('facebookId'),
+    //disabledImportFacebook: function () {
+    //    return Ember.isEmpty(this.get('facebookId'));
+    //}.property('facebookId'),
 
     hasOldPassword: function() {
         var pass = this.get('password'),
@@ -108,8 +108,6 @@ export default Ember.Controller.extend({
         }
         return ret;
     }.property('password'),
-
-
 
     filterStatesBy: function(term) {
         var states = findStates();

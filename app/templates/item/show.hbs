@@ -2,122 +2,126 @@
     <div class="col-xs-12 col-md-6">
         <ol class="breadcrumb">
             <li>{{#link-to 'index'}}Home{{/link-to}}</li>
-            <li><button class="btn-link" {{action "goBack"}}>Listing</button></li>
+            <li>
+                <button class="btn-link" {{action "goBack"}}>Listing</button>
+            </li>
             <li class="active">Detail</li>
         </ol>
     </div>
     <div class="col-xs-12 col-md-6">
-        {{#if showEdit}}
-            {{#link-to 'item.edit' model.id class="btn btn-default"}}Edit{{/link-to}}
-        {{/if}}
+      {{#if showEdit}}
+        {{#link-to 'item.edit' model.id class="btn btn-default"}}Edit{{/link-to}}
+      {{/if}}
     </div>
 </div>
 
 <div class="row row-gutter-bottom">
-	<div class="col-xs-12 col-md-2">
-        <img {{bind-attr src=model.availableImage}} width="300" height="300" class="img-responsive img-rounded" style="margin-bottom:-15px; margin-top:-15px" alt="item" />
-	</div>
-	<div class="col-xs-12 col-md-10">
-		<div class="row row-gutter-bottom">
-			<div class="col-xs-2 col-md-1">
-				<label>Title:</label>
-			</div>
-			<div class="col-xs-10 col-md-6">
-				<h1>{{model.title}}</h1>
-			</div>
-		</div>
-		<div class="row row-gutter-bottom">
-			<div class="col-xs-2 col-md-1">
-				
-			</div>
-			<div class="col-xs-10 col-md-6">
-				by {{#link-to 'member.show' model.creator}} {{model.creator.displayName}} {{/link-to}}
-			</div>
-		</div>
-		<div class="row row-gutter-bottom">
-			<div class="col-xs-12">
-				<hr>
-			</div>
-		</div>
-		<div class="row row-gutter-bottom">
-			<div class="col-xs-2 col-md-1">
-				<label>Price:</label>
-			</div>
-			<div class="col-xs-10 col-md-6">
-				{{model.price}}
-			</div>
-		</div>		
-		<div class="row row-gutter-bottom">
-			<div class="col-xs-2 col-md-1">
-				<label>Description:</label>
-			</div>
-			<div class="col-xs-10 col-md-6">
-				{{model.description}}
-			</div>
-		</div>
-		<div class="row row-gutter-bottom">
-			<div class="col-xs-2 col-md-1">
-				<label>Status:</label>
-			</div>
-			<div class="col-xs-10 col-md-6">
-				{{model.status}}
-			</div>
-		</div>
-		<div class="row row-gutter-bottom">
-			<div class="col-xs-2 col-md-1">
-				<label>Type:</label>
-			</div>
-			<div class="col-xs-10 col-md-6">
-                {{display-text model.type allTypes}}
-			</div>
-		</div>
-		<div class="row row-gutter-bottom">
-			<div class="col-xs-2 col-md-1">
-				<label>Condition:</label>
-			</div>
-			<div class="col-xs-10 col-md-6">
-				{{model.condition}}
-			</div>
-		</div>
-		<div class="row row-gutter-bottom">
-			<div class="col-xs-2 col-md-1">
-				<label>Size:</label>
-			</div>
-			<div class="col-xs-10 col-md-6">
-				{{model.size}}
-			</div>
-		</div>
-		<div class="row row-gutter-bottom">
-			<div class="col-xs-2 col-md-1">
-				<label>Age:</label>
-			</div>
-			<div class="col-xs-10 col-md-6">
-				From {{model.fromAge}} to {{model.toAge}}
-			</div>
-		</div>
-		<div class="row row-gutter-bottom">
-			<div class="col-xs-2 col-md-1">
-				<label>Width:</label>
-			</div>
-			<div class="col-xs-10 col-md-6">
-				{{model.width}}
-			</div>
-		</div>
-		<div class="row row-gutter-bottom">
-			<div class="col-xs-2 col-md-1">
-				<label>Length:</label>
-			</div>
-			<div class="col-xs-10 col-md-6">
-				{{model.length}}
-			</div>
-		</div>
-		<div class="row row-gutter-bottom">
-			<div class="col-xs-2 col-md-1">
-				<label>Height:</label>
-			</div>
-			<div class="col-xs-10 col-md-6">
-				{{model.height}}
-			</div>
-		</div>    	
-	</div>
+    <div class="col-xs-12 col-md-2">
+        <img {{bind-attr src=model.availableImage}} width="300" height="300" class="img-responsive img-rounded"
+                                                    style="margin-bottom:-15px; margin-top:-15px" alt="item"/>
+    </div>
+    <div class="col-xs-12 col-md-10">
+        <div class="row row-gutter-bottom">
+            <div class="col-xs-2 col-md-1">
+                <label>Title:</label>
+            </div>
+            <div class="col-xs-10 col-md-6">
+                <h1>{{model.title}}</h1>
+            </div>
+        </div>
+        <div class="row row-gutter-bottom">
+            <div class="col-xs-2 col-md-1">
+
+            </div>
+            <div class="col-xs-10 col-md-6">
+                by {{#link-to 'member.show' model.creator}} {{model.creator.displayName}} {{/link-to}}
+            </div>
+        </div>
+        <div class="row row-gutter-bottom">
+            <div class="col-xs-12">
+                <hr>
+            </div>
+        </div>
+        <div class="row row-gutter-bottom">
+            <div class="col-xs-2 col-md-1">
+                <label>Price:</label>
+            </div>
+            <div class="col-xs-10 col-md-6">
+                <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
+                {{model.price}}
+            </div>
+        </div>
+        <div class="row row-gutter-bottom">
+            <div class="col-xs-2 col-md-1">
+                <label>Description:</label>
+            </div>
+            <div class="col-xs-10 col-md-6">
+              {{model.description}}
+            </div>
+        </div>
+        <div class="row row-gutter-bottom">
+            <div class="col-xs-2 col-md-1">
+                <label>Status:</label>
+            </div>
+            <div class="col-xs-10 col-md-6">
+              {{model.status}}
+            </div>
+        </div>
+        <div class="row row-gutter-bottom">
+            <div class="col-xs-2 col-md-1">
+                <label>Type:</label>
+            </div>
+            <div class="col-xs-10 col-md-6">
+              {{display-text model.type allTypes}}
+            </div>
+        </div>
+        <div class="row row-gutter-bottom">
+            <div class="col-xs-2 col-md-1">
+                <label>Condition:</label>
+            </div>
+            <div class="col-xs-10 col-md-6">
+              {{model.condition}}
+            </div>
+        </div>
+        <div class="row row-gutter-bottom">
+            <div class="col-xs-2 col-md-1">
+                <label>Size:</label>
+            </div>
+            <div class="col-xs-10 col-md-6">
+              {{model.size}}
+            </div>
+        </div>
+        <div class="row row-gutter-bottom">
+            <div class="col-xs-2 col-md-1">
+                <label>Age:</label>
+            </div>
+            <div class="col-xs-10 col-md-6">
+                From {{model.fromAge}} to {{model.toAge}}
+            </div>
+        </div>
+        <div class="row row-gutter-bottom">
+            <div class="col-xs-2 col-md-1">
+                <label>Width:</label>
+            </div>
+            <div class="col-xs-10 col-md-6">
+              {{model.width}}
+            </div>
+        </div>
+        <div class="row row-gutter-bottom">
+            <div class="col-xs-2 col-md-1">
+                <label>Length:</label>
+            </div>
+            <div class="col-xs-10 col-md-6">
+              {{model.length}}
+            </div>
+        </div>
+        <div class="row row-gutter-bottom">
+            <div class="col-xs-2 col-md-1">
+                <label>Height:</label>
+            </div>
+            <div class="col-xs-10 col-md-6">
+              {{model.height}}
+            </div>
+        </div>
+    </div>
 </div>

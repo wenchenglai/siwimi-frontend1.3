@@ -1,8 +1,7 @@
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -97,8 +96,8 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 
-                            {{session.user.firstName}}&nbsp;&nbsp;
-                            <img src={{session.user.imageData}} height="32" width="32"
+                            {{session.currentUser.firstName}}&nbsp;&nbsp;
+                            <img src={{session.currentUser.availableImage}} height="32" width="32"
                                  style="margin-bottom:-15px; margin-top:-15px" alt="avatar"/>
                             <span class="caret"></span>
                         </a>

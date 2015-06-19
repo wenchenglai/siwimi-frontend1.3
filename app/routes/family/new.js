@@ -59,6 +59,18 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, StatesDataMixin, {
 
         cancel: function() {
             this.transitionTo('family.my');
+        },
+
+        goBack: function() {
+            var self = this,
+                session = self.get('session'),
+                previousURL = self.controllerFor('application').get('previousURL');
+
+            if (previousURL) {
+              self.transitionTo(previousURL);
+            } else {
+              self.transitionTo('family.my');
+            }
         }
     }
 });
