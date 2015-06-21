@@ -6,12 +6,13 @@ export default Ember.Route.extend({
             session = self.get('session');
 
         return self.store.createRecord('item', { city: session.get('baseCity'), state: session.get('baseState'), zipCode: session.get('zipCode')});
-    }, 
+    },
 
     actions: {
         cancel: function () {
             this.transitionTo('item.my');
         },
+
         save: function () {
             var self = this,
                 model = self.currentModel,

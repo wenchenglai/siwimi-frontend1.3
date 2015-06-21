@@ -20,7 +20,7 @@ export default Ember.Route.extend({
             self.controller.set('isDisabled', true);
             self.store.find('member', userId).then(function(user) {
                 model.set('creator', user);
-                model.set('isDestroyed', false);
+                model.set('isDeletedRecord', false);
                 model.set('createdDate', new Date());
 
                 var onSuccess = function (obj) {

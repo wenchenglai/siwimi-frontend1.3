@@ -20,7 +20,7 @@ export default Ember.Route.extend({
                 model.set('creator', user);
                 model.set('isDeletedRecord', false);
                 model.set('createdDate', new Date());
-                model.set('isAppFeedback', true);
+                model.set('parentType', 'feedback');
 
                 var onSuccess = function() {
                     self.send('showAlertBar', {

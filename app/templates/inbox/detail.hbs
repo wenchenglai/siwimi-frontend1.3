@@ -1,14 +1,26 @@
 <div class="row row-gutter-bottom">
     <div class="col-xs-12">
-        <div class="btn-group" role="group" aria-label="...">
-            {{#link-to 'inbox.browse' class="btn btn-default" }}Back{{/link-to}}
-            <button type="button" class="btn btn-default" {{action 'delete' }}>Delete</button>
-        </div>
+        <button type="button" class="btn btn-sm btn-cys" {{action 'delete' }}>Delete this message</button>
+        <button type="button" class="btn btn-cys" {{action 'reply' }}>Reply</button>
     </div>
 </div>
 <div class="row row-gutter-bottom">
     <div class="col-xs-12">
         {{model.subject}}
+    </div>
+</div>
+<div class="row row-gutter-bottom">
+    <div class="col-xs-12">
+        <hr>
+    </div>
+</div>
+<div class="row row-gutter-bottom">
+    <div class="col-xs-6">
+        <strong>{{model.from.displayName}}</strong> to <strong>{{model.to.displayName}}</strong>
+
+    </div>
+    <div class="col-xs-6">
+
     </div>
 </div>
 <div class="row row-gutter-bottom">

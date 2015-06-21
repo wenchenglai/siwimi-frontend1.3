@@ -32,6 +32,7 @@ function throttle(fn, delay){
 }
 
 export default Ember.Controller.extend({
+    queryParams: ['toId'],
     toId: '',
 
     actions: {

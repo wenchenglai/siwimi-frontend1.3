@@ -15,28 +15,8 @@ export default DS.Model.extend({
     // data management fields
     isDeletedRecord: DS.attr('boolean'),
 
-    subjectReduced: function () {
-        return this._getSubString(this.get('subject'), 25);
-    }.property('subject'),
-
-    bodyReduced: function () {
-        return this._getSubString(this.get('body'), 25);
-    }.property('body'),
-
     isRead: function() {
         var toStatus = this.get('toStatus');
-        return toStatus === "read" ? true : false; 
-    }.property('toStatus'),
-
-    _getSubString: function (str, size) {
-        if (str) {
-            if (str.length > size) {
-                return str.substring(0, size) + "...";
-            } else {
-                return str;
-            }
-        } else {
-            return "";
-        }
-    }  
+        return toStatus === "read" ? true : false;
+    }.property('toStatus')
 });

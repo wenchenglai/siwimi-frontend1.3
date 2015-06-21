@@ -35,6 +35,7 @@
             </div>
             <div class="col-xs-10 col-md-6">
                 by {{#link-to 'member.show' model.creator}} {{model.creator.displayName}} {{/link-to}}
+                ({{#link-to 'inbox.new' (query-params toId=model.creator.id)}}Send message to owner{{/link-to}})
             </div>
         </div>
         <div class="row row-gutter-bottom">

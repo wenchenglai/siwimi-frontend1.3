@@ -1,7 +1,7 @@
 <div class="row row-gutter-bottom">
     <div class="col-xs-12">
         <img src="assets/images/inbox.png" />
-        <h1>Inbox</h1>
+        <h2>Inbox</h2>
     </div>
 </div>
 <div class="row row-gutter-bottom">
@@ -25,14 +25,14 @@
             <th>Date</th>
             </thead>
             <tbody>
-                {{#each msg in model}}
-                <tr {{bind-attr class="isRead::bold" }}>
-                    <td>{{input type="checkbox" checked=msg.isChecked }}</td>
-                    <td>{{#link-to 'inbox.detail' msg.id }}{{msg.from.fullName}}{{/link-to}}</td>
-                    <td>{{#link-to 'inbox.detail' msg.id }}{{msg.subjectReduced}}{{/link-to}}</td>
-                    <td>{{msg.bodyReduced}}</td>
-                    <td>{{msg.createdDateShortDateString}}</td>
-                </tr>
+                {{#each model as |msg|}}
+                    <tr {{bind-attr class="isRead::bold" }}>
+                        <td>{{input type="checkbox" checked=msg.isChecked }}</td>
+                        <td>{{#link-to 'inbox.detail' msg.id }}{{msg.from.displayName}}{{/link-to}}</td>
+                        <td>{{#link-to 'inbox.detail' msg.id }}{{shorten-string msg.subject 50}}{{/link-to}}</td>
+                        <td>{{#link-to 'inbox.detail' msg.id }}{{shorten-string msg.body 50}}{{/link-to}}</td>
+                        <td>{{#link-to 'inbox.detail' msg.id }}{{formatted-date msg.createdDate 'LL'}}{{/link-to}}</td>
+                    </tr>
                 {{/each}}
             </tbody>
         </table>
