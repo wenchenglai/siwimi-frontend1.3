@@ -1,6 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+    model: function(params) {
+    return this.store.find('activity', params.id);
+  },
+
     afterModel: function(model, transition) {
         if (model.get('isDirty')) {
             model.rollback();
@@ -17,7 +21,7 @@ export default Ember.Route.extend({
                 if (Ember.isEmpty(model.get('creator'))) {
                     model.set('creator', user);
                 }
-                
+
                 model.save().then(function(obj) {
                     self.transitionTo('activity.show', obj);
                 });

@@ -1,6 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+    model: function(params) {
+    return this.store.find('member', params.id);
+  },
+
     afterModel: function(model, transition) {
         if (model.get('isDirty')) {
             model.rollback();
@@ -17,7 +21,7 @@ export default Ember.Route.extend({
             var onSuccess = function(member) {
                 var session = self.get('session'),
                     userId = session.get('id');
-                    
+
 
                 if (userId === member.get('id')) {
                     // reset the base location in case user changes the location
