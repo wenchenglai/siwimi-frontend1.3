@@ -24,6 +24,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
         return this.store.find('tip', Ember.merge(params, {
             requester: userId,
+            creator: userId,
             longitude: appController.get('baseLongitude'),
             latitude: appController.get('baseLatitude')
         }));

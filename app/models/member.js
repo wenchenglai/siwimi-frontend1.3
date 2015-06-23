@@ -46,10 +46,6 @@ export default DS.Model.extend({
         return this.get('birthday');
     }.property('birthday'),
 
-    avartarHostUrl: function () {
-        return this.store.adapterFor('application').get('host') + '/assets/img/' + this.get('avatarUrl');
-    }.property('avatarUrl'),
-
     birthYear: function() {
         return new Date(this.get('birthday')).getFullYear();
     }.property('birthday'),
@@ -79,8 +75,10 @@ export default DS.Model.extend({
     availableImage: function() {
         if (!Ember.isEmpty(this.get('imageData'))) {
             return this.get('imageData');
-        } else {
+        } else if (!Ember.isEmpty(this.get('avatarUrl'))) {
             return this.get('avatarUrl');
+        } else {
+            return '/assets/images/profile.png';
         }
     }.property('avatarUrl', 'imageData')
 });

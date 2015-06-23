@@ -3,14 +3,10 @@ import TipDataMixin from '../../mixins/tip-data';
 
 export default Ember.Controller.extend(TipDataMixin, {
     showEdit: function() {
-        if (Ember.isEmpty(this.get('creator'))) {
-            if (this.get('session').isAuthenticated) {
-                return true;
-            } else {
-                return false;
-            }
+        if (!Ember.isEmpty(this.get('creator'))) {
+            return this.get('creator.id') === this.get('session.id');
         } else {
-            return this.get('creator').get('id') === this.get('session').get('id');
+            return false;
         }
-    }.property('creator')
+    }.property()
 });

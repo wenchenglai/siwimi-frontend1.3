@@ -22,7 +22,6 @@ export default Ember.Route.extend(SessionSetupMixin, {
                     nickName: userName,
                     password: password,
                     isUser: true,
-                    avatarUrl: '/assets/images/avatar.jpg',
                     city: appController.get('baseCity'),
                     state: appController.get('baseState')
                 });

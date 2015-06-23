@@ -4,14 +4,10 @@ import ActivityDataMixin from '../../mixins/activity-data';
 export default Ember.Controller.extend(ActivityDataMixin, {
     color: null,
     showEdit: function() {
-        if (Ember.isEmpty(this.get('creator'))) {
-            if (this.get('session').isAuthenticated) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return this.get('creator').get('id') === this.get('session').get('id');
-        }
-    }.property('creator')
+      if (!Ember.isEmpty(this.get('creator'))) {
+        return this.get('creator.id') === this.get('session.id');
+      } else {
+        return false;
+      }
+    }.property()
 });

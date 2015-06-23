@@ -8,7 +8,6 @@ export default DS.Model.extend({
     isSolved: DS.attr('boolean'),
     status: DS.attr('string'),
     answers: DS.hasMany('feedback', { embedded: 'always' }),
-    viewCount: DS.attr('number'),
 
     // parameters set by backend ONLY
     viewCount: DS.attr('number'),
@@ -18,7 +17,7 @@ export default DS.Model.extend({
 
     // localization fields
     city: DS.attr('string'),
-    state: DS.attr('string'),    
+    state: DS.attr('string'),
     zipCode: DS.attr('string'),
     location: DS.attr('array'),
 

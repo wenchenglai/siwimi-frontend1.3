@@ -24,6 +24,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
         return self.store.find('activity', Ember.merge(params, {
             requester: userId,
+            creator: userId,
             longitude: appController.get('baseLongitude'),
             latitude: appController.get('baseLatitude')
         }));
