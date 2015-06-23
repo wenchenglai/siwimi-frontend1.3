@@ -25,7 +25,7 @@ export default Ember.Route.extend({
                 model.set('createdDate', new Date());
 
                 var onSuccess = function (item) {
-                    self.transitionTo('item.show', item);
+                    self.transitionTo('item.show', item.id);
                 };
 
                 var onFail = function (error) {

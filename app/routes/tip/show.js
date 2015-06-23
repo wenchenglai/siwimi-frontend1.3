@@ -13,18 +13,6 @@ export default Ember.Route.extend({
         });
     },
 
-    //setupController: function(controller, model) {
-    //    this._super(controller, model);
-    //
-    //    var query = {
-    //        parent: this.get('id'),
-    //        parentType: 'tip'
-    //    };
-    //    this.store.find('feedback', query).then(function(feedbacks) {
-    //        controller.set('feedbacks', feedbacks);
-    //    });
-    //},
-
     _addVote: function(voteType) {
         var self = this,
             userId = self.get('session.id'),

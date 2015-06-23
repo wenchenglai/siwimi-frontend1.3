@@ -12,6 +12,7 @@ export default Ember.Route.extend({
         cancel: function () {
             this.transitionTo('activity.my');
         },
+
         save: function () {
             var self = this,
                 model = self.currentModel,
@@ -25,7 +26,7 @@ export default Ember.Route.extend({
 
                 var onSuccess = function (obj) {
                     self.controller.set('isDisabled', false);
-                    self.transitionTo('activity.show', obj);
+                    self.transitionTo('activity.show', obj.id);
                 };
 
                 var onFail = function (error) {
