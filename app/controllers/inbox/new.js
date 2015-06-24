@@ -38,31 +38,7 @@ export default Ember.Controller.extend({
     actions: {
         setMemberSearch: throttle(function(autocomplete, term) {
             this.set('memberSearch', term);
-        }, 500),
-
-        sendMessage: function() {
-            var self = this,
-                session = self.get('session'),
-                memberId = self.get('toId'),
-                memberSearch = self.get('memberSearch');
-
-            self.store.find('member', memberId).then(function(toMember) {
-                var newRecord = self.store.createRecord('message', {
-                    from: session.get('user'),
-                    to: toMember,
-                    subject: self.get('subject'),
-                    body: self.get('body'),
-                    createdDate: new Date(),
-                    fromStatus: 'sent',
-                    toStatus: 'unread',
-                    isDEstroyed: false
-                });
-
-                newRecord.save().then(function () {
-                    self.transitionTo('inbox.browse');
-                });
-            });
-        }
+        }, 500)
     },
 
     members: function() {
@@ -81,8 +57,5 @@ export default Ember.Controller.extend({
         });
 
         return members;
-    }.property('memberSearch'),
-
-
-
+    }.property('memberSearch')
 });

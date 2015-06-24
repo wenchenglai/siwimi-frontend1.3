@@ -36,24 +36,21 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
               userId = self.get('session.id');
 
           self.store.find('member', userId).then(function (fromUser) {
-              self.store.find('member', self.controller.get('selectedMember')).then(function (toUser) {
-                  model.set('from', fromUser);
-                  model.set('to', toUser);
-                  model.set('fromStatus', 'sent');
-                  model.set('toStatus', 'unread');
-                  model.set('isDeletedRecord', false);
-                  model.set('createdDate', new Date());
+                model.set('from', fromUser);
+                model.set('fromStatus', 'sent');
+                model.set('toStatus', 'unread');
+                model.set('isDeletedRecord', false);
+                model.set('createdDate', new Date());
 
-                  var onSuccess = function (item) {
-                    self.transitionTo('inbox.browse', item);
-                  };
+                var onSuccess = function (item) {
+                    self.transitionTo('inbox.browse');
+                };
 
-                  var onFail = function (error) {
+                var onFail = function (error) {
                     self.send('error', error);
-                  };
+                };
 
-                  model.save().then(onSuccess, onFail);
-              });
+                model.save().then(onSuccess, onFail);
           });
       }
   }

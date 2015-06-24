@@ -16,7 +16,6 @@ export default DS.Model.extend({
     isDeletedRecord: DS.attr('boolean'),
 
     isRead: function() {
-        var toStatus = this.get('toStatus');
-        return toStatus === "read" ? true : false;
+        return this.get('toStatus') === "read" ? true : false;
     }.property('toStatus')
 });

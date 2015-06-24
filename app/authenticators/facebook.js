@@ -62,8 +62,8 @@ export default Base.extend({
 
           newMember.save().then(function (member) {
             resolve(member);
-          }, function () {
-            reject("Error when saving new member to system");
+          }, function (error) {
+            reject({name: error.status + " " + error.statusText, message: error.responseText});
           });
         }, function () {
           reject("Error when getting Facebook Picture");

@@ -24,13 +24,13 @@
             <th>Date</th>
             </thead>
             <tbody>
-                {{#each msg in model}}
+                {{#each model as |msg|}}
                 <tr {{bind-attr class="isRead::bold" }}>
                     <td>{{input type="checkbox" checked=msg.isChecked }}</td>
-                    <td>{{#link-to 'inbox.detail' msg.id }}{{msg.from.fullName}}{{/link-to}}</td>
-                    <td>{{#link-to 'inbox.detail' msg.id }}{{msg.subjectReduced}}{{/link-to}}</td>
-                    <td>{{msg.bodyReduced}}</td>
-                    <td>{{msg.createdDateShortDateString}}</td>
+                    <td>{{#link-to 'inbox.detail' msg.id }}{{msg.from.displayName}}{{/link-to}}</td>
+                    <td>{{#link-to 'inbox.detail' msg.id }}{{shorten-string msg.subject 50}}{{/link-to}}</td>
+                    <td>{{#link-to 'inbox.detail' msg.id }}{{shorten-string msg.body 50}}{{/link-to}}</td>
+                    <td>{{#link-to 'inbox.detail' msg.id }}{{formatted-date msg.createdDate 'LL'}}{{/link-to}}</td>
                 </tr>
                 {{/each}}
             </tbody>

@@ -26,7 +26,7 @@
             </thead>
             <tbody>
                 {{#each model as |msg|}}
-                    <tr {{bind-attr class="isRead::bold" }}>
+                    <tr class={{unless msg.isRead 'bold' }}>
                         <td>{{input type="checkbox" checked=msg.isChecked }}</td>
                         <td>{{#link-to 'inbox.detail' msg.id }}{{msg.from.displayName}}{{/link-to}}</td>
                         <td>{{#link-to 'inbox.detail' msg.id }}{{shorten-string msg.subject 50}}{{/link-to}}</td>
