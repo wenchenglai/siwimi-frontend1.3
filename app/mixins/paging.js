@@ -5,7 +5,7 @@ export default Ember.Mixin.create({
     pageNumber: 1,
     pageSize: 10,
     queryCount: 0, // total query count from this specific query
-    pagesArray: [], // hold the pagination number sequence
+    pagesArray: [{text: '1', className: ''}], // hold the pagination number sequence
     keepPageNumber: false, // due to a condition when user was in high page number, but change other filters (e.g. type or status) that leaves empty model
 
     // we need to watch whenever the pagination array changes (either add/remove new pages, or change active state

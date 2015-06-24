@@ -104,7 +104,7 @@
                     <td>{{item.ageRange}}</td>
                     <td>
                         <div class="btn-group" role="group" aria-label="...">
-                            {{#link-to 'item.show' item class="btn btn-default"}}Detail{{/link-to}}
+                            {{#link-to 'item.edit' item.id class="btn btn-default"}}Detail{{/link-to}}
                             <button type="button" class="btn btn-default" {{action 'openDeleteDialog' item.id target="view" bubbles="false" }}>Delete</button>
                         </div>
                     </td>

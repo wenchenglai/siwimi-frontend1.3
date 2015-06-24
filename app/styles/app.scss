@@ -58,6 +58,18 @@ body {
   font-size: 17px;
 }
 
+.list-group-item-heading {
+  color: $primary-control-color;
+  font-weight: bold;
+}
+
+/*
+  Question list show black fonts
+ */
+.list-group-item-text > a {
+    color: black;
+}
+
 input[type="radio"] {
   background-color: $primary-control-color;
 }
@@ -72,7 +84,6 @@ input[type="radio"] {
 
 .event-list:last-child {
   border-bottom: 0px solid #fff;
-  padding: 10px;
 }
 
 .event-list {

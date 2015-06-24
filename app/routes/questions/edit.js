@@ -17,7 +17,7 @@ export default Ember.Route.extend({
                 model = self.currentModel;
 
             model.save().then(function(obj) {
-                self.transitionTo('questions.show', obj);
+                self.transitionTo('questions.show', obj.id);
             });
 
         },

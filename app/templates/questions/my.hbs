@@ -52,7 +52,7 @@
                     <td>{{question.status}}</td>
                     <td>
                         <div class="btn-group" role="group" aria-label="...">
-                            {{#link-to 'questions.show' question class="btn btn-default"}}Detail{{/link-to}}
+                            {{#link-to 'questions.edit' question.id class="btn btn-default"}}Edit{{/link-to}}
                             <button type="button" class="btn btn-default" {{action 'openDeleteDialog' question.id target="view" bubbles="false" }}>Delete</button>
                         </div>
                     </td>
