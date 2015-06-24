@@ -6,7 +6,7 @@ export default Ember.Route.extend({
         var self = this,
             userId = self.get('session.id');
 
-        return self.store.find('message', { to: userId, toStatus: 'both' });
+        return self.store.find('message', { to: userId, toStatus: 'both', sort: 'desc' });
     },
 
     actions: {

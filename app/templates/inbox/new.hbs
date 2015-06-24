@@ -20,7 +20,7 @@
         </label>
     </div>
     <div class="col-xs-10">
-      {{view "select" value=model.to content=model.members optionValuePath="content.id" optionLabelPath="content.displayName"}}
+      {{view "select" value=selectedToId content=model.members optionValuePath="content.id" optionLabelPath="content.displayName" prompt="Please select a recipient"}}
     </div>
 </div>
 <div class="row row-gutter-bottom">
@@ -30,7 +30,7 @@
         </label>
     </div>
     <div class="col-xs-10">
-        {{input class="edit_box" value=model.message.subject placeholder="Enter a subject"}}
+        {{input class="edit_box" size="60" value=model.message.subject placeholder="Enter a subject"}}
     </div>
 </div>
 <div class="row row-gutter-bottom">
