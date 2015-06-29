@@ -2,28 +2,55 @@ import Ember from 'ember';
 import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin';
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
-    currentStatus: "all",
-    currentType: "all",
-    currentCondition: "all",
+    queryParams: {
+        status: {
+            refreshModel: true
+        },
+        type: {
+            refreshModel: true
+        },
+        condition: {
+            refreshModel: true
+        },
+        pageSize: {
+            refreshModel: true
+        },
+        pageNumber: {
+            refreshModel: true
+        }
+    },
 
-    model: function (status, type, condition) {
+   model: function (params) {
         var self = this,
-            session = self.get('session'),
+            appController = self.controllerFor('application'),
             userId = self.get('session.id');
 
-        if (typeof(status) !== "string") {
-            status = 'all';
+        return self.store.find('item',
+            Ember.merge(params, {
+            creator: userId,
+            requester: userId,
+            longitude: appController.get('baseLongitude'),
+            latitude: appController.get('baseLatitude')
+            }));
+    },
+
+    setupController: function(controller, model) {
+        // we get the total item count so we can generate the right pagination.
+        controller.set('model', model);
+        controller.set('keepPageNumber', false);
+        if (model.get('length') > 0) {
+            var totalRecordCount = model.get('content')[0].get('queryCount');
+            if (totalRecordCount != controller.get('queryCount')) {
+                controller.set('queryCount', totalRecordCount);
+            }
         }
-        
-        if (typeof(type) !== "string") {
-            type = 'all';
-        }   
+    },
 
-        if (typeof(condition) !== "string") {
-            condition = 'all';
-        }   
-
-        return self.store.find('item', { status: status, type: type, condition: condition, creator: userId, requester: userId, longitude: session.get('longitude'), latitude: session.get('latitude') });
+    resetController: function (controller, isExiting, transition) {
+        if (isExiting) {
+            // isExiting would be false if only the route's model was changing
+            controller.set('pageNumber', 1);
+        }
     },
 
     actions: {
@@ -44,14 +71,14 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
                 self.get('controller').set('content', records);
             });
         },
-        
+
         loadByType: function (type) {
             var self = this;
 
             self.set('currentType', type);
             self.model(self.get('currentStatus'), type, self.get('currentCondition')).then(function(records) {
                 self.get('controller').set('content', records);
-            });        	
+            });
         },
 
         delete: function (id) {
