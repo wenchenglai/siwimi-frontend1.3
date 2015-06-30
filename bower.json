@@ -1,25 +1,25 @@
 {
-  "name": "siwimi-parents",
-  "dependencies": {
-    "ember": "1.11.1",
-    "ember-cli-shims": "stefanpenner/ember-cli-shims#0.0.3",
-    "ember-cli-test-loader": "rwjblue/ember-cli-test-loader#0.0.4",
-    "ember-load-initializers": "ember-cli/ember-load-initializers#0.1.4",
-    "ember-data": "1.0.0-beta.18",
-    "ember-qunit": "0.3.1",
-    "ember-qunit-notifications": "0.0.7",
-    "ember-resolver": "~0.1.15",
-    "jquery": "^1.11.1",
-    "loader.js": "ember-cli/loader.js#3.2.0",
-    "qunit": "~1.17.1",
-    "bootstrap": "~3.3.1",
-    "moment": "~2.9.0",
-    "ember-simple-auth": "0.7.3",
-    "bootstrap-datepicker": "~1.4.0",
-    "eonasdan-bootstrap-datetimepicker": "~4.0.0",
-    "ember-cli-moment-shim": "~0.0.3",
-    "jquery-ui": "1.11.1",
-    "underscore": "~1.8.2",
-    "fullcalendar": "~2.3.1"
-  }
+    "name": "siwimi-parents",
+    "dependencies": {
+        "ember": "1.11.0",
+        "ember-cli-shims": "stefanpenner/ember-cli-shims#0.0.3",
+        "ember-cli-test-loader": "rwjblue/ember-cli-test-loader#0.0.4",
+        "ember-load-initializers": "ember-cli/ember-load-initializers#0.1.4",
+        "ember-data": "1.0.0-beta.18",
+        "ember-qunit": "0.3.1",
+        "ember-qunit-notifications": "0.0.7",
+        "ember-resolver": "~0.1.15",
+        "jquery": "^1.11.1",
+        "loader.js": "ember-cli/loader.js#3.2.0",
+        "qunit": "~1.17.1",
+        "bootstrap": "~3.3.1",
+        "moment": "~2.9.0",
+        "ember-simple-auth": "0.7.3",
+        "bootstrap-datepicker": "~1.4.0",
+        "eonasdan-bootstrap-datetimepicker": "~4.0.0",
+        "ember-cli-moment-shim": "~0.0.3",
+        "jquery-ui": "1.11.1",
+        "underscore": "~1.8.2",
+        "fullcalendar": "~2.3.1"
+    }
 }
