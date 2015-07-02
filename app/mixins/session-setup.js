@@ -35,21 +35,21 @@ export default Ember.Mixin.create(StatesDataMixin, {
         }
 
         if (longitude === 0.0) {
-            longitude = geoplugin_longitude();
+            longitude = member.geoplugin_longitude();
         }
 
         if (latitude === 0.0) {
-            latitude = geoplugin_latitude();
+            latitude = member.geoplugin_latitude();
         }
 
         if (Ember.isEmpty(baseCity)) {
-            baseCity = geoplugin_city();
+            baseCity = member.geoplugin_city();
         }
 
         if (Ember.isEmpty(baseState)) {
-            baseState = geoplugin_region();
+            baseState = member.geoplugin_region();
         }
-        
+
         session.set('longitude', longitude);
         session.set('latitude', latitude);
         session.set('baseCity', baseCity);

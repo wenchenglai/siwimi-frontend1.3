@@ -1,3 +1,4 @@
+/* global FB */
 import Ember from 'ember';
 
 function findStates() {
