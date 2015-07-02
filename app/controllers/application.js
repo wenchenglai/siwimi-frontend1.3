@@ -145,7 +145,7 @@ Ember.Controller.extend(StatesDataMixin, {
           // Google Geocoding API for getting location info from latitude and longitude
           Ember.$.getJSON('http://maps.googleapis.com/maps/api/geocode/json?latlng=' + latlng + '&sensor=true').then(onSuccess, onGoogleApiFail);
         }, function (err) {
-          if (err.code == 1) {
+          if (err.code === 1) {
             // User refused to grant the right
             self._setLocationGeoPlugin();
             return;

@@ -38,7 +38,7 @@ export default Ember.Route.extend({
         controller.set('keepPageNumber', false);
         if (model.get('length') > 0) {
             var totalRecordCount = model.get('content')[0].get('queryCount');
-            if (totalRecordCount != controller.get('queryCount')) {
+            if (totalRecordCount !== controller.get('queryCount')) {
                 controller.set('queryCount', totalRecordCount);
             }
         }

@@ -39,7 +39,7 @@ export default Ember.Route.extend({
             };
 
             var onFail = function(error) {
-                throw new error('Saving New Member Error');
+                throw new Error('Saving New Member Error');
             };
 
             model.save().then(onSuccess, onFail);

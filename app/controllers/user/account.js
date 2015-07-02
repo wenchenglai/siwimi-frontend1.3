@@ -111,7 +111,9 @@ export default Ember.Controller.extend({
 
     filterStatesBy: function(term) {
         var states = findStates();
-        if (!term) return states;
+        if (!term) {
+            return states;
+        }
         var filter = new RegExp('^'+term, 'i');
         return states.filter(function(state) {
             return filter.test(state.name) || filter.test(state.id);

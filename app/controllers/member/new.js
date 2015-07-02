@@ -11,9 +11,10 @@ export default Ember.Controller.extend(StatesDataMixin, {
       "Pet"
     ],
     pronoun: function() {
-        if (this.get('gender') === 'male')
-            return 'He';
-        else
-            return 'She';
+        if (this.get('gender') === 'male') {
+           return 'He';
+        }else {
+           return 'She';
+        }
     }.property('gender'),
 });

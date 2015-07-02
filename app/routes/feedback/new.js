@@ -7,7 +7,7 @@ export default Ember.Route.extend({
         return Ember.RSVP.hash({
             feedback: this.store.createRecord('feedback'),
             creator: this.store.find('member', userId)
-        })
+        });
     },
 
     actions: {

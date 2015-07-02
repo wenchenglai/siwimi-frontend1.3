@@ -16,7 +16,7 @@ export default Ember.View.extend({
             },afterTagAdded: function(event, ui) {
                 // do something special
                 console.log("Inside beforeTagAdded: ui.tag = " + ui.tag);
-            },autocomplete: {delay: 0, minLength: 1
+            },autocomplete: {delay: 0, minLength: 1,
                 //source: function(requestObj, responseCB) {
             //    //var self = this,
             //    //    host = self.store.adapterFor('application').get('host');
@@ -30,7 +30,7 @@ export default Ember.View.extend({
             //}
                 // using search instead of autocomplete.source will have automatic filtering on selected tags and
                 // availableTags
-                ,search: function(event, ui) {
+                search: function(event, ui) {
                     self.$.ajax({
                         url: host + "/membersajax?queryText=" + this.value,
                         success: function( data ) {

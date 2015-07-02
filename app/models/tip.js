@@ -47,7 +47,7 @@ export default DS.Model.extend({
             if (value) {
                 this.set('expiredDate', value.toDate());
             } else {
-                this.set('expiredDate', null)
+                this.set('expiredDate', null);
             }
         }
         // getter
