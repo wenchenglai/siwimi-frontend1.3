@@ -1,4 +1,5 @@
-﻿import Ember from 'ember';
+﻿/* global FB */
+import Ember from 'ember';
 import Base from 'simple-auth/authenticators/base';
 
 export default Base.extend({
