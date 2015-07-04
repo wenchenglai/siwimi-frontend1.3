@@ -15,7 +15,7 @@
             <tbody>
             {{#each obj in model}}
                 <tr>
-                    <th>{{view "previewImage" width="80" height="80" class="img-responsive img-thumbnail" src=obj.availableImage}}</th>
+                    <th>{{preview-image width="80" height="80" class="img-responsive img-thumbnail" src=obj.availableImage}}</th>
                     <td>{{obj.lastName}}</td>
                     <td>{{obj.firstName}}</td>
                     <td>{{obj.email}}</td>

@@ -96,7 +96,7 @@
             <tbody>
                 {{#each model as |item|}}
                 <tr>
-                    <td>{{view "previewImage" width="80" height="80" class="img-responsive img-thumbnail" src=item.availableImage}}</td>
+                    <td>{{preview-image width="80" height="80" class="img-responsive img-thumbnail" src=item.availableImage}}</td>
                     <td>{{item.title}}</td>
                     <td>{{display-text item.type allTypes}}</td>
                     <td>{{item.price}}</td>

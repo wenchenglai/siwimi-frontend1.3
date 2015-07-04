@@ -3,10 +3,10 @@
     <!-- Default panel contents -->
     <div class="panel-heading">
         {{#if family.familyName}}
-            {{family.familyName}} | 
-        {{/if}} 
+            {{family.familyName}} |
+        {{/if}}
         {{#if family.cityState}}
-            {{family.cityState}} | 
+            {{family.cityState}} |
         {{/if}}
         {{family.zipCode}}
     </div>
@@ -31,7 +31,7 @@
             {{#each member in family.members }}
             <tr>
                 <td>
-                    {{view "previewImage" width="200" height="200" class="img-responsive img-rounded" src=member.availableImage}}
+                    {{preview-image width="200" height="200" class="img-responsive img-rounded" src=member.availableImage}}
                 </td>
                 <td>{{member.firstName}}</td>
                 <td>{{member.lastName}}</td>

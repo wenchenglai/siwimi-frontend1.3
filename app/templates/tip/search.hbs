@@ -29,7 +29,7 @@
                 <tbody>
                     {{#each tip in model}}
                     <tr>
-                        <th>{{view "previewImage" width="80" height="80" class="img-responsive img-thumbnail" src=tip.availableImage}}</th>
+                        <th>{{preview-image width="80" height="80" class="img-responsive img-thumbnail" src=tip.availableImage}}</th>
                         <td>{{tip.titleReduced}}</td>
                         <td>{{tip.descriptionReduced}}</td>
                         <td>{{display-text tip.type allTypes}}</td>

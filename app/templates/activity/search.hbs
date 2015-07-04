@@ -65,7 +65,7 @@
             <tbody>
                 {{#each event in model}}
                 <tr>
-                    <th>{{view "previewImage" width="80" height="80" class="img-responsive img-thumbnail" src=event.availableImage}}</th>
+                    <th>{{preview-image width="80" height="80" class="img-responsive img-thumbnail" src=event.availableImage}}</th>
                     <td>{{event.title}}</td>
                     <td>{{display-text event.type allTypes}}</td>
                     <td>{{formatted-date event.fromDate 'LL'}}</td>

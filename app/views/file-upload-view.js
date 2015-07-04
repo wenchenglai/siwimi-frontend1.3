@@ -1,5 +1,5 @@
-import Ember from 'ember';
+// import Ember from 'ember';
 
-export default Ember.View.extend({
-    templateName: 'file-upload-view'
-});
+// export default Ember.View.extend({
+//     templateName: 'file-upload-view'
+// });
