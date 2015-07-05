@@ -28,6 +28,8 @@ export default Ember.TextField.extend({
             var reader = new FileReader();
             reader.onload = function(e) {
                 var data = e.target.result;
+
+                // reduce the upload image size, to avoid user uploads too big of a image file
                 var origImage = new Image();
                 origImage.src = data;
                 origImage.onload = function() {
@@ -39,7 +41,7 @@ export default Ember.TextField.extend({
 
                     self.resizeBase64Img(data, newWidth, newHeight).then(function(newImg){
                         //$("body").append(newImg);
-                        self.set('parentView.content', newImg.attr('src'));
+                        self.set('parentView.content.imageData', newImg.attr('src'));
                     });
                 };
 
