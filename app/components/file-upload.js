@@ -1,5 +1,5 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-    tagName: 'file-upload-view'
+    tagName: 'file-upload'
 });

@@ -24,17 +24,17 @@
         <div class="control-group">
             <div class="btn-group" data-toggle="buttons-radio">
 
-                {{#radio-button-view group="type" selectedValue=model.type value="deal" }}Deal{{/radio-button-view}}
+                {{#radio-button group="type" selectedValue=model.type value="deal" }}Deal{{/radio-button}}
 
-                {{#radio-button-view group="type" selectedValue=model.type value="education" }}Education{{/radio-button-view}}
+                {{#radio-button group="type" selectedValue=model.type value="education" }}Education{{/radio-button}}
 
-                {{#radio-button-view group="type" selectedValue=model.type value="entertainment" }}Entertainment{{/radio-button-view}}
+                {{#radio-button group="type" selectedValue=model.type value="entertainment" }}Entertainment{{/radio-button}}
 
-                {{#radio-button-view group="type" selectedValue=model.type value="health"}}Health{{/radio-button-view}}
+                {{#radio-button group="type" selectedValue=model.type value="health"}}Health{{/radio-button}}
 
-                {{#radio-button-view group="type" selectedValue=model.type value="travel" }}Travel{{/radio-button-view}}
+                {{#radio-button group="type" selectedValue=model.type value="travel" }}Travel{{/radio-button}}
 
-                {{#radio-button-view group="type" selectedValue=model.type value="misc" }}Misc{{/radio-button-view}}
+                {{#radio-button group="type" selectedValue=model.type value="misc" }}Misc{{/radio-button}}
 
             </div>
         </div>
@@ -47,7 +47,7 @@
         </label>
     </div>
     <div class="col-xs-10 col-md-11">
-        {{file-upload-view content=model}}
+        {{file-upload content=model}}
     </div>
 </div>
 <div class="row row-gutter-bottom">

@@ -38,9 +38,9 @@
         <div class="control-group">
             <div class="btn-group" data-toggle="buttons-radio">
 
-                {{#radio-button-view selectedValue=model.gender value="male" }}Male{{/radio-button-view}}
+                {{#radio-button selectedValue=model.gender value="male" }}Male{{/radio-button}}
 
-                {{#radio-button-view selectedValue=model.gender value="female" }}Female{{/radio-button-view}}
+                {{#radio-button selectedValue=model.gender value="female" }}Female{{/radio-button}}
 
             </div>
         </div>
@@ -63,7 +63,7 @@
         </label>
     </div>
     <div class="col-xs-12 col-md-4">
-        {{file-upload-view content=model}}
+        {{file-upload content=model}}
     </div>
 </div>
 <div class="row row-gutter-bottom">

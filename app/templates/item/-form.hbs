@@ -21,7 +21,7 @@
         </label>
     </div>
     <div class="col-xs-10 col-md-6">
-        {{file-upload-view content=model}}
+        {{file-upload content=model}}
     </div>
 </div>
 
@@ -63,9 +63,9 @@
         <div class="control-group">
             <div class="btn-group" data-toggle="buttons-radio">
 
-                {{#radio-button-view selectedValue=model.condition group="condition" value="new"}}New{{/radio-button-view}}
+                {{#radio-button selectedValue=model.condition group="condition" value="new"}}New{{/radio-button}}
 
-                {{#radio-button-view selectedValue=model.condition group="condition" value="used"}}Used{{/radio-button-view}}
+                {{#radio-button selectedValue=model.condition group="condition" value="used"}}Used{{/radio-button}}
 
             </div>
         </div>
@@ -88,17 +88,17 @@
         <div class="control-group">
             <div class="btn-group" data-toggle="buttons-radio">
 
-                {{#radio-button-view selectedValue=model.type group="type" value="toy" }}Toy{{/radio-button-view}}
+                {{#radio-button selectedValue=model.type group="type" value="toy" }}Toy{{/radio-button}}
 
-                {{#radio-button-view selectedValue=model.type group="type" value="cloth" }}Cloth{{/radio-button-view}}
+                {{#radio-button selectedValue=model.type group="type" value="cloth" }}Cloth{{/radio-button}}
 
-                {{#radio-button-view selectedValue=model.type group="type" value="book"}}Book{{/radio-button-view}}
+                {{#radio-button selectedValue=model.type group="type" value="book"}}Book{{/radio-button}}
 
-                {{#radio-button-view selectedValue=model.type group="type" value="equipment" }}Equipment{{/radio-button-view}}
+                {{#radio-button selectedValue=model.type group="type" value="equipment" }}Equipment{{/radio-button}}
 
-                {{#radio-button-view selectedValue=model.type group="type" value="furniture" }}Furniture{{/radio-button-view}}
+                {{#radio-button selectedValue=model.type group="type" value="furniture" }}Furniture{{/radio-button}}
 
-                {{#radio-button-view selectedValue=model.type group="type" value="misc" }}Misc{{/radio-button-view}}
+                {{#radio-button selectedValue=model.type group="type" value="misc" }}Misc{{/radio-button}}
 
             </div>
         </div>
