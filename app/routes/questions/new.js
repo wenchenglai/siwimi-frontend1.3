@@ -27,8 +27,19 @@ export default Ember.Route.extend({
                     });
                 });
             } else {
-
+                //self.controllerFor('login').set('model', '');
+                return self.render('loginModal', {
+                    into: 'application',
+                    outlet: 'modal'
+                });
             }
+        },
+
+        closeModal: function() {
+            this.disconnectOutlet({
+                outlet: 'modal',
+                parentView: 'application'
+            });
         }
     }
 });

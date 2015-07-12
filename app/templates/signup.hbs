@@ -9,21 +9,25 @@
         <form {{action 'authenticate' on='submit' }}>
             <div class="form-group">
                 <label for="email"><span class="required">*</span>Email</label>
-                {{input id='email' placeholder='Enter Email' class='form-control' value=email size="80"}}
+                {{input id="email" type="email" placeholder='Enter Email' class='form-control' value=email size="80" required="true"}}
             </div>
             <div class="form-group">
-                <label for="userName"><span class="required">*</span>User Name</label>
-              {{input id='userName' placeholder='Enter User Name' class='form-control' value=userName size="80"}}
+                <label for="lastName"><span class="required">*</span>Last Name</label>
+                {{input id='lastName' placeholder='Enter Last Name' class='form-control' value=lastName size="80" required="true"}}
+            </div>
+            <div class="form-group">
+                <label for="firstName"><span class="required">*</span>First Name</label>
+                {{input id='firstName' placeholder='Enter First Name' class='form-control' value=firstName size="80" required="true"}}
             </div>
             <div class="form-group">
                 <label for="password"><span class="required">*</span>Password</label>
-                {{input id='password' placeholder='Enter Password' class='form-control' type='password' value=password size="80"}}
+                {{input id="password" type="password" placeholder='Enter Password' class='form-control' value=password size="80"}}
             </div>
             <div class="form-group">
                 <label for="password2"><span class="required">*</span>Confirm Password</label>
-                {{input id='password2' placeholder='Enter Password' class='form-control' type='password' value=password2 size="80"}}
+                {{input id='password2' type="password" placeholder='Enter Password' class='form-control' value=password2 size="80"}}
             </div>
-            <button {{action "signup" }} class="btn btn-cys" {{bind-attr disabled=disabled}}>Sign Up</button>
+            <button {{action "signUp" }} class="btn btn-cys" {{bind-attr disabled=disabled}}>Sign Up</button>
             &nbsp;&nbsp;&nbsp;{{#link-to 'login' }}Back to Login page{{/link-to}}
 
         </form>

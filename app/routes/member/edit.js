@@ -43,7 +43,6 @@ export default Ember.Route.extend({
             };
 
             model.save().then(onSuccess, onFail);
-
         }
     }
 });

@@ -24,6 +24,10 @@ export default DS.Model.extend({
     flocation: DS.attr('string'),
     ftimezone: DS.attr('number'),
 
+    // sign up process
+    isConfirmedMember: DS.attr('boolean'),
+    isInSignUpProcess: DS.attr('boolean'),
+
     // localization fields
     city: DS.attr('string'),
     state: DS.attr('string'),
