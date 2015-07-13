@@ -8,7 +8,7 @@ export function initialize(container /*, application */) {
                 id = self.get("id");
 
             if (!Ember.isEmpty(id)) {
-                return container.lookup("store:main").find("member", id).then(function(user) {
+                return container.lookup("service:store").find("member", id).then(function(user) {
                     self.set("currentUser", user);
                 });
             }

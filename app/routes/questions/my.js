@@ -12,7 +12,15 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
             status = 'open';
         }
 
-        return self.store.find(self.get('modelType'), { status: status, creator: userId, requester: userId, longitude: session.get('longitude'), latitude: session.get('latitude') });
+        return self.store.query(
+            self.get('modelType'),
+            {
+                status: status,
+                creator: userId,
+                requester: userId,
+                longitude: session.get('longitude'),
+                latitude: session.get('latitude')
+            });
     },
 
     actions: {

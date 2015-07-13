@@ -6,7 +6,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         var self = this,
             id = self.get('session.id');
 
-            return self.store.find('member', id);
+            return self.store.findRecord('member', id);
     }
 
     //deactivate: function() {

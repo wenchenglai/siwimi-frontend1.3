@@ -10,7 +10,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         if (typeof(family) === 'string') {
             return self.store.find('family', family);
         } else if (familyId) {
-            return self.store.find('family', familyId);
+            return self.store.findRecord('family', familyId);
         }
         return null;
     },

@@ -5,7 +5,7 @@ export default Ember.Controller.extend({
         getLocation: function(autocomplete, term) {
             var self = this;
 
-            self.store.find('location', {queryText: term}).then(function(locations) {
+            self.store.query('location', {queryText: term}).then(function(locations) {
                 self.set('locations', locations);
             });
         },

@@ -105,7 +105,7 @@ export default Base.extend({
         if (fbResponse.status === 'connected') {
           // if logged in before, the cookie will have this status
           Ember.run(function () {
-            var store = self.get('container').lookup('store:main');
+            var store = self.get('container').lookup('service:store');
 
 
             store.find('member', fbResponse.authResponse.userID).then(function (member) {
@@ -154,7 +154,7 @@ export default Base.extend({
           FB.login(function (fbResponse) {
             if (fbResponse.authResponse) {
               Ember.run(function () {
-                var store = self.get('container').lookup('store:main');
+                var store = self.get('container').lookup('service:store');
 
                 store.find('member', fbResponse.authResponse.userID).then(function (member) {
 

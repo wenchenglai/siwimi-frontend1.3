@@ -8,12 +8,12 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       if (Ember.isEmpty(params.toId)) {
           return Ember.RSVP.hash({
               message: self.store.createRecord('message'),
-              members: self.store.find('member')
+              members: self.store.findAll('member')
           });
       } else {
           return Ember.RSVP.hash({
               message: self.store.createRecord('message'),
-              members: self.store.find('member'),
+              members: self.store.findAll('member'),
               toId: params.toId
           });
       }

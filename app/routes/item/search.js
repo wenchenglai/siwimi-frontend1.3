@@ -14,7 +14,7 @@ export default Ember.Route.extend({
                     latitude: session.get('latitude')
                 };
 
-            self.store.find('item', query).then(function(items) {
+            self.store.query('item', query).then(function(items) {
                 self.set('model', items.get('content'));
                 self.controller.set('showData', true);
             });
