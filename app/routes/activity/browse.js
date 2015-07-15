@@ -25,7 +25,7 @@ export default Ember.Route.extend({
                 params.pageNumber = 1;
             }
 
-            return self.store.find('activity', Ember.merge(params, {
+            return self.store.query('activity', Ember.merge(params, {
                 requester: userId,
                 longitude: appController.get('baseLongitude'),
                 latitude: appController.get('baseLatitude')
@@ -37,7 +37,7 @@ export default Ember.Route.extend({
         controller.set('model', model);
         controller.set('keepPageNumber', false);
         if (model.get('length') > 0) {
-            var totalRecordCount = model.get('content')[0].get('queryCount');
+            var totalRecordCount = model.get('firstObject').get('queryCount');
             if (totalRecordCount !== controller.get('queryCount')) {
                 controller.set('queryCount', totalRecordCount);
             }

@@ -6,7 +6,7 @@ export default Ember.Route.extend({
 
         return Ember.RSVP.hash({
             feedback: this.store.createRecord('feedback'),
-            creator: this.store.find('member', userId)
+            creator: this.store.findRecord('member', userId)
         });
     },
 
@@ -16,7 +16,7 @@ export default Ember.Route.extend({
                 model = self.get('controller.model.feedback'),
                 userId = self.get('session.id');
 
-            self.store.find('member', userId).then(function(user) {
+            self.store.findRecord('member', userId).then(function(user) {
                 model.set('creator', user);
                 model.set('isDeletedRecord', false);
                 model.set('createdDate', new Date());

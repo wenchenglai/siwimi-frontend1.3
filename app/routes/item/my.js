@@ -25,7 +25,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
             appController = self.controllerFor('application'),
             userId = self.get('session.id');
 
-        return self.store.find('item',
+        return self.store.query('item',
             Ember.merge(params, {
             creator: userId,
             requester: userId,

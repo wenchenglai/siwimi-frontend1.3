@@ -22,7 +22,7 @@ export default Ember.Route.extend({
             params.pageNumber = 1;
         }
 
-        return self.store.find('question', Ember.merge(params, {
+        return self.store.query('question', Ember.merge(params, {
             requester: userId,
             longitude: appController.get('baseLongitude'),
             latitude: appController.get('baseLatitude')

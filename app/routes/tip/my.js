@@ -22,7 +22,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
             appController = self.controllerFor('application'),
             userId = self.get('session.id');
 
-        return this.store.find('tip', Ember.merge(params, {
+        return this.store.query('tip', Ember.merge(params, {
             requester: userId,
             creator: userId,
             longitude: appController.get('baseLongitude'),
@@ -35,7 +35,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         controller.set('model', model);
         controller.set('keepPageNumber', false);
         if (model.get('length') > 0) {
-            var totalRecordCount = model.get('content')[0].get('queryCount');
+            var totalRecordCount = model.get('firstObject').get('queryCount');
             if (totalRecordCount !== controller.get('queryCount')) {
                 controller.set('queryCount', totalRecordCount);
             }

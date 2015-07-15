@@ -6,6 +6,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         var self = this,
             userId = self.get('session.id');
 
-        return self.store.find('message', { from: userId, fromStatus: 'sent' });
+        return self.store.query('message', { from: userId, fromStatus: 'sent' });
     }
 });

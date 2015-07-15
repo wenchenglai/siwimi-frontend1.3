@@ -16,7 +16,7 @@ export default Ember.Route.extend({
                 userId = self.get('session.id');
 
             if (session.isAuthenticated) {
-                self.store.find('member', userId).then(function (user) {
+                self.store.findRecord('member', userId).then(function (user) {
                     model.set('creator', user);
                     model.set('status', 'Open');
                     model.set('isDeletedRecord', false);

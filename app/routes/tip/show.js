@@ -8,8 +8,8 @@ export default Ember.Route.extend({
         };
 
         return Ember.RSVP.hash({
-            tip: this.store.find('tip', params.id),
-            feedback: this.store.find('feedback', query)
+            tip: this.store.findRecord('tip', params.id),
+            feedback: this.store.query('feedback', query)
         });
     },
 
@@ -18,7 +18,7 @@ export default Ember.Route.extend({
             userId = self.get('session.id'),
             model = self.currentModel;
 
-        self.store.find('member', userId).then(function(member) {
+        self.store.findRecord('member', userId).then(function(member) {
             var voteModel = self.store.createRecord('vote', {
                 creator: member,
                 voteType: voteType,
@@ -66,7 +66,7 @@ export default Ember.Route.extend({
                 model = self.currentModel;
 
             if (!model.get('isFavorite')) {
-                self.store.find('member', userId).then(function(member) {
+                self.store.findRecord('member', userId).then(function(member) {
                     var newModel = self.store.createRecord('favorite', {
                         creator: member,
                         targetObject: model.id,
@@ -88,7 +88,7 @@ export default Ember.Route.extend({
                 model = self.currentModel,
                 newObj;
 
-            self.store.find('member', userId).then(function(member) {
+            self.store.findRecord('member', userId).then(function(member) {
                 newObj = self.store.createRecord('feedback', {
                     creator: member,
                     parent: id,

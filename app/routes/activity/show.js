@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
     model: function(params) {
-        return this.store.find('activity', params.id);
+        return this.store.findRecord('activity', params.id);
     },
 
     setupController: function(controller, model) {
@@ -17,7 +17,7 @@ export default Ember.Route.extend({
                 event: model.id
             };
 
-            self.store.find('emaction', query).then(function(emactions) {
+            self.store.query('emaction', query).then(function(emactions) {
                 controller.set('emaction', emactions.content[0]);
             });
         }

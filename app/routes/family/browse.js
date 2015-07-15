@@ -3,8 +3,7 @@ import Ember from 'ember';
 export default Ember.Route.extend({
     actions: {
         search: function () {
-            var self = this,
-                session = self.get('session');
+            var self = this;
 
             var query = {
                 longitude: 97,
@@ -17,7 +16,7 @@ export default Ember.Route.extend({
                 toAge: self.controller.get('toAge')
             };
 
-            self.store.find('family', query).then(function(families) {
+            self.store.query('family', query).then(function(families) {
                 self.set('model', families.content);
                 self.controller.set('showData', true);
             }, function(error) {
