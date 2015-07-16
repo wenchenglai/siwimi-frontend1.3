@@ -26,16 +26,10 @@ export default Ember.Route.extend(SessionSetupMixin, UnauthenticatedRouteMixin, 
             session.authenticate('authenticator:custom', {email: email, password: password, host: host}).then(function () {
                 //self._setLongitudeAndLatitudeInSession(session, session.get('user'));
                 //self._setProfilePictureInSession(session, session.get('user'));
-
-
                 var member = session.get('user');
-                // if user has not confirmed, we log the user out again
-                //if (member.get('isInSignUpProcess')) {
-                //    self.transitionTo('signup', member);
-                //}
 
-                // we need to check if this user has finished the sign up process
                 if (member.get('isInSignUpProcess')) {
+                    // we need to check if this user has finished the sign up process
                     self.transitionTo('signup2', member);
                 }
 

@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import SessionSetupMixin from '../mixins/session-setup';
+import SessionSetupMixin from '../../mixins/session-setup';
 
 export default Ember.Route.extend(SessionSetupMixin, {
     validateEmail: function(email) {

@@ -101,6 +101,7 @@
 </div>
 {{/each}}
 
+{{#if session.isAuthenticated}}
 <div class="row row-gutter-bottom">
     <div class="col-xs-12">
         <label>
@@ -112,3 +113,4 @@
         <button class="btn btn-primary btn-sm" {{action "addNewFeedback" model.tip.id }}>Add Feedback</button>
     </div>
 </div>
+{{/if}}

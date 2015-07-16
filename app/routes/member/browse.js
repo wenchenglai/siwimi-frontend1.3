@@ -15,7 +15,7 @@ export default Ember.Route.extend({
         if (model.get('length') === 1) {
             member = model.get('firstObject');
             if (member.get('isConfirmedMember') && member.get('isInSignUpProcess')) {
-                this.transitionTo('signup2', member);
+                this.transitionTo('register.signup2', member);
             }
         }
     }

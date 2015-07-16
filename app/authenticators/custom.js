@@ -36,11 +36,16 @@ export default Base.extend({
             ).then(function (data) {
                 if (data[0].auth === 'success' && data[0].member.id) {
                     Ember.run(function () {
-                        self.get('container').lookup('store:main').find('member', data[0].member.id).then(function(user) {
-                            resolve({
-                                id: user.id,
-                                user: user
-                            });
+                        self.get('container').lookup('service:store').find('member', data[0].member.id).then(function(user) {
+                            if (!user.get('isConfirmedMember')) {
+                                // not confirmed, we can allow them to send the notification email again
+                                self.get('container').lookup('route:application').transitionTo('register.getconfirmation', user);
+                            } else {
+                                resolve({
+                                    id: user.id,
+                                    user: user
+                                });
+                            }
                         });
                     });
                 } else {
