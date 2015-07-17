@@ -5,6 +5,9 @@ $navigtion-font-size: 17px;
 
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,300,400,700);
 
+@import "ember-modal-dialog/ember-modal-structure";
+@import "ember-modal-dialog/ember-modal-appearance";
+
 body {
     padding-top: 50px; /* needed so content wont overlap with bootstrap's fixed nav bar */
     font-family: 'Open Sans', sans-serif;
@@ -87,13 +90,15 @@ input:required:valid {
 }
 
 .siwimi-modal {
-  position: absolute;
-  margin: 10px auto;
-  width: 600px;
+  position: fixed;
   background-color: #fff;
-  padding: 1em;
-  top: 100px;
-  left: 100px;
+  top: 50%;
+  left: 50%;
+  padding: 10px;
+  box-shadow: 0 0 10px #222;
+  border-radius: 8px;
+  margin-left: -190px;
+  margin-top: -80px;
   z-index: 2001;
 }
 

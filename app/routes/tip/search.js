@@ -13,8 +13,8 @@ export default Ember.Route.extend({
                     latitude: appController.get('baseLatitude')
                 };
 
-            self.store.find('tip', query).then(function(records) {
-                self.controller.set('model', records.get('content'));
+            self.store.query('tip', query).then(function(records) {
+                self.controller.set('model', records);
                 self.controller.set('showData', true);
             }, function(error) {
                 self.send('error', error);

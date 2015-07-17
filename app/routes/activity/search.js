@@ -18,7 +18,7 @@ export default Ember.Route.extend({
                 };
 
             self.store.query('activity', query).then(function(records) {
-                self.controller.set('model', records.get('content'));
+                self.controller.set('model', records);
                 self.controller.set('showData', true);
             }, function(error) {
                 self.send('error', error);

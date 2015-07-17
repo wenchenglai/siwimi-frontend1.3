@@ -11,6 +11,7 @@ Ember.Controller.extend(StatesDataMixin, {
     alertType: "alert-danger",
     locations: ['Ann Arbor, MI', "Abb, MI", "ACC, MI", "ADD, CA"],
     activeTab: "",
+    isShowingModal: false,
 
     getCurrentPath: function () {
         var self = this,
@@ -191,6 +192,10 @@ Ember.Controller.extend(StatesDataMixin, {
         closeAlert: function () {
             var self = this;
             self._toggleAlert(false);
+        },
+
+        toggleModal: function(){
+            this.toggleProperty('isShowingModal');
         }
     }
 });
