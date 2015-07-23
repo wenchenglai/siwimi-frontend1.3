@@ -1,12 +1,8 @@
 import Ember from 'ember';
 import SessionSetupMixin from '../../mixins/session-setup';
+import Validators from '../../mixins/validate-utility';
 
-export default Ember.Route.extend(SessionSetupMixin, {
-    validateEmail: function(email) {
-        var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-        return re.test(email);
-    },
-
+export default Ember.Route.extend(SessionSetupMixin, Validators, {
     resetValues: function() {
         var controller = this.get('controller');
         controller.set('email', '');

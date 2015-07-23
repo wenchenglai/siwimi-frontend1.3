@@ -10,19 +10,19 @@ export default Ember.Controller.extend(CommonDataMixin, ActivityDataMixin, State
     }.property('model.title', 'model.description', 'isDisabled'),
     selectedTime: null,
     actions: {
-        focus: function() {
+        focus: function () {
 
         },
 
-        change: function() {
+        change: function () {
 
         },
 
-        close: function() {
+        close: function () {
 
         },
 
-        search: function() {
+        search: function () {
 
         }
     }

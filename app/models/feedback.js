@@ -11,6 +11,7 @@ export default DS.Model.extend({
     viewCount: DS.attr('number'),
     city: DS.attr('string'),
     state: DS.attr('string'),
+    senderEmail: DS.attr('string'),
 
     // data management fields
     isDeletedRecord: DS.attr('boolean')

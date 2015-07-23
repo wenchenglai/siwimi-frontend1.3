@@ -27,10 +27,10 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
         return self.store.query('item',
             Ember.merge(params, {
-            creator: userId,
-            requester: userId,
-            longitude: appController.get('baseLongitude'),
-            latitude: appController.get('baseLatitude')
+                creator: userId,
+                requester: userId,
+                longitude: appController.get('baseLongitude'),
+                latitude: appController.get('baseLatitude')
             }));
     },
 
@@ -39,7 +39,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         controller.set('model', model);
         controller.set('keepPageNumber', false);
         if (model.get('length') > 0) {
-            var totalRecordCount = model.get('content')[0].get('queryCount');
+            var totalRecordCount = model.get('firstObject').get('queryCount');
             if (totalRecordCount !== controller.get('queryCount')) {
                 controller.set('queryCount', totalRecordCount);
             }

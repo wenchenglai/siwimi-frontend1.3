@@ -76,14 +76,12 @@
                         {{!--<li>{{#link-to 'questions.preference'}}My Preference{{/link-to}}</li>--}}
                     </ul>
                 </li>
-                {{#if session.isAuthenticated}}
-                    <li>
-                        {{#link-to 'feedback.new'}}
-                            <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
-                            Feedback
-                        {{/link-to}}
-                    </li>
-                {{/if}}
+                <li>
+                    {{#link-to 'feedback.new'}}
+                        <span class="glyphicon glyphicon-comment" aria-hidden="true"></span>
+                        Contact Us
+                    {{/link-to}}
+                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>

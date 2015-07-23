@@ -1,20 +1,20 @@
 <div class="row row-gutter-bottom row-gutter-top">
     <div class="col-xs-12">
-        <h1>We welcome your feedback</h1>
-        <h3>You can tell us any feature improvement. Or you can suggest features that you want.</h3>
+        <p class="lead">We are located in Ann Arbor, MI</p>
+        <p>You can email us at <strong>info@siwimi.com</strong>.</p>
+        <p>You can tell us any improvement we can make, or you can suggest features that you want.</p>
     </div>
 </div>
 <div class="row row-gutter-bottom">
     <div class="col-xs-12">
         <label><span class="required">*</span>Email:
-            {{input class="form-control" placeholder="" value=model.creator.email}}
+            {{input type="email" class="form-control" size="50" placeholder="Enter your email address" value=email}}
         </label>
     </div>
 </div>
 <div class="row row-gutter-bottom">
     <div class="col-xs-12">
-        <span class="required">*</span>
-        {{textarea class="edit_box" rows="10" cols="60" value=model.feedback.description placeholder="Please type your suggestions here!"}}
+        {{textarea class="edit_box" rows="10" cols="60" value=description placeholder="Please type your suggestions here!"}}
     </div>
 </div>
 <div class="row row-gutter-bottom">
