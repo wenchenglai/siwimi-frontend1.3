@@ -35,13 +35,6 @@ app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.w
 app.import('bower_components/bootstrap/dist/js/bootstrap.js');
 
 app.import('vendor/bootstrap/css/dashboard.css');
-app.import('vendor/facebook/FB.js');
-//app.import('vendor/google/gapi.js');
-//app.import('vendor/tag-it/tag-it.js');
-//app.import('vendor/tag-it/css/tag-it.css');
-//app.import('vendor/ckeditor/ckeditor.js');
-//app.import('vendor/ckeditor/adapters/jquery.js');
-//app.import('vendor/ckeditor/config.js');
 
 app.import('bower_components/fullcalendar/dist/fullcalendar.css');
 app.import('bower_components/fullcalendar/dist/fullcalendar.js');

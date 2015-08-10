@@ -72,7 +72,10 @@ export default Base.extend({
             });
         });
     },
+
     restore: function (data) {
+        var self = this;
+
         return new Ember.RSVP.Promise(function (resolve, reject) {
             // this will be called when user has logged in and cookie is still valid
             if (!Ember.isEmpty(data.accessToken) && !Ember.isEmpty(data.id)) {
@@ -82,13 +85,12 @@ export default Base.extend({
                 // Therefore, I'll use regular javascript object for the user in a session
                 resolve(data);
 
-                //self.get('container').lookup('store:main').find('member', data.id).then(function (member) {
+                //self.get('container').lookup('service:store').findRecord('member', data.id).then(function (member) {
                 //    data.user = member;
                 //    resolve(data);
+                //
                 //}, function(error) {
-                //    reject();
-                //    this.controllerFor('error').set('error', error);
-                //    this.transitionTo('error');
+                //    reject(error);
                 //});
 
             } else {
@@ -118,8 +120,7 @@ export default Base.extend({
                                 }
 
                                 resolve({
-                                    user: member.toJSON(),
-                                    //currentUser: userObj,
+                                    user: member,
                                     id: member.id,
                                     accessToken: fbResponse.authResponse.accessToken,
                                     facebookId: fbResponse.authResponse.userID
@@ -152,7 +153,7 @@ export default Base.extend({
                             Ember.run(function () {
                                 var store = self.get('container').lookup('service:store');
 
-                                store.find('member', fbResponse.authResponse.userID).then(function (member) {
+                                store.findRecord('member', fbResponse.authResponse.userID).then(function (member) {
 
                                     self._getFacebookProfilePicture('large').then(function (largeProfilePicture) {
                                         var fbImageUrl = largeProfilePicture.data.url;
@@ -163,8 +164,7 @@ export default Base.extend({
                                         }
 
                                         resolve({
-                                            user: member.toJSON(),
-                                            //currentUser: userObj,
+                                            user: member,
                                             id: member.id,
                                             accessToken: fbResponse.authResponse.accessToken,
                                             facebookId: fbResponse.authResponse.userID
@@ -185,9 +185,9 @@ export default Base.extend({
                                 });
                             });
                         } else {
-                            reject();
+                            reject({name: 'Info', message: 'FB Login Dialog closed without login'});
                         }
-                    }, {scope: 'public_profile,email'});
+                    }, {scope: 'public_profile, email'});
                 }
             }, true);
         });
@@ -206,11 +206,5 @@ export default Base.extend({
                 Ember.run(resolve);
             }
         });
-    },
-
-    sessionDataUpdated: function () {
-        var a = 3;
-        var b = 4;
-        a = a + b;
     }
 });

@@ -8,9 +8,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
     afterModel: function (model, transition) {
         var self = this,
-            userId = self.get('session.id');
+            userId = self.get('session.secure.id');
 
-      debugger;
         if (userId === model.get('to.id')) {
             if (model.get('toStatus') === "unread") {
                 model.set('toStatus', 'read');

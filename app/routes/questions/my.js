@@ -6,7 +6,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     model: function (status) {
         var self = this,
             session = self.get('session'),
-            userId = self.get('session.id');
+            userId = self.get('session.secure.id');
 
         if (typeof(status) !== "string") {
             status = 'open';

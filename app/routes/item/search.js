@@ -5,7 +5,7 @@ export default Ember.Route.extend({
         search: function () {
             var self = this,
                 session = self.get('session'),
-                userId = self.get('session.id'),
+                userId = self.get('session.secure.id'),
                 query = {
                     requester: userId,
                     queryText: self.controller.get('queryText'),

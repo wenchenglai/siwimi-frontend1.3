@@ -20,7 +20,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     model: function (params) {
         var self = this,
             appController = self.controllerFor('application'),
-            userId = self.get('session.id');
+            userId = self.get('session.secure.id');
 
         return this.store.query('tip', Ember.merge(params, {
             requester: userId,

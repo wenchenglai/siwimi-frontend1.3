@@ -13,7 +13,7 @@ export default Ember.Route.extend({
             var self = this,
                 model = self.currentModel,
                 session = self.get('session'),
-                userId = self.get('session.id');
+                userId = self.get('session.secure.id');
 
             if (session.isAuthenticated) {
                 self.store.findRecord('member', userId).then(function (user) {

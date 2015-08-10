@@ -4,6 +4,8 @@
     </div>
 </div>
 
+{{#if model}}
+
 <div class="row row-gutter-bottom">
     <div class="col-xs-12">
         {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="all"}}
@@ -62,6 +64,10 @@
         </table>
     </div>
 </div>
+
+{{else}}
+<p class="lead">You don't have any questions yet.</p>
+{{/if}}
 
 <div id="dialog-confirm-delete" title="Delete an activity?">
     <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>This question will be deleted. Are you sure?</p>

@@ -24,6 +24,9 @@ export default DS.Model.extend({
     flocation: DS.attr('string'),
     ftimezone: DS.attr('number'),
 
+    // authorization [admin, user, anonymous]
+    role: DS.attr('string'),
+
     // sign up process
     isConfirmedMember: DS.attr('boolean'),
     isInSignUpProcess: DS.attr('boolean'),

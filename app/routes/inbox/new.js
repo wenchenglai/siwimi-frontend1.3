@@ -46,7 +46,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
           var self   = this,
               model  = self.currentModel.message,
               toId = self.controller.get('selectedToId'),
-              userId = self.get('session.id');
+              userId = self.get('session.secure.id');
 
           if (!Ember.isEmpty(toId)) {
               self.store.find('member', userId).then(function (fromUser) {

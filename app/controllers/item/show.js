@@ -4,7 +4,7 @@ import ItemDataMixin from '../../mixins/item-data';
 export default Ember.Controller.extend(ItemDataMixin, {
   showEdit: function() {
     if (!Ember.isEmpty(this.get('creator'))) {
-      return this.get('creator.id') === this.get('session.id');
+      return this.get('creator.id') === this.get('session.secure.id');
     } else {
       return false;
     }

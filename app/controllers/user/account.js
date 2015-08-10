@@ -182,21 +182,6 @@ export default Ember.Controller.extend({
             } else {
                 this.get('target').transitionTo('index');
             }
-        },
-
-        importFromFacebook: function () {
-            var self = this,
-                fromModel = self.get('model');
-
-            FB.api('/me?fields=id,name,address,email,birthday', function (fbUser) {
-                if (!fromModel.get('email')) {
-                    fromModel.set('email', fbUser.email);
-                }
-
-                if (!fromModel.get('facebookId')) {
-                    fromModel.set('facebookId', fbUser.id);
-                }
-            });
         }
     }
 });

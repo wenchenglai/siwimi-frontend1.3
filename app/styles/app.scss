@@ -33,6 +33,10 @@ input:required:valid {
     padding-bottom: 50px;
 }
 
+.hide {
+    display: none;
+}
+
 .cover-paragraph {
   color:white;
   padding: 15px 1px;
@@ -78,6 +82,40 @@ input:required:valid {
   color: $primary-control-color;
   font-weight: bold;
 }
+
+
+#postbox {
+  background-color: #f1f1f1;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+  padding: 10px;
+  width: 100%;
+}
+
+#postbox #postbox_fake {
+  min-height: 50px;
+  display: block;
+  background-color: white;
+  border: 1px solid #d8d8d8
+}
+
+#postbox #postbox_fake .input-textarea-fake {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  cursor: pointer;
+  height: 50px;
+  padding: 8px;
+}
+
+#postbox .placeholder {
+  color: #5a5a5a;
+  margin-right: 10px;
+}
+
+
 
 .overlay {
   height: 100%;

@@ -4,7 +4,7 @@ import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixi
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
     model: function () {
         var self = this,
-            userId = self.get('session.id');
+            userId = self.get('session.secure.id');
 
         return self.store.query('message', { to: userId, toStatus: 'trash' });
     },

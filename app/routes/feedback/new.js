@@ -3,18 +3,22 @@ import Validators from '../../mixins/validate-utility';
 
 export default Ember.Route.extend(Validators, {
     model: function () {
-        var userId = this.get('session.id');
+        var userId = this.get('session.secure.id');
 
-        return Ember.RSVP.hash({
-            feedback: this.store.createRecord('feedback'),
-            creator: this.store.findRecord('member', userId)
-        });
+        if (!Ember.isEmpty(userId)) {
+            return Ember.RSVP.hash({
+                feedback: this.store.createRecord('feedback'),
+                creator: this.store.findRecord('member', userId)
+            });
+        } else {
+            return null;
+        }
     },
 
     setupController: function(controller, model) {
         controller.set('model', model);
 
-        if (!Ember.isEmpty(this.get('session.id'))) {
+        if (!Ember.isEmpty(this.get('session.secure.id'))) {
             controller.set('email', model.creator.get('email'));
         }
     },
@@ -23,7 +27,7 @@ export default Ember.Route.extend(Validators, {
         save: function () {
             var self = this,
                 model = self.get('controller.model.feedback'),
-                userId = self.get('session.id'),
+                userId = self.get('session.secure.id'),
                 email= self.get('controller.email'),
                 description = self.get('controller.description');
 
@@ -35,13 +39,17 @@ export default Ember.Route.extend(Validators, {
                 }
 
                 if (self.validateEmail(email)) {
-                    model.set('isDeletedRecord', false);
-                    model.set('createdDate', new Date());
-                    model.set('parentType', 'feedback');
-                    model.set('description', description);
-                    model.set('senderEmail', email);
+
+                    var model = self.store.createRecord('feedback', {
+                        isDeletedRecord: false,
+                        parentType: 'feedback',
+                        senderEmail: email,
+                        description: description,
+                        createdDate: new Date()
+                    });
 
                     var onSuccess = function() {
+                        self.controller.set('description', '');
                         self.send('showAlertBar', {
                             title: 'Success',
                             message: 'Thank you for your feedback!',
@@ -67,6 +75,7 @@ export default Ember.Route.extend(Validators, {
                     model.set('description', description);
 
                     var onSuccess = function() {
+                        self.controller.set('description', '');
                         self.send('showAlertBar', {
                             title: 'Success',
                             message: 'Thank you for your feedback!',

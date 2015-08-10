@@ -15,7 +15,7 @@ export default Ember.Route.extend({
         save: function() {
             var self = this,
                 model = self.currentModel,
-                userId = self.get('session.id');
+                userId = self.get('session.secure.id');
 
             self.store.find('member', userId).then(function(user) {
                 if (Ember.isEmpty(model.get('creator'))) {

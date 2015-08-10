@@ -4,90 +4,92 @@
 
     </div>
 </div>
-<div class="row row-gutter-bottom">
-    <div class="col-xs-12">
-        {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="all"}}
-            All
-        {{/single-select}}
-
-        {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="deal"}}
-            Deals
-        {{/single-select}}
-
-        {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="cooking"}}
-            Cooking
-        {{/single-select}}
-
-        {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="health"}}
-            Health
-        {{/single-select}}
-
-        {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="education"}}
-            Education
-        {{/single-select}}
-
-        {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="entertainment"}}
-            Entertainment
-        {{/single-select}}
-
-        {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="travel"}}
-            Travel
-        {{/single-select}}
-
-        {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="misc"}}
-            Misc
-        {{/single-select}}
-    </div>
-</div>
-
-<div class="row row-gutter-bottom">
-    <div class="col-xs-12">
-        {{#single-select group="status" btnClassName="btn-cys-secondary" selectedValue=status value="all"}}
-            All
-        {{/single-select}}
-
-        {{#single-select group="status" btnClassName="btn-cys-secondary" selectedValue=status value="active"}}
-            Active
-        {{/single-select}}
-
-        {{#single-select group="status" btnClassName="btn-cys-secondary" selectedValue=status value="expired"}}
-            Expired
-        {{/single-select}}
-    </div>
-</div>
-
-<div class="row row-gutter-bottom">
-    <div class="col-xs-12">
-        <table class="table table-hover">
-            <thead>
-                <th></th>
-                <th>title</th>
-                <th>Description</th>
-                <th>Type</th>
-                <th>Expired Date</th>
-                <th>Action</th>
-            </thead>
-            <tbody>
-                {{#each tip in model}}
-                    <tr>
-                        <th>{{preview-image width="80" height="80" class="img-responsive img-thumbnail" src=tip.availableImage}}</th>
-                        <td>{{tip.titleReduced}}</td>
-                        <td>{{tip.descriptionReduced}}</td>
-                        <td>{{display-text tip.type allTypes}}</td>
-                        <td>{{formatted-date tip.expiredDate 'LL'}}</td>
-                        <td>
-                            {{#link-to 'tip.edit' tip}}Edit{{/link-to}}
-                            &nbsp;|&nbsp;
-                            <a href="#" {{action "openDeleteDialog" tip.id target="view" bubbles=false }}>Delete</a>
-                        </td>
-                    </tr>
-                {{/each}}
-            </tbody>
-        </table>
-    </div>
-</div>
-
 {{#if model}}
+
+    <div class="row row-gutter-bottom">
+        <div class="col-xs-12">
+            {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="all"}}
+                All
+            {{/single-select}}
+
+            {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="deal"}}
+                Deals
+            {{/single-select}}
+
+            {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="cooking"}}
+                Cooking
+            {{/single-select}}
+
+            {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="health"}}
+                Health
+            {{/single-select}}
+
+            {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="education"}}
+                Education
+            {{/single-select}}
+
+            {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="entertainment"}}
+                Entertainment
+            {{/single-select}}
+
+            {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="travel"}}
+                Travel
+            {{/single-select}}
+
+            {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="misc"}}
+                Misc
+            {{/single-select}}
+        </div>
+    </div>
+
+    <div class="row row-gutter-bottom">
+        <div class="col-xs-12">
+            {{#single-select group="status" btnClassName="btn-cys-secondary" selectedValue=status value="all"}}
+                All
+            {{/single-select}}
+
+            {{#single-select group="status" btnClassName="btn-cys-secondary" selectedValue=status value="active"}}
+                Active
+            {{/single-select}}
+
+            {{#single-select group="status" btnClassName="btn-cys-secondary" selectedValue=status value="expired"}}
+                Expired
+            {{/single-select}}
+        </div>
+    </div>
+
+
+    <div class="row row-gutter-bottom">
+        <div class="col-xs-12">
+            <table class="table table-hover">
+                <thead>
+                    <th></th>
+                    <th>title</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                    <th>Expired Date</th>
+                    <th>Action</th>
+                </thead>
+                <tbody>
+                    {{#each tip in model}}
+                        <tr>
+                            <th>{{preview-image width="80" height="80" class="img-responsive img-thumbnail" src=tip.availableImage}}</th>
+                            <td>{{tip.titleReduced}}</td>
+                            <td>{{tip.descriptionReduced}}</td>
+                            <td>{{display-text tip.type allTypes}}</td>
+                            <td>{{formatted-date tip.expiredDate 'LL'}}</td>
+                            <td>
+                                {{#link-to 'tip.edit' tip}}Edit{{/link-to}}
+                                &nbsp;|&nbsp;
+                                <a href="#" {{action "openDeleteDialog" tip.id target="view" bubbles=false }}>Delete</a>
+                            </td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
     <div class="row row-gutter-bottom">
         <div class="col-xs-12 col-md-11">
             <nav>
@@ -116,6 +118,9 @@
             </nav>
         </div>
     </div>
+
+{{else}}
+    <p class="lead">You don't have any tips posted yet.</p>
 {{/if}}
 
 <div id="dialog-confirm-delete" title="Delete a tip?">

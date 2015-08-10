@@ -24,7 +24,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
             var self = this;
             self.store.find('family', id).then(function (record) {
                 record.destroyRecord().then(function() {
-                    self.store.find('member', self.get('session.id')).then(function(user) {
+                    self.store.find('member', self.get('session.secure.id')).then(function(user) {
                         user.set('family', null);
                         user.save().then(function() {
                             self.get('session').set('user', user);

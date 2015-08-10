@@ -26,44 +26,46 @@
 </div>
 
 
+{{#if model.toDate}}
+    <div class="row row-gutter-bottom">
+        <div class="col-xs-12">
+            <h4>
+                <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                {{formatted-date model.fromDateMoment 'dddd'}},
+                {{formatted-date model.fromDate 'LL'}}
+                {{#if model.toDate}}
+                    to
+                    {{formatted-date model.toDateMoment 'dddd'}},
+                    {{formatted-date model.toDate 'LL'}}
+                {{/if}}
+            </h4>
+            <p>
+                {{#if model.fromTime}}
+                    <small>
+                        {{model.fromTime}}
+                    </small>
+                {{/if}}
+                {{#if model.toTime}}
+                    <small>
+                        to {{model.toTime}}
+                    </small>
+                {{/if}}
 
-<div class="row row-gutter-bottom">
-    <div class="col-xs-12">
-
-        <h4>
-            <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
-            {{formatted-date model.fromDateMoment 'dddd'}},
-            {{formatted-date model.fromDate 'LL'}}
-            {{#if model.toDate}}
-                to
-                {{formatted-date model.toDateMoment 'dddd'}},
-                {{formatted-date model.toDate 'LL'}}
-            {{/if}}
-        </h4>
-        <p>
-            {{#if model.fromTime}}
-                <small>
-                    {{model.fromTime}}
-                </small>
-            {{/if}}
-            {{#if model.toTime}}
-                <small>
-                    to {{model.toTime}}
-                </small>
-            {{/if}}
-
-        </p>
+            </p>
+        </div>
     </div>
-</div>
+{{/if}}
 
-<div class="row row-gutter-bottom">
-    <div class="col-xs-12">
-        <h4>
-            <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
-            {{model.address}}, {{model.city}}, {{model.state}} {{model.zipCode}}
-        </h4>
+{{#if model.address}}
+    <div class="row row-gutter-bottom">
+        <div class="col-xs-12">
+            <h4>
+                <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+                {{model.address}}, {{model.city}}, {{model.state}} {{model.zipCode}}
+            </h4>
+        </div>
     </div>
-</div>
+{{/if}}
 
 <div class="row row-gutter-bottom">
     <div class="col-xs-12 col-md-7">

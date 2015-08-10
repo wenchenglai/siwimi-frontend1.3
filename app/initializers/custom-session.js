@@ -1,18 +1,26 @@
 import Ember from "ember";
+import DS from 'ember-data';
 import Session from "simple-auth/session";
 
 export function initialize(container /*, application */) {
     Session.reopen({
-        setCurrentUser: function() {
+        getUserDetails: function getUserDetails() {
             var self = this,
-                id = self.get("id");
+                //secure = self.get('secure'),
+                id = self.get("secure.id");
+                //previousId = self.get("secure.user.id");
 
             if (!Ember.isEmpty(id)) {
-                return container.lookup("service:store").find("member", id).then(function(user) {
-                    self.set("currentUser", user);
-                });
+                //if (previousId !== id) {
+                    return container.lookup("service:store").findRecord("member", id).then(function(user) {
+                        self.set("user", user);
+                    });
+                    //return DS.PromiseObject.create({
+                    //    promise: container.lookup('service:store').findRecord('member', id)
+                    //});
+                //}
             }
-        }.observes("id")
+        }.observes("secure.id")
     });
 }
 

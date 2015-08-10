@@ -31,49 +31,6 @@ export default Ember.Controller.extend({
             } else {
                 this.get('target').transitionTo('index');
             }
-        },
-
-        importFromFacebook: function () {
-            var self = this,
-                fromModel = self.get('model');
-
-            FB.api('/me?fields=id,name,location,education,hometown,birthday,first_name,last_name,gender', function (fbUser) {
-                fromModel.set('facebookId', fbUser.id);
-
-                if (!fromModel.get('firstName')) {
-                    fromModel.set('firstName', fbUser.first_name);
-                }
-
-                if (!fromModel.get('lastName')) {
-                    fromModel.set('lastName', fbUser.last_name);
-                }
-
-                if (!fromModel.get('gender')) {
-                    fromModel.set('gender', fbUser.gender);
-                }
-
-                if (!fromModel.get('birthday')) {
-                    if (fbUser.birthday) {
-                        fromModel.set('birthday', new Date(self._getISODateString(fbUser.birthday)));
-                    }
-                }
-
-                if (!fromModel.get('fhometown')) {
-                    fromModel.set('fhometown', fbUser.hometown.name);
-                }
-
-                if (!fromModel.get('flocation')) {
-                    fromModel.set('flocation', fbUser.location.name);
-                }
-
-                if (!fromModel.get('highSchool')) {
-                    fromModel.set('highSchool', fbUser.education[0].school.name);
-                }
-
-                if (!fromModel.get('college')) {
-                    fromModel.set('college', fbUser.education[1].school.name);
-                }
-            });
         }
     }
 });

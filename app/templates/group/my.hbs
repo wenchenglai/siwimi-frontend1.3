@@ -15,7 +15,7 @@
                     <td>
                         <div class="btn-group" role="group" aria-label="...">
                             {{#link-to 'group.show' group class="btn btn-default"}}Detail{{/link-to}}
-                            <button type="button" class="btn btn-default" {{action 'openDeleteDialog' group.id target="view" bubbles="false" }}>Delete</button>
+                            <button type="button" class="btn btn-cys" {{action 'openDeleteDialog' group.id target="view" bubbles="false" }}>Delete</button>
                         </div>
                     </td>
                 </tr>
@@ -41,7 +41,7 @@
 </div>
 <div class="row row-gutter-bottom">
     <div class="col-xs-12">
-        {{#link-to 'group.new' class="btn btn-primary"}}Add New Group{{/link-to}}
+        {{#link-to 'group.new' class="btn btn-cys"}}Add New Group{{/link-to}}
     </div>
 </div>
 {{/if}}

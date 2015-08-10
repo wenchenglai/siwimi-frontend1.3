@@ -15,7 +15,7 @@ export default Ember.Controller.extend({
         },
 
         signup: function() {
-          this.transitionToRoute('signup');
+          this.transitionToRoute('register.signup');
         }
     }
 });

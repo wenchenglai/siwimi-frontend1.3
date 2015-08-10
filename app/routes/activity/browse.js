@@ -19,7 +19,7 @@ export default Ember.Route.extend({
     model: function (params) {
         var self = this,
             appController = self.controllerFor('application'),
-            userId = self.get('session.id');
+            userId = self.get('session.secure.id');
 
             if (!self.get('controller.keepPageNumber')) {
                 params.pageNumber = 1;

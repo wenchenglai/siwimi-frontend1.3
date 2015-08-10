@@ -7,7 +7,7 @@ export default Ember.Route.extend({
 
     setupController: function(controller, model) {
         var self = this,
-            userId = self.get('session.id');
+            userId = self.get('session.secure.id');
 
         controller.set('content', model);
 
@@ -38,7 +38,7 @@ export default Ember.Route.extend({
 
         setAction: function(selectedValue) {
             var self = this,
-                userId = self.get('session.id'),
+                userId = self.get('session.secure.id'),
                 model = self.currentModel,
                 emaction = self.controller.get('emaction');
 

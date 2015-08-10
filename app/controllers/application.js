@@ -19,16 +19,22 @@ Ember.Controller.extend(StatesDataMixin, {
 
         if (currentPath[0] === "family" || currentPath[0] === "group") {
             self.set('activeTab', "connect");
+
         } else if (currentPath[0] === "tip") {
             self.set('activeTab', "tip");
+
         } else if (currentPath[0] === "activity") {
             self.set('activeTab', "activity");
+
         } else if (currentPath[0] === "item") {
             self.set('activeTab', "item");
+
         } else if (currentPath[0] === "questions") {
             self.set('activeTab', "questions");
+
         } else {
             self.set('activeTab', '');
+
         }
 
     }.observes("currentPath"),
@@ -101,15 +107,15 @@ Ember.Controller.extend(StatesDataMixin, {
     // we need to prepare for at least 4 variables in session variable.
     // An anonymous user will have at least 4 variables, they are:
     // baseCity, baseState, longitude and latitude
-    _setBase: function () {
+    _setBase: function _setBase() {
         var self = this,
             session = self.get('session');
 
         if (session.isAuthenticated) {
             var user = session.get('user'),
-                location = user.location,
-                city = user.city,
-                state = user.state;
+                location = user.get('location'),
+                city = user.get('city'),
+                state = user.get('state');
 
             if (location) {
                 self.set('baseLongitude', location[0]);
@@ -160,17 +166,6 @@ Ember.Controller.extend(StatesDataMixin, {
             }
         }
     }.on('init'),
-
-    _setLocationGeoPlugin() {
-        var self = this;
-        // we use geoPlugin from http://www.geoplugin.com/
-        // the library is included directly in the index.html file
-        // TODO: shim the global library by creating ES6 module
-        self.set('baseCity', geoplugin_city());
-        self.set('baseState', geoplugin_region());
-        self.set('baseLongitude', geoplugin_longitude());
-        self.set('baseLatitude', geoplugin_latitude());
-    },
 
     _toggleAlert: function (flag, title, message, type) {
         /*

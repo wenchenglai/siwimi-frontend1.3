@@ -9,13 +9,13 @@ export default Ember.Route.extend({
 
         return Ember.RSVP.hash({
             tip: this.store.findRecord('tip', params.id),
-            feedback: this.store.query('feedback', query)
+            feedbacks: this.store.query('feedback', query)
         });
     },
 
     _addVote: function(voteType) {
         var self = this,
-            userId = self.get('session.id'),
+            userId = self.get('session.secure.id'),
             model = self.currentModel;
 
         self.store.findRecord('member', userId).then(function(member) {
@@ -62,7 +62,7 @@ export default Ember.Route.extend({
 
         setFavorite: function() {
             var self = this,
-                userId = self.get('session.id'),
+                userId = self.get('session.secure.id'),
                 model = self.currentModel;
 
             if (!model.get('isFavorite')) {
@@ -84,7 +84,7 @@ export default Ember.Route.extend({
 
         addNewFeedback: function (id) {
             var self = this,
-                userId = self.get('session.id'),
+                userId = self.get('session.secure.id'),
                 model = self.currentModel,
                 newObj;
 
@@ -103,7 +103,8 @@ export default Ember.Route.extend({
                 });
 
                 newObj.save().then(function (feedback) {
-                    model.feedback.pushObject(feedback);
+                    self.refresh();
+                    //model.feedback.pushObject(feedback);
                     self.controller.set('newFeedbackText', '');
                 }, function (error) {
                     self.send('error', error);

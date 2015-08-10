@@ -5,7 +5,7 @@ export default Ember.Route.extend(InfinityRoute, {
     model: function (status, type) {
         var self = this,
             session = self.get('session'),
-            userId = self.get('session.id');
+            userId = self.get('session.secure.id');
 
         if (typeof(status) !== "string") {
             status = 'all';

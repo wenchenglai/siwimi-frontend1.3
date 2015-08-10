@@ -8,8 +8,8 @@ export default Ember.Route.extend({
         };
 
         return Ember.RSVP.hash({
-            question: this.store.find('question', params.id),
-            feedback: this.store.find('feedback', query)
+            question: this.store.findRecord('question', params.id),
+            feedbacks: this.store.query('feedback', query)
         });
     },
 
@@ -28,11 +28,11 @@ export default Ember.Route.extend({
 
         addNewFeedback: function (id) {
             var self = this,
-                userId = self.get('session.id'),
+                userId = self.get('session.secure.id'),
                 model = self.currentModel,
                 newObj;
 
-            self.store.find('member', userId).then(function(member) {
+            self.store.findRecord('member', userId).then(function(member) {
                 newObj = self.store.createRecord('feedback', {
                     creator: member,
                     parent: id,
@@ -47,7 +47,8 @@ export default Ember.Route.extend({
                 });
 
                 newObj.save().then(function (feedback) {
-                    model.feedback.pushObject(feedback);
+                    //model.feedback.pushObject(feedback);
+                    self.refresh();
                     self.controller.set('newFeedbackText', '');
                 }, function (error) {
                     self.send('error', error);
