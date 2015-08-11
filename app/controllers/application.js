@@ -112,7 +112,7 @@ Ember.Controller.extend(StatesDataMixin, {
             session = self.get('session');
 
         if (session.isAuthenticated) {
-            var user = session.get('user'),
+            var user = session.get('secure.user'),
                 location = user.get('location'),
                 city = user.get('city'),
                 state = user.get('state');
