@@ -55,6 +55,35 @@ export default Ember.Route.extend({
             if (!Ember.isEmpty(title) && !Ember.isEmpty(description)) {
                 self._saveNewFeed(self, title, description);
             }
+        },
+
+        reply: function(parentId) {
+            var self = this,
+                userId = self.get('session.secure.id'),
+                newObj;
+
+            self.store.findRecord('member', userId).then(function(member) {
+                newObj = self.store.createRecord('feedback', {
+                    creator: member,
+                    parent: parentId,
+                    parentType: 'feed',
+                    createdDate: new Date(),
+                    description: self.controller.get('replyText'),
+                    viewCount: 0,
+                    likeCount: 0,
+                    city: member.get('city'),
+                    state: member.get('state'),
+                    isDeletedRecord: false
+                });
+
+                newObj.save().then(function (feedback) {
+                    self.refresh();
+
+                    self.controller.set('replyText', '');
+                }, function (error) {
+                    self.send('error', error);
+                });
+            });
         }
     }
 });

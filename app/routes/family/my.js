@@ -22,12 +22,12 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
         deleteFamily: function (id) {
             var self = this;
-            self.store.find('family', id).then(function (record) {
+            self.store.findRecord('family', id).then(function (record) {
                 record.destroyRecord().then(function() {
                     self.store.find('member', self.get('session.secure.id')).then(function(user) {
                         user.set('family', null);
-                        user.save().then(function() {
-                            self.get('session').set('user', user);
+                        user.save().then(function(userWithFamily) {
+                            self.set('session.secure.user', userWithFamily);
                             self.refresh();
                         });
                     });
@@ -44,7 +44,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         },
 
         deleteMember: function(id) {
-            this.store.find('member', id).then(function (record) {
+            this.store.findRecord('member', id).then(function (record) {
                 if (!record.get('isUser')) {
                     record.destroyRecord();
                 } else {

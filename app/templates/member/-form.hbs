@@ -110,6 +110,53 @@
         {{input class="edit_box" value=model.zipCode}}
     </div>
 </div>
+{{#if model.isAdmin}}
+<div class="row row-gutter-bottom">
+    <div class="col-xs-12 col-md-7">
+        <hr>
+    </div>
+</div>
+<div class="row row-gutter-bottom">
+    <div class="col-xs-12 col-md-2">
+        <label>Email</label>
+    </div>
+    <div class="col-xs-12 col-md-6">
+        {{input class="edit_box" value=model.email}}
+    </div>
+</div>
+<div class="row row-gutter-bottom">
+    <div class="col-xs-12 col-md-2">
+        <label>Password:</label>
+    </div>
+    <div class="col-xs-12 col-md-6">
+        {{input class="edit_box" value=model.password}}
+    </div>
+</div>
+<div class="row row-gutter-bottom">
+    <div class="col-xs-12 col-md-2">
+        <label>Role:</label>
+    </div>
+    <div class="col-xs-12 col-md-6">
+        {{input class="edit_box" value=model.role}} admin, user, anonymous
+    </div>
+</div>
+<div class="row row-gutter-bottom">
+    <div class="col-xs-12 col-md-2">
+        <label>Is Confirmed:</label>
+    </div>
+    <div class="col-xs-12 col-md-6">
+        {{input type="checkbox" checked=model.isConfirmedMember}}
+    </div>
+</div>
+<div class="row row-gutter-bottom">
+    <div class="col-xs-12 col-md-2">
+        <label>Is In Signup Process:</label>
+    </div>
+    <div class="col-xs-12 col-md-6">
+        {{input type="checkbox" checked=model.isInSignUpProcess}}
+    </div>
+</div>
+{{/if}}
 <div class="row row-gutter-bottom">
     <div class="col-md-offset-2">
         <button type="button" class="btn btn-cys" {{action "save" }} {{bind-attr disabled=disabled}}>Save</button>

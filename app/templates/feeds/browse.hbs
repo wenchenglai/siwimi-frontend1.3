@@ -24,7 +24,7 @@
 
 {{#each feed in model}}
     <div class="row row-gutter-bottom">
-        <div class="col-xs-12">
+        <div class="col-xs-12 col-sm-8 col-md-6">
             <hr style="border-width:4px" />
         </div>
     </div>
@@ -37,23 +37,56 @@
         <div class="col-xs-11">
             <div class="row row-gutter-bottom">
                 <div class="col-xs-12">
-                    <p class="lead"><strong>{{feed.title}}</strong></p>
-                    {{feed.creator.firstName}} {{feed.creator.lastName}} from {{feed.creator.city}} {{feed.creator.state}}
+                    <h3><strong>{{feed.title}}</strong></h3>
+                    <span>
+                        {{#link-to 'member.show' feed.creator}}
+                            {{feed.creator.firstName}}
+                            {{feed.creator.lastName}}
+                        {{/link-to}}
+                        from
+                        {{feed.creator.city}} {{feed.creator.state}}
+                    </span>
                 </div>
-
             </div>
-        </div>
-        <div class="col-xs-11">
             <div class="row row-gutter-bottom">
                 <div class="col-xs-12">
-                    {{feed.description}}
+                    <p class="lead">{{feed.description}}</p>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="row row-gutter-bottom">
-        <div class="col-xs-12">
-            <button class="btn btn-cys">Reply</button>
+            {{#if feed.replies}}
+                <div class="row row-gutter-bottom">
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        {{#each reply in feed.replies}}
+
+                            <div class="feed-comment">
+                                <div>
+                                    <div class="feed-comment__head">
+                                        {{#link-to 'member.show' reply.creator}}
+                                            <img class="avatar" src={{reply.creator.availableImage}}>
+                                        {{/link-to}}
+                                    </div>
+                                    <div class="feed-comment__body">
+                                        {{reply.description}}
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        {{/each}}
+                        <div class="feed-comment">
+                            <textarea rows="1" cols="1" class="input-block-level" placeholder="Write a reply…"></textarea>
+                        </div>
+                    </div>
+                </div>
+            {{/if}}
+            <!--
+            <div class="row row-gutter-bottom">
+                <div class="col-xs-12">
+                    {{input placeholder='Your reply...' class='form-control' value=replyText size="80"}}
+                    <button class="btn btn-cys" {{action 'reply' feed.id}}>Reply</button>
+                </div>
+            </div>
+            -->
         </div>
     </div>
 {{/each}}

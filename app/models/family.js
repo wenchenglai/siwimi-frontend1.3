@@ -7,7 +7,7 @@ export default DS.Model.extend({
     familyName: DS.attr('string'),
     description: DS.attr('string'),
     location: DS.attr('array'),
-    members: DS.hasMany('member', { embedded: 'always' }),
+    members: DS.hasMany('member', { embedded: 'always', async: false }),
 
     // data management fields
     isDeletedRecord: DS.attr('boolean'),

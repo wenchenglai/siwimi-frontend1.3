@@ -20,12 +20,20 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     actions: {
         delete: function () {
             var self = this;
+
             self.currentModel.destroyRecord().then(function(record) {
                 self.transitionTo('inbox.browse');
             }, function(error) {
                 console.log(error);
                 self.transitionTo('inbox.browse');
             });
+        },
+
+        reply: function() {
+            var self = this,
+                model = self.currentModel;
+
+            self.transitionTo('inbox.new', {queryParams: {toId: model.get('from.id'), rootMessage: model.get('id')}});
         }
     }
 });

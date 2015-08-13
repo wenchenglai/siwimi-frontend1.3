@@ -14,7 +14,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
           return Ember.RSVP.hash({
               message: self.store.createRecord('message'),
               members: self.store.findAll('member'),
-              toId: params.toId
+              toId: params.toId,
+              rootMessage: params.rootMessage
           });
       }
   },
@@ -49,24 +50,27 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
               userId = self.get('session.secure.id');
 
           if (!Ember.isEmpty(toId)) {
-              self.store.find('member', userId).then(function (fromUser) {
-                  self.store.find('member', toId).then(function (toUser) {
-                      model.set('from', fromUser);
-                      model.set('to', toUser);
-                      model.set('fromStatus', 'sent');
-                      model.set('toStatus', 'unread');
-                      model.set('isDeletedRecord', false);
-                      model.set('createdDate', new Date());
+              self.store.findRecord('member', userId).then(function (fromUser) {
+                  self.store.findRecord('member', toId).then(function (toUser) {
+                      self.store.findRecord('message', self.currentModel.rootMessage).then(function (message){
+                          model.set('from', fromUser);
+                          model.set('to', toUser);
+                          model.set('fromStatus', 'sent');
+                          model.set('toStatus', 'unread');
+                          model.set('rootMessage', message);
+                          model.set('isDeletedRecord', false);
+                          model.set('createdDate', new Date());
 
-                      var onSuccess = function (item) {
-                        self.transitionTo('inbox.browse');
-                      };
+                          var onSuccess = function (item) {
+                              self.transitionTo('inbox.browse');
+                          };
 
-                      var onFail = function (error) {
-                        self.send('error', error);
-                      };
+                          var onFail = function (error) {
+                              self.send('error', error);
+                          };
 
-                      model.save().then(onSuccess, onFail);
+                          model.save().then(onSuccess, onFail);
+                      });
                   });
               });
           } else {

@@ -16,7 +16,7 @@ export default Ember.Route.extend({
                 return this.store.find('member', params);
             }
         } else {
-            return this.store.find('member');
+            return this.store.findRecord('member', params.id);
         }
     }
 });

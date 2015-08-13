@@ -1,6 +1,6 @@
 <div class="row row-gutter-bottom row-gutter-top">
     <div class="col-xs-2 col-sm-3 col-md-2">
-
+        {{#link-to 'inbox.new' (query-params toId=model.id)}}Send message to owner{{/link-to}}
     </div>
     <div class="col-xs-12 col-sm-6">
         <img class="avatar" src={{model.availableImage}} width="200" height="200" class="img-responsive img-rounded">
@@ -27,3 +27,16 @@
         {{model.lastName}}
     </div>
 </div>
+{{#if model.city }}
+    <div class="row row-gutter-bottom">
+        <div class="col-xs-12 col-sm-3 col-md-2">
+            <label>
+                Location:
+            </label>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            {{model.city}}, {{model.state}}
+        </div>
+    </div>
+{{/if}}
+

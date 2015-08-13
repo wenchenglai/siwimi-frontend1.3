@@ -83,6 +83,36 @@ input:required:valid {
   font-weight: bold;
 }
 
+.feed-comment {
+  background-color: #f6f6f6;
+  border-bottom: 2px solid #f1f1f1;
+  padding: 20px;
+}
+
+.feed-comment:before {
+
+}
+
+.feed-comment:after {
+
+}
+
+.feed-comment__head {
+ position: absolute;
+}
+
+.feed-comment__body {
+  padding-left: 55px;
+}
+
+.input-block-level {
+  display: block;
+  width: 100%;
+  min-height: 30px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
 #postbox {
   background-color: #f1f1f1;

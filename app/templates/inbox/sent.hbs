@@ -16,7 +16,7 @@
             <tbody>
                 {{#each model as |msg|}}
                     <tr>
-                        <td>{{#link-to 'inbox.detail' msg.id }}{{msg.from.displayName}}{{/link-to}}</td>
+                        <td>{{#link-to 'inbox.detail' msg.id }}{{msg.to.displayName}}{{/link-to}}</td>
                         <td>{{#link-to 'inbox.detail' msg.id }}{{shorten-string msg.subject 50}}{{/link-to}}</td>
                         <td>{{#link-to 'inbox.detail' msg.id }}{{shorten-string msg.body 50}}{{/link-to}}</td>
                         <td>{{#link-to 'inbox.detail' msg.id }}{{formatted-date msg.createdDate 'LL'}}{{/link-to}}</td>

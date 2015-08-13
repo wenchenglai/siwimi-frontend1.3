@@ -23,6 +23,7 @@ export default DS.Model.extend({
     flocale: DS.attr('string'),
     flocation: DS.attr('string'),
     ftimezone: DS.attr('number'),
+    replies: DS.hasMany('feedback', { embedded: 'always' }),
 
     // authorization [admin, user, anonymous]
     role: DS.attr('string'),
@@ -88,5 +89,9 @@ export default DS.Model.extend({
         } else {
             return '/assets/images/profile.png';
         }
-    }.property('avatarUrl', 'imageData')
+    }.property('avatarUrl', 'imageData'),
+
+    isAdmin: Ember.computed('role', function() {
+        return this.role === "admin" ? true : false;
+    })
 });

@@ -3,9 +3,15 @@ import Ember from 'ember';
 export default Ember.Route.extend({
     model: function() {
         var self = this,
-            session = self.get('session');
+            city = self.get('session.secure.user.city'),
+            state = self.get('session.secure.user.state'),
+            zipCode = self.get('session.secure.user.zipCode');
 
-        return self.store.createRecord('item', { city: session.get('baseCity'), state: session.get('baseState'), zipCode: session.get('zipCode')});
+        return self.store.createRecord('item', {
+            city: city,
+            state: state,
+            zipCode: zipCode
+        });
     },
 
     actions: {
