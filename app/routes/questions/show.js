@@ -54,6 +54,15 @@ export default Ember.Route.extend({
                     self.send('error', error);
                 });
             });
+        },
+
+        deleteByAdmin: function(id) {
+            var self = this;
+
+            self.store.findRecord('question', id).then(function (record) {
+                record.destroyRecord();
+                self.transitionTo('questions.browse');
+            });
         }
     }
 });

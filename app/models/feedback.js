@@ -2,7 +2,7 @@ import DS from 'ember-data';
 import dateHelpers from '../utils/date-helpers';
 
 export default DS.Model.extend({
-    creator: DS.belongsTo('member'),
+    creator: DS.belongsTo('member', {async: false}),
     parent: DS.attr('string'),
     parentType: DS.attr('string'),
     createdDate: DS.attr('date'),

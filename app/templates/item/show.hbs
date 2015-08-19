@@ -15,6 +15,17 @@
     </div>
 </div>
 
+{{#if session.secure.user.isAdmin }}
+    <div class="row row-gutter-bottom">
+        <div class="col-xs-10 col-md-6">
+            <div class="btn-group" role="group" aria-label="...">
+                {{#link-to 'item.edit' model.id class="btn btn-default"}}Detail{{/link-to}}
+                <button type="button" class="btn btn-default" {{action 'deleteByAdmin' model.id }}>Delete</button>
+            </div>
+        </div>
+    </div>
+{{/if}}
+
 <div class="row row-gutter-bottom">
     <div class="col-xs-12 col-md-2">
         <img {{bind-attr src=model.availableImage}} width="300" height="300" class="img-responsive img-rounded"

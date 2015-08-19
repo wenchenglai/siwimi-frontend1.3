@@ -13,7 +13,7 @@ export default DS.Model.extend({
     gender: DS.attr('string'),
     avatarUrl: DS.attr('string'),
     imageData: DS.attr('string'),
-    family: DS.belongsTo('family', { async: true}),
+    family: DS.belongsTo('family', { async: true }),
     isUser: DS.attr('boolean'),
     facebookId: DS.attr('string'),
     highSchool: DS.attr('string'),
@@ -92,6 +92,6 @@ export default DS.Model.extend({
     }.property('avatarUrl', 'imageData'),
 
     isAdmin: Ember.computed('role', function() {
-        return this.role === "admin" ? true : false;
+        return this.get('role') === "admin" ? true : false;
     })
 });
