@@ -2,7 +2,9 @@
     <div class="col-xs-12 col-md-6">
         <ol class="breadcrumb">
             <li>{{#link-to 'index'}}Home{{/link-to}}</li>
-            <li><button class="btn-link" {{action "goBack"}}>Groups</button></li>
+            <li>
+                <button class="btn-link" {{action "goBack"}}>Groups</button>
+            </li>
             <li class="active">Detail</li>
         </ol>
     </div>
@@ -14,19 +16,48 @@
 </div>
 
 <div class="row row-gutter-bottom">
-    <div class="col-xs-2">
-        Group Name:
+    <div class="col-xs-4">
+        <h2>Group Name: {{model.title}}</h2>
     </div>
-    <div class="col-xs-10">
-        {{model.title}}
+    <div class="col-xs-8">
+
     </div>
 </div>
+
+{{#if model.description }}
+    <div class="row row-gutter-bottom">
+        <div class="col-xs-4">
+            Description:
+        </div>
+        <div class="col-xs-8">
+            {{model.description}}
+        </div>
+    </div>
+{{/if}}
+
 <div class="row row-gutter-bottom">
-    <div class="col-xs-2">
-        Description:
+    <div class="col-xs-4">
+        <div class="list-group circle-manage-sidebar">
+            <a {{action 'showList'}} class="list-group-item">
+                <h4 class="list-group-item-heading">Manage Group Members</h4>
+
+                <p class="list-group-item-text">Choose to opt out from other people's lists.</p>
+            </a>
+            <a {{action 'showAddNew'}} class="list-group-item">
+                <h4 class="list-group-item-heading">Add New Group Members</h4>
+
+                <p class="list-group-item-text">Manage the list of friends</p>
+            </a>
+        </div>
     </div>
-    <div class="col-xs-10">
-        {{model.description}}
+    <div class="col-xs-8">
+        {{#if showList}}
+            {{group-list}}
+        {{/if}}
+        {{#if showAddNew}}
+            {{group-addnew}}
+        {{/if}}
     </div>
 </div>
+
 

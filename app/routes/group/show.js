@@ -16,6 +16,20 @@ export default Ember.Route.extend({
             } else {
                 self.transitionTo('group.my');
             }
+        },
+
+        showList: function() {
+            var self = this;
+
+            self.controller.set('showList', true);
+            self.controller.set('showAddNew', false);
+        },
+
+        showAddNew: function() {
+            var self = this;
+
+            self.controller.set('showList', false);
+            self.controller.set('showAddNew', true);
         }
     }
 });
