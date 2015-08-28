@@ -74,11 +74,25 @@ export default Ember.Route.extend(Validators, {
                     model.set('creator', user);
                     model.set('isDeletedRecord', false);
                     model.set('createdDate', new Date());
+                    model.set('senderEmail', email);
                     model.set('parentType', 'feedback');
                     model.set('description', description);
 
                     var onSuccess = function() {
                         self.controller.set('description', '');
+
+                        if (email !== user.get('email')) {
+                            user.set('email', email);
+                            user.save();
+                        }
+
+                        //self.transitionTo('index', {queryParams: {
+                        //    showAlert: true,
+                        //    title: 'Success',
+                        //    message: 'Thank you for your feedback!',
+                        //    type: 'alert-success'
+                        //}});
+
                         self.send('showAlertBar', {
                             title: 'Success',
                             message: 'Thank you for your feedback!',
