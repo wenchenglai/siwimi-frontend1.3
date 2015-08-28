@@ -1,6 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+    setupController: function(controller, model) {
+        controller.set('showData', false)
+    },
+
     actions: {
         search: function () {
             var self = this;
@@ -17,7 +21,7 @@ export default Ember.Route.extend({
             };
 
             self.store.query('family', query).then(function(families) {
-                self.set('model', families.content);
+                self.set('families', families);
                 self.controller.set('showData', true);
             }, function(error) {
                 self.send('error', error);
