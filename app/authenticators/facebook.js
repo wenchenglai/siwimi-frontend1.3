@@ -143,9 +143,9 @@ export default Base.extend({
                             }
                         });
                     });
-                } else if (fbResponse.status === 'not_authorized') {
-                    // if facebook App setup is wrong, we could come here
-                    reject();
+                //} else if (fbResponse.status === 'not_authorized') {
+                //    // if facebook App setup is wrong, we could come here
+                //    reject();
                 } else {
                     // status is unknown, then we must prompt with facebook login page
                     FB.login(function (fbResponse) {
