@@ -41,18 +41,20 @@ export default DS.Model.extend({
     //}.on('init'),
 
     // we use bs-datetimepicker addon which takes moment.js date type, so we must do some conversion when binding
-    expiredDateMoment: function(key, value, previousValue) {
-        // setter
-        if (arguments.length > 1) {
+    expiredDateMoment: Ember.computed("expiredDate", {
+        get: function() {
+            return this.get('expiredDate');
+        },
+
+        set: function(key, value) {
             if (value) {
                 this.set('expiredDate', value.toDate());
             } else {
                 this.set('expiredDate', null);
             }
+            return value;
         }
-        // getter
-        return this.get('expiredDate');
-    }.property('expiredDate'),
+    }),
 
     voteCount: function () {
         return this.get('voteUpCount') - this.get('voteDownCount');

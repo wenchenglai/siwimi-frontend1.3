@@ -13,10 +13,12 @@ export default Ember.Mixin.create({
         return this.get('pagesArray');
     }.property('pagesArray.@each.className'),
 
-    decoratedPageSize: function(key, value, previousValue) {
-        // our show page size drop down shows "show 10" instead of "10"
-        // therefore we need the extra logic here to strip down "show 10" to "10"
-        if (arguments.length > 1) {
+    decoratedPageSize: Ember.computed("pageSize", {
+        get: function() {
+            return "Show " + this.get('pageSize');
+        },
+
+        set: function(key, value, previousValue) {
             if (value) {
                 if (value !== previousValue) {
                     this.set('pageSize', value.substring(5, 7));
@@ -25,10 +27,9 @@ export default Ember.Mixin.create({
             } else {
                 this.set('pageSize', 10);
             }
+            return value;
         }
-
-        return "Show " + this.get('pageSize');
-    }.property('pageSize'),
+    }),
 
     isLeftArrowDisabled: function() {
         // when there is only one page, we disable the left and right button
