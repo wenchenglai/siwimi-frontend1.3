@@ -1,4 +1,5 @@
 import DS from 'ember-data';
+import stripAllTags from '../utils/strip-all-tags';
 
 export default DS.Model.extend({
     creator: DS.belongsTo('member', {async: true}),
@@ -65,7 +66,7 @@ export default DS.Model.extend({
     }.property('title'),
 
     descriptionReduced: function () {
-        return this._getSubString(this.get('description'), 50);
+        return this._getSubString(stripAllTags(this.get('description')), 50);
     }.property('description'),
 
     urlReduced: function () {
