@@ -3,7 +3,7 @@
         <label>
             Question:
         </label>
-      {{input class="edit_box" size="100" value=model.title}}
+      {{input class="form-control" value=model.title}}
     </div>
 </div>
 <div class="row row-gutter-bottom">
@@ -11,7 +11,7 @@
         <label>
             Description:
         </label>
-      {{textarea cols="60" rows="5"  class="form-control" value=model.description}}
+        {{summer-note height=200 btnSize=bs-sm content=model.description focus=false}}
     </div>
 </div>
 <div class="row row-gutter-bottom">
