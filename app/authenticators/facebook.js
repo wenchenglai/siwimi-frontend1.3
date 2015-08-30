@@ -64,7 +64,18 @@ export default Base.extend({
                     newMember.save().then(function (member) {
                         resolve(member);
                     }, function (error) {
-                        reject({name: error.status + " " + error.statusText, message: error.responseText});
+                        var title = '',
+                            message = '';
+
+                        if (error.status) {
+                            title = error.status + " " + error.statusText;
+                            message = error.responseText;
+                        } else if (error.message) {
+                            title = error.name;
+                            message = error.message;
+                        }
+
+                        reject({name: title, message: message});
                     });
                 }, function () {
                     reject("Error when getting Facebook Picture");
