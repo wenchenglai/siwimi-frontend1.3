@@ -64,7 +64,18 @@ export default Base.extend({
                     newMember.save().then(function (member) {
                         resolve(member);
                     }, function (error) {
-                        reject({name: error.status + " " + error.statusText, message: error.responseText});
+                        var title = '',
+                            message = '';
+
+                        if (error.status) {
+                            title = error.status + " " + error.statusText;
+                            message = error.responseText;
+                        } else if (error.message) {
+                            title = error.name;
+                            message = error.message;
+                        }
+
+                        reject({name: title, message: message});
                     });
                 }, function () {
                     reject("Error when getting Facebook Picture");
@@ -143,9 +154,9 @@ export default Base.extend({
                             }
                         });
                     });
-                } else if (fbResponse.status === 'not_authorized') {
-                    // if facebook App setup is wrong, we could come here
-                    reject();
+                //} else if (fbResponse.status === 'not_authorized') {
+                //    // if facebook App setup is wrong, we could come here
+                //    reject();
                 } else {
                     // status is unknown, then we must prompt with facebook login page
                     FB.login(function (fbResponse) {

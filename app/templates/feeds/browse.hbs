@@ -22,7 +22,7 @@
     </div>
 </div>
 
-{{#each feed in model}}
+{{#each feeds as |feed|}}
     <div class="row row-gutter-bottom">
         <div class="col-xs-12 col-sm-8 col-md-6">
             <hr style="border-width:4px" />
@@ -30,21 +30,29 @@
     </div>
     <div class="row row-gutter-bottom">
         <div class="col-xs-1">
-            {{#link-to 'member.show' feed.creator}}
-                <img class="avatar" src={{feed.creator.availableImage}}>
-            {{/link-to}}
+            {{#if feed.creator }}
+                {{#link-to 'member.show' feed.creator}}
+                    <img class="avatar" src={{feed.creator.availableImage}}>
+                {{/link-to}}
+            {{ else }}
+                No Author
+            {{/if}}
         </div>
         <div class="col-xs-11">
             <div class="row row-gutter-bottom">
                 <div class="col-xs-12">
                     <h3><strong>{{feed.title}}</strong></h3>
                     <span>
-                        {{#link-to 'member.show' feed.creator}}
-                            {{feed.creator.firstName}}
-                            {{feed.creator.lastName}}
-                        {{/link-to}}
-                        from
-                        {{feed.creator.city}} {{feed.creator.state}}
+                        {{#if feed.creator }}
+                            {{#link-to 'member.show' feed.creator}}
+                                {{feed.creator.firstName}}
+                                {{feed.creator.lastName}}
+                            {{/link-to}}
+                            from
+                            {{feed.creator.city}} {{feed.creator.state}}
+                        {{else}}
+                            No Author
+                        {{/if}}
                     </span>
                 </div>
             </div>

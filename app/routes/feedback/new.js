@@ -33,6 +33,7 @@ export default Ember.Route.extend(Validators, {
 
             // we need to check if this user is logged in user or anonymous user
             if (Ember.isEmpty(userId)) {
+                // This is anonymous user
                 if (Ember.isEmpty(email) || Ember.isEmpty(description)) {
                     self.send('error', { name: 'Data Error', message: "Email and description cannot be empty." });
                     return;
@@ -50,11 +51,13 @@ export default Ember.Route.extend(Validators, {
 
                     var onSuccess = function() {
                         self.controller.set('description', '');
-                        self.send('showAlertBar', {
+
+                        self.transitionTo('index', {queryParams: {
+                            showAlert: true,
                             title: 'Success',
                             message: 'Thank you for your feedback!',
                             type: 'alert-success'
-                        });
+                        }});
                     };
 
                     var onFail = function (error) {
@@ -71,11 +74,25 @@ export default Ember.Route.extend(Validators, {
                     model.set('creator', user);
                     model.set('isDeletedRecord', false);
                     model.set('createdDate', new Date());
+                    model.set('senderEmail', email);
                     model.set('parentType', 'feedback');
                     model.set('description', description);
 
                     var onSuccess = function() {
                         self.controller.set('description', '');
+
+                        if (email !== user.get('email')) {
+                            user.set('email', email);
+                            user.save();
+                        }
+
+                        //self.transitionTo('index', {queryParams: {
+                        //    showAlert: true,
+                        //    title: 'Success',
+                        //    message: 'Thank you for your feedback!',
+                        //    type: 'alert-success'
+                        //}});
+
                         self.send('showAlertBar', {
                             title: 'Success',
                             message: 'Thank you for your feedback!',

@@ -83,6 +83,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
                                 type : 'alert-info'});
                         }
                     });
+                } else if (response.status === 'unknown') {
+                    self.send('error', {name: "Error", message:"User cancelled Facebook login"})
                 } else {
                     var session = self.get('session');
 

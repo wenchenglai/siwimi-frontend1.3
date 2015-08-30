@@ -1,6 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+    queryParams: ['showAlert', 'title', 'message', 'type'],
+    showAlert: false,
+    message: '',
     actions: {
         getLocation: function(autocomplete, term) {
             var self = this;

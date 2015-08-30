@@ -42,18 +42,20 @@ export default DS.Model.extend({
     isDeletedRecord: DS.attr('boolean'),
 
     // we use bs-datetimepicker addon which takes moment.js date type, so we must do some conversion when binding
-    birthdayMoment: function(key, value, previousValue) {
-        // setter
-        if (arguments.length > 1) {
-          if (value) {
-            this.set('birthday', value.toDate());
-        } else {
-            this.set('birthday', null);
+    birthdayMoment: Ember.computed("birthday", {
+        get: function() {
+            return this.get('birthday');
+        },
+
+        set: function(key, value) {
+            if (value) {
+                this.set('birthday', value.toDate());
+            } else {
+                this.set('birthday', null);
             }
+            return value;
         }
-        // getter
-        return this.get('birthday');
-    }.property('birthday'),
+    }),
 
     birthYear: function() {
         return new Date(this.get('birthday')).getFullYear();
