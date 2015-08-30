@@ -1,6 +1,6 @@
 <div class="row row-gutter-bottom">
     <div class="col-xs-2">
-        {{#link-to 'tip.my'}}Back{{/link-to}}
+        {{#link-to 'family.my' class='btn btn-link'}}Back{{/link-to}}
     </div>
     <div class="col-xs-10">
         <h1>Edit Member</h1>
@@ -11,4 +11,17 @@
         {{alert-bar title=alertTitle message=alertMessage type=alertType closeAlert="closeAlert" }}
     </div>
 </div>
-{{partial "member/form"}}
+<div class="row row-gutter-bottom">
+    <div class="col-xs-12 col-md-6">
+        {{partial "member/form"}}
+    </div>
+    <div class="col-xs-12 col-md-6">
+        {{partial "member/flavors-form"}}
+    </div>
+</div>
+<div class="row row-gutter-bottom">
+    <div class="col-md-offset-2">
+        <button type="button" class="btn btn-cys" {{action "save" }} {{bind-attr disabled=disabled}}>Save</button>
+        <button type="button" class="btn btn-link" {{action "cancel" }}>Cancel</button>
+    </div>
+</div>

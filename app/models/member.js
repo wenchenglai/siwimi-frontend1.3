@@ -38,6 +38,10 @@ export default DS.Model.extend({
     zipCode: DS.attr('string'),
     location: DS.attr('array'),
 
+    // flavor fields
+    toys: DS.attr('array'),
+    needs: DS.attr('array'),
+
     // data management fields
     isDeletedRecord: DS.attr('boolean'),
 

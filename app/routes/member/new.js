@@ -12,6 +12,14 @@ export default Ember.Route.extend({
         cancel: function () {
             this.transitionTo('family.my');
         },
+        next: function () {
+            this.render('member.flavors');
+        },
+        skip: function () {
+            this.currentModel.set('toys', []);
+            this.currentModel.set('needs', []);
+            this.send('save');
+        },
         save: function () {
             var self = this,
                 familyId = self.get('session.user.family'),

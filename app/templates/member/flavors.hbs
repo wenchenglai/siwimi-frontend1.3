@@ -8,10 +8,10 @@
         {{alert-bar title=alertTitle message=alertMessage type=alertType closeAlert="closeAlert" }}
     </div>
 </div>
-{{partial "member/form"}}
+{{partial "member/flavors-form"}}
 <div class="row row-gutter-bottom">
     <div class="col-md-offset-2">
-        <button type="button" class="btn btn-cys" {{action "next" }} {{bind-attr disabled=disabled}}>Next</button>
-        <button type="button" class="btn btn-link" {{action "cancel" }}>Cancel</button>
+        <button type="button" class="btn btn-cys" {{action "save" }} {{bind-attr disabled=disabled}}>Save</button>
+        <button type="button" class="btn btn-link" {{action "skip" }}>Skip</button>
     </div>
 </div>
