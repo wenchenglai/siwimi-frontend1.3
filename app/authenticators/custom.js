@@ -36,7 +36,7 @@ export default Base.extend({
             ).then(function (data) {
                 if (data[0].auth === 'success' && data[0].member.id) {
                     Ember.run(function () {
-                        self.get('container').lookup('service:store').queryRecord('member', data[0].member.id).then(function(user) {
+                        self.get('container').lookup('service:store').findRecord('member', data[0].member.id).then(function(user) {
                             if (!user.get('isConfirmedMember')) {
                                 // not confirmed, we can allow them to send the notification email again
                                 self.get('container').lookup('route:application').transitionTo('register.getconfirmation', user);
