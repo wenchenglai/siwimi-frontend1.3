@@ -1,0 +1,28 @@
+<div class="row row-gutter-bottom">
+    <div class="col-xs-12 col-md-3">
+        <label>Favorite Toys</label>
+    </div>
+    <div class="col-xs-12 col-md-6">
+        {{view "select" class="btn btn-default dropdown-toggle" selection=model.toys content=allToys placeholder="toy" multiple=true}}
+    </div>
+</div>
+<div class="row row-gutter-bottom">
+    <div class="col-xs-12 col-md-3">
+        <label>Special Needs</label>
+    </div>
+    <div class="col-xs-12 col-md-6">
+        {{view "select" class="btn btn-default dropdown-toggle" selection=model.needs content=allNeeds placeholder="need" multiple=true}}
+    </div>
+</div>
+{{!--
+<div class="row row-gutter-bottom">
+    <div class="col-xs-12">
+        <label>
+            Question 1:
+        </label>
+    </div>
+    <div class="col-xs-12">
+        {{input class="edit_box" value=model.flavors.answer1 size="60"}}
+    </div>
+</div>
+--}}

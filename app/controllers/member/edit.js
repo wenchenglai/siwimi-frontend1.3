@@ -4,6 +4,8 @@ import StatesDataMixin from '../../mixins/states-data';
 export default Ember.Controller.extend(StatesDataMixin, {
     queryParams: ['isAdmin'],
     allLanguages: ['Chinese (Mandarin)', 'Chinese (Cantonese)', 'English', 'French', 'German', 'Indonesian', 'Japanese', 'Korean', 'Russian', 'Spanish'],
+    allToys: ['Lego', 'Trains', 'Cars', 'Princess'],
+    allNeeds: ['ADHD', 'Autism', 'Cerebral Palsy', 'Deafness/Hearing Loss', 'Down Syndrome', 'Learning Disability', 'Mental Retardation', 'Speech and Language Impairments', 'Visual Impairments'],
     allRelationships: [
       "Daughter",
       "Son",
