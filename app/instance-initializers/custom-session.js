@@ -2,7 +2,8 @@ import Ember from "ember";
 import DS from 'ember-data';
 import Session from "simple-auth/session";
 
-export function initialize(container /*, application */) {
+export function initialize(instance) {
+    Ember.debug('Custom-Session Instance Initializer runs.');
     Session.reopen({
         getUserDetails: function () {
             var self = this,
@@ -11,7 +12,7 @@ export function initialize(container /*, application */) {
 
             if (!Ember.isEmpty(id)) {
                 if (!secure.user.get) {
-                    return container.lookup("service:store").findRecord("member", id).then(function(user) {
+                    return instance.container.lookup("service:store").findRecord("member", id).then(function(user) {
                         self.set("secure.user", user);
                     });
                     //return DS.PromiseObject.create({
@@ -24,7 +25,8 @@ export function initialize(container /*, application */) {
 }
 
 export default {
-  name: 'custom-session',
-  before: "simple-auth",
-  initialize: initialize
+    name: 'custom-session',
+    //before: "simple-auth",
+    initialize: initialize
 };
+

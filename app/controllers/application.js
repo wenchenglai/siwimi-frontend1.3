@@ -99,13 +99,19 @@ Ember.Controller.extend(StatesDataMixin, {
     }.property('activeTab'),
 
     // used at application HBS template
-    baseLocation: function (key, value, previousValue) {
-        if (!Ember.isEmpty(this.get('baseCity'))) {
-            return "%@, %@".fmt(this.get('baseCity'), this.get('baseState'));
-        } else {
-            return "";
+    baseLocation: Ember.computed("baseCity", "baseState", {
+        get: function() {
+            if (!Ember.isEmpty(this.get('baseCity'))) {
+                return "%@, %@".fmt(this.get('baseCity'), this.get('baseState'));
+            } else {
+                return "";
+            }
+        },
+
+        set: function(key, value) {
+            return value;
         }
-    }.property('baseCity', 'baseState'),
+    }),
 
     // this function will be called every time app is loaded
     // we need to prepare for at least 4 variables in session variable.

@@ -6,7 +6,7 @@ export default Ember.Route.extend({
   },
 
     afterModel: function(model, transition) {
-        if (model.get('isDirty')) {
+        if (model.hasDirtyAttributes()) {
             model.rollback();
         }
     },
