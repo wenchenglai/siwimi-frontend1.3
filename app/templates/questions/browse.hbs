@@ -54,7 +54,7 @@
                             </p>
                             <p class="list-group-item-text">
                                 {{#link-to 'questions.show' obj.id}}
-                                    {{obj.description}}
+                                    {{strip-all-tags obj.description}}
                                 {{/link-to}}
                             </p>
                         </div>
