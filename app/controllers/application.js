@@ -124,8 +124,8 @@ Ember.Controller.extend(StatesDataMixin, {
         // For now, we only have Ann Arbor data, so it doesn't make sense to detect user's location
         self.set('baseCity', 'Ann Arbor');
         self.set('baseState', 'MI');
-        self.set('baseLongitude', 42.2571021);
-        self.set('baseLatitude', -83.6963153);
+        self.set('baseLatitude', 42.2571021);
+        self.set('baseLongitude', -83.6963153);
 
         // For now (see above), we disable location detection
         //if (session.isAuthenticated) {
