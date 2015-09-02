@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import ENV from '../../config/environment';
 
 export default Ember.Route.extend({
     model: function(params) {
@@ -30,6 +31,13 @@ export default Ember.Route.extend({
 
             self.controller.set('showList', false);
             self.controller.set('showAddNew', true);
+        },
+
+        inviteFriend: function(email) {
+            var self = this,
+                host = ENV.apiHost;
+
+            $.getJSON(host + "/email/invite?email=" + email);
         }
     }
 });

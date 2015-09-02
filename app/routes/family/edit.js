@@ -7,7 +7,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   },
 
     afterModel: function(model, transition) {
-        if (model.hasDirtyAttributes()) {
+        if (model.get('hasDirtyAttributes')) {
             model.rollback();
         }
     },
