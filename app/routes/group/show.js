@@ -35,9 +35,18 @@ export default Ember.Route.extend({
 
         inviteFriend: function(email) {
             var self = this,
-                host = ENV.apiHost;
+                userId = self.get('session.secure.id'),
+                groupId = self.currentModel.get('id'),
+                host = ENV.apiHost,
+                api = "%@/email/invite?email=%@&userid=%@&groupid=%@".fmt(host, email, userId, groupId);
 
-            $.getJSON(host + "/email/invite?email=" + email);
+            $.getJSON(api);
+
+            self.send('showAlertBar', {
+                title: 'Success',
+                message: "We've sent your friend an invitation email.",
+                type: 'alert-success'
+            });
         }
     }
 });
