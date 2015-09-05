@@ -1,48 +1,13 @@
-<p class="help-block">Turn off the switch to opt out from the list your were added.</p>
+<p class="help-block">Turn the switch to include or exclude someone from this list</p>
 <ul class="list-group">
+    {{#each list as |member|}}
+        <li class="list-group-item circle-loop">
+            <img src={{member.availableImage}} height="32" width="32" class="img-circle"
+                 style="margin-bottom:-15px; margin-top:-15px" alt="avatar"/> {{member.fullName}}
+            <div class="btn-group" role="group" aria-label="...">
 
-    <li class="list-group-item circle-loop" data-slug="daniel-zhou">
-        <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-mini bootstrap-switch-animate bootstrap-switch-on"
-             style="width: 46px;">
-            <div class="bootstrap-switch-container" style="width: 66px; margin-left: 0px;">
-                            <span class="bootstrap-switch-handle-on bootstrap-switch-success" style="width: 22px;">
-                                <i class="fa fa-check"></i>
-                            </span>
-                            <span class="bootstrap-switch-label" style="width: 22px;">&nbsp;
-                            </span>
-                            <span class="bootstrap-switch-handle-off bootstrap-switch-default" style="width: 22px;"><i
-                                    class="fa fa-minus"></i>
-                            </span>
-                <input type="checkbox" name="15" checked="" class="switch">
+                <button type="button" class="btn btn-default" {{action 'openDeleteDialog' activity.id target="view" bubbles="false" }}>Delete</button>
             </div>
-        </div>
-        <img src="/media/picture/daniel_w6CBx6R.jpg.200x200_q85_box-23%2C0%2C377%2C354_crop_detail_upscale.jpg"
-             class="img-circle img-18"> Daniel Zhou
-    </li>
-
-    <li class="list-group-item circle-loop" data-slug="allison-riccardi">
-        <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-on bootstrap-switch-mini bootstrap-switch-animate"
-             style="width: 46px;">
-            <div class="bootstrap-switch-container" style="width: 66px; margin-left: 0px;">
-                            <span class="bootstrap-switch-handle-on bootstrap-switch-success" style="width: 22px;">
-                                <i class="fa fa-check"></i>
-                            </span>
-                <span class="bootstrap-switch-label" style="width: 22px;">&nbsp;</span>
-                            <span class="bootstrap-switch-handle-off bootstrap-switch-default" style="width: 22px;">
-                                <i class="fa fa-minus"></i>
-                            </span>
-                <input type="checkbox" name="45" checked="" class="switch">
-            </div>
-        </div>
-        <img src="/media/picture/IMG_3783.JPG.200x200_q85_box-35%2C27%2C435%2C427_crop_detail_upscale.jpg"
-             class="img-circle img-18"> Allison Riccardi
-    </li>
-
+        </li>
+    {{/each}}
 </ul>
-<input id="id_data" name="data" type="hidden"
-       value="[{&quot;picture&quot;: &quot;/media/picture/daniel_w6CBx6R.jpg.200x200_q85_box-23%2C0%2C377%2C354_crop_detail_upscale.jpg&quot;, &quot;name&quot;: &quot;Daniel Zhou&quot;, &quot;approved&quot;: true, &quot;membership_id&quot;: 15}, {&quot;picture&quot;: &quot;/media/picture/IMG_3783.JPG.200x200_q85_box-35%2C27%2C435%2C427_crop_detail_upscale.jpg&quot;, &quot;name&quot;: &quot;Allison Riccardi&quot;, &quot;approved&quot;: true, &quot;membership_id&quot;: 45}]">
-
-<div class="form-group">
-    <button class="btn btn-primary" type="submit">Update</button>
-    <span class="help-block">Changes are not saved unless you press the "Update" button.</span>
-</div>

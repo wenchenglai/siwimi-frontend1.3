@@ -95,7 +95,7 @@
             <th>Location</th>
             </thead>
             <tbody>
-                {{#each activity in model}}
+                {{#each model as |activity|}}
                 <tr>
                     <th>{{preview-image width="80" height="80" class="img-responsive img-thumbnail" src=activity.availableImage}}</th>
                     <td>{{activity.title}}</td>

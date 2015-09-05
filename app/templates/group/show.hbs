@@ -52,7 +52,7 @@
     </div>
     <div class="col-xs-8">
         {{#if showList}}
-            {{group-list}}
+            {{group-list list=model.members}}
         {{/if}}
         {{#if showAddNew}}
             {{group-addnew action="inviteFriend"}}
