@@ -13,7 +13,7 @@ export default Ember.Route.extend({
             this.transitionTo('family.my');
         },
         next: function () {
-            this.render('member.flavors');
+            this.render('member.features');
         },
         skip: function () {
             this.currentModel.set('toys', []);
