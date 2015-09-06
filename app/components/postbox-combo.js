@@ -1,10 +1,15 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-    isHidingPostBoxReal: true,
-
+    isHidingPostBoxFake: false,
     actions: {
+        hidePostBoxFake: function() {
+            this.set('isHidingPostBoxFake', true);
+            this.sendAction();
+        },
+
         hidePostBoxReal: function() {
+            this.set('isHidingPostBoxFake', false);
             this.sendAction();
         },
 

@@ -15,7 +15,6 @@ export default Ember.Route.extend({
 
     setupController: function(controller, model) {
         controller.set('feeds', model);
-        controller.set('isHidingPostBoxReal', true)
     },
 
     _saveNewFeed: function _saveNewFeed(self, title, description) {
