@@ -41,14 +41,9 @@ export default Ember.Route.extend({
     },
 
     actions: {
-        hidePostBoxFake: function() {
-            this.controller.set('isHidingPostBoxReal', false);
-        },
-
-        hidePostBoxReal: function(title, description) {
+        addPost: function(title, description) {
             var self = this;
 
-            self.controller.set('isHidingPostBoxReal', true);
             self.controller.set('isHidingPostBoxFake', false);
 
             if (!Ember.isEmpty(title) && !Ember.isEmpty(description)) {
