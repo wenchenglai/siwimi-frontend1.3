@@ -2,6 +2,9 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
     isHidingPostBoxFake: false,
+    disabled: function() {
+        return Ember.isEmpty(this.get('title')) || Ember.isEmpty(this.get('description')) || Ember.isEmpty(this.get('selectedType'));
+    }.property('title', 'description', 'selectedType'),
     actions: {
         hidePostBoxFake: function() {
             this.set('isHidingPostBoxFake', true);
