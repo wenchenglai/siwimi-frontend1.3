@@ -1,0 +1,8 @@
+<button type="button" class="btn btn-default btn-block dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    {{yield}}
+</button>
+<ul class="dropdown-menu btn-block">
+    {{#each dropdown-item in dropdown-list}}
+    <li><a {{action "choose" dropdown-item}}>{{dropdown-item}}</a></li>
+    {{/each}}
+</ul>
