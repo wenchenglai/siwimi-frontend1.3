@@ -1,4 +1,5 @@
 import DS from 'ember-data';
+import stripAllTags from '../utils/strip-all-tags';
 
 export default DS.Model.extend({
     creator: DS.belongsTo('member', {async: true}),
@@ -41,18 +42,20 @@ export default DS.Model.extend({
     //}.on('init'),
 
     // we use bs-datetimepicker addon which takes moment.js date type, so we must do some conversion when binding
-    expiredDateMoment: function(key, value, previousValue) {
-        // setter
-        if (arguments.length > 1) {
+    expiredDateMoment: Ember.computed("expiredDate", {
+        get: function() {
+            return this.get('expiredDate');
+        },
+
+        set: function(key, value) {
             if (value) {
                 this.set('expiredDate', value.toDate());
             } else {
                 this.set('expiredDate', null);
             }
+            return value;
         }
-        // getter
-        return this.get('expiredDate');
-    }.property('expiredDate'),
+    }),
 
     voteCount: function () {
         return this.get('voteUpCount') - this.get('voteDownCount');
@@ -63,7 +66,7 @@ export default DS.Model.extend({
     }.property('title'),
 
     descriptionReduced: function () {
-        return this._getSubString(this.get('description'), 50);
+        return this._getSubString(stripAllTags(this.get('description')), 50);
     }.property('description'),
 
     urlReduced: function () {

@@ -1,7 +1,9 @@
 /* global FB */
+import Ember from "ember";
 import ENV from '../config/environment';
 
 export function initialize(container, application) {
+    Ember.debug('Facebook Initializer runs.');
     // application.inject('route', 'foo', 'service:foo');
     //FB.init({
     //    appId: ENV.facebookAppId,

@@ -12,6 +12,7 @@ Ember.Controller.extend(StatesDataMixin, {
     locations: ['Ann Arbor, MI', "Abb, MI", "ACC, MI", "ADD, CA"],
     activeTab: "",
     isShowingModal: false,
+    showDarkBackgroundForAlertBox: false,
 
     getCurrentPath: function () {
         var self = this,
@@ -36,6 +37,9 @@ Ember.Controller.extend(StatesDataMixin, {
             self.set('activeTab', '');
 
         }
+
+        // alert box on index page needs to have dark background because of the cover page background color
+        self.set('showDarkBackgroundForAlertBox', currentPath[0] === "index");
 
     }.observes("currentPath"),
 
@@ -95,13 +99,19 @@ Ember.Controller.extend(StatesDataMixin, {
     }.property('activeTab'),
 
     // used at application HBS template
-    baseLocation: function (key, value, previousValue) {
-        if (!Ember.isEmpty(this.get('baseCity'))) {
-            return "%@, %@".fmt(this.get('baseCity'), this.get('baseState'));
-        } else {
-            return "";
+    baseLocation: Ember.computed("baseCity", "baseState", {
+        get: function() {
+            if (!Ember.isEmpty(this.get('baseCity'))) {
+                return "%@, %@".fmt(this.get('baseCity'), this.get('baseState'));
+            } else {
+                return "";
+            }
+        },
+
+        set: function(key, value) {
+            return value;
         }
-    }.property('baseCity', 'baseState'),
+    }),
 
     // this function will be called every time app is loaded
     // we need to prepare for at least 4 variables in session variable.
@@ -111,60 +121,67 @@ Ember.Controller.extend(StatesDataMixin, {
         var self = this,
             session = self.get('session');
 
-        if (session.isAuthenticated) {
-            var user = session.get('secure.user'),
-                location = user.get('location'),
-                city = user.get('city'),
-                state = user.get('state');
+        // For now, we only have Ann Arbor data, so it doesn't make sense to detect user's location
+        self.set('baseCity', 'Ann Arbor');
+        self.set('baseState', 'MI');
+        self.set('baseLatitude', 42.2571021);
+        self.set('baseLongitude', -83.6963153);
 
-            if (location) {
-                self.set('baseLongitude', location[0]);
-                self.set('baseLatitude', location[1]);
-            }
-
-            if (city && state) {
-                self.set('baseCity', city);
-                self.set('baseState', state);
-            }
-        }
-
-        if (Ember.isEmpty(self.get('baseCity')) ||
-            Ember.isEmpty(self.get('baseState')) ||
-            Ember.isEmpty(self.get('baseLongitude')) ||
-            Ember.isEmpty(self.get('baseLatitude'))) {
-            // HTML 5 Geolocation will return ONLY longitude and latitude
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function (position) {
-                    var latlng = position.coords.latitude + "," + position.coords.longitude;
-
-                    var onSuccess = function (json) {
-                        var addarr = json.results[4].formatted_address.split(",");
-                        self.set('baseCity', addarr[0]);
-                        self.set('baseState', addarr[1]);
-                        self.set('baseLongitude', position.coords.latitude);
-                        self.set('baseLatitude', position.coords.longitude);
-                    };
-
-                    var onGoogleApiFail = function (error) {
-                        self.send('error', error);
-                    };
-
-                    // Google Geocoding API for getting location info from latitude and longitude
-                    Ember.$.getJSON('http://maps.googleapis.com/maps/api/geocode/json?latlng=' + latlng + '&sensor=true').then(onSuccess, onGoogleApiFail);
-                }, function (err) {
-                    if (err.code === 1) {
-                        // User refused to grant the right
-                        self._setLocationGeoPlugin();
-                        return;
-                    }
-                    // for other failure reason, we still try to get the location
-                    self._setLocationGeoPlugin();
-                });
-            } else {
-                // User's browser doesn't support HTML5 Geolocation API
-                self._setLocationGeoPlugin();
-            }
-        }
+        // For now (see above), we disable location detection
+        //if (session.isAuthenticated) {
+        //    var user = session.get('secure.user'),
+        //        location = user.get('location'),
+        //        city = user.get('city'),
+        //        state = user.get('state');
+        //
+        //    if (location) {
+        //        self.set('baseLongitude', location[0]);
+        //        self.set('baseLatitude', location[1]);
+        //    }
+        //
+        //    if (city && state) {
+        //        self.set('baseCity', city);
+        //        self.set('baseState', state);
+        //    }
+        //}
+        //
+        //if (Ember.isEmpty(self.get('baseCity')) ||
+        //    Ember.isEmpty(self.get('baseState')) ||
+        //    Ember.isEmpty(self.get('baseLongitude')) ||
+        //    Ember.isEmpty(self.get('baseLatitude'))) {
+        //    // HTML 5 Geolocation will return ONLY longitude and latitude
+        //    if (navigator.geolocation) {
+        //        navigator.geolocation.getCurrentPosition(function (position) {
+        //            var latlng = position.coords.latitude + "," + position.coords.longitude;
+        //
+        //            var onSuccess = function (json) {
+        //                var addarr = json.results[4].formatted_address.split(",");
+        //                self.set('baseCity', addarr[0]);
+        //                self.set('baseState', addarr[1]);
+        //                self.set('baseLongitude', position.coords.latitude);
+        //                self.set('baseLatitude', position.coords.longitude);
+        //            };
+        //
+        //            var onGoogleApiFail = function (error) {
+        //                self.send('error', error);
+        //            };
+        //
+        //            // Google Geocoding API for getting location info from latitude and longitude
+        //            Ember.$.getJSON('http://maps.googleapis.com/maps/api/geocode/json?latlng=' + latlng + '&sensor=true').then(onSuccess, onGoogleApiFail);
+        //        }, function (err) {
+        //            if (err.code === 1) {
+        //                // User refused to grant the right
+        //                self._setLocationGeoPlugin();
+        //                return;
+        //            }
+        //            // for other failure reason, we still try to get the location
+        //            self._setLocationGeoPlugin();
+        //        });
+        //    } else {
+        //        // User's browser doesn't support HTML5 Geolocation API
+        //        self._setLocationGeoPlugin();
+        //    }
+        //}
     }.on('init'),
 
     _toggleAlert: function (flag, title, message, type) {
@@ -177,6 +194,7 @@ Ember.Controller.extend(StatesDataMixin, {
         */
 
         var self = this;
+
         self.set('showAlert', flag);
         self.set('alertTitle', title);
         self.set('alertMessage', message);

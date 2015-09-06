@@ -51,10 +51,12 @@ export default Ember.Route.extend(SessionSetupMixin, Validators, {
 
                         self.resetValues();
 
-                        self.send('showAlertBar', {
+                        self.transitionTo('index', {queryParams: {
+                            showAlert: true,
                             title: 'Sign Up',
-                            message: 'Thanks for signing up.  Please check your email for confirmation',
-                            type : 'alert-info'});
+                            message: 'Thanks for signing up.  Please check your email for confirmation.  You might need to check your Spam inbox.',
+                            type: 'alert-info'
+                        }});
 
 /*                        session.authenticate('authenticator:custom', {
                             email: member.get('email'), password: member.get('password'), host: host

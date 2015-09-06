@@ -68,8 +68,8 @@
 {{#if showData}}
 <div class="row row-gutter-bottom">
     <div class="col-xs-12">
-        {{#if model.length }}
-            {{#each family in model}}
+        {{#if families.length }}
+            {{#each families as |family|}}
                 {{family-list model=family apiEditFamily="goToEditFamily" apiDeleteFamily="deleteFamily" apiAddMember="goToAddMember" apiEditMember="goToEditMember" apiDeleteMember="deleteMember" apiCancel="cancelUserCreation"}}
             {{/each}}
         {{else}}

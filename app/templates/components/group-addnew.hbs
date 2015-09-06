@@ -1,6 +1,33 @@
 <div class="row row-gutter-bottom">
     <div class="col-xs-12">
-        Add New Members by email
+        Add New Members from our existing user base
     </div>
 
+</div>
+
+<div class="row row-gutter-bottom">
+    <div class="col-xs-12">
+        {{input class="edit_box" placeholder="Search friends" size="40"}}
+    </div>
+
+</div>
+
+<div class="row row-gutter-bottom">
+    <div class="col-xs-12">
+        Or add New Members by email
+    </div>
+
+</div>
+
+<div class="row row-gutter-bottom">
+    <div class="col-xs-12">
+        {{input class="edit_box" value=email placeholder="frined's email address" size="40"}}
+    </div>
+
+</div>
+
+<div class="row row-gutter-bottom">
+    <div class="col-xs-12 col-xs-offset-2">
+        <button type="button" class="btn btn-cys" {{action "invite" }} {{bind-attr disabled=disabled}}>Invite</button>
+    </div>
 </div>

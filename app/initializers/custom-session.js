@@ -2,7 +2,8 @@ import Ember from "ember";
 import DS from 'ember-data';
 import Session from "simple-auth/session";
 
-export function initialize(container /*, application */) {
+export function initialize(container, application) {
+    Ember.debug('Custom-Session Initializer runs.');
     Session.reopen({
         getUserDetails: function () {
             var self = this,

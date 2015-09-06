@@ -32,32 +32,36 @@ export default DS.Model.extend({
     isDeletedRecord: DS.attr('boolean'),
 
     // we use bs-datetimepicker addon which takes moment.js date type, so we must do some conversion when binding
-    fromDateMoment: function(key, value, previousValue) {
-        // setter
-        if (arguments.length > 1) {
+    fromDateMoment: Ember.computed("fromDate", {
+        get: function() {
+            return this.get('fromDate');
+        },
+
+        set: function(key, value) {
             if (value) {
                 this.set('fromDate', value.toDate());
             } else {
                 this.set('fromDate', null);
             }
+            return value;
         }
-        // getter
-        return this.get('fromDate');
-    }.property('fromDate'),
+    }),
 
     // we use bs-datetimepicker addon which takes moment.js date type, so we must do some conversion when binding
-    toDateMoment: function(key, value, previousValue) {
-        // setter
-        if (arguments.length > 1) {
+    toDateMoment: Ember.computed("toDate", {
+        get: function() {
+            return this.get('toDate');
+        },
+
+        set: function(key, value) {
             if (value) {
                 this.set('toDate', value.toDate());
             } else {
                 this.set('toDate', null);
             }
+            return value;
         }
-        // getter
-        return this.get('toDate');
-    }.property('toDate'),
+    }),
 
     availableImage: function() {
         if (!Em.isEmpty(this.get('imageData'))) {

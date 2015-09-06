@@ -41,21 +41,21 @@
             <a {{action 'showList'}} class="list-group-item">
                 <h4 class="list-group-item-heading">Manage Group Members</h4>
 
-                <p class="list-group-item-text">Choose to opt out from other people's lists.</p>
+                <p class="list-group-item-text">Exclude existing members.</p>
             </a>
             <a {{action 'showAddNew'}} class="list-group-item">
                 <h4 class="list-group-item-heading">Add New Group Members</h4>
 
-                <p class="list-group-item-text">Manage the list of friends</p>
+                <p class="list-group-item-text">Invite new friends to join your group</p>
             </a>
         </div>
     </div>
     <div class="col-xs-8">
         {{#if showList}}
-            {{group-list}}
+            {{group-list list=model.members}}
         {{/if}}
         {{#if showAddNew}}
-            {{group-addnew}}
+            {{group-addnew action="inviteFriend"}}
         {{/if}}
     </div>
 </div>

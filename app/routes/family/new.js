@@ -54,7 +54,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, StatesDataMixin, {
             };
 
             // we need to get the cityState info based on the provided zip code using Google API
-            Em.$.getJSON('http://maps.googleapis.com/maps/api/geocode/json?address=' + zipCode + '&sensor=true').then(onSuccess, onGoogleApiFail);
+            Ember.$.getJSON('http://maps.googleapis.com/maps/api/geocode/json?address=' + zipCode + '&sensor=true').then(onSuccess, onGoogleApiFail);
         },
 
         cancel: function() {
