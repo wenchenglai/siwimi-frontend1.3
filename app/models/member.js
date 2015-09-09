@@ -42,6 +42,9 @@ export default DS.Model.extend({
     toys: DS.attr('array'),
     needs: DS.attr('array'),
 
+    // social
+    invitedBy: DS.attr('string'),
+
     // data management fields
     isDeletedRecord: DS.attr('boolean'),
 

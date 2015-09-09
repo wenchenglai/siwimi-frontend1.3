@@ -1,76 +1,68 @@
 import Ember from 'ember';
 import SessionSetupMixin from '../../mixins/session-setup';
 import Validators from '../../mixins/validate-utility';
+import UnauthenticatedRouteMixin from 'simple-auth/mixins/unauthenticated-route-mixin';
 
-export default Ember.Route.extend(SessionSetupMixin, Validators, {
-    resetValues: function() {
-        var controller = this.get('controller');
-        controller.set('email', '');
-        controller.set('firstName', '');
-        controller.set('lastName', '');
-        controller.set('password', '');
-        controller.set('password2', '');
+export default Ember.Route.extend(UnauthenticatedRouteMixin, SessionSetupMixin, Validators, {
+    queryParams: {
+        userId: {
+            refreshModel: false
+        }
+    },
+
+    model: function(params) {
+        var self = this;
+
+        // There are two possible ways to sign up - by invitation or by user him/herself
+        if (params.userId) {
+            // by invitation - the process already has a user created because user comes to this page from a link
+            // generated from the back end that contains user Id.
+            return self.store.findRecord("member", params.userId);
+        } else {
+            // regular sign up process as a totally new user
+            return self.store.createRecord("member");
+        }
     },
 
     actions: {
         signUp: function () {
             var self = this,
                 controller = self.get('controller'),
-                email = controller.get('email'),
-                //userName = controller.get('userName'),
-                firstName = controller.get('firstName'),
-                lastName = controller.get('lastName'),
-                password = controller.get('password'),
+                newMember = self.currentModel,
                 password2 = controller.get('password2'),
                 appController = self.controllerFor('application');
 
-            if (Ember.isEmpty(email) || Ember.isEmpty(firstName) || Ember.isEmpty(lastName)) {
+            if (Ember.isEmpty(newMember.get("email")) || Ember.isEmpty(newMember.get("firstName")) || Ember.isEmpty(newMember.get("lastName"))) {
                 self.send('error', { name: 'Data Error', message: "Email and User Name cannot be empty." });
                 return;
             }
 
-            if (self.validateEmail(email)) {
-                if (password === password2 && password != null) {
-                    var newMember = self.store.createRecord('member', {
-                        email: email,
-                        //nickName: userName,
-                        lastName : lastName,
-                        firstName : firstName,
-                        password: password,
+            if (self.validateEmail(newMember.get("email"))) {
+                if (newMember.get("password") === password2 && password != null) {
+                    newMember.setProperties({
                         isUser: true,
                         isInSignUpProcess: true,
-                        isConfirmedMember: false,
+                        isConfirmedMember: true,
                         city: appController.get('baseCity'),
                         state: appController.get('baseState')
                     });
 
                     newMember.save().then(function(member) {
-                        // new user account created successfully
                         var session = self.get('session'),
                             host = self.store.adapterFor('application').get('host');
 
-                        self.resetValues();
-
-                        self.transitionTo('index', {queryParams: {
-                            showAlert: true,
-                            title: 'Sign Up',
-                            message: 'Thanks for signing up.  Please check your email for confirmation.  You might need to check your Spam inbox.',
-                            type: 'alert-info'
-                        }});
-
-/*                        session.authenticate('authenticator:custom', {
-                            email: member.get('email'), password: member.get('password'), host: host
-                        }).then(function () {
-
-                            // right now, I have no better solution but to login again, recommmended by a stackoverflow post
-                            // http://stackoverflow.com/questions/22774111/login-after-successful-signup-ember-simple-auth
-                            // login successfully
-                            //self._setLongitudeAndLatitudeInSession(session, session.get('user'));
-                            //self._setProfilePictureInSession(session, session.get('user'));
-
-                        }, function (error) {
-                            self.send('error', { name: 'Login Error', message: "Failed to login" + error.toString() });
-                        });*/
+                        if (member.get("invitedBy")) {
+                            // invitation user alreayd has email confirmed, so we can skip the email confirmation process and go to sing up step 2
+                            self.transitionTo('register.signup2', member);
+                        } else {
+                            // a new user will need to confirm by email
+                            self.transitionTo('index', {queryParams: {
+                                showAlert: true,
+                                title: 'Sign Up',
+                                message: 'Thanks for signing up.  Please check your email for confirmation.  You might need to check your Spam inbox.',
+                                type: 'alert-info'
+                            }});
+                        }
                     }, function(error) {
                         self.send('error', error);
                     });

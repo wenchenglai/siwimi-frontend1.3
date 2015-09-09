@@ -9,19 +9,19 @@
         <form {{action 'authenticate' on='submit' }}>
             <div class="form-group">
                 <label for="email"><span class="required">*</span>Email</label>
-                {{input id="email" type="email" placeholder='Enter Email' class='form-control' value=email size="80" required="true"}}
+                {{input id="email" type="email" placeholder='Enter Email' class='form-control' value=model.email size="80" required="true"}}
             </div>
             <div class="form-group">
                 <label for="lastName"><span class="required">*</span>Last Name</label>
-                {{input id='lastName' placeholder='Enter Last Name' class='form-control' value=lastName size="80" required="true"}}
+                {{input id='lastName' placeholder='Enter Last Name' class='form-control' value=model.lastName size="80" required="true"}}
             </div>
             <div class="form-group">
                 <label for="firstName"><span class="required">*</span>First Name</label>
-                {{input id='firstName' placeholder='Enter First Name' class='form-control' value=firstName size="80" required="true"}}
+                {{input id='firstName' placeholder='Enter First Name' class='form-control' value=model.firstName size="80" required="true"}}
             </div>
             <div class="form-group">
                 <label for="password"><span class="required">*</span>Password</label>
-                {{input id="password" type="password" placeholder='Enter Password' class='form-control' value=password size="80"}}
+                {{input id="password" type="password" placeholder='Enter Password' class='form-control' value=model.password size="80"}}
             </div>
             <div class="form-group">
                 <label for="password2"><span class="required">*</span>Confirm Password</label>

@@ -1,15 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-    resetValues: function () {
-        var controller = this.get('controller');
-        controller.set('email', '');
-        controller.set('firstName', '');
-        controller.set('lastName', '');
-        controller.set('password', '');
-        controller.set('password2', '');
-    },
-
     actions: {
         signUp: function () {
             var self = this,
