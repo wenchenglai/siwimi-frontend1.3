@@ -18,12 +18,13 @@ export default Ember.Route.extend({
         controller.set('postTypes', ['Tip', 'Event', 'Item', 'Question']);
     },
 
-    _saveNewFeed: function _saveNewFeed(self, title, description) {
+    _saveNewFeed: function _saveNewFeed(self, title, description, type) {
         var session = self.get('session'),
             userId = self.get('session.secure.id');
 
         self.store.find('member', userId).then(function(member) {
             var newObj = self.store.createRecord('feed', {
+                type: type.toLowerCase(),
                 title: title,
                 description: description,
                 createdDate: new Date(),
@@ -36,19 +37,20 @@ export default Ember.Route.extend({
             newObj.save().then(function(obj) {
                 self.controller.set('title', '');
                 self.controller.set('description', '');
+                self.controller.set('selectedType', null);
                 self.refresh();
             });
         });
     },
 
     actions: {
-        addPost: function(title, description) {
+        addPost: function(title, description, type) {
             var self = this;
 
             self.controller.set('isHidingPostBoxFake', false);
 
-            if (!Ember.isEmpty(title) && !Ember.isEmpty(description)) {
-                self._saveNewFeed(self, title, description);
+            if (!Ember.isEmpty(title) && !Ember.isEmpty(description) && !Ember.isEmpty(type)) {
+                self._saveNewFeed(self, title, description, type);
             }
         },
 
