@@ -1,0 +1,38 @@
+<div id="postbox">
+    <div id="postbox_fake" {{action "hidePostBoxFake"}} class={{if isHidingPostBoxFake 'hide'}}>
+        <div class="input-textarea-fake">
+            <span class="placeholder">Post a message, event, or tip to neighbors</span>
+        </div>
+    </div>
+    <div class={{unless isHidingPostBoxFake 'hide'}}>
+        <div class="row">
+            <div class="col-xs-12">
+                {{input class="form-control" placeholder="Add subject" value=title}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                {{textarea class="form-control" placeholder="Write message" rows="5" value=description}}
+            </div>
+        </div>
+        <div class="row row-gutter-bottom">
+            <div class="col-xs-12">
+                {{#dropdown-button class="btn-block" dropdown-list=postTypes selected=selectedType}}
+                    <span class="glyphicon glyphicon-tag" aria-hidden="true"></span>
+                    {{#if selectedType}}
+                        Post type: {{selectedType}}
+                    {{else}}
+                        Choose post type
+                    {{/if}}
+                    <span class="caret"></span>
+                {{/dropdown-button}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <button type="button" class="btn btn-cys" {{bind-attr disabled=disabled}} {{action "doPost" }}>Post</button>
+                <button type="button" class="btn btn-link" {{action "hidePostBoxReal" }}>Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

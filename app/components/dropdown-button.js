@@ -1,10 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-    isHidingPostBoxFake: false,
+    classNames: ['btn-group'],
+    selected: null,
     actions: {
-        hideBox: function() {
-            this.set('isHidingPostBoxFake', true);
+        choose: function(item) {
+            this.set('selected', item);
             this.sendAction();
         }
     }
