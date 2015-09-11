@@ -9,7 +9,13 @@
 <div class="row row-gutter-bottom">
     <div class="col-xs-12 col-sm-8 col-md-7 col-lg-6">
 
-        {{postbox-combo action='addPost' title=title description=description isHidingPostBoxFake=isHidingPostBoxFake postTypes=postTypes}}
+        {{postbox-combo
+            action='addPost'
+            title=title
+            description=description
+            selectedType=selectedType
+            isHidingPostBoxFake=isHidingPostBoxFake
+            postTypes=postTypes}}
 
     </div>
 </div>

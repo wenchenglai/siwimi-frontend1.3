@@ -37,7 +37,7 @@ export default Ember.Route.extend({
             newObj.save().then(function(obj) {
                 self.controller.set('title', '');
                 self.controller.set('description', '');
-                self.controller.set('selectedType', null);
+                self.controller.set('selectedType', '');
                 self.refresh();
             });
         });

@@ -16,6 +16,10 @@ export default Ember.Component.extend({
 
         doPost: function() {
             this.sendAction('action', this.get('title'), this.get('description'), this.get('selectedType'));
+        },
+
+        setType: function(type) {
+            this.set('selectedType', type)
         }
     }
 });

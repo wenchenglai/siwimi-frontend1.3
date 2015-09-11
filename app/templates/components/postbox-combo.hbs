@@ -17,7 +17,7 @@
         </div>
         <div class="row row-gutter-bottom">
             <div class="col-xs-12">
-                {{#dropdown-button class="btn-block" dropdown-list=postTypes selected=selectedType}}
+                {{#dropdown-button class="btn-block" dropdown-list=postTypes selected=selectedType action='setType'}}
                     <span class="glyphicon glyphicon-tag" aria-hidden="true"></span>
                     {{#if selectedType}}
                         Post type: {{selectedType}}
