@@ -8,46 +8,46 @@
     </div>
     <div class="col-xs-12 col-md-6">
         {{#if showEdit}}
-            {{#link-to 'activity.edit' model class="btn btn-default"}}Edit{{/link-to}}
+            {{#link-to 'activity.edit' model.activity class="btn btn-default"}}Edit{{/link-to}}
         {{/if}}
     </div>
 </div>
 
 <div class="row row-gutter-bottom">
     <div class="col-xs-12">
-        <h1>{{model.title}}</h1>
+        <h1>{{model.activity.title}}</h1>
     </div>
 </div>
 
 <div class="row row-gutter-bottom">
     <div class="col-xs-12">
-            <img width="300" height="300" class="img-responsive img-rounded" src={{model.availableImage}}>
+            <img width="300" height="300" class="img-responsive img-rounded" src={{model.activity.availableImage}}>
     </div>
 </div>
 
 
-{{#if model.toDate}}
+{{#if model.activity.toDate}}
     <div class="row row-gutter-bottom">
         <div class="col-xs-12">
             <h4>
                 <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
-                {{formatted-date model.fromDateMoment 'dddd'}},
-                {{formatted-date model.fromDate 'LL'}}
-                {{#if model.toDate}}
+                {{formatted-date model.activity.fromDateMoment 'dddd'}},
+                {{formatted-date model.activity.fromDate 'LL'}}
+                {{#if model.activity.toDate}}
                     to
-                    {{formatted-date model.toDateMoment 'dddd'}},
-                    {{formatted-date model.toDate 'LL'}}
+                    {{formatted-date model.activity.toDateMoment 'dddd'}},
+                    {{formatted-date model.activity.toDate 'LL'}}
                 {{/if}}
             </h4>
             <p>
-                {{#if model.fromTime}}
+                {{#if model.activity.fromTime}}
                     <small>
-                        {{model.fromTime}}
+                        {{model.activity.fromTime}}
                     </small>
                 {{/if}}
-                {{#if model.toTime}}
+                {{#if model.activity.toTime}}
                     <small>
-                        to {{model.toTime}}
+                        to {{model.activity.toTime}}
                     </small>
                 {{/if}}
 
@@ -56,12 +56,12 @@
     </div>
 {{/if}}
 
-{{#if model.address}}
+{{#if model.activity.address}}
     <div class="row row-gutter-bottom">
         <div class="col-xs-12">
             <h4>
                 <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
-                {{model.address}}, {{model.city}}, {{model.state}} {{model.zipCode}}
+                {{model.activity.address}}, {{model.activity.city}}, {{model.activity.state}} {{model.activity.zipCode}}
             </h4>
         </div>
     </div>
@@ -78,49 +78,49 @@
         <label>Description:</label>
     </div>
     <div class="col-xs-9 col-sm-10 col-md-6">
-        {{{model.description}}}
+        {{{model.activity.description}}}
     </div>
 </div>
 
-{{#if model.url }}
+{{#if model.activity.url }}
 <div class="row row-gutter-bottom">
     <div class="col-xs-3 col-sm-2 col-md-1">
         <label>Web URL:</label>
     </div>
     <div class="col-xs-9 col-sm-10 col-md-10">
-        <a href={{model.url}} target="_blank">{{model.url}}</a>
+        <a href={{model.activity.url}} target="_blank">{{model.activity.url}}</a>
     </div>
 </div>
 {{/if}}
-{{#if model.type }}
+{{#if model.activity.type }}
 <div class="row row-gutter-bottom">
     <div class="col-xs-3 col-sm-2 col-md-1">
         <label>Type:</label>
     </div>
     <div class="col-xs-9 col-sm-10 col-md-6">
-        {{display-text model.type allTypes}}
+        {{display-text model.activity.type allTypes}}
     </div>
 </div>
 {{/if}}
-{{#if model.fromAge }}
+{{#if model.activity.fromAge }}
 <div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label>Age:</label>
     </div>
     <div class="col-xs-10 col-md-6">
-        {{model.fromAge}}
-        To {{model.toAge}}
+        {{model.activity.fromAge}}
+        To {{model.activity.toAge}}
     </div>
 </div>
 {{/if}}
-{{#if model.price }}
+{{#if model.activity.price }}
 <div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label>Price:</label>
     </div>
     <div class="col-xs-4 col-md-3">
         <div class="input-group">
-            ${{model.price}}
+            ${{model.activity.price}}
         </div>
     </div>
 </div>
@@ -133,20 +133,24 @@
         </div>
     </div>
 <div class="row row-gutter-bottom">
-    <div class="col-xs-12 col-md-2">
-      {{#radio-button value="1" groupValue=emaction.action name="action" changed="setAction"}}
-          &nbsp;&nbsp;<span style="font-size:18px">Attending</span>
-      {{/radio-button}}
-    </div>
-    <div class="col-xs-12 col-md-2">
-      {{#radio-button value="2" groupValue=emaction.action name="action" changed="setAction"}}
-          &nbsp;&nbsp;<span style="font-size:18px">Maybe</span>
-      {{/radio-button}}
-    </div>
-    <div class="col-xs-12 col-md-2">
-      {{#radio-button value="3" groupValue=emaction.action name="action" changed="setAction"}}
-          &nbsp;&nbsp;<span style="font-size:18px">Not attending</span>
-      {{/radio-button}}
+    <div class="col-xs-12 col-md-12">
+        <div class="control-group">
+            <div class="btn-group" data-toggle="buttons-radio">
+
+                {{#radio-button selectedValue=model.emactions.firstObject.action value="1" group="action" action="setAction" }}
+                    <span style="font-size:18px">Attending</span>
+                {{/radio-button}}
+
+                {{#radio-button selectedValue=model.emactions.firstObject.action value="2" group="action" action="setAction"}}
+                    <span style="font-size:18px">Maybe</span>
+                {{/radio-button}}
+
+                {{#radio-button selectedValue=model.emactions.firstObject.action value="3" group="action" action="setAction"}}
+                    <span style="font-size:18px">Not attending</span>
+                {{/radio-button}}
+
+            </div>
+        </div>
     </div>
 </div>
 {{/if}}

@@ -96,12 +96,12 @@
                             {{/if}}
                         </div>
                         <div class="col-xs-4 col-md-2">
-                            {{#link-to 'activity.show' event}}
+                            {{#link-to 'activity.show' event.id}}
                                 {{preview-image width="200" height="200" class="img-thumbnail img-responsive" src=event.availableImage}}
                             {{/link-to}}
                         </div>
                         <div class="col-xs-8 col-md-4">
-                            <h4 class="list-group-item-heading">{{#link-to 'activity.show' event}}{{event.title}}{{/link-to}}</h4>
+                            <h4 class="list-group-item-heading">{{#link-to 'activity.show' event.id}}{{event.title}}{{/link-to}}</h4>
 
                             <p class="list-group-item-text">
                                 <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>

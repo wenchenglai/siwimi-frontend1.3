@@ -2,25 +2,17 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
     model: function(params) {
-        return this.store.findRecord('activity', params.id);
-    },
-
-    setupController: function(controller, model) {
         var self = this,
-            userId = self.get('session.secure.id');
-
-        controller.set('content', model);
-
-        if (userId) {
-            var query = {
+            userId = self.get('session.secure.id'),
+            query = {
                 member: userId,
-                event: model.id
+                event: params.id
             };
 
-            self.store.query('emaction', query).then(function(emactions) {
-                controller.set('emaction', emactions.content[0]);
-            });
-        }
+        return Ember.RSVP.hash({
+            activity: self.store.findRecord('activity', params.id),
+            emactions: self.store.query('emaction', query)
+        });
     },
 
     actions: {
@@ -40,15 +32,15 @@ export default Ember.Route.extend({
             var self = this,
                 userId = self.get('session.secure.id'),
                 model = self.currentModel,
-                emaction = self.controller.get('emaction');
+                emaction = model.emactions.get('firstObject');
 
             if (emaction) {
                 emaction.set('action', selectedValue);
                 emaction.save();
             } else {
-                self.store.find('member', userId).then(function(user) {
+                self.store.findRecord('member', userId).then(function(user) {
                     var newRecord = self.store.createRecord('emaction', {
-                        event: model,
+                        event: model.activity,
                         member: user,
                         action: selectedValue,
                         createdDate: new Date()
