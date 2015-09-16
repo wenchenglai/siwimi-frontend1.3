@@ -38,8 +38,10 @@
                 {{input id='password' placeholder='Enter Password' class='form-control' type='password' value=password size="80"}}
             </div>
             <button type="submit" {{action "authenticateCustom" }} class="btn btn-cys" {{bind-attr disabled=disabled}}>Login</button>
+            &nbsp;&nbsp;&nbsp;
+            <span>{{link-to 'Forgot your password?' 'forgotPassword'}}</span>
             <div>
-                Don't have a Siwimi account yet?  {{#link-to 'register.signup' }}Sign up here{{/link-to}}.
+                Don't have a Siwimi account yet?  {{#link-to 'register.signup'}}&nbsp;&nbsp;Sign up here{{/link-to}}.
             </div>
 
         </form>

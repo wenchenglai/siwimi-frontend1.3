@@ -1,3 +1,4 @@
+
 import Ember from 'ember';
 import config from './config/environment';
 
@@ -17,6 +18,7 @@ Router.reopen({
 Router.map(function () {
   this.route('login');
   this.route('loginModal');
+  this.route('forgotPassword');
 
   this.resource('user', function () {
       this.route('account');
@@ -51,10 +53,11 @@ Router.map(function () {
   });
 
   this.resource("member", function () {
-      this.route('browse');
-      this.route("new");
-      this.route("show", {path: ':id'});
-      this.route("edit", {path: ':id/edit'});
+    this.route('browse');
+    this.route("new");
+    this.route("show", {path: ':id'});
+    this.route("edit", {path: ':id/edit'});
+    this.route('changepassword', {path: ':id/changepassword'});
   });
 
   this.resource("feedback", function () {
