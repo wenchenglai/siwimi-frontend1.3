@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import StatesDataMixin from '../../mixins/states-data';
 
-export default Ember.Controller.extend(StatesDataMixin, {
+export default Ember.Controller.extend(StatesDataMixin,  {
     queryParams: ['isAdmin'],
     allLanguages: ['Chinese (Mandarin)', 'Chinese (Cantonese)', 'English', 'French', 'German', 'Indonesian', 'Japanese', 'Korean', 'Russian', 'Spanish'],
     allToys: ['Lego', 'Trains', 'Cars', 'Princess'],
@@ -13,6 +13,7 @@ export default Ember.Controller.extend(StatesDataMixin, {
       "Grandparent",
       "Pet"
     ],
+    allEvents: ["Birthday", "Farm", "Festival", "Movies", "Playdates", "Sport", "Storytelling"],
 
     showAdminPanel: Ember.computed('isAdmin', function() {
         var self = this,

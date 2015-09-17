@@ -14,6 +14,23 @@
         {{view "select" class="btn btn-default dropdown-toggle" selection=model.needs content=allNeeds placeholder="need" multiple=true}}
     </div>
 </div>
+<div class="row row-gutter-bottom">
+    <div class="col-xs-12 col-md-3">
+        <label>Events I am interested in</label>
+    </div>
+    <div class="col-xs-12 col-md-6">
+        {{view "select" class="btn btn-default dropdown-toggle" selection=model.feaEvents content=allEvents placeholder="need" multiple=true}}
+    </div>
+</div>
+
+<div class="row row-gutter-bottom">
+    <div class="col-xs-12 col-md-3">
+        <label>Items I am looking for</label>
+    </div>
+    <div class="col-xs-12 col-md-6">
+        {{textarea class="edit_box" rows="5" cols="60" value=model.feaItems }}
+    </div>
+</div>
 {{!--
 <div class="row row-gutter-bottom">
     <div class="col-xs-12">

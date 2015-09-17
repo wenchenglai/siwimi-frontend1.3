@@ -49,6 +49,19 @@ export default Ember.Route.extend({
                     newRecord.save();
                 });                
             }
+
+            // show message so people know the benefit of this feature
+            self.render('modals/event-member', {
+                into: 'application',
+                outlet: 'modal'
+            });
+        },
+
+        closeModal: function() {
+            this.disconnectOutlet({
+                outlet: 'modal',
+                parentView: 'application'
+            });
         }
     }
 });
