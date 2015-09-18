@@ -51,8 +51,9 @@
         {{#if showList}}
             {{group-list list=model.members}}
         {{/if}}
+        
         {{#if showAddNew}}
-            {{group-addnew action="inviteFriend"}}
+            {{group-addnew action="inviteFriend" add="addFriends" searchFriends="searchFriends" group=model }}
         {{/if}}
     </div>
 </div>

@@ -546,3 +546,55 @@ ic-autocomplete-list {
 .nav-custom {
     margin-top: 10px;
 }
+
+.typeahead{
+  border: solid 1px #CCCCCC;
+  position: relative;
+  width: 21em;
+}
+.typeahead .glyphicon-remove{
+  cursor: pointer;
+}
+
+.typeahead__dropdown{
+  display: block;
+  position: absolute;
+  width: 100%;
+  background-color: white;
+  border:solid 1px #CCCCCC;
+  z-index: 1;
+}
+.typeahead__dropdown .media{
+  margin-top: 0;
+}
+/* search bar */
+.typeahead__searchbox{
+  border:0px;
+  width: 100%;
+ }
+
+.typeahead__dropdownItem{
+  cursor: pointer;
+  border-top:solid 1px #CCCCCC;
+}
+.typeahead__dropdownItem:hover{
+  background: #B3B3B3;
+}
+/*selected item */
+.typeahead__selectItem{
+  display: inline-block;
+  padding: 2px;
+  margin: 2px;
+  border: solid 1px #CCCCCC;
+}
+.typeahead__selectItem:hover{
+  background: #B3B3B3;
+}
+.typeahead__img{
+  /* 35px */
+  width: 2.5em;
+  height: 2.5em;
+}
+.typeahead__dropdownItem:first-child{
+  border-top:solid 0px;
+}

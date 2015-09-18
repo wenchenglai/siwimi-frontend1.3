@@ -1,0 +1,31 @@
+<div class="typeahead">
+	{{!-- show select item --}}
+	{{#if selecedItems}}
+		{{#each selecedItems as |selecedItem|}}
+			<span class="typeahead__selectItem">
+				<span class="typeahead__selectItemName">{{selecedItem.name}}</span>
+				<span class="glyphicon glyphicon-remove" {{action "removeSelectedItem" selecedItem}} ></span>
+			</span>
+		{{/each}}
+	{{/if}}
+
+	{{input action="typing" on="key-up" placeholder=placeholder valueBinding="searchWord" size="40" class="typeahead__searchbox edit_box"}}
+	{{!-- show suggested item --}} 
+	{{#if suggestItems}}
+		<div {{action "notSelecting" on="mouseLeave"}}>
+			<div class="typeahead__dropdown "  {{action "selecting" on="mouseMove"}} >
+				{{#each suggestItems as |suggestItem|}}
+				  	<div class="media typeahead__dropdownItem" {{action "selectItem" suggestItem}}>
+						<div class="media-left media-middle">
+							<img src="{{suggestItem.icon}}" class="img-circle typeahead__img" >
+						</div>
+						<div class="media-body media-middle">
+							<h4 class="media-heading">{{suggestItem.name}}</h4>
+						</div>
+					</div>
+				{{/each}}
+			</div>
+		</div>
+	{{/if}}
+</div>
+

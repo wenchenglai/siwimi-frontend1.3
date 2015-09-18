@@ -4,19 +4,22 @@
     </div>
 
 </div>
-
 <div class="row row-gutter-bottom">
     <div class="col-xs-12">
-        {{input class="edit_box" placeholder="Search friends" size="40"}}
+        {{my-typeahead selecedItems=selectedFriends typing="searchFriends" placeholder="Search friends" }}
     </div>
+</div>
 
+<div class="row row-gutter-bottom">
+    <div class="col-xs-12 col-xs-offset-2">
+        <button type="button" class="btn btn-cys" {{action "add" }} {{bind-attr disabled=disabled}}>add</button>
+    </div>
 </div>
 
 <div class="row row-gutter-bottom">
     <div class="col-xs-12">
         Or add New Members by email
     </div>
-
 </div>
 
 <div class="row row-gutter-bottom">
