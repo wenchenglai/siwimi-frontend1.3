@@ -102,15 +102,15 @@ export default Ember.Route.extend({
             var self = this;
             var group = self.currentModel;
             selectedFriends.forEach(function(selectedFriend){
-                // Ember.log(selectedFriend.id);
-                Ember.Logger.log(selectedFriend.id);
                 var user = self.store.peekRecord("member",selectedFriend.id);
                 group.get("members").pushObject(user); 
             });
-            group.save();
-            selectedFriends.clear();
-            self.controller.set('showList', true);
-            self.controller.set('showAddNew', false);
+            
+            group.save().then(function(){
+                selectedFriends.clear();
+                self.controller.set('showList', true);
+                self.controller.set('showAddNew', false);
+            });
         },
 
         searchFriends: function(typeahead) {
