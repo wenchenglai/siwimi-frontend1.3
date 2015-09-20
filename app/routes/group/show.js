@@ -26,6 +26,39 @@ export default Ember.Route.extend({
             self.controller.set('showAddNew', false);
         },
 
+        deleteMember: function(id) {
+            var self = this,
+                creator = self.currentModel.get('creator'),
+                members = self.currentModel.get('members'),
+                toDelete = members.findBy('id', id);
+
+            if (toDelete === creator) {
+                self.send('showAlertBar', {
+                    title: 'Error',
+                    message: "You cannot delete the creator of the group.",
+                    type: 'alert-danger'
+                });
+                return;
+            }
+
+            members.removeObject(toDelete);
+
+            var onSuccess = function (obj) {
+                self.send('showAlertBar', {
+                    title: 'Success',
+                    message: "Removed member from group.",
+                    type: 'alert-success'
+                });
+                self.transitionTo('group.show', obj);
+            };
+
+            var onFail = function (error) {
+                self.send('error', error);
+            };
+
+            self.currentModel.save().then(onSuccess, onFail);
+        },
+
         showAddNew: function() {
             var self = this;
 
