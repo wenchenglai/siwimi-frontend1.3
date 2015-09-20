@@ -2,12 +2,16 @@
 <ul class="list-group">
     {{#each list as |member|}}
         <li class="list-group-item circle-loop">
-            <img src={{member.availableImage}} height="32" width="32" class="img-circle"
-                 style="margin-bottom:-15px; margin-top:-15px" alt="avatar"/> {{member.fullName}}
-            <div class="btn-group" role="group" aria-label="...">
-
-                <button type="button" class="btn btn-default" {{action 'openDeleteDialog' activity.id target="view" bubbles="false" }}>Delete</button>
+            <div class="row">
+                <div class="col-xs-12">
+                    <img src={{member.availableImage}} height="32" width="32" class="img-circle" alt="avatar"/> {{member.fullName}}
+                    <div class="btn-group pull-right" role="group" aria-label="...">
+                        <button type="button" class="btn btn-default" {{action 'openDeleteDialog' member.id target="view" bubbles="false" }}><span class="glyphicon glyphicon-remove"></span> Remove</button>
+                    </div>
+                </div>
             </div>
         </li>
     {{/each}}
 </ul>
+
+{{delete-confirm}}
