@@ -6,8 +6,10 @@
                  style="margin-bottom:-15px; margin-top:-15px" alt="avatar"/> {{member.fullName}}
             <div class="btn-group" role="group" aria-label="...">
 
-                <button type="button" class="btn btn-default" {{action 'openDeleteDialog' activity.id target="view" bubbles="false" }}>Delete</button>
+                <button type="button" class="btn btn-default" {{action 'openDeleteDialog' member.id target="view" bubbles="false" }}>Delete</button>
             </div>
         </li>
     {{/each}}
 </ul>
+
+{{delete-confirm}}
