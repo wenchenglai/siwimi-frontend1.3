@@ -27,7 +27,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, StatesDataMixin, {
                     var userId = self.get('session.secure.id');
 
                     // after we create a new family, we should add current user as a member of the family
-                    self.store.find('member', userId).then(function(member) {
+                    self.store.findRecord('member', userId).then(function(member) {
                         member.set('family', newlySavedfamily);
                         member.set('city', newlySavedfamily.get('city'));
                         member.set('state', newlySavedfamily.get('state'));

@@ -4,11 +4,11 @@ import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixi
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
     model: function () {
         var self = this,
-            family = self.get('session.user.family'),
-            familyId = self.get('session.user.family.id');
+            family = self.get('session.secure.user.family'),
+            familyId = self.get('session.secure.user.family.id');
 
         if (typeof(family) === 'string') {
-            return self.store.find('family', family);
+            return self.store.findRecord('family', family);
         } else if (familyId) {
             return self.store.findRecord('family', familyId);
         }
@@ -24,7 +24,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
             var self = this;
             self.store.findRecord('family', id).then(function (record) {
                 record.destroyRecord().then(function() {
-                    self.store.find('member', self.get('session.secure.id')).then(function(user) {
+                    self.store.findRecord('member', self.get('session.secure.id')).then(function(user) {
                         user.set('family', null);
                         user.save().then(function(userWithFamily) {
                             self.set('session.secure.user', userWithFamily);

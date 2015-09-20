@@ -22,7 +22,7 @@ export default Ember.Route.extend(Validators, {
                     type : "alert-info"}
                 );
 
-                
+
 
             } else {
                 self.send('error', {name: 'Data Error', message: "Email is not in the right format"});
