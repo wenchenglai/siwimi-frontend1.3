@@ -61,7 +61,7 @@ module.exports = function(environment) {
     }
 
     if (environment === 'production') {
-        ENV.apiHost = 'http://52.6.34.6/siwimi-webapi-0.0.1';
+        ENV.apiHost = 'http://54.175.121.3/siwimi-webapi-0.0.1';
         ENV.facebookAppId = '290368724455193';
         ENV.facebookGraphAPIVersion = 'v2.2';
     }
