@@ -27,6 +27,12 @@ export default Ember.Component.extend({
             var self = this;
 
             self.$("#dialog-confirm-delete").data('id', id).dialog("open");
+        },
+
+        resendInvite: function (email) {
+            var self = this;
+
+            self.sendAction("resendInviteEmail", email);
         }
     }
 });

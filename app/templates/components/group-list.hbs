@@ -1,17 +1,27 @@
 <p class="help-block">Turn the switch to include or exclude someone from this list</p>
-<ul class="list-group">
-    {{#each list as |member|}}
-        <li class="list-group-item circle-loop">
-            <div class="row">
-                <div class="col-xs-12">
-                    <img src={{member.availableImage}} height="32" width="32" class="img-circle" alt="avatar"/> {{member.fullName}}
+
+<div class="row">
+    <div class="col-xs-12 col-md-6">
+        <ul class="list-group">
+            {{#each list as |member|}}
+                <li class="list-group-item circle-loop">
+                    <img src={{member.availableImage}} height="32" width="32" class="img-circle" alt="avatar"/>
+                    {{#if member.firstName}}
+                        {{member.fullName}}
+                    {{else}}
+                        {{member.email}} (invitation sent)
+                    {{/if}}
                     <div class="btn-group pull-right" role="group" aria-label="...">
-                        <button type="button" class="btn btn-default" {{action 'openDeleteDialog' member.id target="view" bubbles="false" }}><span class="glyphicon glyphicon-remove"></span> Remove</button>
+                        {{#if member.firstName}}
+                            <button type="button" class="btn btn-default" {{action 'openDeleteDialog' member.id target="view" bubbles="false" }}><span class="glyphicon glyphicon-remove"></span> Remove</button>
+                        {{else}}
+                            <button type="button" class="btn btn-default" {{action 'resendInvite' member.email }}>Resend Invitation Email</button>
+                        {{/if}}
                     </div>
-                </div>
-            </div>
-        </li>
-    {{/each}}
-</ul>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+</div>
 
 {{delete-confirm}}

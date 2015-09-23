@@ -11,7 +11,8 @@ export default Ember.Route.extend({
 
         return Ember.RSVP.hash({
             activity: self.store.findRecord('activity', params.id),
-            emactions: self.store.query('emaction', query)
+            emactions: self.store.query('emaction', query),
+            groups: self.store.query('group', {creator: userId})
         });
     },
 
@@ -32,7 +33,14 @@ export default Ember.Route.extend({
             var self = this,
                 userId = self.get('session.secure.id'),
                 model = self.currentModel,
-                emaction = model.emactions.get('firstObject');
+                emaction = model.emactions.get('content')[0];
+
+            if (!self.get('session.isAuthenticated')) {
+                return self.render('loginModal', {
+                    into: 'application',
+                    outlet: 'modal'
+                });
+            }
 
             if (emaction) {
                 emaction.set('action', selectedValue);
@@ -46,15 +54,19 @@ export default Ember.Route.extend({
                         createdDate: new Date()
                     });
 
-                    newRecord.save();
+                    newRecord.save().then(function(newEmaction) {
+                        model.emactions.pushObject(newEmaction);
+                    });
                 });                
             }
+        },
 
-            // show message so people know the benefit of this feature
-            self.render('modals/event-member', {
-                into: 'application',
-                outlet: 'modal'
-            });
+        notify: function() {
+            var self = this,
+                model = self.currentModel,
+                actionTaken = model.emactions.firstObject.action;
+
+
         },
 
         closeModal: function() {

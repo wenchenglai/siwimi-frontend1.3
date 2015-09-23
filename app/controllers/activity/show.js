@@ -9,5 +9,9 @@ export default Ember.Controller.extend(ActivityDataMixin, {
       } else {
         return false;
       }
-    }.property()
+    }.property(),
+
+    showNotifyFriends: function() {
+        return !Ember.isEmpty(this.model.emactions.get('length'));
+    }.property('model.emactions.@each.action')
 });

@@ -82,6 +82,22 @@ export default Ember.Route.extend({
             });
         },
 
+        resendInviteEmail: function(email) {
+            var self = this,
+                userId = self.get('session.secure.id'),
+                groupId = self.currentModel.get('id'),
+                host = ENV.apiHost,
+                api = "%@/email/invite?email=%@&userid=%@&groupid=%@".fmt(host, email, userId, groupId);
+
+            $.getJSON(api);
+
+            self.send('showAlertBar', {
+                title: 'Success',
+                message: "We've sent your friend an invitation email.",
+                type: 'alert-success'
+            });
+        },
+
         addFriends:function(selectedFriends){
             var self = this;
             var group = self.currentModel;
