@@ -17,7 +17,11 @@
 
 <div class="row row-gutter-bottom">
     <div class="col-xs-12">
-        <h2>Group Name: {{model.title}}</h2>
+        {{#if showEditGroupName}}
+            <h2>Group: {{input class="edit_box" value=model.title}}<button class="btn btn-link" {{action "saveGroupName"}}>Save</button></h2>
+        {{else}}
+            <h2>Group: {{model.title}}<button class="btn btn-link" {{action "editGroupName"}}>Edit</button></h2>
+        {{/if}}
     </div>
 </div>
 

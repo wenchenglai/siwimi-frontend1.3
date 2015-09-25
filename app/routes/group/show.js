@@ -164,6 +164,19 @@ export default Ember.Route.extend({
                 // set suggest items empty
                 typeahead.set("suggestItems" , []);
             }
+        },
+
+        saveGroupName: function() {
+            var self = this;
+
+            self.currentModel.save();
+            self.controller.set('showEditGroupName', false);
+        },
+
+        editGroupName: function() {
+            var self = this;
+
+            self.controller.set('showEditGroupName', true);
         }
     }
 });
