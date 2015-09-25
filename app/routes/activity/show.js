@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import ENV from '../../config/environment';
 
 export default Ember.Route.extend({
     model: function(params) {
@@ -61,12 +62,30 @@ export default Ember.Route.extend({
             }
         },
 
-        notify: function() {
+        notifyMyFriends: function() {
             var self = this,
                 model = self.currentModel,
-                actionTaken = model.emactions.firstObject.action;
+                userId = self.get('session.secure.id'),
+                eventId = model.activity.id,
+                actionTaken = model.emactions.firstObject.action,
+                host = ENV.apiHost;
 
+            if (Ember.isEmpty(userId)) {
+                return self.render('loginModal', {
+                    into: 'application',
+                    outlet: 'modal'
+                });
+            }
 
+            var api = "%@/email/notify-events?userId=%@&eventId=%@".fmt(host, userId, eventId);
+
+            $.getJSON(api);
+
+            self.send('showAlertBar', {
+                title: 'Success',
+                message: "We've notified your friends about this event.",
+                type: 'alert-success'
+            });
         },
 
         closeModal: function() {

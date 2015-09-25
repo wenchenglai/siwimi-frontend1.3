@@ -7,6 +7,7 @@ export default Ember.Mixin.create({
         { value: "health", text: "Health" }, 
         { value: "education", text: "Education" }, 
         { value: "entertainment", text: "Entertainment" },
-        { value: "travel", text: "Travel" }
+        { value: "travel", text: "Travel" },
+        { value: "app", text: "Apps" }
     ]
 });

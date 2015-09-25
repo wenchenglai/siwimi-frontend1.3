@@ -6,6 +6,27 @@ export default Ember.Route.extend({
         return this.store.findRecord('group', params.id);
     },
 
+    setupController: function(controller, model) {
+        var self = this;
+
+        controller.set('model', model);
+        self.showList();
+    },
+
+    showList: function() {
+        var self = this;
+
+        self.controller.set('showList', true);
+        self.controller.set('showAddNew', false);
+    },
+
+    showAddNew: function() {
+        var self = this;
+
+        self.controller.set('showList', false);
+        self.controller.set('showAddNew', true);
+    },
+
     actions: {
         goBack: function() {
             var self = this,
@@ -22,8 +43,7 @@ export default Ember.Route.extend({
         showList: function() {
             var self = this;
 
-            self.controller.set('showList', true);
-            self.controller.set('showAddNew', false);
+            self.showList();
         },
 
         deleteMember: function(id) {
@@ -62,8 +82,7 @@ export default Ember.Route.extend({
         showAddNew: function() {
             var self = this;
 
-            self.controller.set('showList', false);
-            self.controller.set('showAddNew', true);
+            self.showAddNew();
         },
 
         inviteFriend: function(email) {
@@ -108,8 +127,7 @@ export default Ember.Route.extend({
             
             group.save().then(function(){
                 selectedFriends.clear();
-                self.controller.set('showList', true);
-                self.controller.set('showAddNew', false);
+                self.showList();
             });
         },
 
