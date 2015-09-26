@@ -47,9 +47,14 @@
                 {{#if showNotifyFriends}}
 
                     <ul class="list-group">
+                        <li class="list-group-item">
+                            {{input type="checkbox" checked=model.allGroupChecked}}
+                            &nbsp;&nbsp;
+                            All groups
+                        </li>
                         {{#each model.groups as |group| }}
                             <li class="list-group-item">
-                                {{input type="checkbox"}}
+                                {{input type="checkbox" checked=group.isChecked }}
                                 &nbsp;&nbsp;
                                 <span class="badge">{{group.members.length}}</span>
                                 {{group.title}}

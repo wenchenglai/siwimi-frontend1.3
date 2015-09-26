@@ -13,5 +13,25 @@ export default Ember.Controller.extend(ActivityDataMixin, {
 
     showNotifyFriends: function() {
         return !Ember.isEmpty(this.model.emactions.get('length'));
-    }.property('model.emactions.@each.action')
+    }.property('model.emactions.@each.action'),
+
+    checkAllGroup: function() {
+        var self = this;
+
+        if (self.model.allGroupChecked) {
+            self.model.groups.forEach(function(group, index, enumerable){
+                group.set('isChecked', false);
+            });
+        }
+    }.observes('model.allGroupChecked'),
+
+    checkGroup: function() {
+        var self = this;
+
+        if (self.model.groups.isAny('isChecked', true)) {
+            self.set('model.allGroupChecked', false);
+        } else {
+            self.set('model.allGroupChecked', true);
+        }
+    }.observes('model.groups.@each.isChecked')
 });
