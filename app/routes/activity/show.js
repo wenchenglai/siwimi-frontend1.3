@@ -79,6 +79,12 @@ export default Ember.Route.extend({
 
             var api = "%@/email/notify-events?userId=%@&eventId=%@".fmt(host, userId, eventId);
 
+            model.groups.forEach(function(group, index, enumerable){
+                if (group.get('isChecked')) {
+                    api += "&groupId=" + group.get('id');
+                }
+            });
+
             $.getJSON(api);
 
             self.send('showAlertBar', {

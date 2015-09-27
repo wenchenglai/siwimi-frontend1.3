@@ -6,5 +6,5 @@ import PagingMixin from '../../mixins/paging';
 export default Ember.Controller.extend(CommonDataMixin, ActivityDataMixin, PagingMixin, {
     queryParams: ['type', 'status', 'pageNumber', 'pageSize'],
     type: "all",
-    status: "upcoming"
+    status: "all"
 });
