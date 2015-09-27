@@ -77,6 +77,13 @@ export default Ember.Route.extend({
                 });
             }
 
+            if (model.groups.get('length') === 0) {
+                return self.render('modals/create-group-modal', {
+                    into: 'application',
+                    outlet: 'modal'
+                });
+            }
+
             var api = "%@/email/notify-events?userId=%@&eventId=%@".fmt(host, userId, eventId);
 
             model.groups.forEach(function(group, index, enumerable){

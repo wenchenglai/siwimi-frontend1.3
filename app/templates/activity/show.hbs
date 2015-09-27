@@ -47,11 +47,13 @@
                 {{#if showNotifyFriends}}
 
                     <ul class="list-group">
-                        <li class="list-group-item">
-                            {{input type="checkbox" checked=model.allGroupChecked}}
-                            &nbsp;&nbsp;
-                            All groups
-                        </li>
+                        {{#if model.groups.length }}
+                            <li class="list-group-item">
+                                {{input type="checkbox" checked=model.allGroupChecked}}
+                                &nbsp;&nbsp;
+                                All groups
+                            </li>
+                        {{/if}}
                         {{#each model.groups as |group| }}
                             <li class="list-group-item">
                                 {{input type="checkbox" checked=group.isChecked }}
