@@ -100,6 +100,12 @@ export default DS.Model.extend({
         }
     }.property('avatarUrl', 'imageData'),
 
+    fullAddress: Ember.computed('city', 'state', 'zipCode', {
+      get() {
+        return this.get('city') + ', ' + this.get('state') + ' ' + this.get('zipCode');
+      }
+    }),
+
     isAdmin: Ember.computed('role', function() {
         return this.get('role') === "admin" ? true : false;
     })

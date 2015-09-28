@@ -112,6 +112,13 @@ Router.map(function () {
   this.route('feeds', function() {
     this.route('browse');
   });
+
+  this.route('admin', function() {
+    this.route('members', function() {
+      this.route('member', {path: '/member/:id'});
+      this.route('edit', {path: '/member/:id/edit'});
+    });
+  });
 });
 
 export default Router;
