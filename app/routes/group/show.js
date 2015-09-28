@@ -9,6 +9,13 @@ export default Ember.Route.extend({
     setupController: function(controller, model) {
         var self = this;
 
+        model.get("members").forEach(function(member, index, enumerable){
+            if (member.get('id') === model.get('creator.id')) {
+                member.set("isOwner", true);
+            } else {
+                member.set("isOwner", false);
+            }
+        });
         controller.set('model', model);
         self.showList();
     },

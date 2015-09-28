@@ -53,7 +53,7 @@
     </div>
     <div class="col-xs-9">
         {{#if showList}}
-            {{group-list delete="deleteMember" resendInviteEmail="resendInviteEmail" list=model.members}}
+            {{group-list delete="deleteMember" resendInviteEmail="resendInviteEmail" list=model.members groupOwnerId=model.creator.id}}
         {{/if}}
         
         {{#if showAddNew}}

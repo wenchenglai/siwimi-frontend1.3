@@ -4,13 +4,17 @@ import ENV from '../../config/environment';
 export default Ember.Route.extend({
     actions: {
         resend: function(id) {
-            var host = ENV.apiHost;
+            var self = this,
+                host = ENV.apiHost;
 
             $.getJSON(host + "/email/sendConfirmation?id=" + id);
-            //Ember.$.ajax({
-            //    url: 'email/sendConfirmation?id=' + id,
-            //    type: 'GET'
-            //});
+
+            self.transitionTo('index', {queryParams: {
+                showAlert: true,
+                title: 'Sign Up',
+                message: "We've resent the confirmation email to your inbox.  You might need to check your junk inbox.",
+                type: 'alert-info'
+            }});
         }
     }
 });
