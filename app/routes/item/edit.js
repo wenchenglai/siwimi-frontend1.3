@@ -2,12 +2,12 @@ import Ember from 'ember';
 import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin';
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
-     model: function(params) {
-    return this.store.find('item', params.id);
-  },
+    model: function(params) {
+        return this.store.findRecord('item', params.id);
+    },
 
     afterModel: function(model) {
-        if (model.get('hasDirtyAttributes')()) {
+        if (model.get('hasDirtyAttributes')) {
             model.rollback();
         }
     },

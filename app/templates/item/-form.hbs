@@ -31,13 +31,17 @@
     </div>
     <div class="col-xs-10 col-md-6">
         <div class="control-group">
-            {{input type="checkbox" checked=isForSale}} Sale
+            <div class="btn-group" data-toggle="buttons-radio">
 
-            {{input type="checkbox" checked=isForSwap}} Swap
+                {{#radio-button selectedValue=model.transactionType group="trans" value="sale" }}Sale{{/radio-button}}
 
-            {{input type="checkbox" checked=isForGiveAway}} Give Away
+                {{#radio-button selectedValue=model.transactionType group="trans" value="swap" }}Swap{{/radio-button}}
 
-            {{input type="checkbox" checked=isForLoan}} Loan
+                {{#radio-button selectedValue=model.transactionType group="trans" value="free"}}Free{{/radio-button}}
+
+                {{#radio-button selectedValue=model.transactionType group="trans" value="loan" }}Loan{{/radio-button}}
+
+            </div>
         </div>
     </div>
 </div>

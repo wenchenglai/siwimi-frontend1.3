@@ -6,6 +6,7 @@ export default Ember.Controller.extend(StatesDataMixin, {
     alertTitle: "",
     alertMessage: "",
     alertType: "",
+
     isValid: Ember.computed(
     'model.title',
     'model.description',
@@ -13,6 +14,10 @@ export default Ember.Controller.extend(StatesDataMixin, {
             return !Ember.isEmpty(this.get('model.title')) && !Ember.isEmpty(this.get('model.description'));
         }
     ),
+
+    isDeal: Ember.computed('model.type', function() {
+        return this.get('model.type') === "deal"
+    }),
 
     disabled: function () {
         return Ember.isEmpty(this.get('model.title')) || Ember.isEmpty(this.get('model.description'));

@@ -34,7 +34,7 @@
     <div class="col-xs-12 col-md-10">
         <div class="row row-gutter-bottom">
             <div class="col-xs-2 col-md-1">
-                <label>Title:</label>
+                
             </div>
             <div class="col-xs-10 col-md-6">
                 <h1>{{model.title}}</h1>
@@ -54,86 +54,128 @@
                 <hr>
             </div>
         </div>
-        <div class="row row-gutter-bottom">
-            <div class="col-xs-2 col-md-1">
-                <label>Price:</label>
+
+        {{#if model.price}}
+            <div class="row row-gutter-bottom">
+                <div class="col-xs-2 col-md-1">
+                    <label>Price:</label>
+                </div>
+                <div class="col-xs-10 col-md-6">
+                    <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
+                    {{model.price}}
+                </div>
             </div>
-            <div class="col-xs-10 col-md-6">
-                <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
-                {{model.price}}
+        {{/if}}
+
+        {{#if model.description}}
+            <div class="row row-gutter-bottom">
+                <div class="col-xs-2 col-md-1">
+                    <label>Description:</label>
+                </div>
+                <div class="col-xs-10 col-md-6">
+                    {{{model.description}}}
+                </div>
             </div>
-        </div>
-        <div class="row row-gutter-bottom">
-            <div class="col-xs-2 col-md-1">
-                <label>Description:</label>
+        {{/if}}
+
+        {{#if model.transactionType}}
+            <div class="row row-gutter-bottom">
+                <div class="col-xs-2 col-md-1">
+                    <label>Transaction:</label>
+                </div>
+                <div class="col-xs-10 col-md-6">
+                    {{model.transactionType}}
+                </div>
             </div>
-            <div class="col-xs-10 col-md-6">
-              {{{model.description}}}
+        {{/if}}
+
+        {{#if model.status}}
+            <div class="row row-gutter-bottom">
+                <div class="col-xs-2 col-md-1">
+                    <label>Status:</label>
+                </div>
+                <div class="col-xs-10 col-md-6">
+                    {{model.status}}
+                </div>
             </div>
-        </div>
-        <div class="row row-gutter-bottom">
-            <div class="col-xs-2 col-md-1">
-                <label>Status:</label>
+        {{/if}}
+
+        {{#if model.type}}
+            <div class="row row-gutter-bottom">
+                <div class="col-xs-2 col-md-1">
+                    <label>Type:</label>
+                </div>
+                <div class="col-xs-10 col-md-6">
+                    {{display-text model.type allTypes}}
+                </div>
             </div>
-            <div class="col-xs-10 col-md-6">
-              {{model.status}}
+        {{/if}}
+
+        {{#if model.condition}}
+            <div class="row row-gutter-bottom">
+                <div class="col-xs-2 col-md-1">
+                    <label>Condition:</label>
+                </div>
+                <div class="col-xs-10 col-md-6">
+                    {{model.condition}}
+                </div>
             </div>
-        </div>
-        <div class="row row-gutter-bottom">
-            <div class="col-xs-2 col-md-1">
-                <label>Type:</label>
+        {{/if}}
+
+        {{#if model.size}}
+            <div class="row row-gutter-bottom">
+                <div class="col-xs-2 col-md-1">
+                    <label>Size:</label>
+                </div>
+                <div class="col-xs-10 col-md-6">
+                    {{model.size}}
+                </div>
             </div>
-            <div class="col-xs-10 col-md-6">
-              {{display-text model.type allTypes}}
+        {{/if}}
+
+        {{#if model.fromAge}}
+            <div class="row row-gutter-bottom">
+                <div class="col-xs-2 col-md-1">
+                    <label>Age:</label>
+                </div>
+                <div class="col-xs-10 col-md-6">
+                    From {{model.fromAge}} to {{model.toAge}}
+                </div>
             </div>
-        </div>
-        <div class="row row-gutter-bottom">
-            <div class="col-xs-2 col-md-1">
-                <label>Condition:</label>
+        {{/if}}
+
+        {{#if model.width}}
+            <div class="row row-gutter-bottom">
+                <div class="col-xs-2 col-md-1">
+                    <label>Width:</label>
+                </div>
+                <div class="col-xs-10 col-md-6">
+                    {{model.width}}
+                </div>
             </div>
-            <div class="col-xs-10 col-md-6">
-              {{model.condition}}
+        {{/if}}
+
+        {{#if model.length}}
+            <div class="row row-gutter-bottom">
+                <div class="col-xs-2 col-md-1">
+                    <label>Length:</label>
+                </div>
+                <div class="col-xs-10 col-md-6">
+                    {{model.length}}
+                </div>
             </div>
-        </div>
-        <div class="row row-gutter-bottom">
-            <div class="col-xs-2 col-md-1">
-                <label>Size:</label>
+        {{/if}}
+
+        {{#if model.height}}
+            <div class="row row-gutter-bottom">
+                <div class="col-xs-2 col-md-1">
+                    <label>Height:</label>
+                </div>
+                <div class="col-xs-10 col-md-6">
+                    {{model.height}}
+                </div>
             </div>
-            <div class="col-xs-10 col-md-6">
-              {{model.size}}
-            </div>
-        </div>
-        <div class="row row-gutter-bottom">
-            <div class="col-xs-2 col-md-1">
-                <label>Age:</label>
-            </div>
-            <div class="col-xs-10 col-md-6">
-                From {{model.fromAge}} to {{model.toAge}}
-            </div>
-        </div>
-        <div class="row row-gutter-bottom">
-            <div class="col-xs-2 col-md-1">
-                <label>Width:</label>
-            </div>
-            <div class="col-xs-10 col-md-6">
-              {{model.width}}
-            </div>
-        </div>
-        <div class="row row-gutter-bottom">
-            <div class="col-xs-2 col-md-1">
-                <label>Length:</label>
-            </div>
-            <div class="col-xs-10 col-md-6">
-              {{model.length}}
-            </div>
-        </div>
-        <div class="row row-gutter-bottom">
-            <div class="col-xs-2 col-md-1">
-                <label>Height:</label>
-            </div>
-            <div class="col-xs-10 col-md-6">
-              {{model.height}}
-            </div>
-        </div>
+        {{/if}}
+
     </div>
 </div>

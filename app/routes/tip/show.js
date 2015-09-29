@@ -18,24 +18,40 @@ export default Ember.Route.extend({
             userId = self.get('session.secure.id'),
             model = self.currentModel;
 
-        self.store.findRecord('member', userId).then(function(member) {
-            var voteModel = self.store.createRecord('vote', {
-                creator: member,
-                voteType: voteType,
-                targetObject: model.id,
-                objectType: 'tip',
-                createdDate: new Date(),
-                isDestroyed: false
-            });
+        self.store.query('vote', { creator: userId, targetObject: model.tip.id, objectType: "tip"}).then(function(votes) {
+            if (votes.get('length') === 0) {
+                self.store.findRecord('member', userId).then(function(member) {
+                    var voteModel = self.store.createRecord('vote', {
+                        creator: member,
+                        voteType: voteType,
+                        targetObject: model.tip.id,
+                        objectType: 'tip',
+                        createdDate: new Date(),
+                        isDeletedRecord: false
+                    });
 
-            voteModel.save().then(function() {
-                var voteTypeName = "voteUpCount";
+                    voteModel.save().then(function() {
+                        var voteTypeName = "voteUpCount";
 
-                if (voteType === "down") {
-                    voteTypeName = "voteDownCount";
+                        if (voteType === "down") {
+                            voteTypeName = "voteDownCount";
+                        }
+                        model.tip.incrementProperty(voteTypeName);
+                    });
+                });
+            } else {
+                var vote = votes.get('firstObject');
+                if (vote.get("voteType") !== voteType) {
+                    vote.set("voteType", voteType);
+                    vote.save().then(function(vote) {
+                        if (voteType === "down") {
+                            model.tip.incrementProperty("voteDownCount");
+                        } else {
+                            model.tip.incrementProperty("voteUpCount");
+                        }
+                    });
                 }
-                model.set(voteTypeName, model.get(voteTypeName) + 1);
-            });
+            }
         });
     },
 
@@ -65,21 +81,28 @@ export default Ember.Route.extend({
                 userId = self.get('session.secure.id'),
                 model = self.currentModel;
 
-            if (!model.get('isFavorite')) {
-                self.store.findRecord('member', userId).then(function(member) {
-                    var newModel = self.store.createRecord('favorite', {
-                        creator: member,
-                        targetObject: model.id,
-                        objectType: 'tip',
-                        createdDate: new Date(),
-                        isDestroyed: false
-                    });
+            self.store.query('favorite', { creator: userId, targetObject: model.tip.id, objectType: "tip"}).then(function(favorites) {
+                if (favorites.get('length') === 0) {
+                    self.store.findRecord('member', userId).then(function(member) {
+                        var newModel = self.store.createRecord('favorite', {
+                            creator: member,
+                            targetObject: model.tip.id,
+                            objectType: 'tip',
+                            createdDate: new Date(),
+                            isDeletedRecord: false
+                        });
 
-                    newModel.save().then(function() {
-                        model.set('isFavorite', true);
+                        newModel.save().then(function() {
+                            model.tip.set('isFavorite', true);
+                        });
                     });
-                });
-            }
+                } else {
+                    // we delete this favorite object, since user doesn't want it anymore
+                    favorites.forEach(function(fav, index, enumerable) {
+                       fav.delete();
+                    });
+                }
+            });
         },
 
         addNewFeedback: function (id) {
@@ -87,6 +110,13 @@ export default Ember.Route.extend({
                 userId = self.get('session.secure.id'),
                 model = self.currentModel,
                 newObj;
+
+            if (Ember.isEmpty(userId)) {
+                return self.render('loginModal', {
+                    into: 'application',
+                    outlet: 'modal'
+                });
+            }
 
             self.store.findRecord('member', userId).then(function(member) {
                 newObj = self.store.createRecord('feedback', {

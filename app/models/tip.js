@@ -27,6 +27,7 @@ export default DS.Model.extend({
     zipCode: DS.attr('string'),
     location: DS.attr('array'),
     isFavorite: DS.attr('boolean'),
+    isGeoNeeded: DS.attr('boolean'),
 
     // data management fields
     isDeletedRecord: DS.attr('boolean'),

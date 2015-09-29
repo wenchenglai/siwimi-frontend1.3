@@ -28,13 +28,13 @@
         <a class="vote-up" {{action "voteUp" }} title="it's userful and clear'">test</a>
         <span class="vote-count-post">{{model.tip.voteCount}}</span>
         <a class="vote-down" {{action "voteDown" }} title="it's userful and clear'">test</a>
-        <a {{bind-attr class=isFavorite:star-on:star-off }} href="#" {{action "setFavorite" }} title="This is a favorite question (click again to undo)">favorite</a>
+        <a class={{model.tip.isFavorite:star-on:star-off}} href="#" {{action "setFavorite" }} title="This is a favorite question (click again to undo)">favorite</a>
     </div>
 
     <div class="col-xs-11">
         <div class="row row-gutter-bottom">
             <div class="col-xs-12">
-                by <strong>{{model.tip.creator.displayName}}</strong> on <span>{{formatted-date model.tip.createdDate 'LL'}}</span>
+                by <strong>{{#link-to 'member.show' model.tip.creator}}{{model.tip.creator.displayName}}{{/link-to}}</strong> on <span>{{formatted-date model.tip.createdDate 'LL'}}</span>
             </div>
         </div>
         <div class="row row-gutter-bottom">
@@ -47,33 +47,50 @@
                 <div style="min-height:100px">
                     {{{model.tip.description}}}
                 </div>
-                <div>
-                    <label>Link:</label>
-                    <a href={{model.tip.url}} target="_blank" alt="original link">{{shorten-string model.tip.url 30}}</a>
-                </div>
+                {{#if model.tip.url}}
+                    <div>
+                        <label>Link:</label>
+                        <a href={{model.tip.url}} target="_blank" alt="original link">{{shorten-string model.tip.url 30}}</a>
+                    </div>
+                {{/if}}
             </div>
         </div>
         <div class="row row-gutter-bottom">
-            <div class="col-sm-2">
-                <label>Type:</label>
-                {{display-text model.tip.type allTypes}}
-            </div>
-            <div class="col-sm-2">
-                <label>Location:</label>
-                {{model.tip.cityState}}
-            </div>
-            <div class="col-sm-2">
-                <label>Expired:</label>
-                {{formatted-date model.tip.expiredDate 'LL'}}
-            </div>
-            <div class="col-sm-2">
-                <label>Comments:</label>
-                {{model.feedback.length}}
-            </div>
-            <div class="col-sm-2">
-                <label>Views:</label>
-                {{model.tip.viewCount}}
-            </div>
+            {{#if model.tip.type}}
+                <div class="col-sm-2">
+                    <label>Type:</label>
+                    {{display-text model.tip.type allTypes}}
+                </div>
+            {{/if}}
+
+            {{#if model.tip.isGeoNeeded }}
+                <div class="col-sm-2">
+                    <label>Location:</label>
+                    {{model.tip.cityState}}
+                </div>
+            {{/if}}
+
+            {{#if model.tip.expiredDate}}
+                <div class="col-sm-2">
+                    <label>Expired:</label>
+                    {{formatted-date model.tip.expiredDate 'LL'}}
+                </div>
+            {{/if}}
+
+            {{#if model.feedback.length}}
+                <div class="col-sm-2">
+                    <label>Comments:</label>
+                    {{model.feedback.length}}
+                </div>
+            {{/if}}
+
+            {{#if model.tip.viewCount}}
+                <div class="col-sm-2">
+                    <label>Views:</label>
+                    {{model.tip.viewCount}}
+                </div>
+            {{/if}}
+
         </div>
     </div>
 </div>
@@ -102,15 +119,21 @@
 {{/each}}
 
 {{#if session.isAuthenticated}}
-<div class="row row-gutter-bottom">
-    <div class="col-xs-12">
-        <label>
-            Post your comments:
-        </label>
-        {{textarea class="form-control" placeholder="review" rows="5" cols="60" value=newFeedbackText}}
+    <div class="row row-gutter-bottom">
+        <div class="col-xs-12">
+            <label>
+                Post your comments:
+            </label>
+            {{textarea class="form-control" placeholder="review" rows="5" cols="60" value=newFeedbackText}}
+        </div>
+        <div class="col-xs-12">
+            <button class="btn btn-cys" {{action "addNewFeedback" model.tip.id }}>Reply</button>
+        </div>
     </div>
-    <div class="col-xs-12">
-        <button class="btn btn-primary btn-sm" {{action "addNewFeedback" model.tip.id }}>Add Feedback</button>
+{{else}}
+    <div class="row row-gutter-bottom">
+        <div class="col-xs-12">
+            <button class="btn btn-cys" {{action "addNewFeedback" model.tip.id }}>Reply</button>
+        </div>
     </div>
-</div>
 {{/if}}

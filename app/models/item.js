@@ -12,7 +12,7 @@ export default DS.Model.extend({
     toAge: DS.attr('number'),
     condition: DS.attr('string'), // New, Lightly Used, Heavily Used
     type: DS.attr('string'), // toy, cloth, book, equipment, furniture, misc
-    transitionType: DS.attr('string'), // Sale, Swap, Loan, GiveAway
+    transactionType: DS.attr('string'), // Sale, Swap, Loan, Free
     status: DS.attr('string'), // active, inactive, completed
     imageUrl: DS.attr('string'),
     imageData: DS.attr('string'),

@@ -24,6 +24,8 @@
         <div class="control-group">
             <div class="btn-group" data-toggle="buttons-radio">
 
+                {{#radio-button group="type" selectedValue=model.type value="app" }}App{{/radio-button}}
+
                 {{#radio-button group="type" selectedValue=model.type value="deal" }}Deal{{/radio-button}}
 
                 {{#radio-button group="type" selectedValue=model.type value="education" }}Education{{/radio-button}}
@@ -53,26 +55,31 @@
 <div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
         <label>
-            Expired:
-        </label>
-    </div>
-    <div class="col-xs-2">
-        {{bs-datetimepicker date=model.expiredDateMoment format='YYYY-MM-DD'}}
-    </div>
-</div>
-<div class="row row-gutter-bottom">
-    <div class="col-xs-2 col-md-1">
-        <label>
             Url:
         </label>
     </div>
     <div class="col-xs-10 col-md-8">
         {{input type="url" class="form-control" placeholder="web url if there is any" value=model.url size="60"}}
+        <!--
         <button class="btn btn-primary btn-sm" type="button" {{action "preview" }}>
             Preview
         </button>
+        -->
     </div>
 </div>
+{{#if isDeal }}
+    <div class="row row-gutter-bottom">
+        <div class="col-xs-2 col-md-1">
+            <label>
+                Expired:
+            </label>
+        </div>
+        <div class="col-xs-2">
+            {{bs-datetimepicker date=model.expiredDateMoment format='YYYY-MM-DD'}}
+        </div>
+    </div>
+{{/if}}
+<!--
 <div class="row row-gutter-bottom">
     <div class="col-xs-2 col-xs-offset-2  col-md-offset-1">
         <div style="width:30px; height:20px">
@@ -83,30 +90,43 @@
         {{textarea class="form-control" readonly="true" rows="4" cols="60" value=model.previewText}}
     </div>
 </div>
+-->
 <div class="row row-gutter-bottom">
     <div class="col-xs-2 col-md-1">
-        <label>City:</label>
+
     </div>
     <div class="col-xs-10 col-md-6">
-        {{input class="edit_box" value=model.city}}
+        {{input type="checkbox" checked=model.isGeoNeeded}} enter location data?
     </div>
 </div>
-<div class="row row-gutter-bottom">
-    <div class="col-xs-2 col-md-1">
-        <label>State:</label>
+
+{{#if model.isGeoNeeded }}
+    <div class="row row-gutter-bottom">
+        <div class="col-xs-2 col-md-1">
+            <label>City:</label>
+        </div>
+        <div class="col-xs-10 col-md-6">
+            {{input class="edit_box" value=model.city}}
+        </div>
     </div>
-    <div class="col-xs-10 col-md-6">
-        {{view "select" class="btn btn-default dropdown-toggle" prompt="Select State" content=allStates optionValuePath="content.value" optionLabelPath="content.text" value=model.state}}
+    <div class="row row-gutter-bottom">
+        <div class="col-xs-2 col-md-1">
+            <label>State:</label>
+        </div>
+        <div class="col-xs-10 col-md-6">
+            {{view "select" class="btn btn-default dropdown-toggle" prompt="Select State" content=allStates optionValuePath="content.value" optionLabelPath="content.text" value=model.state}}
+        </div>
     </div>
-</div>
-<div class="row row-gutter-bottom">
-    <div class="col-xs-2 col-md-1">
-        <label>Zip Code:</label>
+    <div class="row row-gutter-bottom">
+        <div class="col-xs-2 col-md-1">
+            <label>Zip Code:</label>
+        </div>
+        <div class="col-xs-10 col-md-6">
+            {{input class="edit_box" value=model.zipCode}}
+        </div>
     </div>
-    <div class="col-xs-10 col-md-6">
-        {{input class="edit_box" value=model.zipCode}}
-    </div>
-</div>
+{{/if}}
+
 <div class="clearfix visible-xs-block"></div>
 <div class="row row-gutter-bottom">
     <div class="col-xs-12">
