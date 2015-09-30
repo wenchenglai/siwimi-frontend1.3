@@ -6,15 +6,15 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     return this.store.findRecord('member', params.id);
   },
 
-  setupController(controller, model) {
-    controller.set('model', model);
-  },
-
   actions: {
     deleteMember: function() {
-      var controller = this.controller;
-        controller.get('model').destroyRecord().then(function() {
-        controller.transitionTo('admin.members.index');
+       let self = this,
+           model = self.controller.get('model');
+
+           model.destroyRecord().then(() => {
+            self.transitionTo('admin.members');
+        },function () {
+            self.transitionTo('admin.members');
       });
     }
   }

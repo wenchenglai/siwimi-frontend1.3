@@ -11,7 +11,7 @@ export default Base.extend({
                 if (user.role === 'admin') {
                     role = "admin";
                 } else {
-                    role = "user"
+                    role = "user";
                 }
             }
         }

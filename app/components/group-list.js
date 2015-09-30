@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
     isOwner: Ember.computed('groupOwnerId', function(){
-        return this.get('groupOwnerId')
+        return this.get('groupOwnerId');
     }),
 
     didInsertElement: function () {

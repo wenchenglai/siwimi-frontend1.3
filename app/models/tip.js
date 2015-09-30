@@ -1,4 +1,5 @@
 import DS from 'ember-data';
+import Ember from 'ember';
 import stripAllTags from '../utils/strip-all-tags';
 
 export default DS.Model.extend({

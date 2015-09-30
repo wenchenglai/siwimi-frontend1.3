@@ -1,3 +1,4 @@
+/* global FB */
 import Ember from 'ember';
 import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin';
 
@@ -28,7 +29,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
                 if (response.status === 'connected') {
                     FB.api('/me?fields=id,email', function (fbUser) {
                         if (fbUser.error) {
-                            self.send('error', {name: fbUser.error.type, message: fbUser.error.message})
+                            self.send('error', {name: fbUser.error.type, message: fbUser.error.message});
                         } else {
                             if (!fromModel.get('email')) {
                                 fromModel.set('email', fbUser.email);

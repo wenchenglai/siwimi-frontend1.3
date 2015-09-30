@@ -1,3 +1,4 @@
+/* global FB */
 import Ember from 'ember';
 import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin';
 
@@ -37,7 +38,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
                 if (response.status === 'connected') {
                     FB.api('/me?fields=id,location,education,hometown,birthday,first_name,last_name,gender', function (fbUser) {
                         if (fbUser.error) {
-                            self.send('error', {name: fbUser.error.type, message: fbUser.error.message})
+                            self.send('error', {name: fbUser.error.type, message: fbUser.error.message});
                         } else {
                             fromModel.set('facebookId', fbUser.id);
 
@@ -69,7 +70,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
                                 if (fbUser.education) {
                                     fromModel.set('highSchool', self._getFacebookEducation(fbUser.education, 'High School'));
                                 }
-                            }
+                            };
 
                             if (!fromModel.get('college')) {
                                 if (fbUser.education) {
@@ -84,7 +85,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
                         }
                     });
                 } else if (response.status === 'unknown') {
-                    self.send('error', {name: "Error", message:"User cancelled Facebook login"})
+                    self.send('error', {name: "Error", message:"User cancelled Facebook login"});
                 } else {
                     var session = self.get('session');
 

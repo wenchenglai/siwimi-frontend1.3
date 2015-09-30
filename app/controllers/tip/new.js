@@ -16,7 +16,7 @@ export default Ember.Controller.extend(StatesDataMixin, {
     ),
 
     isDeal: Ember.computed('model.type', function() {
-        return this.get('model.type') === "deal"
+        return this.get('model.type') === "deal";
     }),
 
     disabled: function () {

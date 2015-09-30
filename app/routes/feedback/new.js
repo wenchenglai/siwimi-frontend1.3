@@ -66,7 +66,7 @@ export default Ember.Route.extend(Validators, {
 
                     model.save().then(onSuccess, onFail);
                 } else {
-                    self.send('error', { name: 'Data Error', message: "Email is not in the right format"})
+                    self.send('error', { name: 'Data Error', message: "Email is not in the right format"});
                 }
 
             } else {

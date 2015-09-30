@@ -19,7 +19,7 @@ export default Ember.Component.extend({
         },
 
         setType: function(type) {
-            this.set('selectedType', type)
+            this.set('selectedType', type);
         }
     }
 });

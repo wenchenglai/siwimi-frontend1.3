@@ -31,15 +31,15 @@ export default Ember.Route.extend({
                 model.set('createdDate', new Date());
 
                 if (Ember.isEmpty(model.get('city'))) {
-                    model.set('city', user.get('city'))
+                    model.set('city', user.get('city'));
                 }
 
                 if (Ember.isEmpty(model.get('state'))) {
-                    model.set('state', user.get('state'))
+                    model.set('state', user.get('state'));
                 }
 
                 if (Ember.isEmpty(model.get('zipCode'))) {
-                    model.set('zipCode', user.get('zipCode'))
+                    model.set('zipCode', user.get('zipCode'));
                 }
 
                 var onSuccess = function (obj) {
