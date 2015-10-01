@@ -20,7 +20,7 @@
         </label>
     </div>
     <div class="col-xs-10">
-      {{view "select" value=selectedToId content=model.members optionValuePath="content.id" optionLabelPath="content.displayName" prompt="Please select a recipient"}}
+      {{my-typeahead selecedItems=model.selectedRecipients typing="searchFriends" placeholder="Please select recipients" }}
     </div>
 </div>
 <div class="row row-gutter-bottom">

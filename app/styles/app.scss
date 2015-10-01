@@ -28,11 +28,12 @@ input:required:valid {
   background-repeat: no-repeat;
 }
 
+input[type=text], textarea {
+  padding: 3px 6px;
+}
 input[type=text]:focus, textarea:focus {
   box-shadow: 0 0 5px rgba(81, 203, 238, 1);
-  padding: 3px 0px 3px 3px;
-  margin: 5px 1px 3px 0px;
-  border: 1px solid rgba(81, 203, 238, 1);
+  outline:solid 2px rgba(81, 203, 238, 1);
 }
 
 .cover-page {
@@ -558,6 +559,7 @@ ic-autocomplete-list {
   border: solid 1px #CCCCCC;
   position: relative;
   width: 21em;
+  padding: 2px ;
 }
 .typeahead .glyphicon-remove{
   cursor: pointer;

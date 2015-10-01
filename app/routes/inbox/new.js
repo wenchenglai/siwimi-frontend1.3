@@ -5,24 +5,23 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   model: function (params) {
       var self = this;
 
-      if (Ember.isEmpty(params.toId)) {
-          return Ember.RSVP.hash({
-              message: self.store.createRecord('message'),
-              members: self.store.findAll('member')
-          });
-      } else {
-          return Ember.RSVP.hash({
-              message: self.store.createRecord('message'),
-              members: self.store.findAll('member'),
-              toId: params.toId,
-              rootMessage: params.rootMessage
-          });
+      var thisModel = {
+          message: self.store.createRecord('message'),
+          members: self.store.findAll('member'),
+          selectedRecipients :[]
+      };
+      // reply message 
+      if (!Ember.isEmpty(params.toId)) {
+        thisModel.toId=params.toId;
+        thisModel.rootMessage=params.rootMessage;
       }
+      return Ember.RSVP.hash(thisModel);
   },
 
   setupController: function(controller, model) {
+      // reply mail
       if (!Ember.isEmpty(model.toId)) {
-          controller.set('selectedToId', model.toId);
+          // controller.set('selectedToId', model.toId);
       }
 
 
@@ -43,35 +42,76 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
           }
       },
 
+      searchFriends:function(typeahead) {
+          // fetch users
+          var self = this;
+          
+          // get selected items
+          var selecedItemId = typeahead.get("selecedItems").getEach("id");
+          // var selecedItemId=[];
+          // if search word is not empty
+          if(typeahead.get("searchWord").length>0){
+              // search users for keyword 
+              self.store.query("member" , {queryText:typeahead.get("searchWord")}).then(function(userList){
+                  // filter selected item
+                  var suggestItems=[];
+                  userList.filter(function(user){
+                      if(selecedItemId.indexOf(user.get("id"))===-1){
+                          var item ={
+                              id:user.get("id"),
+                              name:user.get("fullName"),
+                              icon:user.get("availableImage")
+                          };
+                          suggestItems.push(item);
+                          return true; 
+                      }
+                  });
+                  // put users into suggest items
+                  typeahead.set("suggestItems" , suggestItems);
+              });
+          }else{
+              // set suggest items empty
+              typeahead.set("suggestItems" , []);
+          }
+      },
+
       save: function () {
           var self   = this,
               model  = self.currentModel.message,
-              toId = self.controller.get('selectedToId'),
+              selectedRecipientIds  = self.currentModel.selectedRecipients.getEach("id"),
+              // toId = self.controller.get('selectedToId'),
               userId = self.get('session.secure.id');
+          
 
-          if (!Ember.isEmpty(toId)) {
+          if (selectedRecipientIds.get("length")>0) {
               self.store.findRecord('member', userId).then(function (fromUser) {
-                  self.store.findRecord('member', toId).then(function (toUser) {
-                      self.store.findRecord('message', self.currentModel.rootMessage).then(function (message){
-                          model.set('from', fromUser);
-                          model.set('to', toUser);
-                          model.set('fromStatus', 'sent');
-                          model.set('toStatus', 'unread');
-                          model.set('rootMessage', message);
-                          model.set('isDeletedRecord', false);
-                          model.set('createdDate', new Date());
+                  // find to users
+                  selectedRecipientIds.forEach(function(selectedRecipientId){
+                      
+                      var toUser = self.store.peekRecord("member",selectedRecipientId);
+                      // Ember.Logger.log(toUser);
+                      var message = self.store.createRecord('message');
+                      message.set("subject", model.get("subject"));
+                      message.set("body", model.get("body"));
+                      message.set('from', fromUser);
+                      message.set('to', toUser);
+                      message.set('fromStatus', 'sent');
+                      message.set('toStatus', 'unread');
+                      // 0 and null can't save into DB , design this part later
+                      // message.set('rootMessage', self.currentModel.rootMessage); 
+                      message.set('isDeletedRecord', false);
+                      message.set('createdDate', new Date());
+                      
+                      var onSuccess = function (message) {
+                      };
 
-                          var onSuccess = function (item) {
-                              self.transitionTo('inbox.browse');
-                          };
+                      var onFail = function (error) {
+                          self.send('error', error);
+                      };
 
-                          var onFail = function (error) {
-                              self.send('error', error);
-                          };
-
-                          model.save().then(onSuccess, onFail);
-                      });
+                      message.save().then(onSuccess, onFail);
                   });
+                  self.transitionTo('inbox.browse');
               });
           } else {
               self.send('error', 'Please select a recipient');
