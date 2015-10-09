@@ -1,0 +1,136 @@
+<div class="row row-gutter-bottom">
+    <div class="col-xs-12 col-sm-offset-3 col-md-offset-2">
+        <button class="btn btn-primary btn-sm" {{action "importFromFacebook" }}>
+            Import my profile from facebook
+        </button>
+    </div>
+</div>
+
+<div class="row row-gutter-bottom">
+    <div class="col-xs-2 col-sm-3 col-md-2">
+        <label>
+            Upload Image:
+        </label>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+        {{file-upload content=model}}
+    </div>
+</div>
+
+<div class="row row-gutter-bottom">
+    <div class="col-xs-12 col-sm-3 col-md-2">
+        <label>
+            First Name:
+        </label>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+        {{input class="edit_box" size="40" value=model.firstName}}
+    </div>
+</div>
+<div class="row row-gutter-bottom">
+    <div class="col-xs-12 col-sm-3 col-md-2">
+        <label>
+            Last Name:
+        </label>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+        {{input class="edit_box" size="40" value=model.lastName}}
+    </div>
+</div>
+<div class="row row-gutter-bottom">
+    <div class="col-xs-12 col-sm-3 col-md-2">
+        <label>
+            Nickname:
+        </label>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+        {{input class="edit_box" size="40" value=model.nickName}}
+    </div>
+</div>
+<div class="row row-gutter-bottom">
+    <div class="col-xs-12 col-sm-3 col-md-2">
+        <label>
+            Gender:
+        </label>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+        {{#single-select group="gender" btnClassName="btn btn-cys" selectedValue=model.gender value="male"}}
+            Male
+        {{/single-select}}
+
+        {{#single-select group="gender" btnClassName="btn btn-cys" selectedValue=model.gender value="female"}}
+            Female
+        {{/single-select}}
+        {{!--
+        <div class="control-group">
+            <div class="btn-group" data-toggle="buttons-radio">
+
+                {{#single-select group="gender" btnClassName="btn btn-cys" selectedValue=model.gender value="male"}}
+                    Male
+                {{/single-select}}
+
+                {{#single-select group="gender" btnClassName="btn btn-cys" selectedValue=model.gender value="female"}}
+                    Female
+                {{/single-select}}
+
+            </div>
+        </div>--}}
+    </div>
+</div>
+<div class="row row-gutter-bottom">
+    <div class="col-xs-12 col-sm-3 col-md-2">
+        <label>
+            Birthday:
+        </label>
+    </div>
+    <div class="col-xs-7 col-sm-6 col-md-4 col-lg-3">
+        {{bs-datetimepicker date=model.birthdayMoment format='YYYY-MM-DD' width="200" size="40"}}
+    </div>
+</div>
+<div class="row row-gutter-bottom">
+    <div class="col-xs-12 col-sm-3 col-md-2">
+        <label>
+            Hometown:
+        </label>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+        {{input class="edit_box" size="40" value=model.fhometown}}
+    </div>
+</div>
+<div class="row row-gutter-bottom">
+    <div class="col-xs-12 col-sm-3 col-md-2">
+        <label>
+            Education
+        </label>
+    </div>
+</div>
+<div class="row row-gutter-bottom">
+    <div class="col-xs-12 col-sm-3 col-md-2">
+        <label>
+            High School:
+        </label>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+        {{input class="edit_box" size="40" value=model.highSchool}}
+    </div>
+</div>
+<div class="row row-gutter-bottom">
+    <div class="col-xs-12 col-sm-3 col-md-2">
+        <label>
+            College:
+        </label>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+        {{input class="edit_box" size="40" value=model.college}}
+    </div>
+</div>
+<div class="row row-gutter-bottom">
+    <div class="col-xs-12 col-sm-offset-3 col-md-offset-2">
+        <button class="btn btn-cys" {{action "save" }}>
+            Save
+        </button>
+        <button class="btn btn-link" {{action "cancel" }}>
+            Cancel
+        </button>
+    </div>
+</div>

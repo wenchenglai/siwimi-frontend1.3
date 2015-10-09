@@ -1,0 +1,14 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">{{title}}</h3>
+    </div>
+    <div class="list-group">
+        {{#each item in items}}
+        <button class="list-group-item {{if item.isActived 'active'}}" {{action 'clickItem' item}}>
+            {{item.title}}
+        </button>
+        {{/each}}
+    </div>
+</div>
+
+{{yield}}
