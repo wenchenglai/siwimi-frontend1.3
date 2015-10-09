@@ -18,6 +18,10 @@ export default Ember.Controller.extend({
             this.set('contentTemplate', template);
         },
 
+        toggleSwitch: function (name, checked) {
+            console.log('toggleSwitch:', name, checked);
+        },
+
         save: function () {
             var self = this,
                 fromModel = this.get('model');

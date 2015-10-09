@@ -1,1 +1,117 @@
-<h3>TODO: Notification Center</h3>
+<h2 style="margin-top: 0">Notification Center</h2>
+
+<div class="row row-gutter-top">
+<div class="col-md-10">
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        1. Events
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+            When a new local event is added
+            {{material-switch
+                action='toggleSwitch'
+                name='eventNew' isChecked=eventNew
+                type='success' isPullRight=true}}
+        </li>
+        <li class="list-group-item">
+            When your friend is going to an event
+            {{material-switch
+                action='toggleSwitch'
+                name='eventFriendGoing' isChecked=eventFriendGoing
+                type='success' isPullRight=true}}
+        </li>
+        <li class="list-group-item">
+            When your friend is considering going to an event
+            {{material-switch
+                action='toggleSwitch'
+                name='eventFriendConsidering' isChecked=eventFriendConsidering
+                type='success' isPullRight=true}}
+        </li>
+    </ul>
+    <div class="panel-heading">
+        2. Tip
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+            When a new tip is posted by a parent in your neighborhood
+            {{material-switch
+                action='toggleSwitch'
+                name='tipNew' isChecked=tipNew
+                type='success' isPullRight=true}}
+        </li>
+        <li class="list-group-item">
+            When someone replies to your tip
+            {{material-switch
+                action='toggleSwitch'
+                name='tipReply' isChecked=tipReply
+                type='success' isPullRight=true}}
+        </li>
+    </ul>
+    <div class="panel-heading">
+        3. Question
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+            When a new question is posted by a parent in your neighborhood
+            {{material-switch
+                action='toggleSwitch'
+                name='questionNew' isChecked=questionNew
+                type='success' isPullRight=true}}
+        </li>
+        <li class="list-group-item">
+            When someone answers your question
+            {{material-switch
+                action='toggleSwitch'
+                name='questionReply' isChecked=questionReply
+                type='success' isPullRight=true}}
+        </li>
+    </ul>
+    <div class="panel-heading">
+        4. Item
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+            When a new item that you are interested is posted
+            {{material-switch
+                action='toggleSwitch'
+                name='itemNew' isChecked=itemNew
+                type='success' isPullRight=true}}
+        </li>
+        <li class="list-group-item">
+            When someone responds to your item
+            {{material-switch
+                action='toggleSwitch'
+                name='itemReply' isChecked=itemReply
+                type='success' isPullRight=true}}
+        </li>
+    </ul>
+    <div class="panel-heading">
+        5. Message
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+            When someone send/reply a message
+            {{material-switch
+                action='toggleSwitch'
+                name='messageReply' isChecked=messageReply
+                type='success' isPullRight=true}}
+        </li>
+    </ul>
+    <div class="panel-heading">
+        6. Group
+    </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+            When someone added you into his/her friend's list
+            {{material-switch
+                action='toggleSwitch'
+                name='groupAddMember' isChecked=groupAddMember
+                type='success' isPullRight=true}}
+        </li>
+    </ul>
+</div>
+
+</div>
+</div>
