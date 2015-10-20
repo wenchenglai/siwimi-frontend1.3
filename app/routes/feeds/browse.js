@@ -14,7 +14,7 @@ export default Ember.Route.extend({
     },
 
     setupController: function(controller, model) {
-        controller.set('feeds', model);
+        controller.set('model', model);
         controller.set('postTypes', ['Tip', 'Event', 'Item', 'Question']);
     },
 
