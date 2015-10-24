@@ -20,6 +20,9 @@ export default Ember.Controller.extend({
 
         toggleSwitch: function (name, checked) {
             console.log('toggleSwitch:', name, checked);
+            var noti = this.get('model').get('notification');
+            noti.set(name, checked);
+            noti.content.save();
         },
 
         save: function () {

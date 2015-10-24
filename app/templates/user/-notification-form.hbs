@@ -12,21 +12,21 @@
             When a new local event is added
             {{material-switch
                 action='toggleSwitch'
-                name='eventNew' isChecked=eventNew
+                name='eventNew' isChecked=model.notification.eventNew
                 type='success' isPullRight=true}}
         </li>
         <li class="list-group-item">
             When your friend is going to an event
             {{material-switch
                 action='toggleSwitch'
-                name='eventFriendGoing' isChecked=eventFriendGoing
+                name='eventFriendGoing' isChecked=model.notification.eventFriendGoing
                 type='success' isPullRight=true}}
         </li>
         <li class="list-group-item">
             When your friend is considering going to an event
             {{material-switch
                 action='toggleSwitch'
-                name='eventFriendConsidering' isChecked=eventFriendConsidering
+                name='eventFriendConsidering' isChecked=model.notification.eventFriendConsidering
                 type='success' isPullRight=true}}
         </li>
     </ul>
@@ -38,14 +38,14 @@
             When a new tip is posted by a parent in your neighborhood
             {{material-switch
                 action='toggleSwitch'
-                name='tipNew' isChecked=tipNew
+                name='tipNew' isChecked=model.notification.tipNew
                 type='success' isPullRight=true}}
         </li>
         <li class="list-group-item">
             When someone replies to your tip
             {{material-switch
                 action='toggleSwitch'
-                name='tipReply' isChecked=tipReply
+                name='tipReply' isChecked=model.notification.tipReply
                 type='success' isPullRight=true}}
         </li>
     </ul>
@@ -57,14 +57,14 @@
             When a new question is posted by a parent in your neighborhood
             {{material-switch
                 action='toggleSwitch'
-                name='questionNew' isChecked=questionNew
+                name='questionNew' isChecked=model.notification.questionNew
                 type='success' isPullRight=true}}
         </li>
         <li class="list-group-item">
             When someone answers your question
             {{material-switch
                 action='toggleSwitch'
-                name='questionReply' isChecked=questionReply
+                name='questionReply' isChecked=model.notification.questionReply
                 type='success' isPullRight=true}}
         </li>
     </ul>
@@ -76,14 +76,14 @@
             When a new item that you are interested is posted
             {{material-switch
                 action='toggleSwitch'
-                name='itemNew' isChecked=itemNew
+                name='itemNew' isChecked=model.notification.itemNew
                 type='success' isPullRight=true}}
         </li>
         <li class="list-group-item">
             When someone responds to your item
             {{material-switch
                 action='toggleSwitch'
-                name='itemReply' isChecked=itemReply
+                name='itemReply' isChecked=model.notification.itemReply
                 type='success' isPullRight=true}}
         </li>
     </ul>
@@ -95,7 +95,7 @@
             When someone send/reply a message
             {{material-switch
                 action='toggleSwitch'
-                name='messageReply' isChecked=messageReply
+                name='messageReply' isChecked=model.notification.messageReply
                 type='success' isPullRight=true}}
         </li>
     </ul>
@@ -107,7 +107,7 @@
             When someone added you into his/her friend's list
             {{material-switch
                 action='toggleSwitch'
-                name='groupAddMember' isChecked=groupAddMember
+                name='groupAddMember' isChecked=model.notification.groupAddMember
                 type='success' isPullRight=true}}
         </li>
     </ul>

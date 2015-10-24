@@ -23,6 +23,7 @@ export default DS.Model.extend({
     flocale: DS.attr('string'),
     flocation: DS.attr('string'),
     ftimezone: DS.attr('number'),
+    notification: DS.belongsTo('email-notification', { async: true }),
     replies: DS.hasMany('feedback', { embedded: 'always' }),
 
     // authorization [admin, user, anonymous]

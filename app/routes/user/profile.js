@@ -5,9 +5,20 @@ import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixi
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
     model: function() {
         var self = this,
-            id = self.get('session.secure.id');
+            id = self.get('session.secure.id'),
+            member = self.store.findRecord('member', id);
 
-            return self.store.findRecord('member', id);
+        member.then(function (member) {
+            if (member.get('notification.content') == null) {
+                var noti = self.store.createRecord('email-notification', {id: id, creator: member});
+                noti.save().then(function (noti) {
+                    member.set('notification', noti);
+                    member.save();
+                });
+            }
+        });
+
+        return member;
     },
 
     _getFacebookEducation(educations, type) {
