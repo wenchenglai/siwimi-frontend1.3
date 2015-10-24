@@ -2,7 +2,29 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+    contentTemplate: 'user/profile-form',
+
+    navItems: [Ember.Object.create({
+        isActived: true,
+        title: 'Profile',
+        template: 'user/profile-form'
+    }), Ember.Object.create({
+        isActived: false,
+        title: 'Notification center',
+        template: 'user/notification-form'
+    })],
     actions: {
+        render: function (template) {
+            this.set('contentTemplate', template);
+        },
+
+        toggleSwitch: function (name, checked) {
+            console.log('toggleSwitch:', name, checked);
+            var noti = this.get('model').get('notification');
+            noti.set(name, checked);
+            noti.content.save();
+        },
+
         save: function () {
             var self = this,
                 fromModel = this.get('model');
