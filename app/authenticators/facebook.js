@@ -58,7 +58,8 @@ export default Base.extend({
                         isUser: true,
                         city: appController.get('baseCity'),
                         state: appController.get('baseState'),
-                        isDestroyed: false
+                        isDestroyed: false,
+                        isConfirmedMember: true
                     });
 
                     newMember.save().then(function (member) {
@@ -138,6 +139,7 @@ export default Base.extend({
                                 });
                             });
                         }, function (error) {
+                            // Currently I couldn't find a good way to detect if a user exist or not, so I use error handling mechanism
                             if (error.message) {
                                 self._setupUser(store).then(function (member) {
                                     resolve({

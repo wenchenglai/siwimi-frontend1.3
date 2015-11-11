@@ -29,6 +29,7 @@ export default Ember.Route.extend(UnauthenticatedRouteMixin, SessionSetupMixin, 
             var self = this,
                 controller = self.get('controller'),
                 newMember = self.currentModel,
+                newMemberId = newMember.get('id'),
                 password2 = controller.get('password2'),
                 appController = self.controllerFor('application');
 
@@ -39,10 +40,11 @@ export default Ember.Route.extend(UnauthenticatedRouteMixin, SessionSetupMixin, 
 
             if (self.validateEmail(newMember.get("email"))) {
                 if (newMember.get("password") === password2 && password != null) {
+
                     newMember.setProperties({
                         isUser: true,
                         isInSignUpProcess: true,
-                        isConfirmedMember: false,
+                        isConfirmedMember: newMemberId ? true : false,
                         city: appController.get('baseCity'),
                         state: appController.get('baseState')
                     });
