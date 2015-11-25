@@ -63,17 +63,25 @@
             <th>Location</th>
             </thead>
             <tbody>
-                {{#each event in model}}
+                {{#each model as |event|}}
                 <tr>
-                    <th>{{preview-image width="80" height="80" class="img-responsive img-thumbnail" src=event.availableImage}}</th>
-                    <td>{{event.title}}</td>
+                    <th>
+                        {{#link-to 'activity.show' event.id}}
+                            {{preview-image width="80" height="80" class="img-responsive img-thumbnail" src=event.availableImage}}
+                        {{/link-to}}
+                    </th>
+                    <td>
+                        {{#link-to 'activity.show' event.id}}
+                            {{event.title}}
+                        {{/link-to}}
+                    </td>
                     <td>{{display-text event.type allTypes}}</td>
                     <td>{{formatted-date event.fromDate 'LL'}}</td>
                     <td>{{formatted-date event.toDate 'LL'}}</td>
                     <td>{{event.cityState}}</td>
                     <td>
                         <div class="btn-group" role="group" aria-label="...">
-                            {{#link-to 'activity.show' event class="btn btn-default"}}Detail{{/link-to}}
+                            {{#link-to 'activity.show' event.id class="btn btn-default"}}Detail{{/link-to}}
                         </div>
                     </td>
                 </tr>

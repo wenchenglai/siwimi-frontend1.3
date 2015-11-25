@@ -97,7 +97,11 @@
             <tbody>
                 {{#each model as |activity|}}
                 <tr>
-                    <th>{{preview-image width="80" height="80" class="img-responsive img-thumbnail" src=activity.availableImage}}</th>
+                    <th>
+                        {{#link-to 'activity.show' activity.id}}
+                            {{preview-image width="80" height="80" class="img-responsive img-thumbnail" src=activity.availableImage}}
+                        {{/link-to}}
+                    </th>
                     <td>{{activity.title}}</td>
                     <td>{{display-text activity.type allTypes}}</td>
                     <td>{{formatted-date activity.fromDate 'LL'}}</td>
