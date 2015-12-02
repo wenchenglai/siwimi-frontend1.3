@@ -14,30 +14,6 @@
         <div id="navbar" class="navbar-collapse collapse" aria-expanded="true">
             <ul class="nav navbar-nav">
                 <li class="dropdown">
-                    <a href="#" class={{connectTabSelectedClasses}} data-toggle="dropdown">
-                        <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
-                        Connect <span style="font-size:11px;">(Beta)</span><span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li>{{#link-to 'family.browse'}}Search My Neighborhood{{/link-to}}</li>
-                        <li>{{#link-to 'family.my'}}My Family Setting{{/link-to}}</li>
-                        <li>{{#link-to 'group.my'}}My Groups{{/link-to}}</li>
-                        {{!--<li>{{#link-to 'family.preference'}}My Preference{{/link-to}}</li>--}}
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class={{tipTabSelectedClasses}} data-toggle="dropdown">
-                        <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
-                        Tips<span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li>{{#link-to 'tip.browse' (query-params status="all" type="all")}}Browse{{/link-to}}</li>
-                        <li>{{#link-to 'tip.search'}}Search{{/link-to}}</li>
-                        <li>{{#link-to 'tip.my'}}My Tips{{/link-to}}</li>
-                        {{!--<li>{{#link-to 'tip.preference'}}My Preference{{/link-to}}</li>--}}
-                    </ul>
-                </li>
-                <li class="dropdown">
                     <a href="#" class={{eventTabSelectedClasses}} data-toggle="dropdown">
                         <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
                         Event
@@ -53,6 +29,41 @@
                     </ul>
                 </li>
                 <li class="dropdown">
+                    <a href="#" class={{connectTabSelectedClasses}} data-toggle="dropdown">
+                        <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+                        Connect <span style="font-size:11px;">(Beta)</span><span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>{{#link-to 'family.browse'}}Search My Neighborhood{{/link-to}}</li>
+                        <li>{{#link-to 'family.my'}}My Family Setting{{/link-to}}</li>
+                        <li>{{#link-to 'group.my'}}My Groups{{/link-to}}</li>
+                        {{!--<li>{{#link-to 'family.preference'}}My Preference{{/link-to}}</li>--}}
+                        <li role="separator" class="divider"></li>
+                        <li>{{#link-to 'tip.browse' (query-params status="all" type="all")}}Posts{{/link-to}}</li>
+                        <li role="separator" class="divider"></li>
+                        <li>{{#link-to 'item.browse'}}Listings{{/link-to}}</li>
+                        <li role="separator" class="divider"></li>
+                        <li>
+                            {{#link-to 'feedback.new'}}
+                                Contact Us
+                            {{/link-to}}
+                        </li>
+                    </ul>
+                </li>
+                {{!--
+                <li class="dropdown">
+                    <a href="#" class={{tipTabSelectedClasses}} data-toggle="dropdown">
+                        <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+                        Tips<span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>{{#link-to 'tip.browse' (query-params status="all" type="all")}}Browse{{/link-to}}</li>
+                        <li>{{#link-to 'tip.search'}}Search{{/link-to}}</li>
+                        <li>{{#link-to 'tip.my'}}My Tips{{/link-to}}</li>
+                        <li>{{#link-to 'tip.preference'}}My Preference{{/link-to}}</li>
+                    </ul>
+                </li>
+                <li class="dropdown">
                     <a href="#" class={{listingTabSelectedClasses}} data-toggle="dropdown">
                         <span class="glyphicon glyphicon-tag" aria-hidden="true"></span>
                         Listing<span class="caret"></span>
@@ -61,7 +72,7 @@
                         <li>{{#link-to 'item.browse'}}Browse{{/link-to}}</li>
                         <li>{{#link-to 'item.search'}}Search{{/link-to}}</li>
                         <li>{{#link-to 'item.my'}}My Listings{{/link-to}}</li>
-                        {{!--<li>{{#link-to 'item.preference'}}My Preference{{/link-to}}</li>--}}
+                        <li>{{#link-to 'item.preference'}}My Preference{{/link-to}}</li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -73,7 +84,7 @@
                         <li>{{#link-to 'questions.new'}}Ask{{/link-to}}</li>
                         <li>{{#link-to 'questions.browse'}}Browse{{/link-to}}</li>
                         <li>{{#link-to 'questions.my'}}My Questions{{/link-to}}</li>
-                        {{!--<li>{{#link-to 'questions.preference'}}My Preference{{/link-to}}</li>--}}
+                        <li>{{#link-to 'questions.preference'}}My Preference{{/link-to}}</li>
                     </ul>
                 </li>
                 <li>
@@ -82,6 +93,7 @@
                         Contact Us
                     {{/link-to}}
                 </li>
+                --}}
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
