@@ -1,6 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+    //activate: function() {
+    //    $(document).attr('title', 'Auto Web Shop - Product');
+    //},
+
     model: function(params) {
         var query = {
             parent: params.id,
@@ -11,6 +15,23 @@ export default Ember.Route.extend({
             tip: this.store.findRecord('tip', params.id),
             feedbacks: this.store.query('feedback', query)
         });
+    },
+
+    afterModel: function(model, transition) {
+
+        $(document).attr('title', "Siwimi - Tips - " + model.tip.get('title'));
+        $("meta[property='og\\:title']").attr("content", model.tip.get('title'));
+
+        Ember.run.schedule('afterRender', () => {
+            console.log( this.get('router.url'))
+            $("meta[property='og\\:url']").attr("content", window.location.href);
+
+            //debugger;
+            //var cq = model.tip.get('description');
+            //revivefn(document, window, cq);
+        });
+
+        //$("meta[property='og\\:image']").attr("content", model.tip.get('imageData'));
     },
 
     _addVote: function(voteType) {
@@ -57,15 +78,7 @@ export default Ember.Route.extend({
 
     actions: {
         goBack: function() {
-            var self = this,
-                session = self.get('session'),
-                previousURL = self.controllerFor('application').get('previousURL');
-
-            if (previousURL) {
-                self.transitionTo(previousURL);
-            } else {
-                self.transitionTo('tip.browse');
-            }
+            history.back();
         },
 
         voteUp: function() {

@@ -5,17 +5,19 @@ export default Ember.Route.extend({
         return this.store.findRecord('item', params.id);
     },
 
+    afterModel: function(model, transition) {
+        $(document).attr('title', "Siwimi - Items - " + model.get('title'));
+        $("meta[property='og\\:title']").attr("content", model.get('title'));
+        Ember.run.schedule('afterRender', () => {
+            console.log( this.get('router.url'))
+            $("meta[property='og\\:url']").attr("content", window.location.href);
+        });
+        //$("meta[property='og\\:image']").attr("content", model.activity.get('imageData'));
+    },
+
     actions: {
         goBack: function() {
-            var self = this,
-                session = self.get('session'),
-                previousURL = self.controllerFor('application').get('previousURL');
-
-            if (previousURL) {
-                self.transitionTo(previousURL);
-            } else {
-                self.transitionTo('item.browse');
-            }
+            history.back();
         },
 
         deleteByAdmin: function(id) {

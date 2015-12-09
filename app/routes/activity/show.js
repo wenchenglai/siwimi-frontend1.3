@@ -17,17 +17,19 @@ export default Ember.Route.extend({
         });
     },
 
+    afterModel: function(model, transition) {
+        $(document).attr('title', "Siwimi - Events - " + model.activity.get('title'));
+        $("meta[property='og\\:title']").attr("content", model.activity.get('title'));
+        Ember.run.schedule('afterRender', () => {
+            console.log( this.get('router.url'))
+            $("meta[property='og\\:url']").attr("content", window.location.href);
+        });
+        //$("meta[property='og\\:image']").attr("content", model.activity.get('imageData'));
+    },
+
     actions: {
         goBack: function() {
-            var self = this,
-                session = self.get('session'),
-                previousURL = self.controllerFor('application').get('previousURL');
-
-            if (previousURL) {
-                self.transitionTo(previousURL);
-            } else {
-                self.transitionTo('activity.browse');
-            }
+            history.back();
         },
 
         setAction: function(selectedValue) {
