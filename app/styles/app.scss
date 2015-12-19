@@ -1,7 +1,11 @@
 $primary-control-color: #19B9B5; // #61b2a7;
 $primary-control-color-border: #148C89;
-$secondary-control-color: #736E6E;
 $primary-control-font-color: #fff;
+
+$add-new-color: #c53727;
+
+$secondary-control-color: #736E6E;
+
 $navigtion-font-size: 17px;
 
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,300,400,700);
@@ -277,14 +281,6 @@ input[type="radio"] {
     padding-right: 10px;
 }
 
-.btn-cys:hover,
-.btn-cys:active,
-.btn-cys.active {
-  color: $primary-control-color;
-  background-color: $primary-control-font-color;
-  border-color: $primary-control-color;
-}
-
 .btn-cys-inverse,
 .btn-cys-inverse:hover,
 .btn-cys-inverse:active,
@@ -297,16 +293,42 @@ input[type="radio"] {
   font-size: $navigtion-font-size;
 }
 
-.btn-cys {
+@mixin btn-cys-base($in-background-color) {
   border:1px solid;
   color: $primary-control-font-color;
-  background-color: $primary-control-color;
+  background-color: $in-background-color;
   border-color: $primary-control-color-border;
   margin-bottom:3px;
   font-weight: bold;
   font-size: $navigtion-font-size;
   padding: 6px 6px;
   line-height: 0.9;
+}
+
+@mixin btn-cys-pseudo-base($in-background-color, $in-font-color) {
+  color: $in-font-color;
+  background-color: $in-background-color;
+  border-color: $in-font-color;
+}
+
+.btn-cys-new {
+  @include btn-cys-base($add-new-color);
+}
+
+.btn-cys-new:hover,
+.btn-cys-new:active,
+.btn-cys-new.active {
+  @include btn-cys-pseudo-base($primary-control-font-color, $add-new-color);
+}
+
+.btn-cys {
+  @include btn-cys-base($primary-control-color);
+}
+
+.btn-cys:hover,
+.btn-cys:active,
+.btn-cys.active {
+  @include btn-cys-pseudo-base($primary-control-font-color, $primary-control-color);
 }
 /*
 Bootstrap CSS rules overwrite

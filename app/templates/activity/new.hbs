@@ -1,3 +1,18 @@
+<div class="row row-gutter-bottom row-gutter-top">
+    <div class="col-xs-12 col-md-6">
+        <ol class="breadcrumb">
+            <li>{{#link-to 'index'}}Home{{/link-to}}</li>
+            <li>{{#link-to 'activity.browse' class="btn-link"}}Events{{/link-to}}</li>
+            <li><button class="btn-link" {{action "goBack"}}>My Events</button></li>
+            <li class="active">Add New</li>
+        </ol>
+    </div>
+    <div class="col-xs-12 col-md-6">
+        {{#if showEdit}}
+            {{#link-to 'activity.edit' model.activity class="btn btn-default"}}Edit{{/link-to}}
+        {{/if}}
+    </div>
+</div>
 <div class="row row-gutter-bottom">
     <div class="col-xs-2">
     </div>

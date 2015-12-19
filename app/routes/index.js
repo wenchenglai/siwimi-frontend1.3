@@ -18,7 +18,7 @@ export default Ember.Route.extend({
 
     beforeModel: function() {
         if (this.get('session').isAuthenticated) {
-            this.transitionTo('feeds.browse');
+            this.transitionTo('activity.browse');
         }
     },
 

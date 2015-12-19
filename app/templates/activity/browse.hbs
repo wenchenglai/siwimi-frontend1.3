@@ -51,7 +51,11 @@
     </div>
 
     <div class="col-xs-2">
-        {{#link-to 'activity.search'}}Advanced Search{{/link-to}}
+        {{#if session.isAuthenticated}}
+            {{#link-to 'activity.my'}}My Events{{/link-to}} |
+        {{/if}}
+        {{#link-to 'activity.search'}}Search{{/link-to}}
+
     </div>
 </div>
 

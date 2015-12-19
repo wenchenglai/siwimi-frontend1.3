@@ -15,6 +15,10 @@ export default Ember.Route.extend({
     },
 
     actions: {
+        goBack: function() {
+            history.back();
+        },
+
         save: function () {
             var self = this,
                 model = self.currentModel,

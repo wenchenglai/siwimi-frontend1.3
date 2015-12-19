@@ -9,6 +9,12 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         type: {
             refreshModel: true
         },
+        action: {
+            refreshModel: true
+        },
+        creator: {
+            refreshModel: true
+        },
         pageSize: {
             refreshModel: true
         },
@@ -24,7 +30,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
         return self.store.query('activity', Ember.merge(params, {
             requester: userId,
-            creator: userId,
             longitude: appController.get('baseLongitude'),
             latitude: appController.get('baseLatitude')
         }));
@@ -50,6 +55,18 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     },
 
     actions: {
+        goBack: function() {
+            var self = this,
+                previousURL = self.controllerFor('application').get('previousURL');
+
+            if (previousURL.indexOf("/activity/browse") > -1) {
+                history.back();
+            } else {
+                self.transitionTo('activity.browse');
+            }
+
+        },
+
         delete: function (id) {
             this.store.findRecord('activity', id).then(function (record) {
                 record.destroyRecord();

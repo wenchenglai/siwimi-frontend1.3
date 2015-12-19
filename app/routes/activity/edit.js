@@ -2,8 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
     model: function(params) {
-    return this.store.find('activity', params.id);
-  },
+        return this.store.find('activity', params.id);
+    },
 
     afterModel: function(model, transition) {
         if (model.get('hasDirtyAttributes')) {
@@ -12,6 +12,18 @@ export default Ember.Route.extend({
     },
 
     actions: {
+        goBack: function() {
+            var self = this,
+                previousURL = self.controllerFor('application').get('previousURL');
+
+            if (!Ember.isEmpty(previousURL) && previousURL.indexOf("/activity/my") > -1) {
+                history.back();
+            } else {
+                self.transitionTo('activity.my');
+            }
+
+        },
+
         save: function() {
             var self = this,
                 model = self.currentModel,

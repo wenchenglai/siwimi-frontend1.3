@@ -18,8 +18,14 @@ export default Ember.Route.extend({
     },
 
     afterModel: function(model, transition) {
-        $(document).attr('title', "Siwimi - Events - " + model.activity.get('title'));
-        $("meta[property='og\\:title']").attr("content", model.activity.get('title'));
+        // There are two entry points to this function:
+        // 1.  This funciton is called by regular loading i.e. user click on the list, and we load the event using model function above
+        // 2.  The afterModel is called without calling model above, because we transitionTo with the event object from other pages i.e. edit page
+        var event = Ember.isEmpty(model.activity) ? model : model.activity,
+            title = event.get('title');
+
+        $(document).attr('title', "Siwimi - Events - " + title);
+        $("meta[property='og\\:title']").attr("content", title);
         Ember.run.schedule('afterRender', () => {
             console.log( this.get('router.url'))
             $("meta[property='og\\:url']").attr("content", window.location.href);
@@ -29,7 +35,15 @@ export default Ember.Route.extend({
 
     actions: {
         goBack: function() {
-            history.back();
+            var self = this,
+                previousURL = self.controllerFor('application').get('previousURL');
+
+            if (previousURL.indexOf("/activity/browse") > -1) {
+                history.back();
+            } else {
+                self.transitionTo('activity.browse');
+            }
+
         },
 
         setAction: function(selectedValue) {

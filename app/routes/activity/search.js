@@ -2,6 +2,18 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
     actions: {
+        goBack: function() {
+            var self = this,
+                previousURL = self.controllerFor('application').get('previousURL');
+
+            if (previousURL.indexOf("/activity/browse") > -1) {
+                history.back();
+            } else {
+                self.transitionTo('activity.browse');
+            }
+
+        },
+
         search: function () {
             var self = this,
                 appController = self.controllerFor('application'),

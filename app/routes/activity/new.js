@@ -15,6 +15,18 @@ export default Ember.Route.extend({
     },
 
     actions: {
+        goBack: function() {
+            var self = this,
+                previousURL = self.controllerFor('application').get('previousURL');
+
+            if (!Ember.isEmpty(previousURL) && previousURL.indexOf("/activity/my") > -1) {
+                history.back();
+            } else {
+                self.transitionTo('activity.my');
+            }
+
+        },
+
         cancel: function () {
             this.transitionTo('activity.my');
         },

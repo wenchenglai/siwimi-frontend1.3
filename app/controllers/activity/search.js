@@ -31,11 +31,7 @@ export default Ember.Controller.extend(CommonDataMixin, ActivityDataMixin, {
 
     actions: {
         toggleAdvancedSearch: function() {
-            if (this.get('showAdvancedSearch')) {
-                this.set('showAdvancedSearch', false);
-            } else {
-                this.set('showAdvancedSearch', true);
-            }
+            this.toggleProperty('showAdvancedSearch');
         }
     }
 });

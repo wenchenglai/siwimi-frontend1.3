@@ -92,12 +92,46 @@ export default Ember.Route.extend({
             self.showAddNew();
         },
 
+        addFriends:function(selectedFriends){
+            var self = this;
+            var group = self.currentModel;
+            selectedFriends.forEach(function(selectedFriend){
+                var user = self.store.peekRecord("member",selectedFriend.id);
+                group.get("members").pushObject(user);
+            });
+
+            if (Ember.isEmpty(group.get('length'))) {
+                self.send('showAlertBar', {
+                    title: 'Error',
+                    message: "Please type your friend's name and pick one from the list.  If there is none, you can invite your friend by email.",
+                    type: 'alert-warning'
+                });
+
+                return;
+            }
+
+            group.save().then(function(){
+                selectedFriends.clear();
+                self.showList();
+            });
+        },
+
         inviteFriend: function(email) {
             var self = this,
                 userId = self.get('session.secure.id'),
                 groupId = self.currentModel.get('id'),
                 host = ENV.apiHost,
                 api = "%@/email/invite?email=%@&userid=%@&groupid=%@".fmt(host, email, userId, groupId);
+
+            if (Ember.isEmpty(email)) {
+                self.send('showAlertBar', {
+                    title: 'Error',
+                    message: "There is no email specified.",
+                    type: 'alert-warning'
+                });
+
+                return;
+            }
 
             $.getJSON(api);
 
@@ -121,20 +155,6 @@ export default Ember.Route.extend({
                 title: 'Success',
                 message: "We've sent your friend an invitation email.",
                 type: 'alert-success'
-            });
-        },
-
-        addFriends:function(selectedFriends){
-            var self = this;
-            var group = self.currentModel;
-            selectedFriends.forEach(function(selectedFriend){
-                var user = self.store.peekRecord("member",selectedFriend.id);
-                group.get("members").pushObject(user); 
-            });
-            
-            group.save().then(function(){
-                selectedFriends.clear();
-                self.showList();
             });
         },
 

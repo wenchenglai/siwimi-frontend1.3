@@ -1,4 +1,13 @@
-<h2>Search for local events</h2>
+<div class="row row-gutter-top">
+    <div class="col-xs-12">
+        <ol class="breadcrumb">
+            <li>{{#link-to 'index'}}Home{{/link-to}}</li>
+            <li><button class="btn-link" {{action "goBack"}}>Events</button></li>
+            <li class="active">Search</li>
+        </ol>
+    </div>
+</div>
+<h1>Search for local events</h1>
 <div class="row row-gutter-bottom row-gutter-top">
     <div class="col-xs-2 col-md-1">
         <label>Search</label>
@@ -29,19 +38,26 @@
         {{bs-datetimepicker date=toTime format='YYYY-MM-DD'}}
         {{/if}}
     </div>
-    <div class="col-xs-3 col-md-2">
-        <button class="btn btn-link" {{action "toggleAdvancedSearch" }}>Advanced Search</button>
-    </div>
 </div>
-{{#if showAdvancedSearch}}
+
 <div class="row row-gutter-bottom">
-    <div class="col-xs-2 col-md-1">
-        <label>Group</label>
-    </div>
-    <div class="col-xs-10 col-md-6">
-        {{view "select" class="btn btn-default dropdown-toggle" value=group placeholder="toy"}}
+    <div class="col-xs-offset-2 col-md-offset-1">
+        <button class="btn btn-link" {{action "toggleAdvancedSearch" }}>
+            {{#if showAdvancedSearch }} Hide {{else}} Show {{/if}}
+            More Search Options
+        </button>
     </div>
 </div>
+
+{{#if showAdvancedSearch}}
+    <div class="row row-gutter-bottom">
+        <div class="col-xs-2 col-md-1">
+            <label>Group</label>
+        </div>
+        <div class="col-xs-10 col-md-6">
+            {{view "select" class="btn btn-default dropdown-toggle" value=group placeholder="toy"}}
+        </div>
+    </div>
 {{/if}}
 <div class="row row-gutter-bottom">
     <div class="col-xs-10 col-xs-offset-2 col-md-6 col-md-offset-1">
