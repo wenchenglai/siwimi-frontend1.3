@@ -1,5 +1,10 @@
 <div class="row row-gutter-bottom row-gutter-top">
-    <div class="col-xs-10">
+    <div class="col-xs-12">
+        <h1>Things To Do in Ann Arbor, MI</h1>
+    </div>
+</div>
+<div class="row row-gutter-bottom row-gutter-top">
+    <div class="col-xs-12">
 
         {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="all"}}
             All
@@ -49,18 +54,10 @@
             Misc
         {{/single-select}}
     </div>
-
-    <div class="col-xs-2">
-        {{#if session.isAuthenticated}}
-            {{#link-to 'activity.my'}}My Events{{/link-to}} |
-        {{/if}}
-        {{#link-to 'activity.search'}}Search{{/link-to}}
-
-    </div>
 </div>
 
 <div class="row row-gutter-bottom">
-    <div class="col-xs-12 col-md-8">
+    <div class="col-xs-12 col-md-10">
 
         {{#single-select group="status" btnClassName="btn-cys-secondary" selectedValue=status value="all"}}
             All
@@ -81,7 +78,12 @@
         {{#single-select group="status" btnClassName="btn-cys-secondary" selectedValue=status value="timeless"}}
             Timeless
         {{/single-select}}
-
+    </div>
+    <div class="col-xs-12 col-md-2">
+        {{#if session.isAuthenticated}}
+            {{#link-to 'activity.my'}}My Events{{/link-to}} |
+        {{/if}}
+        {{#link-to 'activity.search'}}Search{{/link-to}}
     </div>
 </div>
 
@@ -91,9 +93,9 @@
             {{#if model}}
                 {{#each model as |event|}}
                     <div class="row event-list">
-                        <div class="col-xs-2 col-md-1">
+                        <div class="col-xs-4 col-md-1">
                             {{#if event.fromDate }}
-                                {{#link-to 'activity.show' event class="unlink"}}
+                                {{#link-to 'activity.show' event.id class="unlink"}}
                                     <div class="date-box">
                                         <div style="text-align: center;">{{formatted-date event.fromDateMoment 'MMM'}}</div>
                                         <div style="text-align: center;">
@@ -103,12 +105,12 @@
                                 {{/link-to}}
                             {{/if}}
                         </div>
-                        <div class="col-xs-4 col-md-2">
+                        <div class="col-xs-8 col-md-2">
                             {{#link-to 'activity.show' event.id}}
                                 {{preview-image width="200" height="200" class="img-thumbnail img-responsive" src=event.availableImage}}
                             {{/link-to}}
                         </div>
-                        <div class="col-xs-8 col-md-4">
+                        <div class="col-xs-12 col-md-4">
                             <h4 class="list-group-item-heading">{{#link-to 'activity.show' event.id}}{{event.title}}{{/link-to}}</h4>
 
                             <p class="list-group-item-text">
@@ -138,10 +140,12 @@
                                 {{/if}}
                             </p>
                         </div>
-                        <div class="col-xs-12 col-md-1">
+                        <div class="col-xs-12 col-md-2">
                             {{#if event.type}}
                                 <div class="tag-default">
-                                    {{display-text event.type allTypes}}
+                                    {{#link-to (query-params type=event.type) class='btn-link btn-cys-link'}}
+                                        {{display-text event.type allTypes}}
+                                    {{/link-to}}
                                 </div>
                             {{/if}}
                         </div>

@@ -330,6 +330,10 @@ input[type="radio"] {
 .btn-cys.active {
   @include btn-cys-pseudo-base($primary-control-font-color, $primary-control-color);
 }
+
+.btn-cys-link {
+  color: white;
+}
 /*
 Bootstrap CSS rules overwrite
 */

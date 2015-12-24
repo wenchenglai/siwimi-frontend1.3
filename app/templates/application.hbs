@@ -19,6 +19,11 @@
                         Events
                     {{/link-to}}
                 </li>
+                <li>
+                    {{#link-to 'about'}}
+                        About Us
+                    {{/link-to}}
+                </li>
                 <!--<li class="dropdown">-->
                     <!--<a href="#" class={{eventTabSelectedClasses}} data-toggle="dropdown">-->
                         <!--<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>-->
@@ -39,12 +44,13 @@
                         Connect <span style="font-size:11px;">(Beta)</span><span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li>{{#link-to 'family.browse'}}Search My Neighborhood{{/link-to}}</li>
+
                         <li>{{#link-to 'family.my'}}My Family Setting{{/link-to}}</li>
                         <li>{{#link-to 'group.my'}}My Groups{{/link-to}}</li>
                         {{!--<li>{{#link-to 'family.preference'}}My Preference{{/link-to}}</li>--}}
                         <li role="separator" class="divider"></li>
-                        <li>{{#link-to 'feeds.browse'}}Local Postings{{/link-to}}</li>
+                        <li>{{#link-to 'family.browse'}}Search My Neighborhood{{/link-to}}</li>
+                        <li>{{#link-to 'feeds.browse'}}Local Conversations{{/link-to}}</li>
                         <li>{{#link-to 'questions.browse'}}Ask Local Parents{{/link-to}}</li>
                         <li>{{#link-to 'tip.browse' (query-params status="all" type="all")}}Sharing Tips{{/link-to}}</li>
                         <li>{{#link-to 'item.browse'}}Listings{{/link-to}}</li>
@@ -169,7 +175,6 @@
             {{alert-bar title=alertTitle message=alertMessage type=alertType closeAlert="closeAlert" }}
         </div>
     </div>
-
     {{outlet}}
     {{outlet "modal"}}
 </div>

@@ -18,19 +18,32 @@ export default Ember.Route.extend({
     },
 
     afterModel: function(model, transition) {
-        // There are two entry points to this function:
-        // 1.  This funciton is called by regular loading i.e. user click on the list, and we load the event using model function above
-        // 2.  The afterModel is called without calling model above, because we transitionTo with the event object from other pages i.e. edit page
         var event = Ember.isEmpty(model.activity) ? model : model.activity,
             title = event.get('title');
 
-        $(document).attr('title', "Siwimi - Events - " + title);
-        $("meta[property='og\\:title']").attr("content", title);
+        // There are two entry points to this function:
+        // 1.  This funciton is called by regular loading i.e. user click on the list, and we load the event using model function above
+        // 2.  The afterModel is called without calling model above, because we transitionTo with the event object from other pages i.e. edit page
+
+        Ember.$(document).attr('title', "Siwimi - Events - " + title);
+        Ember.$("meta[name='description']").attr('content', "Siwimi is for parents who have young childnre.  Check out this event! ");
+        Ember.$("meta[property='og\\:title']").attr("content", title);
+        Ember.$("meta[property='og\\:description']").attr("content", title);
+    },
+
+    setupController: function(controller, model) {
+        controller.set('model', model);
+
+        // I have to move the URL code here because window.location.href won't be updated until this point
         Ember.run.schedule('afterRender', () => {
             console.log( this.get('router.url'))
-            $("meta[property='og\\:url']").attr("content", window.location.href);
+
+            Ember.$("meta[property='og\\:url']").attr("content", window.location.href);
+            //$("meta[property='og\\:image']").attr("content", model.activity.get('imageData'));
+
+            controller.set('currentUrl', window.location.href);
         });
-        //$("meta[property='og\\:image']").attr("content", model.activity.get('imageData'));
+
     },
 
     actions: {

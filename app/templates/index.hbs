@@ -1,121 +1,187 @@
-<div class="row cover-page">
-    <div class="cover-page2">
-        <div class="row">
-            <img src="/assets/images/siwimi-logo-green-white-stacked.png" width="300" height="136">
-        </div>
-        <div class="row">
-            <p class="lead cover-paragraph">
-                Connecting families in your neighborhood
-            </p>
-            <p class="cover-paragraph">
-                Siwimi is a social network for parents who have young children
-            </p>
-        </div>
-    </div>
-        <div class="row">
-          <center>
-            <span class="cover-button" {{action 'signup'}}>Join Us</span>
-            <span class="cover-button" {{action 'login'}}>Login</span>
-          </center>
-        </div>
-</div>
+{{#if session.isAuthenticated}}
 
-<div class="row">
-    <div class="col-xs-12 col-sm-4">
-        <div class="cover-page-item">
-            {{#link-to 'activity.browse'}}
-                <img width="120" height="120" src="/assets/images/events-icon.png">
-            {{/link-to}}
-            <div>
-                <h3>Events</h3>
-                <p>
-                    Looking for play dates or family events for your children in this coming weekend? You can also
-                    publish your children's activity schedules and share with other parents.
-                </p>
+    <div class="row row-gutter-bottom row-gutter-top">
+        <div class="col-xs-12">
+            <div class="page-header">
+                <h1>Welcome to Siwimi <small>where you can connect with parents in your neightborhood</small></h1>
             </div>
-        </div>
-    </div>
-    <div class="col-xs-12 col-sm-4">
-        <div class="cover-page-item">
-            {{#link-to 'family.browse'}}
-                <img width="120" height="120" src="/assets/images/connect-icon.png">
-            {{/link-to}}
-          <div>
-             <h3>Connect</h3>
-             <p>
-                Search families who live in your neighborhood and connect with them.  You can ask questions, exchange ideas or items.
-             </p>
-          </div>
-        </div>
-    </div>
-    <div class="col-xs-12 col-sm-4">
-        <div class="cover-page-item">
-            {{#link-to 'feeds.browse'}}
-                <img width="120" height="120" src="/assets/images/tips-icon.png">
-            {{/link-to}}
-            <div>
-                <h3>Virtual Assistant</h3>
-                <p>
-                    The more you use our software, the better our virtual assistant can give you recommendations on events that you can join.
-                    We want to build a smart app that could save your time so you can focus on your kids.
-                </p>
-            </div>
-        </div>
-    </div>
-    {{!--
-    <div class="col-xs-12 col-sm-4">
-        <div class="cover-page-item">
-            {{#link-to 'tip.browse'}}
-                <img width="120" height="120" src="/assets/images/tips-icon.png">
-            {{/link-to}}
-          <div>
-          <h3>Tips</h3>
-            <p>
-                You can share and learn tips on shopping deals, education, entertainment and health.
-            </p>
-          </div>
-        </div>
-    </div>
-    --}}
 
-    {{!--
-    <div class="col-xs-12 col-sm-4">
-        <div class="cover-page-item">
-            {{#link-to 'item.browse'}}
-                <img width="120" height="120" src="/assets/images/listings-icon.png">
-            {{/link-to}}
-            <div>
-                <h3>Listings</h3>
-                <p>
-                    Do you want to sell, exchange or loan children toys with others? Do you want to give away used clothes or equipments?
-                </p>
-            </div>
         </div>
     </div>
-    <div class="col-xs-12 col-sm-4">
-        <div class="cover-page-item">
-            {{#link-to 'questions.new'}}
-                <img width="120" height="120" src="/assets/images/ask-icon.png">
-            {{/link-to}}
-            <div>
-                <h3>Ask</h3>
-                <p>
-                   Ask nearby parents any questions about parenting. Or you can search our Q & A database.
-                </p>
-            </div>
-        </div>
-    </div>
-    <div class="col-xs-12 col-sm-4">
-        <div class="cover-page-item">
-              <img width="120" height="120" src="/assets/images/services-icon.png">
 
-            <div>
-                <h3>Services</h3>
-                <p>
-                    Looking for nannies, tutors or healthy homemade baby food?  This feature is coming soon.
-                </p>
+    <div class="row row-gutter-bottom">
+        <div class="col-xs-12">
+            <div class="well">
+                <div class="row row-gutter-bottom">
+                    <div class="col-xs-12">
+                        <h2>Get started with Siwimi</h2>
+                    </div>
+                </div>
+                <div class="row row-gutter-bottom">
+                    <div class="col-xs-12">
+                        <h3>{{#link-to 'activity.browse'}}Events{{/link-to}} allows you to find local events for your children.</h3>
+                    </div>
+                    <div class="col-xs-12">
+                        <span class="text-muted">Currently we only serve Ann Arbor area.  We'll expand to other cities in the future.</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    --}}
-</div>
+
+
+    <div class="row row-gutter-bottom">
+        <div class="col-xs-12">
+            <div class="well-sm">
+                <div class="row row-gutter-bottom">
+                    <div class="col-xs-12">
+                        <h3>Settings that would help you to take full advantage of this website</h3>
+                    </div>
+                </div>
+                <div class="row row-gutter-bottom">
+                    <div class="col-xs-12">
+                        <h4>{{#link-to 'user.profile'}}Profile{{/link-to}} - Please tell us more about you.</h4>
+                    </div>
+                    <div class="col-xs-12">
+                        <span class="text-muted">So our machine learning algorithm can make better recommendations. E.g. we'll notify you whenever there is an event your children might enjoy.</span>
+                    </div>
+                </div>
+                <div class="row row-gutter-bottom">
+                    <div class="col-xs-12">
+                        <h4>{{#link-to 'group.my'}}Group{{/link-to}} - allows you to organize your friends into separate units.</h4>
+                    </div>
+                    <div class="col-xs-12">
+                        <span class="text-muted">So you can communicate with any specific group you wish.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{{else}}
+
+    <div class="row cover-page">
+        <div class="cover-page2">
+            <div class="row">
+                <img src="/assets/images/siwimi-logo-green-white-stacked.png" width="300" height="136">
+            </div>
+            <div class="row">
+                <p class="lead cover-paragraph">
+                    Connecting families in your neighborhood
+                </p>
+                <p class="cover-paragraph">
+                    Siwimi is a social network for parents who have young children
+                </p>
+            </div>
+        </div>
+            <div class="row">
+              <center>
+                <span class="cover-button" {{action 'signup'}}>Join Us</span>
+                <span class="cover-button" {{action 'login'}}>Login</span>
+              </center>
+            </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-4">
+            <div class="cover-page-item">
+                {{#link-to 'activity.browse'}}
+                    <img width="120" height="120" src="/assets/images/events-icon.png">
+                {{/link-to}}
+                <div>
+                    <h3>Events</h3>
+                    <p>
+                        Looking for play dates or family events for your children in this coming weekend? You can also
+                        publish your children's activity schedules and share with other parents.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+            <div class="cover-page-item">
+                {{#link-to 'family.browse'}}
+                    <img width="120" height="120" src="/assets/images/connect-icon.png">
+                {{/link-to}}
+              <div>
+                 <h3>Connect</h3>
+                 <p>
+                    Search families who live in your neighborhood and connect with them.  You can ask questions, exchange ideas or items.
+                 </p>
+              </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+            <div class="cover-page-item">
+                {{#link-to 'feeds.browse'}}
+                    <img width="120" height="120" src="/assets/images/tips-icon.png">
+                {{/link-to}}
+                <div>
+                    <h3>Virtual Assistant</h3>
+                    <p>
+                        The more you use our software, the better our virtual assistant can give you recommendations on events that you can join.
+                        We want to build a smart app that could save your time so you can focus on your kids.
+                    </p>
+                </div>
+            </div>
+        </div>
+        {{!--
+        <div class="col-xs-12 col-sm-4">
+            <div class="cover-page-item">
+                {{#link-to 'tip.browse'}}
+                    <img width="120" height="120" src="/assets/images/tips-icon.png">
+                {{/link-to}}
+              <div>
+              <h3>Tips</h3>
+                <p>
+                    You can share and learn tips on shopping deals, education, entertainment and health.
+                </p>
+              </div>
+            </div>
+        </div>
+        --}}
+
+        {{!--
+        <div class="col-xs-12 col-sm-4">
+            <div class="cover-page-item">
+                {{#link-to 'item.browse'}}
+                    <img width="120" height="120" src="/assets/images/listings-icon.png">
+                {{/link-to}}
+                <div>
+                    <h3>Listings</h3>
+                    <p>
+                        Do you want to sell, exchange or loan children toys with others? Do you want to give away used clothes or equipments?
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+            <div class="cover-page-item">
+                {{#link-to 'questions.new'}}
+                    <img width="120" height="120" src="/assets/images/ask-icon.png">
+                {{/link-to}}
+                <div>
+                    <h3>Ask</h3>
+                    <p>
+                       Ask nearby parents any questions about parenting. Or you can search our Q & A database.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+            <div class="cover-page-item">
+                  <img width="120" height="120" src="/assets/images/services-icon.png">
+
+                <div>
+                    <h3>Services</h3>
+                    <p>
+                        Looking for nannies, tutors or healthy homemade baby food?  This feature is coming soon.
+                    </p>
+                </div>
+            </div>
+        </div>
+        --}}
+    </div>
+
+{{/if}}

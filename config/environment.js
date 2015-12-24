@@ -23,7 +23,7 @@ module.exports = function(environment) {
             'script-src': "'self' 'unsafe-inline' 'unsafe-eval' use.typekit.net connect.facebook.net apis.google.com maps.googleapis.com maps.gstatic.com www.geoplugin.net www.google-analytics.com graph.facebook.com",
             'style-src': "'self' 'unsafe-inline' use.typekit.net fonts.googleapis.com",
             'img-src': "'self' data: fbcdn-profile-a.akamaihd.net apis.google.com www.google-analytics.com www.facebook.com scontent.xx.fbcdn.net",
-            'frame-src': "'self' accounts.google.com static.ak.facebook.com https://s-static.ak.facebook.com https://www.facebook.com",
+            'frame-src': "'self' accounts.google.com http://staticxx.facebook.com https://staticxx.facebook.com static.ak.facebook.com https://s-static.ak.facebook.com https://www.facebook.com",
             'connect-src': "'self' 199.223.236.115:8080 localhost:8080 maps.googleapis.com",
             'font-src': "'self' fonts.gstatic.com"
         }
@@ -43,7 +43,7 @@ module.exports = function(environment) {
         //ENV.APP.LOG_VIEW_LOOKUPS = true;
         ENV.apiHost = 'http://localhost:8080';
         ENV.facebookAppId = '343069969185068';
-        ENV.facebookGraphAPIVersion = 'v2.2';
+        ENV.facebookGraphAPIVersion = 'v2.5';
     }
 
     if (environment === 'test') {
@@ -63,7 +63,7 @@ module.exports = function(environment) {
     if (environment === 'production') {
         ENV.apiHost = 'http://54.175.121.3/siwimi-webapi-0.0.1';
         ENV.facebookAppId = '290368724455193';
-        ENV.facebookGraphAPIVersion = 'v2.2';
+        ENV.facebookGraphAPIVersion = 'v2.5';
     }
 
     return ENV;

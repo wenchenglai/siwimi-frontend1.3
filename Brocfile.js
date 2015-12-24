@@ -35,6 +35,7 @@ app.import('bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.w
 app.import('bower_components/bootstrap/dist/js/bootstrap.js');
 
 app.import('vendor/bootstrap/css/dashboard.css');
+app.import('vendor/bootstrap/css/carousel.css');
 
 app.import('bower_components/fullcalendar/dist/fullcalendar.css');
 app.import('bower_components/fullcalendar/dist/fullcalendar.js');

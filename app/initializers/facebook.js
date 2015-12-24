@@ -4,25 +4,15 @@ import ENV from '../config/environment';
 
 export function initialize(container, application) {
     Ember.debug('Facebook Initializer runs.');
-    // application.inject('route', 'foo', 'service:foo');
-    //FB.init({
-    //    appId: ENV.facebookAppId,
-    //    cookie: true,  // enable cookies to allow the server to access
-    //    // the session
-    //    xfbml: true,  // parse social plugins on this page
-    //    version: 'v2.2' // use version 2.2
-    //});
 
     application.deferReadiness();
 
-    var fbAsyncInit = function() {
+    window.fbAsyncInit = function() {
         initFacebook(window.FB);
         application.advanceReadiness();
     };
 
     loadFacebookSDK();
-
-    window.fbAsyncInit = fbAsyncInit;
 }
 
 function loadFacebookSDK() {
@@ -39,12 +29,13 @@ function initFacebook(FB) {
     FB.init({
         appId: ENV.facebookAppId,
         cookie: true,
-        xfbml: true,
+        xfbml: false,
+        status: true,
         version: ENV.facebookGraphAPIVersion
     });
 }
 
 export default {
-  name: 'facebook',
-  initialize: initialize
+    name: 'facebook',
+    initialize: initialize
 };
