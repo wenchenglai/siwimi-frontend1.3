@@ -1,30 +1,56 @@
 <div class="container">
-  <div class="col-md-6">
-    <h3><center>Member Updates</center></h3>
+    <div class="col-md-6">
+        <h3>Member Updates</h3>
 
-      <form {{action "updateMember" on="submit"}}>
-        {{input-form label="First Name" value=model.firstName type="text"}}
+        <form {{action "updateMember" on="submit"}}>
+            {{input-form label="First Name" value=model.firstName type="text" id="firstName"}}
 
-        {{input-form label="Last Name" value=model.lastName type="text"}}
+            {{input-form label="Last Name" value=model.lastName type="text" id="lastName"}}
 
-        {{input-form label="Email" value=model.email type="email"}}
+            {{input-form label="Email" value=model.email type="email" id="email"}}
 
-        {{input-form label="Password" value=model.password type="text"}}
+            {{input-form label="Password" value=model.password type="text" id="password"}}
 
-        {{input-form label="Facebook ID" value=model.facebookId type="text"}}
+            {{input-form label="Facebook ID" value=model.facebookId type="text" id="fId"}}
 
-        {{input-form label="City" value=model.city type="text"}}
+            {{input-form label="City" value=model.city type="text" id="city"}}
 
-        {{input-form label="State" value=model.state type="text"}}
+            {{input-form label="State" value=model.state type="text" id="state"}}
 
-        {{input-form label="Zipcode" value=model.zipCode type="text"}}
+            {{input-form label="Zip Code" value=model.zipCode type="text" id="zipCode"}}
 
-        {{input-form label="Registration Date" value=model.created type="text"}}
+            {{input-form label="Registration Date" value=model.created type="text" id="registrationDate"}}
 
-        <button {{action 'updateMember' model}} class="btn btn-cys">{{fa-icon 'save'}}</button>
-        {{#link-to 'admin.members' class="btn btn-default"}}{{fa-icon "times"}}{{/link-to}}
-      </form>
-  </div>
+            {{input-form label="Privilege" value=model.privilege type="text" id="privilege"}}
+
+            <div class="checkbox">
+                <label>
+                    {{input checked=model.isUser type="checkbox"}} isUser
+                </label>
+            </div>
+
+            <div class="checkbox">
+                <label>
+                    {{input checked=model.isConfirmedMember type="checkbox"}} isConfirmedMember
+                </label>
+            </div>
+
+            <div class="checkbox">
+                <label>
+                    {{input checked=model.isInSignUpProcess type="checkbox"}} isInSignUpProcess
+                </label>
+            </div>
+
+            <div class="checkbox">
+                <label>
+                    {{input checked=model.isDeletedRecord type="checkbox"}} isDeletedRecord
+                </label>
+            </div>
+
+            <button {{action 'updateMember' model}} class="btn btn-cys">{{fa-icon 'save'}}</button>
+            {{#link-to 'admin.members' class="btn btn-default"}}{{fa-icon "times"}}{{/link-to}}
+        </form>
+    </div>
 </div>
 
 

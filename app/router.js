@@ -116,10 +116,10 @@ Router.map(function () {
     });
 
     this.route('admin', function() {
-    this.route('members', function() {
-      this.route('member', {path: '/member/:id'});
-      this.route('edit', {path: '/member/:id/edit'});
-    });
+        this.route('members', function() {
+            this.route('member', {path: '/member/:id'});
+            this.route('edit', {path: '/member/:id/edit'});
+        });
     });
 });
 

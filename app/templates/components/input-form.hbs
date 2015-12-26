@@ -1,5 +1,7 @@
-
 <div class="form-group">
-  <label>{{label}}</label>
-    {{input type=type value=value class="form-control" placeholder=placeholder required=required}}
+    <label {{bind-attr for=id}}>
+        {{label}}
+    </label>
+
+    {{input id=id type=type value=value class="form-control" placeholder=placeholder required=required}}
 </div>

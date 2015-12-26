@@ -1,6 +1,8 @@
 import DS from 'ember-data';
 import Ember from 'ember';
 
+var ADMIN = 256;
+
 export default DS.Model.extend({
     lastName: DS.attr('string'),
     firstName: DS.attr('string'),
@@ -14,7 +16,7 @@ export default DS.Model.extend({
     avatarUrl: DS.attr('string'),
     imageData: DS.attr('string'),
     family: DS.belongsTo('family', { async: true }),
-    isUser: DS.attr('boolean'),
+
     facebookId: DS.attr('string'),
     highSchool: DS.attr('string'),
     college: DS.attr('string'),
@@ -26,8 +28,23 @@ export default DS.Model.extend({
     notification: DS.belongsTo('email-notification', { async: true }),
     replies: DS.hasMany('feedback', { embedded: 'always' }),
 
+    // privilege is the software application user authorization level
+    // by default, this is 0.  256 is Admin
+    // 0: Anonymous User, 1: User, 2: Super User, 4: Content Editor, 8: Reserved, 16: Reserved, 32: Reserved, 64: Reserved, 128: Reserved, 256: Admin
+    privilege: DS.attr('number'),
+
+    // used to see if current user is considered a regular user with confirmed account.
+    // TODO: might be able to merge this field to the above privilege
+    isUser: DS.attr('boolean'),
+
+    // TODO: role should be merged with the privilege field, privilege better reflects the application authroization level, while role could be used for Father, Mother etc
     // authorization [admin, user, anonymous]
     role: DS.attr('string'),
+
+    isAdmin: Ember.computed('role', function() {
+        //return this.get('role') === "admin" ? true : false;
+        return this.get('privilege') === ADMIN ? true : false;
+    }),
 
     // sign up process
     isConfirmedMember: DS.attr('boolean'),
@@ -105,9 +122,5 @@ export default DS.Model.extend({
       get() {
         return this.get('city') + ', ' + this.get('state') + ' ' + this.get('zipCode');
       }
-    }),
-
-    isAdmin: Ember.computed('role', function() {
-        return this.get('role') === "admin" ? true : false;
     })
 });

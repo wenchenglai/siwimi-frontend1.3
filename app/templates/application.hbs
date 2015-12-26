@@ -38,30 +38,40 @@
                         <!--{{!--<li>{{#link-to 'activity.infinite'}}Infinite Scroll{{/link-to}}</li>--}}-->
                     <!--</ul>-->
                 <!--</li>-->
-                <li class="dropdown">
-                    <a href="#" class={{connectTabSelectedClasses}} data-toggle="dropdown">
-                        <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
-                        Connect <span style="font-size:11px;">(Beta)</span><span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
+                {{#if session.isAuthenticated}}
+                    {{#if session.secure.user.isAdmin}}
+                        <li class="dropdown">
+                            <a href="#" class={{connectTabSelectedClasses}} data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+                                Connect <span style="font-size:11px;">(Beta)</span><span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
 
-                        <li>{{#link-to 'family.my'}}My Family Setting{{/link-to}}</li>
-                        <li>{{#link-to 'group.my'}}My Groups{{/link-to}}</li>
-                        {{!--<li>{{#link-to 'family.preference'}}My Preference{{/link-to}}</li>--}}
-                        <li role="separator" class="divider"></li>
-                        <li>{{#link-to 'family.browse'}}Search My Neighborhood{{/link-to}}</li>
-                        <li>{{#link-to 'feeds.browse'}}Local Conversations{{/link-to}}</li>
-                        <li>{{#link-to 'questions.browse'}}Ask Local Parents{{/link-to}}</li>
-                        <li>{{#link-to 'tip.browse' (query-params status="all" type="all")}}Sharing Tips{{/link-to}}</li>
-                        <li>{{#link-to 'item.browse'}}Listings{{/link-to}}</li>
-                        <li role="separator" class="divider"></li>
+                                <li>{{#link-to 'family.my'}}My Family Setting{{/link-to}}</li>
+                                <li>{{#link-to 'group.my'}}My Groups{{/link-to}}</li>
+                                {{!--<li>{{#link-to 'family.preference'}}My Preference{{/link-to}}</li>--}}
+                                <li role="separator" class="divider"></li>
+                                <li>{{#link-to 'family.browse'}}Search My Neighborhood{{/link-to}}</li>
+                                <li>{{#link-to 'feeds.browse'}}Local Conversations{{/link-to}}</li>
+                                <li>{{#link-to 'questions.browse'}}Ask Local Parents{{/link-to}}</li>
+                                <li>{{#link-to 'tip.browse' (query-params status="all" type="all")}}Sharing Tips{{/link-to}}</li>
+                                <li>{{#link-to 'item.browse'}}Listings{{/link-to}}</li>
+                                <li role="separator" class="divider"></li>
+                                <li>
+                                    {{#link-to 'feedback.new'}}
+                                        Contact Us
+                                    {{/link-to}}
+                                </li>
+                            </ul>
+                        </li>
                         <li>
-                            {{#link-to 'feedback.new'}}
-                                Contact Us
+                            {{#link-to 'admin'}}
+                                Admin
                             {{/link-to}}
                         </li>
-                    </ul>
-                </li>
+                    {{/if}}
+                {{/if}}
+
                 {{!--
                 <li class="dropdown">
                     <a href="#" class={{tipTabSelectedClasses}} data-toggle="dropdown">

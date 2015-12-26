@@ -15,6 +15,9 @@ Ember.Controller.extend(StatesDataMixin, {
     showDarkBackgroundForAlertBox: false,
 
     getCurrentPath: function () {
+        // This is called after a route's loading is done.
+        // It's only here that we can really think about updating data for this destination route
+
         var self = this,
             currentPath = this.get('currentPath').split('.');
 
