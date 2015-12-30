@@ -10,10 +10,6 @@ export default Ember.Controller.extend({
         template: 'user/profile-form'
     }), Ember.Object.create({
         isActived: false,
-        title: 'Group',
-        template: 'user/notification-form'
-    }), Ember.Object.create({
-        isActived: false,
         title: 'Notification Center',
         template: 'user/notification-form'
     })],

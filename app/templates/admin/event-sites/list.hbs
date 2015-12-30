@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-xs-12">
+        <h1>This is the event-sites/list page</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        {{#link-to 'admin.eventSites.new' class="btn btn-cys"}}
+            Add New Site
+        {{/link-to}}
+    </div>
+</div>
+{{#each model as |site|}}
+    <div class="row row-gutter-bottom">
+        <div class="col-xs-12">
+            <hr>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+            {{#link-to 'admin.eventSites.edit' site.id}}
+                {{#if site.siteName}}{{site.siteName}}{{else}}NULL{{/if}}
+            {{/link-to}}
+        </div>
+        <div class="col-xs-12 col-sm-2">
+            {{site.className}}
+        </div>
+        <div class="col-xs-12 col-sm-6">
+            <a href={{site.url}} target="_blank">{{site.url}}</a>
+        </div>
+
+    </div>
+{{/each}}

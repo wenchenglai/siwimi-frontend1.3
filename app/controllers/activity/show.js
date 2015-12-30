@@ -17,6 +17,8 @@ export default Ember.Controller.extend(ActivityDataMixin, {
         return !Ember.isEmpty(this.model.emactions.get('length'));
     }.property('model.emactions.@each.action'),
 
+    isSendEmail: true,
+
     checkAllGroup: function() {
         var self = this;
 
@@ -32,5 +34,17 @@ export default Ember.Controller.extend(ActivityDataMixin, {
             flag = self.model.groups.isAny('isChecked', true) ? false : true;
 
         self.set('model.allGroupChecked', flag);
-    }.observes('model.groups.@each.isChecked')
+    }.observes('model.groups.@each.isChecked'),
+
+    actions: {
+        setNotifitication: function(selectedValue) {
+            var self = this;
+
+            if (selectedValue === '1') {
+                self.set('isSendEmail', true);
+            } else {
+                self.set('isSendEmail', false);
+            }
+        }
+    }
 });

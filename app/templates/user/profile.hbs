@@ -7,15 +7,18 @@
     </div>
 </div>
 
-<div class="col-md-3">
-    {{nav-stacked
+<div class="row">
+    <div class="col-xs-12 col-md-3">
+        {{nav-stacked
         action='render'
         title='Profile settings'
         items=navItems}}
+    </div>
+
+    <div class="col-xs-12 col-md-9">
+
+        {{partial contentTemplate}}
+
+    </div>
 </div>
 
-<div class="col-md-offset-1 col-md-8">
-
-{{partial contentTemplate}}
-
-</div>

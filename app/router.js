@@ -87,6 +87,7 @@ Router.map(function () {
       this.route('map');
       this.route("preference");
       this.route('infinite');
+      this.route('browse2');
     });
 
     this.route("questions", function () {
@@ -116,10 +117,17 @@ Router.map(function () {
     });
 
     this.route('admin', function() {
-        this.route('members', function() {
-            this.route('member', {path: '/member/:id'});
-            this.route('edit', {path: '/member/:id/edit'});
-        });
+      this.route('members', function() {
+          this.route('member', {path: '/member/:id'});
+          this.route('edit', {path: '/member/:id/edit'});
+      });
+
+      this.route('eventSites', function() {
+        this.route('edit', {path: '/site/:id/edit'});
+        this.route('list');
+        this.route('new');
+        this.route('detail');
+      });
     });
 });
 

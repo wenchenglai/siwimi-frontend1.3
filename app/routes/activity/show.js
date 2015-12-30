@@ -107,7 +107,12 @@ export default Ember.Route.extend({
             }
 
             if (model.groups.get('length') === 0) {
-                return self.render('modals/create-group-modal', {
+                //return self.render('modals/create-group-modal', {
+                //    into: 'application',
+                //    outlet: 'modal'
+                //});
+
+                return this.render('modals/alert-modal', {
                     into: 'application',
                     outlet: 'modal'
                 });
@@ -127,6 +132,13 @@ export default Ember.Route.extend({
                 title: 'Success',
                 message: "We've notified your friends about this event.",
                 type: 'alert-success'
+            });
+        },
+
+        postToFacebook: function() {
+            return this.render('modals/alert-modal', {
+                into: 'application',
+                outlet: 'modal'
             });
         },
 

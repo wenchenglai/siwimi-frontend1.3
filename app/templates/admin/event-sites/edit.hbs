@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="col-xs-12 col-md-6">
+        <h3>Events Parser Site Updates</h3>
+
+        <form>
+            {{input-form label="Site Name" value=model.siteName type="text"}}
+
+            {{input-form label="Url" value=model.url type="text"}}
+
+            {{input-form label="Class Name" value=model.className type="text"}}
+
+            <button {{action 'update' model}} class="btn btn-cys">{{fa-icon 'save'}}</button>
+            {{#link-to 'admin.eventSites' class="btn btn-default"}}{{fa-icon "times"}}{{/link-to}}
+        </form>
+    </div>
+</div>

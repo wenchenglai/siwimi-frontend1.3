@@ -1,117 +1,115 @@
-<h2 style="margin-top: 0">Notification Center</h2>
+<h2 class="well">Notification Center <small>the system will notify you if you turn on the triggers below.</small></h2>
 
 <div class="row row-gutter-top">
-<div class="col-md-10">
-
-<div class="panel panel-default">
-    <div class="panel-heading">
-        1. Events
+    <div class="col-xs-12">
+        <div class="panel panel-default">
+        <div class="panel-heading">
+            1. Events
+        </div>
+        <ul class="list-group">
+            <li class="list-group-item">
+                When a new local event is added
+                {{material-switch
+                    action='toggleSwitch'
+                    name='eventNew' isChecked=model.notification.eventNew
+                    type='success' isPullRight=true}}
+            </li>
+            <li class="list-group-item">
+                When your friend is going to an event
+                {{material-switch
+                    action='toggleSwitch'
+                    name='eventFriendGoing' isChecked=model.notification.eventFriendGoing
+                    type='success' isPullRight=true}}
+            </li>
+            <li class="list-group-item">
+                When your friend is considering going to an event
+                {{material-switch
+                    action='toggleSwitch'
+                    name='eventFriendConsidering' isChecked=model.notification.eventFriendConsidering
+                    type='success' isPullRight=true}}
+            </li>
+        </ul>
+        <div class="panel-heading">
+            2. Tip
+        </div>
+        <ul class="list-group">
+            <li class="list-group-item">
+                When a new tip is posted by a parent in your neighborhood
+                {{material-switch
+                    action='toggleSwitch'
+                    name='tipNew' isChecked=model.notification.tipNew
+                    type='success' isPullRight=true}}
+            </li>
+            <li class="list-group-item">
+                When someone replies to your tip
+                {{material-switch
+                    action='toggleSwitch'
+                    name='tipReply' isChecked=model.notification.tipReply
+                    type='success' isPullRight=true}}
+            </li>
+        </ul>
+        <div class="panel-heading">
+            3. Question
+        </div>
+        <ul class="list-group">
+            <li class="list-group-item">
+                When a new question is posted by a parent in your neighborhood
+                {{material-switch
+                    action='toggleSwitch'
+                    name='questionNew' isChecked=model.notification.questionNew
+                    type='success' isPullRight=true}}
+            </li>
+            <li class="list-group-item">
+                When someone answers your question
+                {{material-switch
+                    action='toggleSwitch'
+                    name='questionReply' isChecked=model.notification.questionReply
+                    type='success' isPullRight=true}}
+            </li>
+        </ul>
+        <div class="panel-heading">
+            4. Item
+        </div>
+        <ul class="list-group">
+            <li class="list-group-item">
+                When a new item that you are interested is posted
+                {{material-switch
+                    action='toggleSwitch'
+                    name='itemNew' isChecked=model.notification.itemNew
+                    type='success' isPullRight=true}}
+            </li>
+            <li class="list-group-item">
+                When someone responds to your item
+                {{material-switch
+                    action='toggleSwitch'
+                    name='itemReply' isChecked=model.notification.itemReply
+                    type='success' isPullRight=true}}
+            </li>
+        </ul>
+        <div class="panel-heading">
+            5. Message
+        </div>
+        <ul class="list-group">
+            <li class="list-group-item">
+                When someone send/reply a message
+                {{material-switch
+                    action='toggleSwitch'
+                    name='messageReply' isChecked=model.notification.messageReply
+                    type='success' isPullRight=true}}
+            </li>
+        </ul>
+        <div class="panel-heading">
+            6. Group
+        </div>
+        <ul class="list-group">
+            <li class="list-group-item">
+                When someone added you into his/her friend's list
+                {{material-switch
+                    action='toggleSwitch'
+                    name='groupAddMember' isChecked=model.notification.groupAddMember
+                    type='success' isPullRight=true}}
+            </li>
+        </ul>
     </div>
-    <ul class="list-group">
-        <li class="list-group-item">
-            When a new local event is added
-            {{material-switch
-                action='toggleSwitch'
-                name='eventNew' isChecked=model.notification.eventNew
-                type='success' isPullRight=true}}
-        </li>
-        <li class="list-group-item">
-            When your friend is going to an event
-            {{material-switch
-                action='toggleSwitch'
-                name='eventFriendGoing' isChecked=model.notification.eventFriendGoing
-                type='success' isPullRight=true}}
-        </li>
-        <li class="list-group-item">
-            When your friend is considering going to an event
-            {{material-switch
-                action='toggleSwitch'
-                name='eventFriendConsidering' isChecked=model.notification.eventFriendConsidering
-                type='success' isPullRight=true}}
-        </li>
-    </ul>
-    <div class="panel-heading">
-        2. Tip
     </div>
-    <ul class="list-group">
-        <li class="list-group-item">
-            When a new tip is posted by a parent in your neighborhood
-            {{material-switch
-                action='toggleSwitch'
-                name='tipNew' isChecked=model.notification.tipNew
-                type='success' isPullRight=true}}
-        </li>
-        <li class="list-group-item">
-            When someone replies to your tip
-            {{material-switch
-                action='toggleSwitch'
-                name='tipReply' isChecked=model.notification.tipReply
-                type='success' isPullRight=true}}
-        </li>
-    </ul>
-    <div class="panel-heading">
-        3. Question
-    </div>
-    <ul class="list-group">
-        <li class="list-group-item">
-            When a new question is posted by a parent in your neighborhood
-            {{material-switch
-                action='toggleSwitch'
-                name='questionNew' isChecked=model.notification.questionNew
-                type='success' isPullRight=true}}
-        </li>
-        <li class="list-group-item">
-            When someone answers your question
-            {{material-switch
-                action='toggleSwitch'
-                name='questionReply' isChecked=model.notification.questionReply
-                type='success' isPullRight=true}}
-        </li>
-    </ul>
-    <div class="panel-heading">
-        4. Item
-    </div>
-    <ul class="list-group">
-        <li class="list-group-item">
-            When a new item that you are interested is posted
-            {{material-switch
-                action='toggleSwitch'
-                name='itemNew' isChecked=model.notification.itemNew
-                type='success' isPullRight=true}}
-        </li>
-        <li class="list-group-item">
-            When someone responds to your item
-            {{material-switch
-                action='toggleSwitch'
-                name='itemReply' isChecked=model.notification.itemReply
-                type='success' isPullRight=true}}
-        </li>
-    </ul>
-    <div class="panel-heading">
-        5. Message
-    </div>
-    <ul class="list-group">
-        <li class="list-group-item">
-            When someone send/reply a message
-            {{material-switch
-                action='toggleSwitch'
-                name='messageReply' isChecked=model.notification.messageReply
-                type='success' isPullRight=true}}
-        </li>
-    </ul>
-    <div class="panel-heading">
-        6. Group
-    </div>
-    <ul class="list-group">
-        <li class="list-group-item">
-            When someone added you into his/her friend's list
-            {{material-switch
-                action='toggleSwitch'
-                name='groupAddMember' isChecked=model.notification.groupAddMember
-                type='success' isPullRight=true}}
-        </li>
-    </ul>
-</div>
-
-</div>
 </div>
