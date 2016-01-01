@@ -88,6 +88,7 @@ Router.map(function () {
       this.route("preference");
       this.route('infinite');
       this.route('browse2');
+      this.route('submit');
     });
 
     this.route("questions", function () {

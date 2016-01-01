@@ -60,7 +60,7 @@
 </div>
 
 <div class="row row-gutter-bottom">
-    <div class="col-xs-12 col-md-10">
+    <div class="col-xs-12 col-md-9">
 
         {{#single-select group="status" btnClassName="btn-cys-secondary" selectedValue=status value="all"}}
             All
@@ -82,10 +82,11 @@
             Timeless
         {{/single-select}}
     </div>
-    <div class="col-xs-12 col-md-2">
+    <div class="col-xs-12 col-md-3">
         {{#if session.isAuthenticated}}
             {{#link-to 'activity.my'}}My Events{{/link-to}} |
         {{/if}}
+        {{#link-to 'activity.submit'}}Submit Event{{/link-to}} |
         {{#link-to 'activity.search'}}Search{{/link-to}}
     </div>
 </div>

@@ -1,0 +1,36 @@
+<div class="row row-gutter-top">
+    <div class="col-xs-12">
+        <ol class="breadcrumb">
+            <li>{{#link-to 'index' class="btn-link"}}Home{{/link-to}}</li>
+            <li><button class="btn-link" {{action "goBack"}}>Events</button></li>
+            <li class="active">Submit Events</li>
+        </ol>
+    </div>
+</div>
+
+<button class='btn btn-default' {{action "goBack" }}>
+    {{fa-icon "arrow-left"}}
+</button>
+
+<div class="row row-gutter-bottom">
+    <div class="col-xs-12">
+        <h1>Submit New Event</h1>
+    </div>
+</div>
+
+<div class="row row-gutter-bottom">
+    <div class="col-xs-8">
+        <label for="lblQDescription">
+            <span class="required">*</span>Please tell us more about this event - brief description or just a web url link is good enough.
+        </label>
+        {{summer-note id="lblQDescription" height=200 btnSize=bs-sm content=model.description focus=true}}
+    </div>
+</div>
+
+
+<div class="row row-gutter-bottom">
+    <div class="col-xs-12">
+        <button class="btn btn-cys" type="button" {{action "submit" }} disabled={{disabled}}>Submit</button>
+        <button type="button" class="btn btn-link" {{action "goBack" }}>Cancel</button>
+    </div>
+</div>

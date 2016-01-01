@@ -9,6 +9,12 @@
 
             {{input-form label="Class Name" value=model.className type="text"}}
 
+            <div class="checkbox">
+                <label>
+                    {{input checked=model.isActive type="checkbox"}} Is Active?
+                </label>
+            </div>
+
             <button {{action 'update' model}} class="btn btn-cys">{{fa-icon 'save'}}</button>
             {{#link-to 'admin.eventSites' class="btn btn-default"}}{{fa-icon "times"}}{{/link-to}}
         </form>

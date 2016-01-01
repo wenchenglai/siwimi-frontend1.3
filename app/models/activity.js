@@ -23,6 +23,7 @@ export default DS.Model.extend({
     createdDate: DS.attr('date'),
     isFavorite: DS.attr('boolean'),
     queryCount: DS.attr('number'),
+    errorCode: DS.attr('number'),
 
     city: DS.attr('string'),
     state: DS.attr('string'),

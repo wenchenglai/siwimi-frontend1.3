@@ -28,7 +28,7 @@
         {{#each model as |member|}}
           <tr>
             <th>{{preview-image width="40" height="40" class="img-responsive img-thumbnail" src=member.availableImage}}</th>
-            <td>{{#link-to 'admin.members.member' member}}{{member.fullName}}{{/link-to}}</td>
+            <td>{{#link-to 'admin.members.member' member.id}}{{member.fullName}}{{/link-to}}</td>
             <td>{{member.email}}</td>
             <td>{{member.password}}</td>
             <td>{{member.facebookId}}</td>
