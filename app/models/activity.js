@@ -24,6 +24,8 @@ export default DS.Model.extend({
     isFavorite: DS.attr('boolean'),
     queryCount: DS.attr('number'),
     errorCode: DS.attr('number'),
+    parser: DS.attr('string'),
+    customData: DS.attr('string'),
 
     city: DS.attr('string'),
     state: DS.attr('string'),

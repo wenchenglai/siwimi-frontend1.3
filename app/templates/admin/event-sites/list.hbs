@@ -17,15 +17,23 @@
         </div>
         <div class="col-xs-12 col-sm-4">
             {{#link-to 'admin.eventSites.edit' site.id}}
-                {{#if site.siteName}}{{site.siteName}}{{else}}NULL{{/if}}
+                {{#if site.siteName}}
+                    {{shorten-string site.siteName}}
+                {{else}}
+                    NULL
+                {{/if}}
             {{/link-to}}
         </div>
         <div class="col-xs-12 col-sm-2">
             {{site.className}}
         </div>
-        <div class="col-xs-12 col-sm-6">
-            <a href={{site.url}} target="_blank">{{site.url}}</a>
+        <div class="col-xs-12 col-sm-5">
+            <a href={{site.url}} target="_blank">{{shorten-string site.url}}</a>
         </div>
-
+        <div class="col-xs-12 col-sm-1">
+            {{#if site.isActive}}
+                Active
+            {{/if}}
+        </div>
     </div>
 {{/each}}

@@ -112,26 +112,31 @@
         <div class="col-xs-12">
             <table class="table table-hover">
                 <thead>
-                <th></th>
-                <th>Title</th>
-                <th>Type</th>
-                <th>From</th>
-                <th>To</th>
-                <th>Location</th>
+                    <th></th>
+                    <th>Title</th>
+                    <th>Type</th>
+                    <th>From</th>
+                    <th>Age</th>
+                    <th>Location</th>
+                    <th>Parser</th>
+                    <th>CustomData</th>
+                    <th></th>
                 </thead>
                 <tbody>
                     {{#each model as |activity|}}
                     <tr>
-                        <th>
+                        <td>
                             {{#link-to 'activity.show' activity.id}}
                                 {{preview-image width="80" height="80" class="img-responsive img-thumbnail" src=activity.availableImage}}
                             {{/link-to}}
-                        </th>
-                        <td>{{activity.title}}</td>
+                        </td>
+                        <td>{{shorten-string activity.title}}</td>
                         <td>{{display-text activity.type allTypes}}</td>
-                        <td>{{formatted-date activity.fromDate 'LL'}}</td>
-                        <td>{{formatted-date activity.toDate 'LL'}}</td>
+                        <td>{{formatted-date activity.fromDate 'l'}}</td>
+                        <td>{{activity.fromAge}}-{{activity.toAge}}</td>
                         <td>{{activity.cityState}}</td>
+                        <td>{{shorten-string activity.parser}}</td>
+                        <td>{{shorten-string activity.customData}}</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="...">
                                 {{#link-to 'activity.edit' activity class="btn btn-default"}}Edit{{/link-to}}
