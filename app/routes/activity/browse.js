@@ -8,6 +8,12 @@ export default Ember.Route.extend({
         type: {
             refreshModel: true
         },
+        ageGroup: {
+            refreshModel: true
+        },
+        isFree: {
+            refreshModel: true
+        },
         pageSize: {
             refreshModel: true
         },
@@ -40,6 +46,8 @@ export default Ember.Route.extend({
                 controller.set('queryCount', totalRecordCount);
             }
         }
+
+        this.send('showNewsletterSignUpBar');
     },
 
     resetController: function (controller, isExiting, transition) {

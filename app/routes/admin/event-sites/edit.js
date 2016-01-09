@@ -11,6 +11,12 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
             eventSite.save().then(() => {
                 this.transitionTo('admin.eventSites');
             });
+        },
+
+        delete(eventSite) {
+            eventSite.destroyRecord().then(() => {
+                this.transitionTo('admin.eventSites');
+            });
         }
     }
 });

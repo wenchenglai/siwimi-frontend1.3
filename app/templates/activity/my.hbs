@@ -9,10 +9,11 @@
 </div>
 
 <div class="row row-gutter-bottom">
-    <div class="col-xs-8">
+    <div class="col-xs-12">
+        {{#link-to 'activity.submit' class="btn btn-cys-new"}}Submit Event{{/link-to}}<br /><br />
+        Or if you want to fill in more data yourself, please
+        {{#link-to 'activity.new' class="btn btn-link"}}Add New Event{{/link-to}}
 
-        {{#link-to 'activity.new' class="btn btn-cys-new"}}Add New Event{{/link-to}}
-        {{#link-to 'activity.submit' class="btn btn-cys-new"}}Submit Event{{/link-to}}
         <h1>My Events</h1>
     </div>
 </div>
@@ -38,8 +39,12 @@
                 All
             {{/single-select}}
 
-            {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="birthday"}}
-                Birthdays
+            {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="animal"}}
+                Animal
+            {{/single-select}}
+
+            {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="art"}}
+                Art
             {{/single-select}}
 
             {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="concert"}}
@@ -50,16 +55,16 @@
                 Farm Activity
             {{/single-select}}
 
-            {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="storytelling"}}
-                Storytelling
-            {{/single-select}}
-
             {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="movie"}}
                 Movies
             {{/single-select}}
 
             {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="museum"}}
                 Museums
+            {{/single-select}}
+
+            {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="parent"}}
+                Parents
             {{/single-select}}
 
             {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="playdate"}}
@@ -70,12 +75,28 @@
                 Festival
             {{/single-select}}
 
+            {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="game"}}
+                Game
+            {{/single-select}}
+
+            {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="science"}}
+                Sci-Tech
+            {{/single-select}}
+
             {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="show"}}
                 Shows
             {{/single-select}}
 
             {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="sport"}}
                 Sports
+            {{/single-select}}
+
+            {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="storytelling"}}
+                Storytelling
+            {{/single-select}}
+
+            {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="zoo"}}
+                Zoo
             {{/single-select}}
 
             {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="misc"}}

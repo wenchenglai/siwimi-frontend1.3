@@ -2,6 +2,8 @@ $primary-control-color: #19B9B5; // #61b2a7;
 $primary-control-color-border: #148C89;
 $primary-control-font-color: #fff;
 
+$secondary-text-color:#9e9ea6;  // use Slack's sub text color
+
 $add-new-color: #c53727;
 
 $secondary-control-color: #736E6E;
@@ -192,6 +194,12 @@ input[type=text]:focus, textarea:focus {
   margin-left: -190px;
   margin-top: -80px;
   z-index: 2001;
+}
+
+/* Text, Font, Typography */
+
+.secondary-text {
+  color: $secondary-text-color;
 }
 
 /*

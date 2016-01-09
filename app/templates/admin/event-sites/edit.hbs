@@ -1,3 +1,4 @@
+{{#link-to 'admin.eventSites' class="btn btn-default"}}{{fa-icon "arrow-left"}}{{/link-to}}
 <div class="row">
     <div class="col-xs-12 col-md-6">
         <h3>Events Parser Site Updates</h3>
@@ -16,7 +17,8 @@
             </div>
 
             <button {{action 'update' model}} class="btn btn-cys">{{fa-icon 'save'}}</button>
-            {{#link-to 'admin.eventSites' class="btn btn-default"}}{{fa-icon "times"}}{{/link-to}}
+            <button {{action 'delete' model}} class="btn btn-cys">{{fa-icon 'trash'}}</button>
+
         </form>
     </div>
 </div>

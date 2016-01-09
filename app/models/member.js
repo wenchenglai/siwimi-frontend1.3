@@ -16,6 +16,7 @@ export default DS.Model.extend({
     avatarUrl: DS.attr('string'),
     imageData: DS.attr('string'),
     family: DS.belongsTo('family', { async: true }),
+    createdDate: DS.attr('date'),
 
     facebookId: DS.attr('string'),
     highSchool: DS.attr('string'),

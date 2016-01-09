@@ -21,6 +21,7 @@ export default Ember.Route.extend({
 
         submit: function () {
             var self = this,
+                userId = self.get('session.secure.id'),
                 model = self.currentModel;
 
             self.controller.set('isDisabled', true);
@@ -43,7 +44,14 @@ export default Ember.Route.extend({
                 self.controller.set('isDisabled', false);
             };
 
-            model.save().then(onSuccess, onFail);
+            if (userId) {
+                self.store.findRecord('member', userId).then(function(user) {
+                    model.set('creator', user);
+                    model.save().then(onSuccess, onFail);
+                });
+            } else {
+                model.save().then(onSuccess, onFail);
+            }
         }
     }
 });

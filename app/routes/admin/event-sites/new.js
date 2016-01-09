@@ -13,7 +13,8 @@ export default Ember.Route.extend({
             var self = this,
                 model = self.currentModel;
 
-            model.save().then(() => {
+            model.save().then((record) => {
+                self.store.unloadRecord(record);
                 this.transitionTo('admin.eventSites.list');
             });
         }

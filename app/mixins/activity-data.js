@@ -2,24 +2,40 @@ import Ember from 'ember';
 
 export default Ember.Mixin.create({
     allTypes: [
-        { value: "birthday", text: "Birthdays"},
+        { value: "all", text: "All"},
+        { value: "animal", text: "Animal" },
+        { value: "art", text: "Art" },
         { value: "concert", text: "Concerts" },
-        { value: "farm", text: "Farm Activity" }, 
-        { value: "storytelling", text: "Storytelling" }, 
+        { value: "farm", text: "Farm Activity" },
+        { value: "festival", text: "Festival" },
+        { value: "game", text: "Game" },
         { value: "movie", text: "Movies" }, 
-        { value: "museum", text: "Museums" }, 
-        { value: "playdate", text: "Play Dates" }, 
-        { value: "festival", text: "Festival" }, 
+        { value: "museum", text: "Museums" },
+        { value: "parent", text: "Parents" },
+        { value: "playdate", text: "Play Dates" },
+        { value: "science", text: "Sci-Tech" },
         { value: "show", text: "Shows" }, 
         { value: "sport", text: "Sports"},
+        { value: "storytelling", text: "Storytelling" },
+        { value: "zoo", text: "Zoo" },
         { value: "misc", text: "Misc"}
     ],
 
     allStatus: [
+        { text: "All", value: "all" },
         { text: "Current", value: "current" },
         { text: "Upcoming", value: "upcoming" },
         { text: "Past", value: "past" },
         { text: "Timeless", value: "timeless" }
+    ],
+
+    allAgeGroups: [
+        { value: "all", text: "All"},
+        { value: "infant", text: "Infant"},
+        { value: "toddler", text: "Toddler" },
+        { value: "pre-school", text: "Pre-school" },
+        { value: "school-age", text: "School Age Kids" },
+        { value: "pre-teen", text: "Pre-teen" }
     ],
 
     allPeriods: [

@@ -26,6 +26,7 @@ export default DS.Model.extend({
     errorCode: DS.attr('number'),
     parser: DS.attr('string'),
     customData: DS.attr('string'),
+    stage: DS.attr('string'),
 
     city: DS.attr('string'),
     state: DS.attr('string'),

@@ -13,6 +13,8 @@ Ember.Controller.extend(StatesDataMixin, {
     activeTab: "",
     isShowingModal: false,
     showDarkBackgroundForAlertBox: false,
+    showNewsletterSignUp: false,
+    showNewsletterCounter: 0,
 
     getCurrentPath: function () {
         // This is called after a route's loading is done.
@@ -204,10 +206,32 @@ Ember.Controller.extend(StatesDataMixin, {
         self.set('alertType', type);
     },
 
+    _toggleNewsletterSignUpAlert: function (flag) {
+        /*
+         Possible alert types from bootstrap
+         alert-success (green)
+         alert-info (blue)
+         alert-warning (yellow)
+         alert-danger (red)
+         */
+
+        var self = this,
+            isAuth = self.get('session.isAuthenticated');
+
+        if (flag && Ember.isEmpty(isAuth)){
+            //self.set('showNewsletterSignUp', flag);
+        }
+    },
+
     actions: {
         closeAlert: function () {
             var self = this;
             self._toggleAlert(false);
+        },
+
+        closeNewsletterSignUpAlert: function () {
+            var self = this;
+            self._toggleNewsletterSignUpAlert(false);
         },
 
         toggleModal: function(){

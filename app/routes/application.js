@@ -55,6 +55,29 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
             self.controller._toggleAlert(true, data.title, data.message, data.type);
         },
 
+        showNewsletterSignUpBar: function() {
+            var self = this;
+
+            self.controller._toggleNewsletterSignUpAlert(true);
+        },
+
+        signUpNewsletter: function(email) {
+            debugger;
+            var self = this,
+                session = self.get('session'),
+                model = self.store.createRecord('member', {
+                city: session.get('baseCity'),
+                state: session.get('baseState'),
+                zipCode: session.get('zipCode'),
+                isUser: false,
+                isDestroyed: false,
+                createdDate: new Date()});
+
+            model.save();
+
+            self.controller._toggleNewsletterSignUpAlert(false);
+        },
+
         willTransition: function (transition) {
             var self = this;
 

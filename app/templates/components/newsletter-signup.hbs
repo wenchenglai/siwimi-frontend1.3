@@ -1,0 +1,9 @@
+<div class="alert alert-info" role="alert">
+    <button type="button" class="close" {{ action 'closeAlert' }} aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong>Sign Up Our Newsletter!</strong>&nbsp;
+    <span>
+        {{input class="edit_box" size="35" value=email}}
+        <button type="button" class="btn btn-cys" {{action "signUp" }} {{bind-attr disabled=disabled}}>Sign Up</button>
+    </span>
+    We'll notify you new events directly to your email inbox.
+</div>

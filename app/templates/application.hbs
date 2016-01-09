@@ -185,6 +185,11 @@
             {{alert-bar title=alertTitle message=alertMessage type=alertType closeAlert="closeAlert" }}
         </div>
     </div>
+    <div {{bind-attr class=":row :alert-box showNewsletterSignUp::collapse" }}>
+        <div class="col-xs-12">
+            {{newsletter-signup closeAlert="closeNewsletterSignUpAlert" signUp="signUpNewsletter" }}
+        </div>
+    </div>
     {{outlet}}
     {{outlet "modal"}}
 </div>

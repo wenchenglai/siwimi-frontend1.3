@@ -1,30 +1,35 @@
-<div class="container">
-  <br>
-  <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6">
-    <div class="panel panel-default">
-      <div class="panel-heading center"><label>Member: &nbsp;{{model.fullName}}</label></div>
-        <div class="panel-body">
-          <div>
-            {{model.fullName}}
-          </div>
-          <div>
-            {{model.email}}
-          </div>
-          <div>
-            {{model.fullAddress}}
-          </div>
-          <hr>
-          <div class="buttons">
-            {{#link-to 'admin.members.edit' model.id class='btn btn-cys'}}
-            {{fa-icon "pencil"}}{{/link-to}}
-            <button {{action 'deleteMember' model}} class='btn btn-cys'> {{fa-icon "trash"}}</button>
-            {{#link-to 'admin.members' class="btn btn-default pull-right"}}{{fa-icon "times"}}{{/link-to}}
-          </div>
-      </div>
+<div class="row">
+    <div class="col-xs-12">
+        {{#link-to 'admin.members' class="btn btn-cys"}}{{fa-icon "arrow-left"}}{{/link-to}}
     </div>
-  </div>
 </div>
-{{outlet}}
+<div class="row">
+    <div class="col-xs-12 col-sm-8 col-md-6 col-lg-6">
+
+        <div class="panel panel-default">
+            <div class="panel-heading center"><label>Member: &nbsp;{{model.fullName}}</label></div>
+            <div class="panel-body">
+                <div>
+                    {{model.fullName}}
+                </div>
+                <div>
+                    {{model.email}}
+                </div>
+                <div>
+                    {{model.fullAddress}}
+                </div>
+                <hr>
+                <div class="buttons">
+                    {{#link-to 'admin.members.edit' model.id class='btn btn-cys'}}
+                        {{fa-icon "pencil"}}{{/link-to}}
+                    <button {{action 'deleteMember' model}} class='btn btn-cys'> {{fa-icon "trash"}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 
 
