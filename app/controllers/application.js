@@ -207,20 +207,17 @@ Ember.Controller.extend(StatesDataMixin, {
     },
 
     _toggleNewsletterSignUpAlert: function (flag) {
-        /*
-         Possible alert types from bootstrap
-         alert-success (green)
-         alert-info (blue)
-         alert-warning (yellow)
-         alert-danger (red)
-         */
-
         var self = this,
             isAuth = self.get('session.isAuthenticated');
 
-        if (flag && Ember.isEmpty(isAuth)){
-            //self.set('showNewsletterSignUp', flag);
-        }
+        //if (flag && !isAuth){
+        //    if (self.get('showNewsletterCounter') < 1) {
+        //        self.incrementProperty('showNewsletterCounter');
+        //        self.set('showNewsletterSignUp', flag);
+        //    }
+        //} else {
+        //    self.set('showNewsletterSignUp', false)
+        //}
     },
 
     actions: {

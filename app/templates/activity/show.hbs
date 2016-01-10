@@ -13,6 +13,10 @@
     </div>
 </div>
 
+<button class='btn btn-default' {{action "goBack" }}>
+    {{fa-icon "arrow-left"}}
+</button>
+
 <div class="row row-gutter-bottom">
     <div class="col-xs-12">
         <h1>{{model.activity.title}} {{facebook-share data-href=currentUrl data-layout="button"}}

@@ -45,6 +45,7 @@ export default Ember.Route.extend(UnauthenticatedRouteMixin, SessionSetupMixin, 
                         isUser: true,
                         isInSignUpProcess: true,
                         isConfirmedMember: newMemberId ? true : false,
+                        privilege: 1,
                         city: appController.get('baseCity'),
                         state: appController.get('baseState')
                     });

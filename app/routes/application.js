@@ -66,12 +66,15 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
             var self = this,
                 session = self.get('session'),
                 model = self.store.createRecord('member', {
-                city: session.get('baseCity'),
-                state: session.get('baseState'),
-                zipCode: session.get('zipCode'),
-                isUser: false,
-                isDestroyed: false,
-                createdDate: new Date()});
+                    email: email,
+                    privilege: 0, //anonymous user
+                    city: session.get('baseCity'),
+                    state: session.get('baseState'),
+                    zipCode: session.get('zipCode'),
+                    isUser: false,
+                    isDestroyed: false,
+                    createdDate: new Date()}
+                );
 
             model.save();
 
