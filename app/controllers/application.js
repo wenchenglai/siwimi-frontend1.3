@@ -210,14 +210,14 @@ Ember.Controller.extend(StatesDataMixin, {
         var self = this,
             isAuth = self.get('session.isAuthenticated');
 
-        //if (flag && !isAuth){
-        //    if (self.get('showNewsletterCounter') < 1) {
-        //        self.incrementProperty('showNewsletterCounter');
-        //        self.set('showNewsletterSignUp', flag);
-        //    }
-        //} else {
-        //    self.set('showNewsletterSignUp', false)
-        //}
+        if (flag && !isAuth){
+            if (self.get('showNewsletterCounter') < 1) {
+                self.incrementProperty('showNewsletterCounter');
+                self.set('showNewsletterSignUp', flag);
+            }
+        } else {
+            self.set('showNewsletterSignUp', false)
+        }
     },
 
     actions: {

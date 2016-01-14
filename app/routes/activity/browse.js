@@ -5,18 +5,27 @@ export default Ember.Route.extend({
         status: {
             refreshModel: true
         },
+
         type: {
             refreshModel: true
         },
+
+        distance: {
+            refreshModel: true
+        },
+
         ageGroup: {
             refreshModel: true
         },
+
         isFree: {
             refreshModel: true
         },
+
         pageSize: {
             refreshModel: true
         },
+
         pageNumber: {
             refreshModel: true
         }
@@ -54,6 +63,20 @@ export default Ember.Route.extend({
         if (isExiting) {
             // isExiting would be false if only the route's model was changing
             controller.set('pageNumber', 1);
+        }
+    },
+
+    actions: {
+        error: function(error, transition) {
+            this.send('error', error);
+            //debugger;
+            //if (error && error.status === 400) {
+            //    // error substate and parent routes do not handle this error
+            //    return this.transitionTo('modelNotFound');
+            //}
+            //
+            //// Return true to bubble this event to any parent route.
+            //return true;
         }
     }
 });

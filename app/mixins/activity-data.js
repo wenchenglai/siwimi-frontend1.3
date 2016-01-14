@@ -29,6 +29,15 @@ export default Ember.Mixin.create({
         { text: "Timeless", value: "timeless" }
     ],
 
+    allDistances: [
+        { value: "all", text: 'All'},
+        { value: "10", text: '10 miles'},
+        { value: "20", text: '20 miles'},
+        { value: "30", text: '30 miles'},
+        { value: "50", text: '50 miles'},
+        { value: "100", text: '100 miles'}
+    ],
+
     allAgeGroups: [
         { value: "all", text: "All"},
         { value: "infant", text: "Infant"},
@@ -36,6 +45,12 @@ export default Ember.Mixin.create({
         { value: "pre-school", text: "Pre-school" },
         { value: "school-age", text: "School Age Kids" },
         { value: "pre-teen", text: "Pre-teen" }
+    ],
+
+    allLifeStages: [
+        { value: "Submitted", text: 'Submitted'},
+        { value: "Approved", text: 'Approved'},
+        { value: "Rejected", text: 'Rejected'}
     ],
 
     allPeriods: [

@@ -30,9 +30,6 @@
 
 
 {{#if model}}
-
-
-
     <div class="row row-gutter-bottom">
         <div class="col-xs-12">
             {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="all"}}
@@ -141,27 +138,34 @@
                     <th>Location</th>
                     <th>Parser</th>
                     <th>CustomData</th>
+                    <th>Stage</th>
                     <th></th>
                 </thead>
                 <tbody>
-                    {{#each model as |activity|}}
+                    {{#each model as |event|}}
                     <tr>
                         <td>
-                            {{#link-to 'activity.show' activity.id}}
-                                {{preview-image width="80" height="80" class="img-responsive img-thumbnail" src=activity.availableImage}}
+                            {{#link-to 'activity.show' event.id}}
+                                {{preview-image width="80" height="80" class="img-responsive img-thumbnail" src=event.availableImage}}
                             {{/link-to}}
                         </td>
-                        <td>{{shorten-string activity.title}}</td>
-                        <td>{{display-text activity.type allTypes}}</td>
-                        <td>{{formatted-date activity.fromDate 'l'}}</td>
-                        <td>{{activity.fromAge}}-{{activity.toAge}}</td>
-                        <td>{{activity.cityState}}</td>
-                        <td>{{shorten-string activity.parser}}</td>
-                        <td>{{shorten-string activity.customData}}</td>
+                        <td>{{shorten-string event.title}}</td>
+                        <td>{{display-text event.type allTypes}}</td>
+                        <td>{{formatted-date event.fromDate 'l'}}</td>
+                        <td>{{event.fromAge}}-{{event.toAge}}</td>
+                        <td>{{event.cityState}}</td>
+                        <td>{{shorten-string event.parser}}</td>
+                        <td>{{shorten-string event.customData}}</td>
+                        <td>{{event.stage}}</td>
                         <td>
                             <div class="btn-group" role="group" aria-label="...">
-                                {{#link-to 'activity.edit' activity class="btn btn-default"}}Edit{{/link-to}}
-                                <button type="button" class="btn btn-default" {{action 'openDeleteDialog' activity.id target="view" bubbles="false" }}>Delete</button>
+                                {{#link-to 'activity.edit' event class="btn btn-default"}}{{fa-icon "pencil"}}{{/link-to}}
+                                <button type="button" class="btn btn-default" {{action 'openDeleteDialog' event.id target="view" bubbles="false" }}>{{fa-icon "trash"}}</button>
+                                {{#if (eq-op event.stage "Approved") }}
+                                    <button type="button" class="btn btn-default" {{action 'changeEventLife' event "Rejected" }}>Reject</button>
+                                {{else if (eq-op event.stage "Rejected") }}
+                                    <button type="button" class="btn btn-default" {{action 'changeEventLife' event "Approved" }}>Approve</button>
+                                {{/if }}
                             </div>
                         </td>
                     </tr>

@@ -124,6 +124,17 @@
         {{input class="edit_box form-control" value=model.zipCode}}
     </div>
 </div>
+
+<hr>
+
+<div class="row row-gutter-bottom">
+    <div class="col-xs-12 col-md-1">
+        <label>Life Stage:</label>
+    </div>
+    <div class="col-xs-12 col-md-2">
+        {{view "select" class="btn btn-default dropdown-toggle" value=model.stage content=allLifeStages optionValuePath="content.value" optionLabelPath="content.text" }}
+    </div>
+</div>
 <div class="row row-gutter-bottom">
     <div class="col-xs-12 col-xs-offset-2 col-md-6 col-md-offset-1">
         <button type="button" class="btn btn-cys" {{action "save" }} {{bind-attr disabled=disabled}}>Save</button>

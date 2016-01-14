@@ -51,7 +51,7 @@ export default Ember.Route.extend({
             var self = this,
                 previousURL = self.controllerFor('application').get('previousURL');
 
-            if (previousURL.indexOf("/activity/browse") > -1) {
+            if (!Ember.isEmpty(previousURL) && previousURL.indexOf("/activity/browse") > -1) {
                 history.back();
             } else {
                 self.transitionTo('activity.browse');

@@ -59,7 +59,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
             var self = this,
                 previousURL = self.controllerFor('application').get('previousURL');
 
-            if (previousURL.indexOf("/activity/browse") > -1) {
+            if (!Ember.isEmpty(previousURL) && previousURL.indexOf("/activity/browse") > -1) {
                 history.back();
             } else {
                 self.transitionTo('activity.browse');
@@ -71,6 +71,14 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
             this.store.findRecord('activity', id).then(function (record) {
                 record.destroyRecord();
             });
+        },
+
+        changeEventLife: function(event, newStage) {
+            debugger;
+            if (!Ember.isEmpty(newStage)) {
+                event.set('stage', newStage);
+                event.save();
+            }
         }
     }
 });
