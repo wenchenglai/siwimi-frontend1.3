@@ -213,8 +213,13 @@ input[type="radio"] {
   background-color: $primary-control-color;
 }
 
-.main-content {
+.browse-main-list {
     background-color: #f0f1f6
+}
+
+.list-group-item-cys {
+    background-color:#f0f1f6;
+    border: 0;
 }
 
 .unlink:hover {

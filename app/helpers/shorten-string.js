@@ -4,7 +4,7 @@ export function shortenString(input, size) {
     if (input) {
         var default_size = 40;
 
-        if (!size) {
+        if (size) {
             default_size = size;
         }
         if (input.length > default_size) {

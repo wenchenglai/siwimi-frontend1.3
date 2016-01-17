@@ -62,7 +62,7 @@ export default Ember.Route.extend(UnauthenticatedRouteMixin, SessionSetupMixin, 
                             self.transitionTo('index', {queryParams: {
                                 showAlert: true,
                                 title: 'Sign Up',
-                                message: 'Thanks for signing up.  Please check your email for confirmation.  You might need to check your Spam inbox.',
+                                message: 'Thanks for signing up.  Please check your email for confirmation.  You might need to check your spam email inbox.',
                                 type: 'alert-info'
                             }});
                         }

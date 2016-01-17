@@ -79,6 +79,7 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
             model.save();
 
             self.controller._toggleNewsletterSignUpAlert(false);
+            self.controller._toggleAlert(true, "Success", "Thank you for subscribing.  Please check your email inbox to confirm.", 'alert-info');
         },
 
         willTransition: function (transition) {

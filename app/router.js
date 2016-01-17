@@ -111,6 +111,7 @@ Router.map(function () {
       this.route('signup');
       this.route('signup2', {path: 'member/:id/signup2'});
       this.route('getconfirmation', {path: 'getconfirmation/:id'});
+      this.route('newsletterSignUp');
     });
 
     this.route('feeds', function() {

@@ -12,7 +12,7 @@ export default Ember.Route.extend({
             self.transitionTo('index', {queryParams: {
                 showAlert: true,
                 title: 'Sign Up',
-                message: "We've resent the confirmation email to your inbox.  You might need to check your junk inbox.",
+                message: "We've resent the confirmation email to your inbox.  You might need to check your junk mail inbox.",
                 type: 'alert-info'
             }});
         }
