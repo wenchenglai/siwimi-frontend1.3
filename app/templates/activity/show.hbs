@@ -33,7 +33,7 @@
             <div class="row row-gutter-bottom">
                 <div class="col-xs-12">
                     <h4>
-                        <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
                         {{formatted-date model.activity.fromDateMoment 'dddd'}},
                         {{formatted-date model.activity.fromDate 'LL'}}
                         {{#if model.activity.toDate}}
@@ -42,19 +42,20 @@
                             {{formatted-date model.activity.toDate 'LL'}}
                         {{/if}}
                     </h4>
-                    <p>
+                    <h4>
                         {{#if model.activity.fromTime}}
-                            <small>
+                            <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+
                                 {{model.activity.fromTime}}
-                            </small>
+
                         {{/if}}
                         {{#if model.activity.toTime}}
-                            <small>
+
                                 to {{model.activity.toTime}}
-                            </small>
+
                         {{/if}}
 
-                    </p>
+                    </h4>
                 </div>
             </div>
         {{/if}}

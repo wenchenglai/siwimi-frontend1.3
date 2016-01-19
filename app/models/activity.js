@@ -1,5 +1,6 @@
 import DS from 'ember-data';
 import Ember from 'ember';
+import ENV from '../config/environment';
 
 export default DS.Model.extend({
     creator: DS.belongsTo('member'),
@@ -69,10 +70,17 @@ export default DS.Model.extend({
     }),
 
     availableImage: function() {
-        if (!Em.isEmpty(this.get('imageData'))) {
+        //if (!Em.isEmpty(this.get('imageData'))) {
+        //    return this.get('imageData');
+        //} else {
+        //    return '/assets/images/placeholder-events.jpg';
+        //}
+
+        if (!Em.isEmpty(this.get('imageUrl'))) {
+            //return this.get('imageUrl');
+            return ENV.eventImagePath + this.get('imageUrl');
+        } else if (!Em.isEmpty(this.get('imageData'))) {
             return this.get('imageData');
-        } else if (!Em.isEmpty(this.get('imageUrl'))) {
-            return this.get('imageUrl');
         } else {
             return '/assets/images/placeholder-events.jpg';
         }
