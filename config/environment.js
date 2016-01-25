@@ -65,7 +65,7 @@ module.exports = function(environment) {
         ENV.apiHost = 'http://54.175.121.3/siwimi-webapi-0.0.1';
         ENV.facebookAppId = '290368724455193';
         ENV.facebookGraphAPIVersion = 'v2.5';
-        ENV.eventImagePath = 'http://54.175.121.3/';
+        ENV.eventImagePath = 'http://54.175.121.3';
     }
 
     return ENV;
