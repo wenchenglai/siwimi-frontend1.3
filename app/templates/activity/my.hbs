@@ -146,7 +146,7 @@
                     <tr>
                         <td>
                             {{#link-to 'activity.show' event.id}}
-                                {{preview-image width="80" height="80" class="img-responsive img-thumbnail" src=event.availableImage}}
+                                <img width="80" height="80" class="img-thumbnail img-responsive" src={{event.availableImage}}>
                             {{/link-to}}
                         </td>
                         <td>{{shorten-string event.title}}</td>

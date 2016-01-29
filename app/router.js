@@ -130,6 +130,11 @@ Router.map(function () {
         this.route('new');
         this.route('detail');
       });
+
+      this.route('events', function() {
+        this.route('list');
+      });
+
     });
 });
 

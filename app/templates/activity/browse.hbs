@@ -166,7 +166,12 @@
                     </div>--}}
                     <div class="col-xs-12 col-sm-12 col-md-2">
                         {{#link-to 'activity.show' event.id}}
-                            {{preview-image width="200" height="200" class="img-thumbnail img-responsive" src=event.availableImage}}
+                            {{!--
+                            {{preview-image width="200" height="200" class="img-thumbnail img-responsive test" src=event.availableImage
+                            onerror="this.src = '/assets/images/placeholder-events-daa9a49dd27a4a00426eccdf06bc9f20.jpg';"
+                            }}--}}
+                            <img width="200" height="200" class="img-thumbnail img-responsive" src={{event.availableImage}}
+                                 onerror="this.src = '/assets/images/placeholder-events-daa9a49dd27a4a00426eccdf06bc9f20.jpg';">
                         {{/link-to}}
                     </div>
                     <div class="col-xs-12 col-md-4">

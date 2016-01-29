@@ -26,7 +26,8 @@
 
 <div class="row row-gutter-bottom">
     <div class="col-xs-12 col-md-3">
-        <img width="300" height="300" class="img-responsive img-rounded" src={{model.activity.availableImage}}>
+        <img width="300" height="300" class="img-responsive img-rounded" onerror="this.src = '/assets/images/placeholder-events-daa9a49dd27a4a00426eccdf06bc9f20.jpg';"
+             src={{model.activity.availableImage}}>
     </div>
     <div class="col-xs-12 col-md-9">
         {{#if model.activity.fromDate}}
