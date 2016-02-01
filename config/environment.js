@@ -42,7 +42,7 @@ module.exports = function(environment) {
         //ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
         //ENV.APP.LOG_VIEW_LOOKUPS = true;
         ENV.apiHost = 'http://localhost:8080';
-        ENV.facebookAppId = '343069969185068';
+        ENV.facebookAppId = '554936624665067';
         ENV.facebookGraphAPIVersion = 'v2.5';
         ENV.eventImagePath = 'http://localhost:8080/';
     }
