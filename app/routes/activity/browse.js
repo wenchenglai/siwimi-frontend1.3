@@ -2,6 +2,10 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
     queryParams: {
+        period: {
+            refreshModel: true
+        },
+
         status: {
             refreshModel: true
         },
@@ -77,6 +81,33 @@ export default Ember.Route.extend({
             //
             //// Return true to bubble this event to any parent route.
             //return true;
+        },
+
+        search: function () {
+            debugger;
+            var self = this,
+                appController = self.controllerFor('application'),
+                controller = self.controller,
+                userId = self.get('session.secure.id'),
+                query = {
+                    requester: userId,
+                    queryText: controller.get('queryText'),
+                    distance: controller.get('distance'),
+                    period: controller.get('period'),
+                    type: controller.get('type'),
+                    ageGroup: controller.get('ageGroup'),
+                    isFree: controller.get('isFree'),
+                    pageNumber: controller.get('pageNumber'),
+                    pageSize: controller.get('pageSize'),
+                    longitude: appController.get('baseLongitude'),
+                    latitude: appController.get('baseLatitude')
+                };
+
+            self.store.query('activity', query).then(function(records) {
+                self.controller.set('model', records);
+            }, function(error) {
+                self.send('error', error);
+            });
         }
     }
 });
