@@ -17,7 +17,6 @@ export default DS.Model.extend({
     imageData: DS.attr('string'),
     family: DS.belongsTo('family', { async: true }),
     createdDate: DS.attr('date'),
-
     facebookId: DS.attr('string'),
     highSchool: DS.attr('string'),
     college: DS.attr('string'),
@@ -33,18 +32,14 @@ export default DS.Model.extend({
     // by default, this is 0.  256 is Admin
     // 0: Anonymous User, 1: User, 2: Super User, 4: Content Editor, 8: Reserved, 16: Reserved, 32: Reserved, 64: Reserved, 128: Reserved, 256: Admin
     privilege: DS.attr('number'),
+    numtest: DS.attr('number'),
 
     // used to see if current user is considered a regular user with confirmed account.
     // TODO: might be able to merge this field to the above privilege
     isUser: DS.attr('boolean'),
 
-    // TODO: role should be merged with the privilege field, privilege better reflects the application authroization level, while role could be used for Father, Mother etc
-    // authorization [admin, user, anonymous]
-    role: DS.attr('string'),
-
-    isAdmin: Ember.computed('role', function() {
-        //return this.get('role') === "admin" ? true : false;
-        return this.get('privilege') === ADMIN ? true : false;
+    isAdmin: Ember.computed('privilege', function() {
+        return this.get('privilege') === ADMIN;
     }),
 
     // sign up process

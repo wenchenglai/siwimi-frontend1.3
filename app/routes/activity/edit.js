@@ -29,13 +29,10 @@ export default Ember.Route.extend({
                 model = self.currentModel,
                 userId = self.get('session.secure.id');
 
-            self.store.find('member', userId).then(function(user) {
-                if (Ember.isEmpty(model.get('creator'))) {
-                    model.set('creator', user);
-                }
-
+            self.store.findRecord('member', userId).then(function(user) {
                 model.save().then(function(obj) {
-                    self.transitionTo('activity.show', obj);
+                    //self.transitionTo('activity.show', obj.get('id'));
+                    self.transitionTo('admin.events.list')
                 });
             });
         },

@@ -19,9 +19,28 @@
 
             {{input-form label="Zip Code" value=model.zipCode type="text" id="zipCode"}}
 
-            {{input-form label="Registration Date" value=model.created type="text" id="registrationDate"}}
+            {{input-form label="Created Date" value=model.created type="text" id="createdDate"}}
 
-            {{input-form label="Privilege" value=model.privilege type="text" id="privilege"}}
+            {{!--
+            <div class="form-group">
+                <label>
+                    Created Date
+                </label>
+
+                {{bs-datetimepicker date=model.created format='YYYY-MM-DD'}}
+
+            </div>--}}
+
+            {{!--         {{input-form label="Number Test" value=model.privilege type="text" id="numTest"}} --}}
+
+             <div class="form-group">
+                 <label for="privilege">
+                     Privilege
+                 </label>
+
+                 {{view "select" value=model.privilege content=allPrivileges class="btn btn-default dropdown-toggle form-control" optionValuePath="content.value" optionLabelPath="content.text"}}
+
+             </div>
 
             <div class="checkbox">
                 <label>
