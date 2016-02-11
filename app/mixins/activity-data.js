@@ -57,7 +57,8 @@ export default Ember.Mixin.create({
         { value: "all", text: 'All'},
         { value: "weekend", text: 'This weekend'},
         { value: "3days", text: 'Next 3 days'},
-        { value: "week", text: 'Next week'}
+        { value: "week", text: 'Next week'},
+        { value: "past", text: 'Past'}
     ],
 
     allTimes: [
