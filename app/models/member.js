@@ -32,15 +32,7 @@ export default DS.Model.extend({
     // by default, this is 0.  256 is Admin
     // 0: Anonymous User, 1: User, 2: Super User, 4: Content Editor, 8: Reserved, 16: Reserved, 32: Reserved, 64: Reserved, 128: Reserved, 256: Admin
     privilege: DS.attr('number'),
-    numtest: DS.attr('number'),
-
-    // used to see if current user is considered a regular user with confirmed account.
-    // TODO: might be able to merge this field to the above privilege
-    isUser: DS.attr('boolean'),
-
-    isAdmin: Ember.computed('privilege', function() {
-        return this.get('privilege') === ADMIN;
-    }),
+    isUser: DS.attr('boolean'), // is this record a real user in the world, or just a profile (e.g. kid, which technically cannot use our site yet)
 
     // sign up process
     isConfirmedMember: DS.attr('boolean'),

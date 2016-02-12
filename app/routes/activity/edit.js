@@ -38,7 +38,13 @@ export default Ember.Route.extend({
         },
 
         cancel: function() {
-            this.transitionTo('activity.my');
+            var model = this.currentModel;
+
+            if (model.get('hasDirtyAttributes')) {
+                model.rollback();
+            }
+
+            history.back();
         }
     }
 });

@@ -1,11 +1,25 @@
 <div class="row row-gutter-bottom">
     <div class="col-xs-12 col-sm-2">
         <label>
+            Time:
+        </label>
+        {{view "select" value=period content=allPeriods class="btn btn-default dropdown-toggle" optionValuePath="content.value" optionLabelPath="content.text"}}
+    </div>
+    <div class="col-xs-12 col-sm-2">
+        <label>
             Type:
         </label>
         {{view "select" value=type content=allTypes class="btn btn-default dropdown-toggle" optionValuePath="content.value" optionLabelPath="content.text"}}
 
     </div>
+
+    <div class="col-xs-12 col-sm-2">
+        <label>
+            Distance:
+        </label>
+        {{view "select" value=distance content=allDistances class="btn btn-default dropdown-toggle" optionValuePath="content.value" optionLabelPath="content.text"}}
+    </div>
+
     <div class="col-xs-12 col-sm-3">
         <label>
             Age Group:
@@ -13,19 +27,12 @@
         {{view "select" value=ageGroup content=allAgeGroups class="btn btn-default dropdown-toggle" optionValuePath="content.value" optionLabelPath="content.text"}}
 
     </div>
-    <div class="col-xs-12 col-sm-2">
-        <label>
-            Distance:
-        </label>
-        {{view "select" value=distance content=allDistances class="btn btn-default dropdown-toggle" optionValuePath="content.value" optionLabelPath="content.text"}}
-    </div>
-    <div class="col-xs-12 col-sm-2">
+    {{!--<div class="col-xs-12 col-sm-2">
         <label>
             Status:
         </label>
         {{view "select" value=status content=allStatus class="btn btn-default dropdown-toggle" optionValuePath="content.value" optionLabelPath="content.text"}}
-
-    </div>
+    </div>--}}
 
 
     <div class="col-xs-12 col-sm-2">

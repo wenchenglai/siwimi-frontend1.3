@@ -55,6 +55,7 @@ export default Base.extend({
                         flocale: fbUser.locale,
                         flocation: fbUser.location ? fbUser.location.name : '',
                         ftimezone: fbUser.timezone,
+                        privilege: 1,
                         isUser: true,
                         city: appController.get('baseCity'),
                         state: appController.get('baseState'),

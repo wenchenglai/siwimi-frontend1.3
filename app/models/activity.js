@@ -15,6 +15,7 @@ export default DS.Model.extend({
     url: DS.attr('string'),
     imageData: DS.attr('string'),
     imageUrl: DS.attr('string'),
+    imagePath: DS.attr('string'),
     type: DS.attr('string'),
     like: DS.attr('number'),
     viewCount: DS.attr('number'),
@@ -27,7 +28,7 @@ export default DS.Model.extend({
     errorCode: DS.attr('number'),
     parser: DS.attr('string'),
     customData: DS.attr('string'),
-    stage: DS.attr('string'),
+    stage: DS.attr('string'), // Submitted, Approved, Rejected
 
     city: DS.attr('string'),
     state: DS.attr('string'),
@@ -70,21 +71,23 @@ export default DS.Model.extend({
     }),
 
     availableImage: function() {
-        //if (!Em.isEmpty(this.get('imageData'))) {
-        //    return this.get('imageData');
-        //} else {
-        //    return '/assets/images/placeholder-events.jpg';
-        //}
+        var url = this.get('imageUrl'),
+            path = this.get('imagePath'),
+            data = this.get('imageData');
 
-        if (!Em.isEmpty(this.get('imageUrl'))) {
-            //return this.get('imageUrl');
-            return ENV.eventImagePath + this.get('imageUrl');
-        } else if (!Em.isEmpty(this.get('imageData'))) {
+        if (!Ember.isEmpty(path)) {
+            return ENV.eventImagePath + path;
+
+        } else if (!Em.isEmpty(data)) {
             return this.get('imageData');
+
+        } else if (!Ember.isEmpty(url)) {
+            return url;
+
         } else {
             return '/assets/images/placeholder-events.jpg';
         }
-    }.property('imageUrl', 'imageData'),
+    }.property('imageUrl', 'imageData', 'imagePath'),
 
     cityState: function() {
         return this.get('city') + ', ' + this.get('state');

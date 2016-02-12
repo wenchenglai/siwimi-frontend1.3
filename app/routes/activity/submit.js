@@ -28,6 +28,7 @@ export default Ember.Route.extend({
 
             model.set('isDeletedRecord', false);
             model.set('createdDate', new Date());
+            model.set('stage', "Submitted")
             model.set('errorCode', 7); // 7 means missing title + missing date
 
             var onSuccess = function (obj) {

@@ -7,8 +7,7 @@
             {{#if session.isAuthenticated}}
                 {{#link-to 'activity.my'}}My Events{{/link-to}} |
             {{/if}}
-            {{#link-to 'activity.submit'}}Submit Event{{/link-to}} |
-            {{#link-to 'activity.search'}}Search{{/link-to}}
+            {{#link-to 'activity.submit'}}Submit Event{{/link-to}}
             {{!-- <button {{action 'changeView'}} class="btn btn-link">Change to {{#if isTabletView}}Desktop{{else}}Tablet{{/if}} View</button> --}}
         </div>
 
@@ -16,100 +15,6 @@
 </div>
 
 <div class="row row-gutter-bottom">
-    {{#if isTabletView}}
-        <div class="col-xs-12">
-
-            {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="all"}}
-                All
-            {{/single-select}}
-
-            {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="animal"}}
-                Animal
-            {{/single-select}}
-
-            {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="art"}}
-                Art
-            {{/single-select}}
-
-            {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="concert"}}
-                Concerts
-            {{/single-select}}
-
-            {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="farm"}}
-                Farm Activity
-            {{/single-select}}
-
-            {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="movie"}}
-                Movies
-            {{/single-select}}
-
-            {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="museum"}}
-                Museums
-            {{/single-select}}
-
-            {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="parent"}}
-                Parents
-            {{/single-select}}
-
-            {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="playdate"}}
-                Play Dates
-            {{/single-select}}
-
-            {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="festival"}}
-                Festival
-            {{/single-select}}
-
-            {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="game"}}
-                Game
-            {{/single-select}}
-
-            {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="science"}}
-                Sci-Tech
-            {{/single-select}}
-
-            {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="show"}}
-                Shows
-            {{/single-select}}
-
-            {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="sport"}}
-                Sports
-            {{/single-select}}
-
-            {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="storytelling"}}
-                Storytelling
-            {{/single-select}}
-
-            {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="zoo"}}
-                Zoo
-            {{/single-select}}
-
-            {{#single-select group="type" btnClassName="btn btn-cys" selectedValue=type value="misc"}}
-                Misc
-            {{/single-select}}
-        </div>
-        <div class="col-xs-12 col-md-9">
-
-            {{#single-select group="status" btnClassName="btn-cys-secondary" selectedValue=status value="all"}}
-                All
-            {{/single-select}}
-
-            {{#single-select group="status" btnClassName="btn-cys-secondary" selectedValue=status value="current"}}
-                Current
-            {{/single-select}}
-
-            {{#single-select group="status" btnClassName="btn-cys-secondary" selectedValue=status value="upcoming"}}
-                Upcoming
-            {{/single-select}}
-
-            {{#single-select group="status" btnClassName="btn-cys-secondary" selectedValue=status value="past"}}
-                Past
-            {{/single-select}}
-
-            {{#single-select group="status" btnClassName="btn-cys-secondary" selectedValue=status value="timeless"}}
-                Timeless
-            {{/single-select}}
-        </div>
-    {{else}}
         <div class="col-xs-12 col-sm-2">
             <label>
                 Time:
@@ -151,14 +56,13 @@
                 {{input checked=isFree type="checkbox"}} Free Events
             </label>
         </div>
-    {{/if}}
 </div>
 
 <div class="row row-gutter-bottom">
     <div class="col-xs-12">
         <label>
             <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-            {{input value=queryText placeholder="e.g Dancing Babies, Cherry Picking" size="100" enter="search"}}
+            {{input value=queryText placeholder="e.g Dancing Babies, Cherry Picking" size="100" enter="search" autofocus="autofocus"}}
         </label>
     </div>
 </div>

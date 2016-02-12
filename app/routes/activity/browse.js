@@ -26,6 +26,10 @@ export default Ember.Route.extend({
             refreshModel: true
         },
 
+        queryText: {
+            refreshModel: false
+        },
+
         pageSize: {
             refreshModel: true
         },
