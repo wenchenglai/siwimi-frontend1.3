@@ -61,7 +61,8 @@
                 <tr>
                     <td>
                         {{#link-to 'activity.show' event.id}}
-                            <img width="80" height="80" class="img-thumbnail img-responsive" src={{event.availableImage}}>
+                            <img width="80" height="80" class="img-thumbnail img-responsive" src={{event.availableImage}}
+                                    onerror="this.src='/assets/images/placeholder-events.jpg';">
                         {{/link-to}}
                     </td>
                     <td>{{shorten-string event.title}}</td>

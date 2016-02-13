@@ -15,7 +15,7 @@ export default DS.Model.extend({
     gender: DS.attr('string'),
     avatarUrl: DS.attr('string'),
     imageData: DS.attr('string'),
-    family: DS.belongsTo('family', { async: true }),
+    family: DS.belongsTo('family', {async: true}),
     createdDate: DS.attr('date'),
     facebookId: DS.attr('string'),
     highSchool: DS.attr('string'),
@@ -25,8 +25,8 @@ export default DS.Model.extend({
     flocale: DS.attr('string'),
     flocation: DS.attr('string'),
     ftimezone: DS.attr('number'),
-    notification: DS.belongsTo('email-notification', { async: true }),
-    replies: DS.hasMany('feedback', { embedded: 'always' }),
+    notification: DS.belongsTo('email-notification', {async: true}),
+    replies: DS.hasMany('feedback', {embedded: 'always'}),
 
     // privilege is the software application user authorization level
     // by default, this is 0.  256 is Admin
@@ -56,11 +56,11 @@ export default DS.Model.extend({
 
     // we use bs-datetimepicker addon which takes moment.js date type, so we must do some conversion when binding
     birthdayMoment: Ember.computed("birthday", {
-        get: function() {
+        get: function () {
             return this.get('birthday');
         },
 
-        set: function(key, value) {
+        set: function (key, value) {
             if (value) {
                 this.set('birthday', value.toDate());
             } else {
@@ -70,7 +70,7 @@ export default DS.Model.extend({
         }
     }),
 
-    birthYear: function() {
+    birthYear: function () {
         return new Date(this.get('birthday')).getFullYear();
     }.property('birthday'),
 
@@ -82,7 +82,7 @@ export default DS.Model.extend({
         return new Date(this.get('birthday')).getDate();
     }.property('birthday'),
 
-    displayName: function() {
+    displayName: function () {
         if (!Ember.isEmpty(this.get('nickName'))) {
             return this.get('nickName');
         } else if (!Ember.isEmpty(this.get('firstName'))) {
@@ -92,11 +92,11 @@ export default DS.Model.extend({
         }
     }.property('firstName', 'lastName', 'nickName'),
 
-    fullName: function() {
+    fullName: function () {
         return this.get('firstName') + ' ' + this.get('lastName');
     }.property('firstName', 'lastName'),
 
-    availableImage: function() {
+    availableImage: function () {
         if (!Ember.isEmpty(this.get('imageData'))) {
             return this.get('imageData');
         } else if (!Ember.isEmpty(this.get('avatarUrl'))) {
@@ -107,8 +107,14 @@ export default DS.Model.extend({
     }.property('avatarUrl', 'imageData'),
 
     fullAddress: Ember.computed('city', 'state', 'zipCode', {
-      get() {
-        return this.get('city') + ', ' + this.get('state') + ' ' + this.get('zipCode');
-      }
+        get() {
+            return this.get('city') + ', ' + this.get('state') + ' ' + this.get('zipCode');
+        }
+    }),
+
+    isAdmin: Ember.computed('privilege', {
+        get() {
+            return this.get('privilege') === ADMIN;
+        }
     })
 });

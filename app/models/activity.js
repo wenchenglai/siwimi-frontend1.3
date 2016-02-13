@@ -14,8 +14,6 @@ export default DS.Model.extend({
     status: DS.attr('string'),
     url: DS.attr('string'),
     imageData: DS.attr('string'),
-    imageUrl: DS.attr('string'),
-    imagePath: DS.attr('string'),
     type: DS.attr('string'),
     like: DS.attr('number'),
     viewCount: DS.attr('number'),
@@ -71,23 +69,16 @@ export default DS.Model.extend({
     }),
 
     availableImage: function() {
-        var url = this.get('imageUrl'),
-            path = this.get('imagePath'),
-            data = this.get('imageData');
+        var data = this.get('imageData');
 
-        if (!Ember.isEmpty(path)) {
-            return ENV.eventImagePath + path;
-
-        } else if (!Em.isEmpty(data)) {
-            return this.get('imageData');
-
-        } else if (!Ember.isEmpty(url)) {
-            return url;
+        if (!Ember.isEmpty(data)) {
+            return data;
 
         } else {
-            return '/assets/images/placeholder-events.jpg';
+            return ENV.eventImagePath + this.get('id') + ".jpg";
+            //return '/assets/images/placeholder-events.jpg';
         }
-    }.property('imageUrl', 'imageData', 'imagePath'),
+    }.property('imageData'),
 
     cityState: function() {
         return this.get('city') + ', ' + this.get('state');
