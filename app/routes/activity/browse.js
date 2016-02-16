@@ -39,7 +39,7 @@ export default Ember.Route.extend({
         }
     },
 
-    model: function (params) {
+    model (params) {
         var self = this,
             appController = self.controllerFor('application'),
             userId = self.get('session.secure.id');
@@ -49,6 +49,12 @@ export default Ember.Route.extend({
                 longitude: appController.get('baseLongitude'),
                 latitude: appController.get('baseLatitude')
             }));
+    },
+
+    afterModel (model, transition) {
+        if (model.get('length') == 0) {
+            this.transitionTo({queryParams: {pageNumber: 1}});
+        }
     },
 
     setupController: function(controller, model) {

@@ -13,6 +13,7 @@ export default DS.Model.extend({
     address: DS.attr('string'),
     status: DS.attr('string'),
     url: DS.attr('string'),
+    imageUrl: DS.attr('string'),
     imageData: DS.attr('string'),
     type: DS.attr('string'),
     like: DS.attr('number'),
@@ -69,14 +70,18 @@ export default DS.Model.extend({
     }),
 
     availableImage: function() {
-        var data = this.get('imageData');
+        var data = this.get('imageData'),
+            url = this.get('imageUrl');
 
         if (!Ember.isEmpty(data)) {
             return data;
 
+        } else if (!Ember.isEmpty(data)) {
+            return this.get('imageUrl');
+
         } else {
-            return ENV.eventImagePath + this.get('id') + ".jpg";
-            //return '/assets/images/placeholder-events.jpg';
+            //return ENV.eventImagePath + this.get('id') + ".jpg";
+            return '/assets/images/placeholder-events.jpg';
         }
     }.property('imageData'),
 

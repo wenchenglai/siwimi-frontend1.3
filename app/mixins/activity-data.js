@@ -58,6 +58,7 @@ export default Ember.Mixin.create({
         { value: "weekend", text: 'This weekend'},
         { value: "3days", text: 'Next 3 days'},
         { value: "week", text: 'Next week'},
+        { value: "timeless", text: 'Seasonal'},
         { value: "past", text: 'Past'}
     ],
 
