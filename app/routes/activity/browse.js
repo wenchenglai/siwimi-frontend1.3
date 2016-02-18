@@ -57,7 +57,7 @@ export default Ember.Route.extend({
         }
     },
 
-    setupController: function(controller, model) {
+    setupController (controller, model) {
         controller.set('model', model);
 
         // we get the total item count so we can generate the right pagination.
@@ -73,7 +73,7 @@ export default Ember.Route.extend({
         this.send('showNewsletterSignUpBar');
     },
 
-    resetController: function (controller, isExiting, transition) {
+    resetController (controller, isExiting, transition) {
         if (isExiting) {
             // isExiting would be false if only the route's model was changing
             controller.set('pageNumber', 1);

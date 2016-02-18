@@ -171,8 +171,6 @@ input[type=text]:focus, textarea:focus {
   margin-right: 10px;
 }
 
-
-
 .overlay {
   height: 100%;
   width: 100%;
@@ -346,6 +344,14 @@ input[type="radio"] {
 
 .btn-cys-link {
   color: white;
+}
+
+.btn-feature {
+    background-color: black;
+    color: white;
+    font-weight: 600;
+    padding: 16px 40px;
+    font-size: 22px;
 }
 /*
 Bootstrap CSS rules overwrite
