@@ -2,21 +2,33 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
     queryParams: {
-        status: {
+        period: {
             refreshModel: true
         },
         type: {
             refreshModel: true
         },
-        action: {
+
+        distance: {
             refreshModel: true
         },
-        creator: {
+
+        ageGroup: {
             refreshModel: true
         },
+
+        isFree: {
+            refreshModel: true
+        },
+
+        queryText: {
+            refreshModel: false
+        },
+
         pageSize: {
             refreshModel: true
         },
+
         pageNumber: {
             refreshModel: true
         }

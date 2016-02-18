@@ -27,17 +27,18 @@
         {{view "select" value=ageGroup content=allAgeGroups class="btn btn-default dropdown-toggle" optionValuePath="content.value" optionLabelPath="content.text"}}
 
     </div>
-    {{!--<div class="col-xs-12 col-sm-2">
-        <label>
-            Status:
-        </label>
-        {{view "select" value=status content=allStatus class="btn btn-default dropdown-toggle" optionValuePath="content.value" optionLabelPath="content.text"}}
-    </div>--}}
-
 
     <div class="col-xs-12 col-sm-2">
         <label>
             {{input checked=isFree type="checkbox"}} Free Events
+        </label>
+    </div>
+</div>
+<div class="row row-gutter-bottom">
+    <div class="col-xs-12">
+        <label>
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            {{input value=queryText placeholder="e.g Dancing Babies, Cherry Picking" size="100" enter="search" autofocus="autofocus"}}
         </label>
     </div>
 </div>

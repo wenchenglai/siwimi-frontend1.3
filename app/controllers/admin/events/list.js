@@ -3,7 +3,11 @@ import ActivityDataMixin from '../../../mixins/activity-data';
 import PagingMixin from '../../../mixins/paging';
 
 export default Ember.Controller.extend(ActivityDataMixin, PagingMixin, {
-    queryParams: ['type', 'status', 'action', 'creator', 'pageNumber', 'pageSize'],
+    queryParams: ['period', 'type', 'distance', 'ageGroup', 'isFree', 'pageNumber', 'pageSize', 'queryText'],
+    period: "all",
     type: "all",
-    status: "upcoming"
+    distance: "all",
+    ageGroup: "all",
+    isFree: false,
+    queryText: ''
 });
