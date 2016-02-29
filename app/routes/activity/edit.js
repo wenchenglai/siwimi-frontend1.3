@@ -13,15 +13,7 @@ export default Ember.Route.extend({
 
     actions: {
         goBack: function() {
-            var self = this,
-                previousURL = self.controllerFor('application').get('previousURL');
-
-            if (!Ember.isEmpty(previousURL) && previousURL.indexOf("/activity/my") > -1) {
-                history.back();
-            } else {
-                self.transitionTo('activity.my');
-            }
-
+            history.back();
         },
 
         save: function() {
@@ -32,7 +24,7 @@ export default Ember.Route.extend({
             self.store.findRecord('member', userId).then(function(user) {
                 model.save().then(function(obj) {
                     //self.transitionTo('activity.show', obj.get('id'));
-                    self.transitionTo('admin.events.list')
+                    history.back();
                 });
             });
         },

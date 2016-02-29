@@ -76,6 +76,10 @@ export default Ember.Route.extend({
 
         },
 
+        goToEdit: function(id) {
+            this.transitionTo("activity.edit", id);
+        },
+
         delete: function (id) {
             this.store.findRecord('activity', id).then(function (record) {
                 record.destroyRecord();
@@ -83,7 +87,7 @@ export default Ember.Route.extend({
         },
 
         changeEventLife: function(event, newStage) {
-            debugger;
+
             if (!Ember.isEmpty(newStage)) {
                 event.set('stage', newStage);
                 event.save();

@@ -1,4 +1,4 @@
-<div class="row row-gutter-top">
+{{!--<div class="row row-gutter-top">
     <div class="col-xs-12">
         <ol class="breadcrumb">
             <li>{{#link-to 'index'}}Home{{/link-to}}</li>
@@ -11,11 +11,15 @@
             {{#link-to 'activity.edit' model.activity class="btn btn-default"}}Edit{{/link-to}}
         {{/if}}
     </div>
+</div>--}}
+<div class="row row-gutter-top">
+    <div class="col-xs-12">
+        <button class='btn btn-default' {{action "goBack" }}>
+            {{fa-icon "arrow-left"}}
+        </button>
+    </div>
 </div>
 
-<button class='btn btn-default' {{action "goBack" }}>
-    {{fa-icon "arrow-left"}}
-</button>
 
 <div class="row row-gutter-bottom">
     <div class="col-xs-12">

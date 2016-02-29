@@ -37,6 +37,10 @@
     </div>
     <div class="col-xs-12 col-sm-6">
         {{input type="url" class="edit_box form-control" value=model.url}}
+        {{#if model.url}}
+            Click to open a new browser tab for this link: <a href={{model.url}} target="_blank">{{model.url}}</a>
+        {{/if}}
+
     </div>
 </div>
 
@@ -65,7 +69,7 @@
         <label>Type:</label>
     </div>
     <div class="col-xs-12 col-sm-6">
-        {{view "select" value=model.type content=allTypes class="btn btn-default dropdown-toggle" prompt="Select Type" optionValuePath="content.value" optionLabelPath="content.text"}}
+        {{view "select" size="20" selection=model.types content=allTypesSimple class="btn btn-default dropdown-toggle" multiple=true}}
     </div>
 </div>
 <div class="row row-gutter-bottom">

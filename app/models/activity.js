@@ -16,6 +16,7 @@ export default DS.Model.extend({
     imageUrl: DS.attr('string'),
     imageData: DS.attr('string'),
     type: DS.attr('string'),
+    types: DS.attr('array'),
     like: DS.attr('number'),
     viewCount: DS.attr('number'),
     fromAge: DS.attr('number'),

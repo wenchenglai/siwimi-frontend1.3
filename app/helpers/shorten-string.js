@@ -1,7 +1,6 @@
 import Ember from 'ember';
 
 export function shortenString(input, size) {
-    debugger;
     if (input) {
         var default_size = 40;
 

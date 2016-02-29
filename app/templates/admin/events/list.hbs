@@ -59,15 +59,17 @@
             </thead>
             <tbody>
             {{#each model as |event|}}
-                <tr>
+                <tr {{action 'goToEdit' event.id}} class={{if (eq-op event.stage "Approved") 'bold' }}>
                     <td>
-                        {{#link-to 'activity.show' event.id}}
-                            <img width="80" height="80" class="img-thumbnail img-responsive" src={{event.availableImage}}
-                                    onerror="this.src='/assets/images/placeholder-events.jpg';">
-                        {{/link-to}}
+                        <img width="80" height="80" class="img-thumbnail img-responsive" src={{event.availableImage}}
+                                onerror="this.src='/assets/images/placeholder-events.jpg';">
                     </td>
                     <td>{{shorten-string event.title}}</td>
-                    <td>{{display-text event.type allTypes}}</td>
+                    <td>
+                        {{#each event.types as |type|}}
+                            {{type}}, 
+                        {{/each}}
+                    </td>
                     <td>{{formatted-date event.fromDate 'l'}}</td>
                     <td>{{event.fromAge}}-{{event.toAge}}</td>
                     <td>{{event.cityState}}</td>
@@ -76,12 +78,12 @@
                     <td>{{event.stage}}</td>
                     <td>
                         <div class="btn-group" role="group" aria-label="...">
-                            {{#link-to 'activity.edit' event class="btn btn-default"}}{{fa-icon "pencil"}}{{/link-to}}
+                            {{#link-to 'activity.edit' event.id class="btn btn-default"}}{{fa-icon "pencil"}}{{/link-to}}
                             <button type="button" class="btn btn-default" {{action 'delete' event.id }}>{{fa-icon "trash"}}</button>
                             {{#if (eq-op event.stage "Approved") }}
-                                <button type="button" class="btn btn-default" {{action 'changeEventLife' event "Rejected" }}>Reject</button>
+                                <button type="button" class="btn btn-default" {{action 'changeEventLife' event "Rejected" bubbles=false }}>Reject</button>
                             {{else if (eq-op event.stage "Rejected") }}
-                                <button type="button" class="btn btn-default" {{action 'changeEventLife' event "Approved" }}>Approve</button>
+                                <button type="button" class="btn btn-default" {{action 'changeEventLife' event "Approved" bubbles=false }}>Approve</button>
                             {{/if }}
                         </div>
                     </td>

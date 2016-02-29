@@ -123,12 +123,14 @@
                         </ul>
                     </div>
                     <div class="col-xs-12 col-md-2">
-                        {{#if event.type}}
-                            <div class="tag-default">
-                                {{#link-to (query-params type=event.type) class='btn-link btn-cys-link'}}
-                                    {{display-text event.type allTypes}}
-                                {{/link-to}}
-                            </div>
+                        {{#if event.types}}
+                            {{#each event.types as |type|}}
+                                <div class="tag-default">
+                                    {{#link-to (query-params type=type) class='btn-link btn-cys-link'}}
+                                        {{display-text type allTypes}}
+                                    {{/link-to}}
+                                </div>
+                            {{/each}}
                         {{/if}}
                     </div>
                 </div>

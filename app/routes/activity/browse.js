@@ -46,6 +46,7 @@ export default Ember.Route.extend({
 
             return self.store.query('activity', Ember.merge(params, {
                 requester: userId,
+                stage: "Approved",
                 longitude: appController.get('baseLongitude'),
                 latitude: appController.get('baseLatitude')
             }));
