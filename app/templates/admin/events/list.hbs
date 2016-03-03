@@ -34,6 +34,16 @@
         </label>
     </div>
 </div>
+
+<div class="row row-gutter-bottom">
+    <div class="col-xs-12 col-sm-2">
+        <label>
+            Life Stage:
+        </label>
+        {{view "select" value=stage content=allLifeStages class="btn btn-default dropdown-toggle" optionValuePath="content.value" optionLabelPath="content.text"}}
+    </div>
+</div>
+
 <div class="row row-gutter-bottom">
     <div class="col-xs-12">
         <label>

@@ -67,6 +67,7 @@ export default Ember.Mixin.create({
     ],
 
     allLifeStages: [
+        { value: "all", text: 'All'},
         { value: "Submitted", text: 'Submitted'},
         { value: "Approved", text: 'Approved'},
         { value: "Rejected", text: 'Rejected'}

@@ -25,6 +25,10 @@ export default Ember.Route.extend({
             refreshModel: false
         },
 
+        stage: {
+            refreshModel: true
+        },
+
         pageSize: {
             refreshModel: true
         },

@@ -95,7 +95,6 @@ export default Ember.Route.extend({
         },
 
         search: function () {
-            debugger;
             var self = this,
                 appController = self.controllerFor('application'),
                 controller = self.controller,
@@ -115,6 +114,12 @@ export default Ember.Route.extend({
                 };
 
             self.store.query('activity', query).then(function(records) {
+                // it's possible that the page number is not 1, and the queryText search return only one page of result,
+                // so we automatically set the pageNumber to 1 and reload the page again
+                debugger;
+                if (records.get('length') == 0 && query['pageNumber'] !== 1) {
+                    self.transitionTo({queryParams: {pageNumber: 1}});
+                }
                 self.controller.set('model', records);
             }, function(error) {
                 self.send('error', error);
